@@ -1,0 +1,7 @@
+interface:
+  display_name: "Interface Craft"
+  short_description: "Motion tuning, storyboards, and UI critique"
+  default_prompt: "Use $interface-craft to tune motion, write a readable storyboard animation, or critique an interface."
+
+policy:
+  allow_implicit_invocation: true

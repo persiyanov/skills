@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Design"
+  short_description: "Research-first UI and product design"
+  default_prompt: "Use $product-design to research references and design this interface."

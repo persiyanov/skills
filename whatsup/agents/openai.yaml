@@ -1,0 +1,7 @@
+interface:
+  display_name: "whatsup"
+  short_description: "Show the work in flight as an ASCII board"
+  default_prompt: "Use $whatsup to show where the work stands as an ASCII board in the terminal."
+
+policy:
+  allow_implicit_invocation: true

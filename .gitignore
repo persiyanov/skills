@@ -1,0 +1,19 @@
+.DS_Store
+# Editor recovery files and backups
+*.sw?
+*~
+*.bak
+*.bak.*
+*.backup
+*.backup.*
+*.orig
+*.rej
+# Generated Python caches
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+# Local Claude Code settings
+.claude/
