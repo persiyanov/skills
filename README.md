@@ -25,7 +25,7 @@ Thanks to these authors. Most skills below are modified from the original; the l
 |---|---|---|
 | principles | [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) by Lauren Tan (poteto), heavily edited and extended | MIT |
 | sharpen | [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) by Lauren Tan, via [backnotprop/bro](https://github.com/backnotprop/bro) | MIT |
-| bro, facts, readback, clean-room, whatsup | [backnotprop/bro](https://github.com/backnotprop/bro) (`whatsup` is bro's `status`, renamed) | No license upstream |
+| bro, facts, readback, clean-room | [backnotprop/bro](https://github.com/backnotprop/bro) | No license upstream |
 | grilling | [Matt Pocock's skills](https://github.com/mattpocock/skills) | MIT |
 | copywriting, marketing-psychology, product-marketing-context | [marketingskills](https://github.com/coreyhaines31/marketingskills) by Corey Haines | MIT |
 | show-me | [HumanLayer skills](https://github.com/humanlayer/skills/tree/main/plugins/show-me) (ASCII diagrams instead of Mermaid) | MIT |
