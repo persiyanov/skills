@@ -9,13 +9,9 @@ description: Plan and build an approved spec, or a request whose design is settl
 
 ## 1. Read first
 
-Pull the latest main and merge it into the branch. Then read the spec, the repo's policies for the paths it changes, and the code itself, in this session (/principles). Read like the spec's next reviewer, because the code holds facts the spec missed.
+Pull the latest main and merge it into the branch. Then read the spec, the repo's policies for the paths it changes, and the code itself, in this session (/principles). Trace each entry point to the code that changes, so you know every caller and consumer.
 
-- Trace each entry point to the code that changes, so you know every caller and consumer.
-- Find existing code to reuse.
-- Find the nearest tests.
-
-Plan from an approved spec. Without one, plan from the user's request, and read "the spec" below as that request. If the design is open, a decision is missing, or two decisions contradict, stop and run /brainstorming.
+Plan from an approved spec. With no spec, plan from the user's request, and read "the spec" below as that request. If the spec is still a Draft or the design is open, stop and run /brainstorming.
 
 ## 2. Split into tickets
 
@@ -24,21 +20,18 @@ Split the work into tickets, numbered in build order:
 - **Riskiest first,** so little is built on it if it fails.
 - **End-to-end behaviors,** so each ticket proves something works.
 - **Few tickets.** Work that one proof covers is one ticket.
-- **You do the work.** Every step you can run is yours: CLIs, QA, and live checks the user's rules allow. Pick proofs you can run yourself. Leave to the user only decisions that need their judgment and what only they hold, and list these when you show the plan.
-- **Replacing an existing feature:** before deleting it, check each of its behaviors against the new one.
+- **You do the work.** Every step you can run is yours: CLIs, QA, and live checks the user's rules allow. Leave to the user only decisions that need their judgment and what only they hold, and list these when you show the plan.
 
 **One PR per repo.** Split only where production must change before the next part can ship: data the later part reads, a deploy it needs, or a rollout it waits for. Never split for size, for reviewers, or because one part is ready first.
 
-Build only what the spec asks for. Make the implementation choices yourself, from the code and the spec. When two approaches would both work, take the one with less to build and maintain.
+Build only what the spec asks for. When two approaches would both work, take the one with less to build and maintain.
 
 ## 3. Write and get approval
 
-Write the plan and tickets with /readable, in the shapes under Files. Before you show the plan, check that:
+Write the plan and tickets in the shapes under Files. Before you show the plan, check that:
 
 - Every spec requirement appears in a ticket.
 - You read every file, function and test the tickets cite, in this session.
-- Every fact about users, vendors or data cites its source.
-- An acceptance criterion checks every piece of planned code.
 
 Then show the Delivery section and the ticket table in chat. Wait for approval.
 
@@ -49,21 +42,20 @@ Approval covers every ticket. Build them in order without waiting for replies, a
 For each ticket:
 
 1. Build it with its tests.
-2. Fill in its Evidence, mark it Done, and report it.
+2. Run its proofs, mark it Done, and report it.
 
 ## 5. Ship
 
 Before a PR goes to review, its linters and affected tests pass. Only then run /zen-review on the full PR diff.
 
-The PR description states the problem, the resulting behavior, how it was validated and what to review first. It links the spec.
+The PR description states the problem, the resulting behavior and how it was validated. It links the spec.
 
 Delivery is done when every ticket is Done and every PR is merge-ready: zen-review's findings fixed and verified, and the decisions it left to the user answered.
 
 ## When the spec is wrong
 
-- **A fact was wrong, and every decision and promise still holds:** fix the spec and tell the user in the same reply.
-- **A decision you made is wrong, or costlier than needed:** fix it the same way.
-- **A decision the user made must change, or a new one is needed:** return to /brainstorming with the fact and the simpler option before you build around it. A workaround makes the spec false, and the next change trusts it.
+- **A fact was wrong, or a decision you made is wrong or costlier than needed, and the user's decisions and every promise still hold:** fix the spec and tell the user in the same reply.
+- **A decision the user made must change, or a new one is needed:** return to /brainstorming with the fact before you build around it. A workaround makes the spec false, and the next change trusts it.
 
 ## Tests
 
@@ -93,7 +85,7 @@ Delivers the sibling `spec.md`, or without one, <the request in one line>.
 ## Tickets
 | Ticket | Delivers | Status | PR |
 | --- | --- | --- | --- |
-| 01: <name> | <outcome> | <Planned, Blocked or Done> | <PR name> |
+| 01: <name> | <outcome> | <Planned or Done> | <PR name> |
 | 02: <name> | <outcome> | Planned | <PR name> |
 ```
 
@@ -103,12 +95,9 @@ Ticket:
 # NN: <name>
 
 ## Acceptance
-- [ ] <observable outcome> -> <the test or command that proves it>
-- [ ] <spec guarantee N> -> <named test>
+- <observable outcome> -> <the test or command that proves it>
+- <spec guarantee N> -> <named test>
 
 ## Plan
 1. <file, function, pattern to copy, nearest test.>
-
-## Evidence
-<filled in when done: commands and their results>
 ```
