@@ -1,116 +1,106 @@
 ---
 name: planning
-description: Plan and build an approved spec into merge-ready PRs, in ordered, verifiable tickets. Use when the user says build it, implement the spec, plan the work, ship it, or picks up a spec marked Approved. Design decisions stay in the spec; a missing or wrong one goes back to brainstorming.
+description: Plan and build an approved spec, or a request whose design is settled, into merge-ready PRs. Use when the user says build it, implement the spec, plan the work or ship it. Also use it when they pick up a spec marked Approved, or when work of several steps or deploys (code, ops or infra) starts without a plan.
 ---
 
 # Planning
 
-**Every skill named here is required.** When a step names one (/name), invoke it with the Skill tool at that step and follow it in full. Working from memory of a skill is not following it.
+**Every skill named here is required.** When a step names one (/name), invoke it with the Skill tool at that step and follow it in full. Following a skill from memory does not count.
 
-You own the outcome, not the documents: the spec's problem solved, as simply as the facts allow. The spec is the best design known when it was approved, the plan is the order, and the log is what changed on the way.
+## 1. Read first
 
-## 1. Ground
+Pull the latest main and merge it into the branch. Then read the spec, the repo's policies for the paths it changes, and the code itself, in this session (/principles). Read like the spec's next reviewer, because the code holds facts the spec missed.
 
-Read the spec and the code it touches, this session (/principles), as the spec's next reviewer: the code knows things the spec didn't. Trace the path from each entry point to the code that changes, so every caller and consumer is known. Find what already exists to reuse, and the nearest tests: their fixtures and naming are the floor. When the touched surface is uncertain, send read-only Explore subagents for breadth (callers, prior similar changes, tests), and read the touched files yourself.
+- Trace each entry point to the code that changes, so you know every caller and consumer.
+- Find existing code to reuse.
+- Find the nearest tests.
 
-Ground ends with the touched files, the reuse candidates and the nearest tests; tickets cite them. No approved spec, or a missing or contradictory decision: stop and run /brainstorming.
+Plan from an approved spec. Without one, plan from the user's request, and read "the spec" below as that request. If the design is open, a decision is missing, or two decisions contradict, stop and run /brainstorming.
 
-## 2. Slice
+## 2. Split into tickets
 
-Divide delivery into verifiable tickets, in dependency order:
+Split the work into tickets, numbered in build order:
 
-- **Deepest uncertainty first,** dependencies permitting, so if it fails little was built on it.
-- **Complete end-to-end behaviors,** so each ticket proves something works.
-- **One fresh context window** per ticket. A small change is one ticket. A prerequisite is its own ticket only when landing it alone is safer, or settles an unknown the later tickets depend on.
-- **Outcome first.** For each ticket, name the observable outcome and its proof, then include only the implementation needed to deliver it.
-- **Replacing a surface:** audit it behavior by behavior against the new before deleting it.
+- **Riskiest first,** so little is built on it if it fails. Also start early anything that waits on a person or has the longest lead time, and build while it waits.
+- **End-to-end behaviors,** so each ticket proves something works.
+- **Few tickets.** Work that one proof covers is one ticket.
+- **You do the work.** Every step you can run is yours: CLIs, secrets you can reach, QA, and live checks the user's rules allow. Pick proofs you can run yourself. Leave to the user only decisions that need their judgment and what only they hold, and list these when you show the plan.
+- **Replacing an existing feature:** before deleting it, check each of its behaviors against the new one.
 
-Decide the repo and PR boundaries and the merge and deploy order. One PR per repo, unless one part is ready while another's design is still open. A dependency on a merge or a deploy is not met when a ticket is done; name it.
+**One PR per repo.** Split only where production must change before the next part can ship: data the later part reads, a deploy it needs, or a rollout it waits for. Never split for size, for reviewers, or because one part is ready first.
 
-Resolve delivery choices from the code and the approved spec. When two implementation approaches are plausible and the difference is material (extend an existing unit or add one, migrate or adapt), name both in the ticket's Plan with the reason, and take the one with less machinery. Ask the user when a choice needs their preference or changes scope, risk, or an external commitment. Record unknowns that depend on the implementation as triggers.
+Build only what the spec asks for. Make the implementation choices yourself, from the code and the spec. When two approaches would both work, take the one with less to build and maintain. Ask the user when a choice needs their preference, or changes risk or a promise to someone outside.
 
-## 3. Write
+## 3. Write and get approval
 
-Write the plan and tickets with /readable, in the shapes under Files, with the complete roadmap table in the plan.
+Write the plan and tickets with /readable, in the shapes under Files. Before you show the plan, check that:
 
-## 4. Approve
+- Every spec requirement appears in a ticket.
+- You read every file, function and test the tickets cite, in this session.
+- Every fact about users, vendors or data cites its source.
+- Anything beyond the spec is marked as proposed.
+- An acceptance criterion checks every piece of planned code.
 
-Check first:
+Then show the Delivery section and the ticket table in chat. Wait for approval.
 
-- every spec requirement lands in a ticket;
-- every cited file, function and test was read this session;
-- proposed additions are marked as such;
-- nothing is built that no criterion exercises.
+## 4. Build
 
-Then show the full roadmap table in chat, with a short delivery summary, and wait. The user often reshuffles tickets: redo the order and show it again. Mark the plan Approved when the user approves it.
+Approval covers every ticket. Build them in order without waiting for replies, and stop only for a decision that is the user's (When the spec is wrong). When you find work the spec doesn't ask for, raise it in your next report and keep building. Build each ticket yourself, and use subagents only for research and review.
 
-## 5. Build
+For each ticket:
 
-Take the first unfinished ticket whose dependencies are satisfied and mark it In progress. Before you build it, and whenever the code resists, ask whether the design is still the simplest way to the spec's goals (/principles: Radical Simplicity). Build it with its tests, with the relevant /principles as guidance. Fill in its Evidence, mark it Done, report it with the log entries since the last report, and take the next. A fresh session reads the plan and starts only from an approved one.
+1. Build it with its tests.
+2. Fill in its Evidence, mark it Done, and report it.
 
-## 6. Ship
+Whenever building a ticket is harder than expected, ask whether the design is still the simplest way to the spec's goals (/principles: Radical Simplicity).
 
-Before each PR, make it review-ready: the linters and the affected tests are green, and you have reread every changed line and believe it ships as is. Only then run /zen-review on the full PR diff; reviewing a change you already know is unfinished spends the review on what you could have found yourself.
+## 5. Ship
 
-Squash the PR's migrations, unless a database you cannot rewrite has run one. The PR description says the problem, the resulting behavior, how it was validated, and what to look at first; links the spec; and includes only the log decisions relevant to reviewing this PR.
+Before a PR goes to review, its linters and affected tests pass, and you have reread every changed line and would ship it as is. Only then run /zen-review on the full PR diff.
 
-Delivery is done when every ticket is Done and every PR is merge-ready: zen-review's findings fixed and verified, its calls answered by the user.
+The PR description states the problem, the resulting behavior, how it was validated and what to review first. It links the spec.
+
+Delivery is done when every ticket is Done and every PR is merge-ready: zen-review's findings fixed and verified, and the decisions it left to the user answered.
 
 ## When the spec is wrong
 
-A spec you follow against the facts is a spec you didn't own.
-
-- **A factual correction, every decision and promise stands:** edit the spec, log it, and tell the user in the same turn.
-- **A call that the code shows is wrong, or costlier than it needs to be:** change it the same way. You made it, so you own it.
-- **A decision the user made must change, or a new one is needed:** return to /brainstorming with the fact and the simpler option before you build around it. Rewrite the spec in place, get it re-approved, log it. A workaround makes the spec lie, and the next change builds on the lie.
-- **Anything else that changes the plan:** log it.
+- **A fact was wrong, and every decision and promise still holds:** fix the spec, log it, and tell the user in the same reply.
+- **A decision you made is wrong, or costlier than needed:** fix it the same way.
+- **A decision the user made must change, or a new one is needed:** return to /brainstorming with the fact and the simpler option before you build around it. Log it. A workaround makes the spec false, and the next change trusts it.
 
 ## Tests
 
-Tests ship inside the ticket, and every criterion names its proof: a scenario through the public entry point, or a row in one (/principles: Test Behavior, Not Implementation).
+A proof is a scenario through the public entry point, or a case in one (/principles: Test Behavior, Not Implementation).
 
-- **Failure cases are rows** of the scenario that walks their path, not tests of their own. Choose the ones relevant to the behavior: invalid input, the double run, the empty case and the huge one, the failure halfway, the concurrent write.
-- **Exercise the real artifact;** mock only what the test cannot own. Ground external fakes in observed behavior, or in the documented contract where you cannot observe. Use synthetic cases for failures and boundaries.
-- **A narrower test** names the fact the scenario cannot carry: branch-dense pure logic, a race, a vendor's wire.
-- **Evals or live runs** for model judgment.
-
-The repo's testing policy, where one exists, overrides this.
+- **Failure cases belong to the scenario that covers their path,** not to tests of their own. Choose the ones relevant to the behavior: invalid input, a double run, the empty and the huge case, a failure halfway, a concurrent write.
+- **Test the real code,** and mock only what the test cannot run. Base fakes of outside services on observed behavior, or on their documented contract where you cannot observe.
+- **A narrower test** names the fact the scenario cannot check: pure logic with many branches, a race, a vendor's wire format.
 
 ## Files
 
-`plan.md` sits beside the spec. Ticket detail lives in the plan when there is one ticket, and in `tickets/NN-<name>.md` otherwise.
+`plan.md` goes beside the spec, or in a new `docs/specs/YYYY-MM-DD-<slug>/` folder when there is none. With one ticket, its details go in the plan. Otherwise each ticket gets `tickets/NN-<name>.md`.
 
-- **One home per fact:** design in the spec, order in the plan, change in the log, proof in the ticket. Cite the spec; never restate it.
-- **Name the file, never the line.** A ticket that repeats one pattern across many files describes it once and lists a few representative paths.
-
-The roadmap has one row per ticket, in dependency order. Columns: Ticket, Delivers, Depends on, Status, PR, Repo. Omit Repo for a single repo and PR for a single PR, and name them in the delivery summary instead. Use proposed PR labels until real links exist; a ticket spanning repos pairs each repo with its PR. Status is Planned, In progress, Blocked, or Done. Keep cells short: acceptance criteria and implementation detail stay in the tickets.
+- **Each fact is written once:** design in the spec, order in the plan, changes in the log, proof in the ticket.
+- **Name the file, never the line.** A ticket that repeats one pattern across many files describes it once and lists a few example paths.
 
 `plan.md`:
 
 ```markdown
 # <Feature>: Plan
 
-Status: Proposed
-
-Delivers the sibling `spec.md`. <One line of delivery context when the spec's Problem is not it.>
+Delivers the sibling `spec.md`, or without one, <the request in one line>.
 
 ## Delivery
-<Repos/branches, reason for any PR split, merge and deploy order. Keep it short.>
+<One line per PR: its repo and what it changes for users. The build-and-deploy order as a text block: tickets as built, and each PR's deploy point. The waits production or a person forces.>
 
 ## Tickets
-Tickets in dependency order:
-
-| Ticket | Delivers | Depends on | Status | PR | Repo |
-| --- | --- | --- | --- | --- | --- |
-| 01: <name> | <outcome> | — | Planned | <PR label> | <repo> |
-| 02: <name> | <outcome> | 01 | Planned | <PR label> | <repo> |
-
-## Triggers
-- If <evidence>, then <change>.
+| Ticket | Delivers | Status | PR |
+| --- | --- | --- | --- |
+| 01: <name> | <outcome> | <Planned, Blocked or Done> | <PR name> |
+| 02: <name> | <outcome> | Planned | <PR name> |
 
 ## Log
-- <date>: initial plan.
-- <date>: <trigger> -> <decision> -> <where it landed: spec section, ticket, code>.
+- <date>: <what happened> -> <decision> -> <where it was recorded: spec section, ticket, code>.
 ```
 
 Ticket:
@@ -118,15 +108,13 @@ Ticket:
 ```markdown
 # NN: <name>
 
-**Delivers:** <the behavior, from the consumer's side>
-
 ## Acceptance
 - [ ] <observable outcome> -> <the test or command that proves it>
 - [ ] <spec guarantee N> -> <named test>
 
 ## Plan
-1. <file, function, pattern to copy. Riskiest first.>
+1. <file, function, pattern to copy, nearest test. Riskiest first.>
 
 ## Evidence
-<filled when done: commands and their signal, review outcome>
+<filled in when done: commands and their results>
 ```

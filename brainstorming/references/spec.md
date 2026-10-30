@@ -1,11 +1,9 @@
 # The spec
 
-One per change, at `docs/specs/YYYY-MM-DD-<slug>/spec.md`. Depth follows risk; a thin section is one line.
+One per change, at `docs/specs/YYYY-MM-DD-<slug>/spec.md`. Write as much as the risk needs. A section that carries no risk is one line.
 
 ```markdown
 # <title>
-
-<What we're building and why, in one sentence.>
 
 Status: Draft | Approved · Updated: YYYY-MM-DD
 
@@ -41,17 +39,16 @@ terms.">
 
 | Part | Its one job | Guarantees | Needs from others |
 | --- | --- | --- | --- |
-| <name> | <job> | <what it promises> | <what it relies on> |
+| <name> (new, changed or existing) | <job> | <what it promises> | <what it relies on> |
 
 <The key flows, one line per step, in a text block. For code, the module tree and key types in a
 code block.>
 
-<What each consumer meets, as they will meet it: for an API, a real request and its full
-response; for a UI, the screens in every state (empty, loading, error, partial); for a prompt, a
+<What each consumer meets, as they will meet it. For an API, a real request and its full
+response. For a UI, the screens in every state (empty, loading, error, partial). For a prompt, a
 transcript. Prose about the wire is not the wire.>
 
-<Modules: where a mistake costs most. Each gets its ### section when its trigger fires, or one line
-on why it doesn't.>
+<Optional sections, for where a mistake costs most. Add each one whose condition holds, or one line on why it doesn't apply.>
 
 ### Data (when stored state or a data format changes)
 <Today, from the code: each entity the change touches, its fields, states and invariants, and
@@ -75,27 +72,30 @@ Abuse cases.>
 | <failure> | <blast radius> | <signal> | <recovery> |
 
 ## Rollout
-1. <the thinnest end-to-end slice>; next stage when <signal>
-2. <the next stage>; next stage when <signal>
+1. <the thinnest end-to-end slice>. Next stage when <signal>.
+2. <the next stage>. Next stage when <signal>.
 
 Undo: <how to roll back>
 
 Told: <who hears about it, and where: docs, changelog, support>
 
 ## Verification
-| # | Guarantee | Falsified by | Check |
-| --- | --- | --- | --- |
-| G1 | <what must hold> | <the case that would break it> | <test or command> |
+| # | Guarantee | Falsified by |
+| --- | --- | --- |
+| G1 | <what must hold> | <the case that would break it> |
 
 <For probabilistic output (an LLM, ranking, matching), the check is an eval set with a baseline.>
 
 Metrics: <what says it works after launch, baseline → target>
 
 ## Decisions
-1. <the pick>; rests on <fact>; lost: <what lost> (Q4 | call)
+1. <the pick>. Rests on <fact>. Lost: <what lost>. (Q4 | call)
 
-Scrapped: <design>; died because <fact>
+Scrapped: <design>, because <fact>
+
+## Notes for planning
+- <a fact the build must honor that changes no decision>
 
 ## Open questions
-- <question>; reopen when <trigger>
+- <question>. Reopen when <trigger>.
 ```
