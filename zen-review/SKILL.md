@@ -8,10 +8,10 @@ description: >
   does what the spec asks, simplify, cleanup, boyscout, or challenge what an API
   or tool surface promises. Works mid-implementation, before a PR, on a branch, on
   a PR, or on code with no diff at all. Fixes by default unless you say "report
-  only" or "review only". Full find (one finder per angle) unless you say "light"
-  or "light mode": then one finder for all applicable correctness angles, one for
-  all applicable shape angles. Not for UI layout or visual craft, though frontend
-  code is in scope.
+  only" or "review only". Light find (one finder for all applicable correctness
+  angles, one for all applicable shape angles) unless you say "full" or "full
+  mode": then one finder per angle. Not for UI layout or visual craft, though
+  frontend code is in scope.
 ---
 
 # Zen Review
@@ -32,7 +32,7 @@ List the files under review: `git diff <base>` (uncommitted: HEAD; branch: merge
 
 This run looks at the target as it stands now. Carry nothing from earlier runs; the repo's own history stays readable. Rerunning after fixes is the normal loop. Use the same target and the same finder prompts each run: a prompt shaped by the last run's findings steers finders, and an unchanged one makes a shrinking list a real signal. Within a run, the fix diff goes to Verify, not back here.
 
-1. Launch general purpose finders in parallel. Full (default): one finder per applicable angle. Light (user said light or light mode): one finder for all applicable correctness angles, one for all applicable shape angles. Always: lines, removed, callers, spec, tests, reuse, simplify, ownership, conventions, contract. Also, when the diff touches them: load, boundaries, time, efficiency, model, surface. When in doubt whether an angle applies, include it.
+1. Launch general purpose finders in parallel. Light (default): one finder for all applicable correctness angles, one for all applicable shape angles. Full (user said full or full mode): one finder per applicable angle. Always: lines, removed, callers, spec, tests, reuse, simplify, ownership, conventions, contract. Also, when the diff touches them: load, boundaries, time, efficiency, model, surface. When in doubt whether an angle applies, include it. In Claude Code, launch each finder with model `opus` and effort `medium`.
 2. Give each only the target's root, the base ref, the file list from Scope, the spec path, the family file (`references/correctness.md` or `references/shape.md`), the assigned angle name(s), and the repo's rule files that govern the changed paths: CLAUDE.md, AGENTS.md, rule files in their ancestor directories, and the policies those files name. Put this in the prompt:
    - A governing rule's "Not a finding" list is binding: a candidate it names is not returned.
    - List coverage first: every changed file and every definition the change adds or removes. Then work through all of it. A full diff is longer than one command shows; what an added function duplicates is usually unchanged and outside the diff.
@@ -65,7 +65,7 @@ No laziness, no half-measures. Intelligent boyscout mode. Do not skip shape find
 
 ## 5. Verify
 
-1. Give a fresh subagent only the target's root, the base ref, the spec path, the findings, the fix diff, `references/verify.md`, and `references/correctness.md`. Not why a fix was chosen. Not a request to confirm — a verifier asked to confirm confirms. Ask it to break each fix in its place in the system and to name a better form where one exists.
+1. Give a fresh subagent only the target's root, the base ref, the spec path, the findings, the fix diff, `references/verify.md`, and `references/correctness.md`. Not why a fix was chosen. Not a request to confirm — a verifier asked to confirm confirms. Ask it to break each fix in its place in the system and to name a better form where one exists. In Claude Code, launch it with model `opus` and effort `medium`.
 2. Rerun the repo's tests and checks; quote failures. Repair here, without restarting Find, and verify again. Apply a better form when /principles settle it; otherwise Needs your call. A confirmed finding still unfixed is open. When a second round of fixes fails on the same premise, stop fixing: read Attack the Premise, name the premise, and take it back to the spec.
 3. A change made after this run's verification (a decision from the spec, a bot finding, a merge) gets its own verifier before the work is reported ready.
 
