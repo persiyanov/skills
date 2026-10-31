@@ -22,22 +22,17 @@ Split the work into tickets, numbered in build order:
 - **Few tickets.** Work that one proof covers is one ticket.
 - **You do the work.** Every step you can run is yours: CLIs, QA, and live checks the user's rules allow. Leave to the user only decisions that need their judgment and what only they hold.
 
-**One PR per repo.** Split only where production must change before the next part can ship: data the later part reads, a deploy it needs, or a rollout it waits for.
-
-Build only what the spec asks for.
+**One PR per repo.** Split only where production must change before the next part can ship.
 
 ## 3. Write and show
 
-Write the plan and tickets in the shapes under Files. Before you show the plan, check that:
+Write the plan in the shape under Files. Before you show the plan, check that every spec requirement falls under a ticket.
 
-- Every spec requirement appears in a ticket.
-- You read every file, function and test the tickets cite, in this session.
-
-Then show the Delivery section and the ticket table in chat. With an approved spec, start building. Without one, wait for approval.
+Then show the plan in chat. With an approved spec, start building. Without one, wait for approval.
 
 ## 4. Build
 
-Approval covers every ticket. Build them in order without waiting for replies. When you find work the spec doesn't ask for, raise it in your next report and keep building. Build each ticket yourself, and use subagents only for research and review.
+Build the tickets in order without waiting for replies. Build only what the spec asks for. When you find other work, raise it in your next report and keep building. Build each ticket yourself, and use subagents only for research and review.
 
 For each ticket:
 
@@ -46,30 +41,30 @@ For each ticket:
 
 ## 5. Ship
 
-Before a PR goes to review, its linters and affected tests pass. Only then run /zen-review on the full PR diff.
+When a PR's linters and affected tests pass, run /zen-review on the full PR diff.
 
-The PR description states the problem, the resulting behavior and how it was validated. It links the spec.
+The PR description says how it was validated and links the spec.
 
-Delivery is done when every ticket is Done and every PR is merge-ready: zen-review's findings fixed and verified, and the decisions it left to the user answered.
+Delivery is done when the spec's goals hold and every PR is merge-ready.
 
-## When the spec is wrong
+## When the spec or plan is wrong, or the code shows a simpler way
 
-- **A fact was wrong, or a decision you made is wrong or costlier than needed, and the user's decisions and every promise still hold:** fix the spec and tell the user in the same reply.
 - **A decision the user made must change, or a new one is needed:** return to /brainstorming with the fact before you build around it. A workaround makes the spec false, and the next change trusts it.
+- **Anything else:** change it and tell the user.
 
 ## Tests
 
-A proof is a scenario through the public entry point, or a case in one (/principles: Test Behavior, Not Implementation).
+A proof shows it working the way its user meets it: for code, a scenario through the public entry point (/principles: Test Behavior, Not Implementation).
 
 - **Choose the failure cases relevant to the behavior:** invalid input, a double run, the empty and the huge case, a failure halfway, a concurrent write.
-- **Test the real code,** and mock only what the test cannot run. Base fakes of outside services on observed behavior, or on their documented contract where you cannot observe.
+- **Mock only what the test cannot run.** Base fakes of outside services on observed behavior.
 - **A narrower test** names the fact the scenario cannot check: pure logic with many branches, a race, a vendor's wire format.
 
 ## Files
 
-`plan.md` goes beside the spec, or in a new `docs/specs/YYYY-MM-DD-<slug>/` folder when there is none. With one ticket, its details go in the plan. Otherwise each ticket gets `tickets/NN-<name>.md`.
+`plan.md` goes beside the spec, or in a new `docs/specs/YYYY-MM-DD-<slug>/` folder when there is none.
 
-Each fact is written once: design in the spec, order in the plan, proof in the ticket.
+A ticket says what will be true and how you'll know, never how to get there.
 
 `plan.md`:
 
@@ -79,24 +74,11 @@ Each fact is written once: design in the spec, order in the plan, proof in the t
 Delivers the sibling `spec.md`, or without one, <the request in one line>.
 
 ## Delivery
-<One line per PR: its repo. With more than one PR, each PR's tickets and deploy point. The waits production or a person forces.>
+<With more than one PR: each PR's repo, tickets and deploy point. Any wait production or a person forces.>
 
 ## Tickets
-| Ticket | Delivers | Status |
-| --- | --- | --- |
-| 01: <name> | <outcome> | <Planned or Done> |
-| 02: <name> | <outcome> | Planned |
-```
-
-Ticket:
-
-```markdown
-# NN: <name>
-
-## Acceptance
-- <observable outcome> -> <the test or command that proves it>
-- <spec guarantee N> -> <named test>
-
-## Plan
-1. <file, function, pattern to copy, nearest test.>
+| Ticket | Delivers | Proved by | Status |
+| --- | --- | --- | --- |
+| 01: <name> | <what will be true> | <spec guarantees, or a check the spec doesn't list> | <Planned or Done> |
+| 02: <name> | <what will be true> | <proof> | Planned |
 ```

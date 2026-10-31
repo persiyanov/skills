@@ -7,7 +7,7 @@ description: Agree with the user on what to build and why, by grilling them. Use
 
 **Every skill named here is required.** When a step names one (/name), invoke it with the Skill tool at that step and follow it in full. Following a skill from memory does not count. After a compaction, read it again.
 
-The spec is how you and the user agree on what to build and why. It settles every choice the user needs to make or would want a say in, and leaves no big gap in the design. /planning takes it from there, and the details of how it's built live in the plan.
+The spec is how you and the user agree on what to build and why. It settles every choice the user needs to make or would want a say in, and leaves no big gap in the design. /planning takes it from there.
 
 ## 1. Size
 
@@ -86,7 +86,7 @@ The user has already seen each round's diff, so show only what's new to them: th
 
 Write the spec for the user who approves it (/principles: Write for the Reader), with /readable and /writing-clearly-and-concisely.
 
-- **Only what the user needs to agree on.** Keep what people will see and use, the shape of the data, the risks and the decisions. Leave mechanics like retry counters and internal columns to the plan.
+- **Only what the user needs to agree on.** Keep what people will see and use, the shape of the data, the risks and the decisions. Leave mechanics like retry counters and internal columns to the build.
 - **Open each section with its answer.** Then show it with a flow, a payload, a screen or a diagram (/show-me), and add prose only where the picture needs it.
 - **Write each decision on one line:** the pick, the fact it rests on, what lost, and the question that settled it, or "call" if you made it yourself. Keep the debate in the rounds.
 - **Say each thing once.** After that, point to it.
