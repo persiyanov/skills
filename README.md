@@ -10,9 +10,9 @@ Install by cloning and symlinking a skill folder into `~/.claude/skills/` or `~/
 |---|---|
 | brainstorming | Turns a problem into an approved spec by grilling the user |
 | planning | Builds an approved spec into ordered, verifiable PRs |
-| zen-review | Reviews a change for correctness and shape, then fixes and verifies |
-| distill | Questions each contract a design makes and proposes the smallest faithful one |
-| thebar | Resets the frame to the ideal end state when work drifts |
+| zen-review | Reviews a change for correctness and design, then fixes and verifies |
+| distill | Questions each contract a design makes and proposes the smallest correct one |
+| thebar | Compares work with the ideal end state when it goes off track |
 | readable | Presents docs, specs and reports so a reader can find and use them |
 | positioning | Product positioning: segment, alternative, differentiation |
 | product-design | Research-first UI and UX design (built on Refero's design skill, see below) |

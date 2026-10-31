@@ -2,10 +2,10 @@
 
 Choose user delight over implementation convenience. The product is the experience, and every technical decision either helps or hurts it.
 
-- **Say no to 1,000 things.** Every feature, control, and option must earn its place.
+- **Say no to most things.** Every feature, control, and option must justify itself.
 - **Ship less, ship better.** A polished experience with three features beats a rough one with ten.
-- **Sweat the details.** Transitions, alignment, spacing, feedback, error states.
-- **Tighten the core loop.** Every feature serves the central workflow or gets out of the way.
+- **Pay close attention to the details.** Transitions, alignment, spacing, feedback, error states.
+- **Improve the core workflow.** Every feature serves the central workflow or gets out of the way.
 
 The user is whoever consumes the work. For a UI that is the end user. For a library or an internal API it is the colleague who imports it. The engineer who maintains the code next is a user too. Weigh their experience the same way; to check it rather than assert it, narrate it: [Narrate It as the User](narrate-it-as-the-user.md).
 

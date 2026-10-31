@@ -6,6 +6,6 @@ First work out what generalizes. One example or preference is not automatically 
 
 Remove instructions made redundant by the fix, but keep explanations people still need. When the decision requires judgment, write a short principle rather than accumulating exceptions and process steps.
 
-Acknowledging a lesson does not make it persistent. Make the authorized change or propose it clearly.
+Acknowledging a lesson does not make it stick. Make the authorized change or propose it clearly.
 
 Ask: What prevents the same mistake next time?

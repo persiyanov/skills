@@ -17,20 +17,20 @@ A roadmap stays a short ordered list of outcomes. Spec only the next one, becaus
 
 ## 2. Grill
 
-Run /grilling. After each round, write what it settled into the spec and show the diff. Write only what the user needs to agree on. Leave mechanics like retry counters and internal columns to the build. The approval below replaces grilling's confirmation.
+Run /grilling. After each round, write what it settled into the spec and show the diff. Write only what the user needs to agree on. Leave implementation details like retry counters and internal columns to the build. The approval below replaces grilling's confirmation.
 
 ## 3. Review
 
-Ask three fresh subagents to review the spec. Give each only its job, the spec's path and the code.
+Ask three fresh subagents to review the spec. Give each only its task, the spec's path and the code.
 
 - One takes each consumer and tries the design the way they would.
-- One walks one real case through the design and checks every claim the spec makes about how things work today.
+- One traces one real case through the design and checks every claim the spec makes about how things work today.
 - One asks whether there is a simpler or more standard solution.
 
 Each reports only what would change the design or block building.
 
-Test each finding. If it changes what the user decided or asked for, ask them. Otherwise fix the spec.
+Verify each finding. If it changes what the user decided or asked for, ask them. Otherwise fix the spec.
 
 ## 4. Approve
 
-Show only the summary, the calls you made and what review changed. When they approve, set the status to Approved and move on to /planning. If you return to an approved spec, set it back to Draft and get approval again.
+Show only the summary, the decisions you made and what review changed. When they approve, set the status to Approved and move on to /planning. If you return to an approved spec, set it back to Draft and get approval again.

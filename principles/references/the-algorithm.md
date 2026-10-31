@@ -1,6 +1,6 @@
 # The Algorithm
 
-Work in five steps, in this order: question every requirement, delete, simplify, speed up, automate. The order is the point: each step wasted on something an earlier step would have removed is the commonest error of a capable engineer.
+Work in five steps, in this order: question every requirement, delete, simplify, speed up, automate. The order is the point: each step wasted on something an earlier step would have removed is the most common error of a capable engineer.
 
 1. **Question every requirement.** A requirement is anything the design must keep: a feature, a rule, a condition, a threshold, a state, a guarantee, a process step. Each must trace to a person who asked for it, or to a fact of the world that forces it. A department, a spec, a past decision, or "best practice" is not a source: best practice is a good default for how to meet a requirement, never the reason one exists. Requirements from smart people are the most dangerous, because nobody questions them, and that includes yours and the user's. Treat every requirement as a recommendation until it is traced.
 2. **Delete.** Remove every part, rule and step that fails the first question, before you build on top of it. A guard justified by a real requirement or failure case stays: the absence of a recorded incident does not make it redundant. Keep the deletion safe to check; sometimes the replacement must exist before the old path can go.

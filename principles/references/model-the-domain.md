@@ -1,8 +1,8 @@
 # Model the Domain
 
-Encode the real domain in a data structure instead of scattering it across conditionals. Scattered booleans, repeated shape assumptions, and branching spread across files are accidental complexity. A structure that matches the domain makes invalid states unrepresentable and deletes branches. Choosing it at write time is cheap; recovering it later reads as a refactor and gets deferred.
+Encode the real domain in a data structure instead of scattering it across conditionals. Scattered booleans, repeated shape assumptions, and branching spread across files are accidental complexity. A structure that matches the domain makes invalid states unrepresentable and deletes branches. Choosing it at write time is cheap; adding it later looks like a refactor and gets deferred.
 
-Reach for structures like these:
+Use structures like these:
 
 - A state machine instead of scattered booleans, phases, or lifecycle checks.
 - A typed object or model instead of loose parameters or repeated shape assumptions.

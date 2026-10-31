@@ -1,284 +1,289 @@
 ---
 name: distill
 description: >-
-  Contract-first entropy reduction. A contract is any promise someone relies on: an API shape, a
-  schema, an invariant, an error code, a config key, a process rule. Distill asks whether each one
-  should exist in its current form and proposes the smallest faithful contract. Targets: a diff,
-  PR, or branch; an existing product, subsystem, component, or module; a spec, proposal, or plan
-  before its design locks; or a pile of review findings that keeps growing.
+  A contract is any guarantee someone relies on: an API shape, a schema, an invariant, an error code, a
+  config key, a process rule. Distill asks whether each one should exist in its current form and
+  proposes the smallest correct contract. Targets: a diff, PR, or branch; an existing product,
+  subsystem, component, or module; a spec, proposal, or plan before its design is final; or a list
+  of review findings that keeps growing.
   Use when the user says "distill", "recontract", "zoom out", "rethink the approach", "reduce
   entropy", "simplify the contract", "in an ideal world what do we do", says something is "too
   complex", "over-engineered", or "doesn't feel right", asks why review keeps finding new
-  problems, or wants a design-level review. Unlike simplify (equivalence-preserving) it may
-  propose behavior and requirement changes. Unlike code-review it hunts contracts, not bugs. Use
-  zen-review when a change also needs correctness and shape review. Proposal-only: it never
+  problems, or wants a design-level review. Unlike simplify (behavior-preserving) it may propose
+  behavior and requirement changes. Unlike code-review it looks at contracts, not bugs. Use
+  zen-review when a change also needs correctness and design review. Proposal-only: it never
   applies changes.
 ---
 
-# /distill: the smallest faithful contract
+# /distill: the smallest correct contract
 
-A **contract** is any promise your system makes that someone relies on: an API shape, a schema,
-an invariant, an error code, a request grammar, a config key, a process rule. A **consumer** is
-anyone who relies on it: a caller, a client team, the next maintainer.
+A **contract** is any guarantee someone relies on: an API shape, a schema, an invariant, an error code,
+a request format, a config key, a process rule. A **consumer** is anyone who relies on it: a
+caller, a client team, a maintainer.
 
-Question each promise, not the code under it. Polishing code or wording that keeps the same
-promise is out of scope. Making a false promise true is in scope.
+Question each contract, not the code behind it. Refactoring or rewording that keeps the same
+contract is out of scope.
 
 One test decides what to propose:
 
-> Propose a change when the contract's goal still holds, what it states is true, and there is less
-> to build and remember. A fix that makes a false contract true may add to it.
+> Propose a change only if the new contract is correct, every goal worth its cost still holds, and
+> the change removes code, removes rules consumers must remember, fixes an incorrect contract, or
+> unblocks a planned change.
 
-What you build is the machinery: code, states, tests. What you remember is everything a consumer
-keeps in their head: the rules, the defaults, the exceptions, the gotchas. When one falls and the
-other rises, state both and let the user decide.
+Code includes states and tests. Rules include defaults, exceptions, and gotchas.
 
-**Count what a consumer cannot predict, not words.** A rule they can predict from the other rules
-costs little. One they cannot predict must be memorized, however it is phrased. Wording that gets
-shorter by hiding behavior adds to what they must remember.
+**Measure what a consumer cannot predict, not word count.** A rule they can predict from the other
+rules costs little. One they cannot must be memorized, however it is phrased. Shorter wording that
+hides behavior adds to what they must remember.
 
-Distill may weaken a contract, strengthen it, or delete it. That power is why distill is
-**proposal-only**. The output is a decision-ready report. Apply nothing unless the user asks
-afterwards.
+**Propose only.** Apply nothing until the user asks.
 
-## Targets
+## Two targets with their own rules
 
-- A **diff, PR, or branch**: a design-level review of a change before it merges.
-- A **product, subsystem, component, or module**: an audit of something that exists.
-- A **spec, proposal, or plan**: forward mode. Run it before the design locks, while deletion is
-  free. Consumers are the intended consumers, and "deletes" means code nobody ever writes.
-- A **pile of review findings**: the entry for a review that stops converging. Before anything
-  else, cluster the findings by the contract that generates them. Propose against the cluster,
-  not the findings. If they share no contract, say so and return them to the fix loop.
+- A **spec, proposal, or plan**: consumers include the intended ones, and a benefit is a
+  requirement cut from the spec, plus the code nobody then writes.
+- A **list of review findings**: for a review that keeps finding new problems. First group the
+  findings by the contract that causes them. Propose a change to that contract, not a fix for each
+  finding. If they share no contract, say so and fix them one by one.
 
-## The four families
+## The four checks
 
-Ask four things of each detail: is it true (fidelity), is it used (economy), is it said once with
-one meaning (coherence), and does the next named step land without breaking it (evolution)? File
-each finding under the question that exposed it. That sets the evidence it needs.
+Run four checks on each item, in this order: is it used (Unused), is it defined once with one
+meaning (Inconsistent), is it true (Incorrect), and can each planned change be added without
+breaking it (Future changes)? The check that finds a problem sets the evidence the finding needs.
 
-The rules under each family are the usual ways a detail fails. They are recognition aids, not the
-law. Expect to find new ones.
+The rules below are common ways an item fails, not the full list.
 
-### Fidelity: does the contract state only what is true of the world?
+### Unused: does every item have a real producer and a real consumer?
 
-- **A stated fact is the fact it claims to be.** A measurement is not the thing measured.
-  Signatures: a time of recording posing as the time of the event, an identifier built from a
-  pattern posing as one the source handed over, a default posing as a choice.
-- **The contract admits only what the world allows.** Machinery that reconciles conflicting
-  states after admitting them usually marks a missing invariant at admission. Refuse the state at
-  the boundary and it becomes unrepresentable. The guards and their tests go with the state.
-  The smaller contract is often a *stronger* one.
-- **The model has the world's shape, not the pipeline's.** A fact lives on the thing it is a fact
-  about, at that thing's cardinality. A model shaped like the data source, the build history, or
-  the migration path fails this. A column null on all but a few rows belongs on the smaller object.
-  A per-row value constant per tenant belongs on the tenant.
+For each field, state, guard, error, flag, and level of precision, name one real producer and one
+real consumer. Examples: an enum with one reachable value, an error no input can raise, a rule
+about a state change that never happens, a flag with one value in every environment, a parameter
+with one value at every call site, a precision no consumer reads.
 
-### Economy: does every element have a real producer and a real consumer?
+### Inconsistent: one meaning, one format, one source of truth?
 
-- **Every element is reachable.** For each field, state, guard, error, flag, and unit of
-  precision, name one real producer and one real consumer. Signatures: an enum with one
-  reachable value, an error no input can raise, an invariant over a transition nothing performs,
-  a flag with one value in every environment, a parameter with one value at every call site, a
-  precision no consumer reads.
-- **Scaffolding for a consumer that does not exist yet is unused today.** A "must not preclude X"
-  requirement is met when nothing contradicts X. It is never met by building toward X.
+- **One meaning, one format.** Examples: two request formats for one operation, absent and null for
+  one situation, two config keys for one behavior, two words for one thing in the project's
+  vocabulary.
+- **One name, one meaning.** Examples: one object whose fields silently cover different scopes, one
+  term meaning different things on related endpoints or screens.
+- **One source of truth per fact.** Two copies of one fact can disagree. Walk through the state
+  changes (join and leave, upgrade and downgrade). A state change that must update both means one
+  copy is too many.
+- **One mechanism for similar cases, unless they really differ.** They share one request format,
+  one error format, one lifecycle.
 
-### Coherence: one meaning, one form, one home?
+### Incorrect: does the contract state only what is true of the real world?
 
-- **One meaning, one representation.** Signatures: two request spellings for one operation,
-  absent and null for one situation, two config keys for one behavior, a synonym in the
-  project's vocabulary.
-- **One name, one meaning.** Signatures: one object whose fields follow different hidden
-  scopes, one term meaning different things on sibling surfaces.
-- **One home per fact.** Two encodings of one fact are where representable-but-illegal states come
-  from. Replay the domain's transitions (join and leave, connect and disconnect, upgrade and
-  downgrade). One that must update two places to keep them agreeing has a place too many.
-- **Uniform mechanism, unless reality is non-uniform.** Sibling cases share one grammar, one
-  error shape, one lifecycle.
+- **A stated fact is what it claims to be.** Examples: a recording time used as the event time, an
+  ID built from a pattern presented as one from the source, a default presented as a user's choice.
+- **The contract allows only what the real world allows.** Code that reconciles conflicting states
+  usually means an invariant is missing at the boundary. Reject the state there and it cannot occur.
+  Its guards and their tests can go too.
+- **The data model matches the domain, not the pipeline.** Store a fact on the object it describes,
+  once per object. A model shaped like the data source, the build history, or the migration path
+  fails this. Examples: a column null on all but a few rows, a per-row value constant per tenant.
 
-### Evolution: does the future land additively?
+### Future changes: can each planned change be added without breaking this?
 
-- **Nothing forces a rewrite at a named next step.** Walk each future step the contract is
-  expected to survive and confirm it lands as an addition. If a step forces existing consumers to
-  change, the fix is to stop precluding, today. Building the step early is not a fix.
+Trace each planned change and confirm it can be added. If one forces existing consumers to change,
+the fix is to remove the blocker now, not to build the change early.
 
-## The standing rule: no exhibit, no finding
+## No evidence, no finding
 
-> Never propose against a problem you cannot exhibit. An exhibit is something real you can cite.
+> Propose only against a problem you can show: something real you can cite.
 
 If you could not get the evidence, for example no access to production data, list the part under
-**Not in this report** with what checking it needs. Do not count it clean.
+**Not checked** with what checking it needs.
 
-The bar depends on the family:
+Each check needs its own evidence:
 
-- **Fidelity** needs *specimens*: samples of the real thing the contract mirrors, not the code
-  that wraps it. Keep sampling until new specimens stop producing new shapes.
-- **Economy** needs the search that found no producer, no consumer, or only one value, or the
-  compensation or failure the detail forces: the guard, the probe, the test that re-checks what the
-  type already guarantees, the crash. Cite where.
-- **Coherence** needs an *existence* exhibit: the surface itself, cited. Two spellings of one
-  operation are their own evidence. Where the two copies are code, diff them: drift is the
-  exhibit, and a live bug.
-- **Evolution** needs the *named future step* and the trace showing it forces existing consumers
-  to change. A future nobody has named is not an exhibit.
-- In **forward mode** nothing is built, so the exhibits are the spec's own use cases and traces.
-  When the spec states its use cases, a requirement none of them exercises is a finding. When it
-  states none, that gap is the first finding; ask for the use cases before judging the
-  requirements. To delete a requirement a use case exercises, walk the trace and show it still
-  completes.
+- **Unused** needs the search that found no producer, no consumer, or only one value. Cite the
+  search and what it covered. If consumers can exist outside it, check usage logs or list the part
+  under **Not checked**.
+- **Inconsistent** needs a citation proving one of these: two formats do one job, one name means
+  two things, two places hold one fact, or similar cases differ for no real reason. Where they are
+  code, diff them.
+- **Incorrect** needs *samples* of the real thing the contract describes, not the code that wraps
+  it. First map what is true in the real world, how the source system models it, and what this contract
+  states. Keep sampling until new samples show nothing new. List every mismatch with what breaks,
+  for whom, and when.
+- **Future changes** needs the *planned change* and the trace showing it forces existing consumers
+  to change.
+- For a **spec, proposal, or plan**, the spec's own use cases and traces replace only consumers
+  that do not exist yet. Still sample any real thing that exists, and read existing consumers. When
+  the spec states its use cases, a requirement none of them exercises is a finding. When it states
+  none, ask for them before judging the requirements. With no user, derive them from the spec and
+  state them as an assumption right after the conclusion.
 
-Apply the rule to inherited claims too: audit notes, memory files, TODOs, scout reports. Verify
-before ranking. When an exhibit refutes a recorded claim, say so and correct the record.
+Apply this rule to existing claims too: audit notes, memory files, TODOs, subagent reports.
+Re-check any evidence you did not gather. When evidence disproves an existing claim, say so under
+**Out of scope**.
 
 ## The method
 
-1. **Enumerate the surface.** List the contracts in scope before judging any of them. For an
-   audit, that is the declared surface (wire objects, schemas, invariants, error codes, request
-   grammars, config keys, flags, rules, screens). For a diff or a spec, the ones it adds or
-   changes, stated or implied. For a pile of review findings, the ones its clusters point to. The
-   report's coverage count comes from this list.
-2. **Map the consumers.** Read consumers as well as the producer. The producer states what it
-   offers. Only consumers reveal what they need and what they pay for the difference. Compensation
-   code is the evidence: probes, guards before use, ignored returns, the same re-check in every
-   caller, sentinels fished out of value channels. Build the table and read over-promises and
-   under-promises straight off it:
+1. **List the contracts in scope**, stated or implied, before judging any: every one when auditing
+   something that exists, those added or changed for a diff or spec, those the groups point to for
+   a list of review findings. Check each one or list it under **Not checked**. The coverage count
+   comes from this list.
+2. **Map the consumers.** Read consumers as well as the producer. Only consumers show what they
+   need and what the mismatch costs them. Workarounds (extra checks before use, ignored return
+   values, the same check in every caller, magic values treated as errors) show where to look and
+   what the problem costs. They are not evidence. Note what each consumer uses, at what cardinality,
+   and what it works around.
+3. **State the goal in one sentence.** Name what this contract protects for its consumers. If you
+   cannot, ask the user. With no user, derive it from the consumers and state it as an assumption
+   right after the conclusion.
+4. **Run the four checks in order.** Unused comes first because a deleted item needs no samples.
+5. **Propose what you would build today.** To remove anything a consumer uses, trace that use
+   through the new contract and show it still works.
 
-   | Consumer | What it actually uses | At what cardinality and frequency | What it compensates for |
-   |---|---|---|---|
+## False positives
 
-3. **State the goal in one sentence.** Name the property this contract exists to protect for its
-   consumers. If you cannot write the sentence and a user is present, ask. With no user, derive it
-   from the consumers and state it as an assumption right after the verdict line.
-4. **Run the four families: economy, coherence, fidelity, evolution.** Economy comes first because
-   a detail you delete needs no specimens. For fidelity, when the contract mirrors something
-   outside the system, first map what is true in the world, how the upstream models it, and what
-   this contract states. List every deviation with what breaks, for whom, when. Before flagging
-   anything, run the justified-redundancy list below: some consumers are not in the code.
-5. **Propose.** For each change, name what disappears and what it costs. A fix that makes a false
-   contract true may name what it adds instead of what disappears.
-   - *Wins*: the machinery deleted (code, states, tests, failure modes; cite where and estimate)
-     and the rules a consumer stops holding. In forward mode: the requirements that leave the spec
-     and the code nobody writes.
-   - *Costs*: migration, backfill, consumer breakage, and who pays.
+Some duplication, inconsistency, and apparently unused code is needed. Before flagging a possible
+finding, check it against:
 
-   Design the destination as what you would build today, knowing everything you now know. Price
-   the wart and the path to remove it separately; only the path is allowed to be expensive. This
-   keeps distill from sliding into "too costly, keep the wart" on a mature surface.
+- **Double-entry**: two ledgers reconciled on purpose (accounting, at-most-once safety).
+- **Denormalized value**: stored for debugging or query speed, with its source of truth stated.
+- **Public API stability**: an external consumer relies on the exact wire format.
+- **External requirement**: a consumer outside the code, such as a regulation, an audit, or a safety
+  or security rule.
+- **Emergency paths**: kill switches, fallbacks, and restore paths wait for incidents, so zero use
+  proves nothing.
+- **Real differences**: the cases really do differ. Confirm this before you flag the difference or
+  keep it.
+- **Copies that change for different reasons**: two similar copies whose consumers change for
+  different reasons, at different rates, or under different owners. Merging couples them, and the
+  merged form gains a parameter per difference. Name the two consumers and why each changes. "Might
+  diverge someday" justifies nothing.
 
-## Justified redundancy: the false-positive discipline
-
-Some duplication, asymmetry, and apparent dead weight is load-bearing. Before flagging a
-candidate, check it against:
-
-- **Deliberate double-entry**: two ledgers reconciled on purpose (accounting, at-most-once
-  safety).
-- **Operational materialization**: a derivable value stored for debuggability or query cost, with
-  its derivation stated as the source of truth.
-- **Stability commitment**: an external consumer for whom the wire shape itself is the value.
-- **External obligation**: a consumer that is not in the code. A regulation, an audit, a safety
-  or security rule. Cite the obligation, not the fear of one.
-- **Asymmetric reality**: the world treats the siblings differently. Verify the world before you
-  flag the asymmetry, and before you keep it.
-- **Divergent evolution**: two similar copies whose consumers change for different reasons, at
-  different cadences, or under different owners. Merging couples what the world keeps apart, and
-  the merged form grows a parameter back per divergence. Name the two consumers and their change
-  drivers. "Might diverge someday" justifies nothing.
-
-A candidate none of these justifies becomes a finding only with an exhibit and a pass on the test
-at the top of this skill. One they justify goes in **Verified clean**, with the justification
-named.
+A false positive needs evidence too.
 
 ## Output format
 
-The report is the product. Its reader did not read this skill, is deciding what to approve, and
-scans rather than reads. Every part of the report is built for that reader:
+The report's reader did not read this skill, is deciding what to approve, and scans. Write every
+part for that reader:
 
-- **The target's own words.** Endpoints, screens, sections, tables, rules, whatever the target
-  calls its parts. This skill's terms (contract, family names, exhibit, entropy) never appear in
-  the report.
-- **Every line stands alone.** A headline read out of context still says what to change. A
-  section name says what the reader does with it. The verdict line answers the question that
-  brought the reader here: is this too complex, and where.
+- **Use the target's own words**: whatever it calls its parts (endpoints, screens, tables), never
+  this skill's terms (contract, check names, entropy).
+- **Titles, section names, and the conclusion stand alone.** A title read out of context still says
+  what to change. A section name says what the reader does with it. The conclusion answers the
+  question that brought the reader here: is this too complex, and where.
 
-**Line one is the verdict.** One bold line: "nothing to cut", or the best finding in one clause.
-Then two or three plain sentences: what you audited and how much of it, in the target's
-own terms ("9 of 12 endpoints", "all four sections of the spec", "every screen in the flow"), the
-finding count, and how many parts checked out clean. Write it last, from the findings.
+The report has these parts, in this order:
 
-Coverage is mandatory. "Nothing to cut" over an unchecked surface is not a verdict. When the verdict
-is "nothing to cut", the reader's feeling that something is wrong still needs an answer: Verified
-clean becomes the body of the report, naming where the complexity comes from and which
-justification makes it essential.
+1. **Conclusion.** Line one, in bold: "nothing to cut", or the largest benefit in one clause. Then
+   two or three plain sentences: what you audited and how much of it ("9 of 12 endpoints", "all
+   four sections of the spec"), the finding count, and how many parts checked out clean. When the
+   conclusion is "nothing to cut", Verified clean becomes the body of the report, naming where the
+   complexity comes from and the evidence that it is needed.
+2. **End result**, when the changes touch the same contracts or depend on each other: a diff of the
+   contracts as they would be if the user accepts every recommendation, with the finding number on
+   each changed line.
+3. **Summary table**, at 4 or more findings: one row per finding with its number, change, ratings,
+   and recommendation, so the user can answer in one message.
+4. **Approve together**: findings with cost S, no behavior change, no dropped goal, no tradeoff
+   between code and rules.
+5. **Decide each**: every other finding.
+6. **Not checked**: parts you could not check, with what checking them needs.
+7. **Verified clean**: possible findings you cleared, one line each with the evidence that cleared
+   them. Other checked parts appear only in the coverage count.
+8. **Out of scope**: bugs (for code-review), cleanup that keeps every contract the same (for
+   simplify), and existing claims you disproved.
 
-**Then the findings.** Each carries two ratings, named to match the Wins and Costs lines below:
+Number findings continuously across Approve together and Decide each. Order each section by benefit
+descending, then cost ascending. Merge findings that share one fix, keeping all their evidence.
 
-- **Win**, what it removes or makes true. **L** removes a subsystem or a whole failure class. **M**
-  removes a smaller piece of machinery, a memorized exception, or a duplicate home, or makes one
-  false promise true.
-- **Cost**, what applying it takes. **S** is a local edit. **M** crosses
-  files, or migrates an unshipped surface. **L** breaks a shipped surface and needs its own plan.
+Each finding carries two ratings:
 
-Two sections, each named for what the reader does with it, numbered continuously so rank survives
-grouping, ordered inside each by win descending then cost ascending:
+- **Benefit**, what it removes, fixes, or unblocks. **L** removes a subsystem or a whole class of
+  failures. **M** is anything smaller.
+- **Cost**, the work to apply it. **S** is a local edit. **M** crosses files, or migrates something
+  unshipped. **L** breaks something shipped and needs its own plan.
 
-- **Approve as a unit**: cost S, no behavior change.
-- **Decide each**: cost M or L, or a behavior change. Every entry ends in "Your call" with a
-  stated lean.
+Each finding has these lines, in this order:
 
-Each finding is a headline, one paragraph, and up to three trailing lines. The headline names the
-proposed change in plain words, short enough to be a ticket title, followed by the two ratings.
-The paragraph runs in reading order: what is promised today, the evidence with its citation (quote the key line; write "verified" only when you
-re-checked the exhibit yourself), then the smaller promise. Rendered:
+- **Title**: the change in plain words, short enough for a ticket title, then the two ratings.
+- **Diff**: `-` the contract today, `+` the contract after. A deletion has only the `-` line.
+- **Evidence**: one fact per line, each with its citation.
+- **Still works**, when the change removes something a consumer uses: what that consumer does now.
+- **Benefits**: what is deleted (code, states, tests, failure modes; cite where and estimate how
+  much), the rules consumers no longer need to remember, and any contract fixed or change unblocked.
+- **Costs**: migration, backfill, consumer breakage, and who does the work.
+- **Decide**, in Decide each only: a yes-or-no question, then your recommendation.
 
-> **3. Only one active subscription per user, enforced at write** — win L · cost L
->
-> The schema allows several active subscriptions per user, and every reader picks the newest
-> (`billing/read.py:41`, `invoice/run.py:88`, `portal/view.ts:120` each sort by `started_at` and
-> take the first, verified). The terms allow one (`docs/terms.md:12`). Production has 212 users
-> with two active rows, all from the checkout retry (`checkout/retry.py:30`), and 40 of them were
-> billed twice (ledger query, verified). Enforce uniqueness at write and reject the second, and
-> the multi-active state cannot exist.
->
-> - Wins: three re-checks, the "which one is current" question every reader answers, and the
->   double-billing failure class.
-> - Costs: a backfill to close the 212 duplicates, and the write API now returns a conflict where
->   it used to succeed; API consumers must handle it.
-> - Your call: a visible conflict replaces a silent second row. My lean: reject.
+Example. A real report gives every finding its block; this one shows two of the four:
 
-Findings that share one fix may fold into one block carrying every exhibit.
+````markdown
+**Enforce one active subscription per user, which ends double billing.**
 
-Close with two short sections:
+I audited 9 of 12 subscription endpoints and the `subscriptions` table. There are 4 findings, and
+5 endpoints checked out clean.
 
-- **Verified clean**: parts you checked that need no change, one line each with the
-  justification named.
-- **Not in this report**: real issues that belong elsewhere (bugs to code-review,
-  behavior-preserving tidy to simplify), inherited claims you refuted, and parts you could not
-  check, with what checking them needs.
+```diff
+- a user can hold several active subscriptions (3)
++ a user holds at most one active subscription (3)
+- each reader decides which row is current (3, 4)
+- a subscription can be in `trial` (2)
+- every row carries `legacy_id` (1)
+  cancel is idempotent
+  invoices run monthly
+```
 
-## Working at scale
+| # | Change | Benefit | Cost | Recommend |
+|---|---|---|---|---|
+| 1 | Delete the unused `legacy_id` column | M | S | yes |
+| 2 | Delete the `trial` status, which nothing sets | M | S | yes |
+| 3 | One active subscription per user, enforced at write | L | L | yes |
+| 4 | Delete `is_current` after 3 is done | M | M | yes |
 
-For a large surface, fan out parallel read-only scouts. Each carries the standing rule, the four
-families, and the output format, and is told which known findings *not* to re-report. Scout claims
-are claims: verify the load-bearing exhibit of every finding you report before presenting.
+Reply like this: approve 1-2, yes to 3, no to 4.
 
-## Stopping
+## Approve together
 
-Stop when every part of the surface has been checked or listed as not checkable.
+**1. Delete the unused `legacy_id` column** · benefit M · cost S
 
-## Worked micro-examples
+```diff
+- every row carries `legacy_id`
+```
 
-**Coherence, from a symptom pile.** A crash on a null index in one job, a key error in its
-sibling, a review comment about duplicated filter logic. Clustered, the two jobs are forks of one
-loop, and diffing them shows the filter drifted: one copy guards the index, the other does not.
-Three symptoms were one contract stated twice. The proposal: one loop, parameterized by the single
-real difference. Wins: the duplicated lines and the entire "fixed in one twin only" failure class.
-The merge survives the divergent-evolution check because the drift is accidental, not two
-consumers changing for different reasons.
+- Nothing reads it: search of all 4 services
 
-**Coherence, from an audit, no code deleted.** A stats object whose `people` count is org-wide
-while its `events` counts are caller-scoped. One object, two hidden scopes, documented in a footnote
-every consumer must remember. The exhibit is the object's own doc sentence. The change: the object
-takes the same `scope` parameter as every list read, and all fields follow it. Wins: one memorized
-exception to the system's single scoping rule. Costs: one parameter to add, and `people` changes
-value for existing callers, so it is a behavior change and the user's call.
+- Benefits: one column and its write (`signup/create.py:52`).
+- Costs: one migration.
+
+## Decide each
+
+**3. One active subscription per user, enforced at write** · benefit L · cost L
+
+```diff
+- a user can hold several active subscriptions; each reader picks the newest
++ a user holds at most one; a second write gets a conflict
+```
+
+- The terms allow one: `docs/terms.md:12`
+- 212 users have two active rows, all from the checkout retry: production query,
+  `checkout/retry.py:30`
+- 40 of them were billed twice: ledger query
+- Three readers take the newest: `billing/read.py:41`, `invoice/run.py:88`, `portal/view.ts:120`
+
+- Still works: the checkout retry treats the conflict as success.
+- Benefits: three repeated checks, the "which one is current" question, and double billing.
+- Costs: a backfill to close the 212 duplicates, a small retry change, and API consumers must
+  handle the conflict.
+- Decide: accept a visible conflict instead of a silent second row? Recommend: yes.
+
+## Not checked
+
+- The 3 partner endpoints: need the partner usage logs.
+
+## Verified clean
+
+- `ledger_entries` repeats invoice totals on purpose; a nightly job compares them
+  (`ledger/reconcile.py:14`).
+
+## Out of scope
+
+- Invoice dates are one day off in UTC-8: a bug for code-review.
+````

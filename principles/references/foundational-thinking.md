@@ -6,6 +6,6 @@ When the domain is understood, agree on shared data structures and who owns each
 
 When requirements are unclear, build a small end-to-end example to learn from. Keep uncertain decisions local so changing them does not require rebuilding everything.
 
-Infrastructure earns its place by enabling specific upcoming work or making it safer. A possible future feature is not enough reason to build a platform or prepare every alternative.
+Infrastructure is justified when it enables specific upcoming work or makes it safer. A possible future feature is not enough reason to build a platform or prepare every alternative.
 
 Ask: What becomes harder if we wait, and what might we learn that would change this decision?
