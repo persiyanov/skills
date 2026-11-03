@@ -11,7 +11,7 @@ description: >-
   complex", "over-engineered", or "doesn't feel right", asks why review keeps finding new
   problems, or wants a design-level review. Unlike simplify (behavior-preserving) it may propose
   behavior and requirement changes. Unlike code-review it looks at contracts, not bugs. Use
-  zen-review when a change also needs correctness and design review. Proposal-only: it never
+  zen-review when a change also needs correctness and shape review. Proposal-only: it never
   applies changes.
 ---
 

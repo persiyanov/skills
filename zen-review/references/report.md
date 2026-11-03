@@ -1,6 +1,6 @@
 # Report
 
-First line: conclusion, the total findings after dedup (finding list), the number of root causes, then the five status counts. Count at dedup, not by adding the table; the total equals their sum. Then target and base. Then findings, verification, and Needs your decision, written as a /grilling round so the user can answer from the report. Disproved findings are counted, never listed.
+First line: conclusion, the total findings after dedup (finding list), the number of root causes, then the five status counts. Count at dedup, not by adding the table; the total equals their sum. Then target and base. Then findings, verification, and Needs your decision, written as a /grilling round so the user can answer from the report. Disproved candidates are counted, never listed.
 
 ```markdown
 **Fix first.** 9 findings from 4 causes, 2 fixed, 1 open, 1 unproven, 1 your decision, 4 disproved.
@@ -15,7 +15,7 @@ Target: branch `feat/json-export` against `main`, spec `docs/specs/report-export
 | `export.ts:77` | Stream not closed when the writer throws; reproduced at 10k rows locally | open |
 | `export.ts:90` | Cursor pagination may skip a row inserted mid-page; no interleaving proved it, none disproved it | unproven |
 
-## Design
+## Shape
 
 | Where | What | Status |
 | --- | --- | --- |
@@ -25,10 +25,10 @@ Target: branch `feat/json-export` against `main`, spec `docs/specs/report-export
 ## Verification
 
 - Failing test written for the bug, failed for the predicted reason, passes now.
-- Verifier: both fixes hold under varied inputs and callers; no better solution found.
+- Verifier: both fixes hold under varied inputs and callers; no better form found.
 - `npm test`: 142 passed, 0 failed.
 - Fixes: 3 files changed, uncommitted.
-- Skipped areas: boundaries (no input or config path changed).
+- Skipped angles: boundaries (no input or config path changed).
 
 ## Needs your decision
 
