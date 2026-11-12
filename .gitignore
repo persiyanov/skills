@@ -17,3 +17,5 @@ __pycache__/
 .mypy_cache/
 # Local Claude Code settings
 .claude/
+# Local copies of design sources (paid, behind a login, or likely to change): never published
+design-knowledge/library/

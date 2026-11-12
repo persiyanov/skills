@@ -17,6 +17,9 @@ Install by cloning and symlinking a skill folder into `~/.claude/skills/` or `~/
 | readable | Presents docs, specs and reports so a reader can find and use them |
 | positioning | Product positioning: segment, alternative, differentiation |
 | product-design | Research-first UI and UX design (built on Refero's design skill, see below) |
+| design-knowledge | Standards for product UI in 24 guides: what to do, why, how to check it, with sources |
+| design-review | Judges a UI or design with fresh eyes against the standards and posts the findings on the Paper canvas; never edits |
+| designing | Designs or changes product UI, from new features to polish, in small iterations on a Paper canvas that you steer, with each choice recorded |
 
 ## Borrowed
 
