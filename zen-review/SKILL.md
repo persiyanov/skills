@@ -50,7 +50,14 @@ Review, fix, and verify without stopping to ask. In report-only or review-only m
 
 ## 4. Fix
 
-Every confirmed finding ends as fixed, left, or your decision. Fix in two passes: correctness first, then shape after Verify has passed the correctness fixes. Change only what a finding names.
+Aim for the best end state, even when the road to it is longer. Every confirmed finding ends as fixed, left, or your decision.
+
+1. Decide the fix for every confirmed finding before you edit. Load /principles. Ask first what would make the problem impossible: a deleted path, a single owner, a type or a constraint, a smaller rule. Use that when it exists, and patch only when nothing removes the cause. When the fix needs a refactor first, add the refactor to the findings file as a shape finding.
+2. When two or more confirmed findings come from one rule, in this run or across runs, question the rule first, as the contract angle does. If the smaller contract changes a requirement, it goes to Needs your decision, and its findings wait for the answer.
+3. Fix in two passes: shape first, then correctness on the cleaner code, after Verify has passed the shape pass. In each pass, start with the fixes that delete code, because a bug in deleted code needs no fix.
+4. For a bug, write the failing test first. It must fail for the reason you predicted, and then pass.
+5. Change only what a finding names. When you see something else that needs fixing, add it to the findings file as a new finding.
+6. When several fixes would work, choose by /principles.
 
 Each pass needs its own diff, so save the tree before the pass and after it. This command prints a tree id and changes neither the index nor the working tree:
 
@@ -59,13 +66,6 @@ Each pass needs its own diff, so save the tree before the pass and after it. Thi
 ```
 
 `git diff <before> <after>` then shows the pass alone.
-
-Load /principles. For each finding, ask first what would make the problem impossible: a deleted path, a single owner, a type or a constraint, a smaller rule. Use that when it exists. Patch only when nothing removes the cause.
-
-1. When two or more confirmed findings come from one rule, in this run or across runs, question the rule first, as the contract angle does. If the smaller contract changes a requirement, it goes to Needs your decision, and its findings wait for the answer.
-2. In each pass, start with the fixes that delete code, because a bug in deleted code needs no fix.
-3. For a bug, write the failing test first. It must fail for the reason you predicted, and then pass.
-4. When several fixes would work, choose by /principles.
 
 Some confirmed findings are not fixed:
 
@@ -76,8 +76,8 @@ Some confirmed findings are not fixed:
 
 1. After each pass, start a fresh subagent as the verifier. Give it these and nothing else: the target's root, the base ref, the spec path, the findings the pass fixed, the two tree ids, `references/verify.md`, and `references/correctness.md`. Do not describe the fixes, and do not say why you chose them. In Claude Code, launch it with model `opus` and effort `medium`.
 2. Rerun the repo's tests and checks, and quote any failure.
-3. Repair a BROKEN correctness fix here, without going back to Find, and have a fresh verifier check the repair.
-4. Revert a BROKEN shape fix and mark its finding left.
+3. Repair every fix the verifier broke, and apply every better form it wrote out that /principles settle. Do this here, without going back to Find, and have a fresh verifier check the changes.
+4. Send a better form that /principles cannot settle to Needs your decision.
 5. When a second round of fixes fails on the same premise, stop fixing. Read Attack the Premise in /principles, name the premise, and take it back to the spec.
 6. Give any change made after this run's verification (a decision from the spec, a bot finding, a merge) its own verifier before you report the work ready.
 

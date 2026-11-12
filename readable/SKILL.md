@@ -142,7 +142,7 @@ Good: The service was unavailable. It had been migrated three months
 
 **Active voice, concrete nouns.** Someone does something. "Grip failed the message", not "the message was failed". No noun made from a verb when the verb will do: "LinkedIn rejected it", not "LinkedIn's rejection of it".
 
-**One idea per sentence.** Split when a sentence carries two conditions or a nested clause. Keep the connective.
+**Split nested clauses.** Split a sentence that nests one clause inside another. Keep the connective.
 
 **Conditions and prohibitions first.** "not", "if", "unless" are the words readers skip. "Do not run this on prod", not "Run this, unless on prod".
 

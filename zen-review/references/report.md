@@ -24,14 +24,14 @@ Target: branch `feat/json-export` against `main`, spec `docs/specs/report-export
 | Where | What | Status |
 | --- | --- | --- |
 | `export.ts:12` | `formatDate` duplicates `lib/time.ts:isoDate` | fixed |
-| `export.ts:55` | Merging `toRow` and `toCsvRow` changed how quoted commas are written, so the merge is reverted | left |
+| `export.ts:8` | The 10k row limit adds a branch nobody needs today. Spec decision 4 keeps it | left |
 | `api/export.ts:30` | `?format=json` and `POST /export/json` are two ways to make one request | your decision |
 
 ## Verification
 
+- Verifier, shape pass: the `formatDate` fix holds.
 - The failing test for the dropped records failed for the predicted reason and passes now.
 - Verifier, correctness pass: the dropped-records fix holds. The stream fix broke twice on the same premise, so its finding is open.
-- Verifier, shape pass: the `formatDate` fix holds. The `toRow` merge broke and is reverted.
 - `npm test`: 142 passed, 0 failed.
 - Fixes: 3 files changed, uncommitted.
 - Findings file: `<scratch>/json-export-findings.md`.
@@ -46,6 +46,6 @@ One /grilling question for each finding marked your decision.
 | --- | --- |
 | fixed | Confirmed, fixed, and verified in this run |
 | open | Confirmed and not fixed, because the run was report-only or because the fix failed verification and could not be repaired |
-| left | Confirmed and not changed, because the spec or the user already decided it, or because its shape fix broke and was reverted |
+| left | Confirmed and not changed, because the spec or the user already decided it |
 | unproven | Plausible, and neither confirmed nor disproved |
 | your decision | Confirmed, and either it changes a definition or a contract, or it is a real choice /principles cannot settle |

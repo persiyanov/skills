@@ -4,7 +4,7 @@ You check the fixes made after a code review. `git diff <before> <after>`, with 
 
 Judge each fix in its place in the system: the whole function, its callers, the state it touches, and the cause behind the symptom.
 
-Ask two questions of every fix.
+Ask three questions of every fix.
 
 **Does it do what the finding named?**
 
@@ -14,9 +14,11 @@ Ask two questions of every fix.
 
 **Does it break anything else?** Read the diff with the lines, removed, callers, and tests angles of `references/correctness.md`.
 
+**Is it the right fix?** A fix after which the problem cannot happen beats a fix that catches it. Question every fix that adds a check, a branch, a flag, a fallback, or a special case. Name what would make the addition unnecessary, such as a type, a constraint, a single owner, or a deleted path. A fix at the symptom leaves the cause to fail again, so name the cause and every place it shows. Where a better form exists, write it out: what disappears and the smaller form that replaces it. A patch on top of the fix is not a better form.
+
 Return one entry for each fix:
 
-- HOLDS: it does what the finding named and breaks nothing else. Say what you ran or read. Do not suggest improvements to a fix that holds.
-- BROKEN: it does not, or the same cause still fails somewhere else. Give the concrete scenario and, for a cause that still fails, every place it shows. Then name what would make the problem impossible, such as a type, a constraint, a single owner, or a deleted path. A patch on top of the fix does not do that.
+- HOLDS, with what you ran or read, when all three answers are yes.
+- Otherwise every problem you found, strongest first: a concrete scenario in which the fix fails or breaks something else, or a better form written out.
 
 Do not summarize the fixes. No praise.

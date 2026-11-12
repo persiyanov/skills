@@ -55,7 +55,7 @@ Load this when a rule in SKILL.md needs defending, when the user challenges one,
 
 ## 3. Comprehension limits
 
-**Working memory holds ~4 chunks, not 7.** Miller's 7±2 was rhetorical; Cowan 2001 puts capacity at 3-5. In sentences, clauses behave as chunks: readers access a limited number of clauses, and fusing two clauses into one long sentence is "effortful, at the expense of accessing fewer of the clauses" (Gilchrist, Cowan & Naveh-Benjamin 2008). FOLKLORE: 7±2 applied to bullet counts or menu items; a visible list is recognized, not recalled.
+**Working memory holds ~4 chunks, not 7.** Miller's 7±2 was rhetorical; Cowan 2001 puts capacity at 3-5. A simple one-clause sentence tends to act as one chunk. Joining related clauses did not cost recall: four spoken two-clause sentences gave back more words (14.0 per trial) than eight unrelated short sentences holding the same clauses (9.7), though each clause was recalled a little less completely (.73 against .83). The study used listening and immediate recall, not reading, and never compared the same two clauses split into two sentences (Gilchrist, Cowan & Naveh-Benjamin 2008). FOLKLORE: 7±2 applied to bullet counts or menu items; a visible list is recognized, not recalled.
 
 **Distance costs.** Gibson's Dependency Locality Theory: cost grows with the number of new referents between a word and what it attaches to. Integration cost explained 59% of variance in reading times for unambiguous sentences (Grodner & Gibson 2005). Center embedding and long subject-verb gaps are the concrete failure cases. On natural text, predictability (surprisal) predicts even more; both matter.
 
@@ -75,7 +75,7 @@ Load this when a rule in SKILL.md needs defending, when the user challenges one,
 - Nominalizations: small real cost, mostly for weaker readers (Coleman & Blumenfeld 1963; Duffelmeyer 1979).
 - Jargon: lowered fluency, interest, and perceived understanding, and definitions made no difference to perceived difficulty (Shulman et al. 2020, n=650). A defined term still signals "not for you."
 - Concreteness: the strongest predictor of comprehensibility and recall in instructional text (Sadoski, Goetz & Fritz 1993).
-- Numbers: long numerals take up to 7x more fixations than length-matched words and are skimmed with magnitude errors (de Chambrier et al. 2023). Natural frequencies beat percentages: physicians correct 21% → 87% after translation to "x in 1,000" (Gigerenzer & Hoffrage 1995).
+- Numbers: reading a long numeral aloud took about 7x the fixations of a word of the same length without thousands separators, and about 5x with them; reading stayed 99% accurate (de Chambrier et al. 2023; 36 readers, items shown one at a time). Separators help. Natural frequencies beat percentages: physicians correct 21% → 87% after translation to "x in 1,000" (Gigerenzer & Hoffrage 1995).
 - Curse of knowledge: writers cannot introspect the gap (tappers predicted 50% recognition, listeners got 2.5%). Fixes are reader testing and re-reading after delay.
 
 **Processing fluency.** Needlessly complex vocabulary lowers judged author intelligence, d ≈ 0.44-0.53; a hard-to-read font alone does the same (Oppenheimer 2006). Easy text is judged truer. The opposite claim, that disfluent fonts improve memory, failed to replicate across 17 pooled experiments (Meyer et al. 2015; Sirota 2019; Sans Forgetica null in four labs).
