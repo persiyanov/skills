@@ -2,194 +2,244 @@
 
 Covers each page's job (who it is for, what they need and what the product needs from them), which information and actions it shows, in what form, order and amount, which of them leads (the first screen, the primary action, the outline of its headings, and the product's own promotions), which images belong, what it starts with, what an AI made, ads, and how it shows the states of its data: empty, loading, failed, partial and out of date. Not covered here: the words themselves, how much each thing stands out by its look, spacing, feedback after an action, how loading indicators move, and how marketing pages present proof, prices and their first screen (rules 1 and 5 still apply to them).
 
-- These rules are a floor: meeting them all makes a product well made, not yet good.
-- **Every product:** holds even when popular products break it, and no product's own rules change it.
-- **Current practice:** what research, the design systems of top products and strong designers recommend now. A product's own documented value replaces it.
-- **Default:** a starting point for designing, taken from strong designers' practice: a review finding only when a harm can be named.
-- **Fail and Pass:** examples. A Pass shows one way to meet the rule, not the only one.
-
 The rules come in three groups: rules for every level, then rules for components (a collection of items, its form, and what it starts with; a list and its pages, a region as it loads, fails or stays empty, what an AI made, ads, the actions a toolbar shows, and images) and pages (what the first screen leads with, the primary action, headings and promotions).
 
 ## Every level
 
 ### 1. Every screen has a known job, and its content serves it
 
-Before anything else, the screen's frame is known: who it is for, what they came to do or learn, what the product needs from them, and what each side wants to avoid. A screen has one main job, and anything else on it is visibly secondary. Every piece of content serves the person's need or the product's; content that serves neither goes. Where the two pull apart, people still see what they need to decide: what they get, the total price, what they commit to, and how to leave. Nothing they pay extra for is chosen for them in advance, and the way to leave stays easy to find for as long as they are committed.
+Before anything else, the screen's frame is known: who it is for, what they came to do or learn, what the product needs from them, and what each side wants to avoid. A screen has one main job, and anything else on it is visibly secondary. Every piece of content serves the person's need or the product's; content that serves neither goes. Where the two pull apart, as where people pay or start a subscription or a trial that turns paid, people see what they need to decide on the final step, before the button that makes them pay: what they get, the total price with mandatory fees (or how it is worked out, where it can't be known in advance), what they commit to, such as the length, the renewal and when a trial ends, and how to leave. Nothing they pay extra for is chosen for them in advance, and the way to leave, and to stop the charges, stays easy to find for as long as they are committed.
 
 - **Why:**
   - A team that doesn't know what people need won't build the right thing, so GOV.UK finds needs by research and has every piece of content meet one (GOV.UK, "Government Design Principles"; "Identify user needs"). Readers pick what is relevant to their task (Rouet and Britt 2011), and across 58 studies, interesting but irrelevant content lowered what people learned (Sundararajan and Adesope 2020). One main job matches one primary button per page or area, and one thing per page of a form (Carbon, "Button"; Atlassian, "Button"; GOV.UK, "Structuring forms").
-  - Where the product's goal and the person's pull apart, hiding what people need pays the product: buyers who saw fees only at checkout spent about 21% more and were 14% more likely to buy (Blake et al. 2021). So the law sets a floor for consumers. In the US, an online offer that keeps charging until people cancel shows all material terms before taking billing details, and offers a simple way to stop the charges (Restore Online Shoppers' Confidence Act, ROSCA). In the EU, an online order shows what people get, the total price (or how it is worked out), the contract's length and how to end it directly before a button that says it means paying, or the consumer isn't bound (Consumer Rights Directive, Articles 6(1) and 8(2)); an extra payment needs express consent, and one taken through an option people had to untick is refunded (Article 22); and since 19 June 2026, a contract people may withdraw from offers a "withdraw from contract here" function, or as plain, easy to find for the whole withdrawal period (Article 11a). In the UK, a price includes every fee people can't avoid, or says how it is worked out (Digital Markets, Competition and Consumers Act 2024, section 230). App stores ask the same of subscriptions: Apple the billed amount and the trial's length and later price, Google Play also how to cancel (Apple, "Auto-renewable subscriptions"; Google Play, "Subscriptions").
-- **Kind:** Every product: where people pay, or start a subscription or a trial that turns paid, what they get, the total price with mandatory fees (or, where it can't be known in advance, such as pay per use, how it is worked out), what they commit to (length, renewal, when a trial ends) and how to leave show on the final step, before the button that makes them pay, which in the EU says by its words that it means paying (Consumer Rights Directive, Article 8(2)); for an offer that keeps charging until people cancel, the same terms show before people enter their payment details (ROSCA); no paid extra is selected for them in advance (Consumer Rights Directive, Article 22); a subscription offers a simple way to stop its charges (ROSCA); and in the EU, an online contract people may withdraw from keeps a way to withdraw, labelled as plainly as "Withdraw from contract here", easy to find for the whole withdrawal period (Article 11a); since people otherwise pay for what they wouldn't have chosen, or can't leave what they are free to leave. Current practice: the frame known before the other rules are applied; one main job per screen, with the rest visibly secondary; content that serves neither side goes.
-- **Applies when:** always. The Every product part applies where people pay, subscribe, or start a trial that turns paid.
+  - Where the product's goal and the person's pull apart, hiding what people need pays the product: buyers who saw fees only at checkout spent about 21% more and were 14% more likely to buy (Blake et al. 2021). So the law sets a floor for consumers. In the US, an online offer that keeps charging until people cancel shows all material terms before taking billing details, and offers a simple way to stop the charges (Restore Online Shoppers' Confidence Act, ROSCA). In the EU, an online order shows what people get, the total price (or how it is worked out), the contract's length and how to end it directly before a button that says it means paying, or the consumer isn't bound (Consumer Rights Directive, Articles 6(1) and 8(2)); an extra payment needs express consent, and one taken through an option people had to untick is refunded (Article 22); and since 19 June 2026, a contract people may withdraw from offers a "withdraw from contract here" function, or as plain, easy to find for the whole withdrawal period (Article 11a). In the UK, a price includes every fee people can't avoid, or says how it is worked out (Digital Markets, Competition and Consumers Act 2024, section 230). App stores ask the same of subscriptions: Apple the billed amount and the trial's length and later price, Google Play also how to cancel (Apple, "Auto-renewable subscriptions"; Google Play, "Subscriptions"). Without these, people pay for what they wouldn't have chosen, or can't leave what they are free to leave.
+- **Applies when:** always; the parts about paying where people pay, subscribe, or start a trial that turns paid.
 - **Check:** write the frame before judging anything else, from evidence: the product's docs and research, the screen's place in its journey, and what the screen asks of people. A part you can't fill from evidence is a question for the owner, not a guess. Then name the screen's main job: content that serves neither the person's need nor the product's fails, and so does a screen with no main job. Matching another screen explains how an element looks, not why it is there. Where people pay or subscribe, look on the final step, before its button, for each of these that applies: what they get, the total price (or how it is worked out), the length, the renewal, the trial's end and how to cancel. Any one missing fails. In the EU, a final button whose words don't say it means paying, such as "Continue" or "Confirm", fails. For an offer that keeps charging until people cancel, look for the same terms on or before the screen that asks for payment details: any one missing there fails. A paid extra, such as insurance or faster delivery, selected before people choose it fails. After the order, look on the account and order pages for how to stop the charges and, in the EU, how to withdraw: none to be found fails, and so does an EU withdrawal offered only by email or phone.
-- **Fail:** a checkout that adds a service fee on its last step. Travel insurance already ticked at checkout. A trial sign-up that doesn't say when billing starts or how to cancel. A project's home page that gives equal space to news, tips, a survey and the project's files, when people open it to reach their files.
-- **Pass:** a plan page that lists what the Pro plan includes, then "$24 a month, tax included. Renews monthly. Cancel anytime in Settings." above the card fields and "Subscribe for $24 a month".
-- **Not a fail:** a help link or a secondary action beside the main task, when it is visibly secondary. A page of independent areas, such as a dashboard, whose job is to show them side by side.
+- **Fail:**
+  - a checkout that adds a service fee on its last step;
+  - travel insurance already ticked at checkout;
+  - a trial sign-up that doesn't say when billing starts or how to cancel;
+  - a project's home page that gives equal space to news, tips, a survey and the project's files, when people open it to reach their files.
+- **Pass:**
+  - a plan page that lists what the Pro plan includes, then "$24 a month, tax included. Renews monthly. Cancel anytime in Settings." above the card fields and "Subscribe for $24 a month";
+  - a help link or a secondary action beside the main task, when it is visibly secondary;
+  - a page of independent areas, such as a dashboard, whose job is to show them side by side.
 
 ### 2. Every state of the data is designed, and none breaks
 
 A screen works with the data people really have: none, one item, a typical amount, far more than typical, values too long for their place, some parts missing, still loading, failed. It works for every kind of account it serves, too: each plan, a trial and its end, a limit reached, a locked feature, each role. In each, it shows something true. It never shows a blank region with no message, a raw value such as `null`, `undefined` or `NaN`, a spinner that never ends, or placeholder text that could pass for the person's data.
 
 - **Why:** A region left blank or holding a raw value tells people nothing: they can't tell whether the data is missing, still coming or broken, so they wait, reload, or act on the wrong belief. Primer replaces content that failed with a short message and never hides that something is wrong ("Degraded experiences"), and Carbon designs what each page, tile, table and panel shows with no content ("Empty states"). A screen designed only for a full account meets people on a trial, at a limit or without permission with a dead button or a generic error, just when they need to know what to do (Jakub Krehel, interfaces "state-machine").
-- **Kind:** Every product: no state shows broken output, such as a blank region with no message, a raw `null`, `undefined` or `NaN`, a spinner with no end, or placeholder text that could pass for real data, since people can't tell whether their data is missing, still coming or broken, so they wait, reload or act on the wrong belief. Current practice: each state designed, and tested with no data, one item, a typical amount, far more than typical, and the longest real values; each kind of account designed too: plan, trial, limit reached, locked feature, role.
 - **Applies when:** a screen shows data.
-- **Check:** see each state. Use an empty account or workspace for no data, and one with many items. Take the longest, shortest and oddest values from what each field allows, not from typical data: a name in another script, an emoji built from several joined characters, two items with the same name, one more item than fits a page (Emil Kowalski, "break-ui"). In DevTools, slow the network (Network panel, "Slow 4G") to see loading, and block each data request in turn to see failure. Search the rendered page for `null`, `undefined`, `NaN`, `[object Object]`, escaped markup such as `&amp;`, unrendered Markdown such as `**`, dates in 1970, and numbers with a long tail of digits, such as 0.30000000000000004; a match that is real content is not a fail. A blank region with no message, a raw value, a spinner still turning after the request failed, or placeholder text fails. Then use each kind of account the product has: each plan, a trial near its end, an account at a limit, each role. A screen that breaks, or a control that does nothing with no word on why or what to do next, fails current practice.
-- **Fail:** a storage card that reads "NaN GB used" when its request fails. "Last seen 1 January 1970" for someone who never signed in. A sidebar that turns blank, with no message, while a request hangs. An Export button that does nothing for an account at its limit, with no word about the limit.
-- **Pass:** the same card reads "Storage unavailable. Retry", and the rest of the page keeps working.
-- **Not a fail:** a region that shows nothing for under a second while it loads.
+- **Check:** see each state. Use an empty account or workspace for no data, and one with many items. Take the longest, shortest and oddest values from what each field allows, not from typical data: a name in another script, an emoji built from several joined characters, two items with the same name, one more item than fits a page (Emil Kowalski, "break-ui"). In DevTools, slow the network (Network panel, "Slow 4G") to see loading, and block each data request in turn to see failure. Search the rendered page for `null`, `undefined`, `NaN`, `[object Object]`, escaped markup such as `&amp;`, unrendered Markdown such as `**`, dates in 1970, and numbers with a long tail of digits, such as 0.30000000000000004; a match that is real content is not a fail. A blank region with no message, a raw value, a spinner still turning after the request failed, or placeholder text fails. Then use each kind of account the product has: each plan, a trial near its end, an account at a limit, each role. A screen that breaks fails, and so does a control that does nothing with no word on why or what to do next.
+- **Fail:**
+  - a storage card that reads "NaN GB used" when its request fails;
+  - "Last seen 1 January 1970" for someone who never signed in;
+  - a sidebar that turns blank, with no message, while a request hangs;
+  - an Export button that does nothing for an account at its limit, with no word about the limit.
+- **Pass:**
+  - the same card reads "Storage unavailable. Retry", and the rest of the page keeps working;
+  - a region that shows nothing for under a second while it loads.
 
 ### 3. What people need is in view; the rest is one named step away
 
 A screen shows first what most people need for its task, and what they need to decide where they decide: the price, the limit, what is included, what an action will affect. What only some people need sits one step away, behind a control that says what it reveals. Nothing most people need is hidden. Before a task of many steps, or one that needs things people must fetch, the screen says roughly how long it takes, what it costs and what they need to have ready.
 
 - **Why:** People miss what is hidden: content in a collapsed section may be missed altogether (Wang 2023, "Accordions on Desktop"), and where SaaS sites hid plan features behind "View More", people overlooked them, and some decided the features didn't exist and left (Collins 2025). So GOV.UK hides only what some users need, and Apple labels a disclosure with what it shows or hides (GOV.UK, "Details"; Apple, "Disclosure controls"). GOV.UK's start pages say what a service costs, roughly how long it takes and what people need to have ready ("Start using a service").
-- **Kind:** Current practice: what most people need, and what they need to decide, in view; the rest behind a control named for what it reveals; a long task's time, cost and needs said at its start.
 - **Applies when:** a screen shows more than people need at once, or hides some of it.
 - **Check:** from the frame (rule 1), list what the screen's main task needs, and what people must know to choose. Anything on that list that sits behind a collapsed section, a "View more", a tooltip or another page fails. A control that doesn't say what it reveals, such as "More" or "Details", fails. Before each long task, such as an application: no word on roughly how long it takes, what it costs, or what people need to have ready, fails.
-- **Fail:** a plan's limits only in a tooltip on its price. "Advanced" collapsed over the one setting everyone changes. An application that asks for a passport number on its eighth page, with no word at the start.
-- **Pass:** each plan lists its limits under its price; rarely used settings sit under "Show retention and export settings".
-- **Not a fail:** a long reference list collapsed into sections that each name what they hold. A "⋯" button that opens a menu of a row's or a page's secondary actions.
+- **Fail:**
+  - a plan's limits only in a tooltip on its price;
+  - "Advanced" collapsed over the one setting everyone changes;
+  - an application that asks for a passport number on its eighth page, with no word at the start.
+- **Pass:**
+  - each plan lists its limits under its price;
+  - rarely used settings sit under "Show retention and export settings";
+  - a long reference list collapsed into sections that each name what they hold;
+  - a "⋯" button that opens a menu of a row's or a page's secondary actions.
 
 ### 4. Every piece of content answers a question people bring
 
 Every label, chip, caption, figure and line on a screen answers a question people bring to it, and says it once. In a flow, what shows on every step answers a question people bring to that step. Context that a group of items shares sits once, in the group's heading, not on each item. What is the same for every item, or is the usual case, isn't repeated on each one; what differs is shown. In a list of people, the person viewing is marked, such as "(you)" beside their name, and their row offers only the actions that apply to them. When people misread a screen, the fix changes its structure or removes words before it adds any.
 
 - **Why:** Every extra piece of information competes with the ones people need and makes them harder to see (Nielsen 1994, heuristic 8), so a fix that only adds words adds to the competition. Systems state shared context once: PatternFly lists only the non-zero items in a status card, and Cloudscape puts a table's time zone in the column header, not in every cell (PatternFly, "Dashboard"; Cloudscape, "Table"). People look for themselves in a list of members or assignees, and a mark finds them at once (Emil Kowalski, "Breaking UI").
-- **Kind:** Current practice: every label, chip, caption, figure and line answers a question people bring, once, and in a flow, on each step; shared context in the group's heading; the usual value not repeated on each item; the person viewing marked in a list of people; fixes for a misread screen that change its structure or remove words before adding any.
 - **Applies when:** always.
 - **Check:** list every label, chip, caption, figure and line on the screen, and name the question each one answers for the person using it, from the frame (rule 1). One that answers no question they bring, repeats what the screen already says, or shows the same value on every item fails. In a flow, do this for each step: something repeated on every step that answers no question people bring to that step fails. When a component needs a label on every value to be understood, the fix is its structure, not more labels. Two items in one collection that show the same text, with nothing beside them to tell them apart, fail. Open each list of people, such as members or assignees: no mark on the person viewing fails, and so does an action on their own row that can't apply to them.
-- **Fail:** "Status: Active" on every row of a list where only a few rows are paused. "Updated just now" under each card of a dashboard that refreshes as a whole. A line under each figure saying where its data came from, when all of them come from the same place. The same three-line welcome text at the top of every step of a sign-up. Two workspaces named "Acme" in the switcher, with nothing else shown.
-- **Pass:** paused rows marked "Paused", and active rows with no badge. "Updated just now" once, at the top of the dashboard.
-- **Not a fail:** a value shown on every row of a table where people compare it across rows. A step indicator, or the order summary, on every step of a checkout.
+- **Fail:**
+  - "Status: Active" on every row of a list where only a few rows are paused;
+  - "Updated just now" under each card of a dashboard that refreshes as a whole;
+  - a line under each figure saying where its data came from, when all of them come from the same place;
+  - the same three-line welcome text at the top of every step of a sign-up;
+  - two workspaces named "Acme" in the switcher, with nothing else shown.
+- **Pass:**
+  - paused rows marked "Paused", and active rows with no badge;
+  - "Updated just now" once, at the top of the dashboard;
+  - a value shown on every row of a table where people compare it across rows;
+  - a step indicator, or the order summary, on every step of a checkout.
 
 ### 5. Content is real, and shows the product as it is
 
-What people see is real: real names, figures and states, never lorem ipsum, "Test item" or invented numbers in anything shipped. Figures, quotes, customers and results the product shows are true, and pictures of the product show only screens and features it has.
+What people see is real: real names, figures and states, never lorem ipsum, "Test item" or invented numbers in anything shipped. Figures, quotes, reviews, customers and results the product shows are true, and pictures of the product show only screens and features it has.
 
 - **Why:** People take what a product shows as true, and choose, buy or trust on it. In the US, a claim people reasonably read as fact must be true, and fake reviews and testimonials, AI-written ones included, are banned (FTC, "Policy Statement on Deception"; FTC, "Rule on the Use of Consumer Reviews and Testimonials"). Placeholder text in a shipped screen holds the place of content people need, so they see nothing true where they expected their data or the product's.
-- **Kind:** Every product: no invented figures, testimonials, reviews, customer logos or results, and no pictures of screens or features the product doesn't have, since people take them as true and choose, buy or trust on false grounds; no placeholder text such as lorem ipsum or "Test item" in shipped screens, since the content people need isn't there.
 - **Applies when:** a screen shows figures, quotes, names or pictures of the product.
 - **Check:** for each figure, look for where its number comes from, in the product's docs, data or code: a figure shown to be false fails; one you can't trace is a question for the owner, not a fail. Compare each picture of the product with the product: a screen or feature it doesn't have fails. Search shipped screens for "lorem", "Test", "John Doe" and "example.com": a match that stands in for real data fails.
-- **Fail:** an onboarding screen that shows a feature the product doesn't have. "Lorem ipsum" in a shipped empty state. A usage figure the product's data doesn't back.
-- **Pass:** real names and figures from the person's account. An onboarding screen that shows the real product.
-- **Not a fail:** a demo workspace filled with sample data that the product labels as sample. "name@example.com" as the example in an email field's hint. Figures with no source line or footnote, when the company can back them.
+- **Fail:**
+  - an onboarding screen that shows a feature the product doesn't have;
+  - "Lorem ipsum" in a shipped empty state;
+  - a usage figure the product's data doesn't back.
+- **Pass:**
+  - real names and figures from the person's account;
+  - an onboarding screen that shows the real product;
+  - a demo workspace filled with sample data that the product labels as sample;
+  - "name@example.com" as the example in an email field's hint;
+  - figures with no source line or footnote, when the company can back them.
 
 ## Component
 
 ### 6. The form fits the data
 
-A table holds items that people compare by attributes they share. A list holds text-heavy items, or items whose fields don't fit columns. Cards or a grid hold a small set, visual items, or items whose fields differ. A comparison shows up to about five items, with the options in columns and headers that stay in view, and every item has a value in every row, written the same way where it means the same. On a phone, a wide table becomes a list, and a comparison shows about two items side by side.
+A table holds items that people compare by attributes they share. A list holds text-heavy items, or items whose fields don't fit columns. Cards or a grid hold a small set, visual items, or items whose fields differ. A comparison shows up to about five items, with the options in columns and headers that stay in view, and every item has a value in every row, written the same way where it means the same. On a phone, a wide table becomes a list, and a comparison shows about two items side by side. At 320 CSS px wide, each list item and each table cell reads without scrolling sideways, while a data table as a whole may scroll.
 
-- **Why:** A table lets people compare values across rows and columns, so it holds items with shared attributes and is never used for layout; long text, or fields that don't fit columns, go in a list; and cards suit a few items, or items whose details differ (GOV.UK, "Table"; Primer, "DataTable"; PatternFly, "Table"; Cloudscape, "View resources"). Visual products suit a grid, and products chosen by specifications a list (MacDonald 2026, "Product Listing Page"); an engineer comparing parts in a list nearly missed key differences, so desktop gets a table and phones a list, where a wide table scrolls both ways (Olah 2024). People weigh only a few options against each other and forget which column is which, so a comparison holds up to five items with its headers in view, about two on a phone, and a missing or inconsistent value makes it useless (Moran and Dykes 2024). WCAG lets a data table as a whole scroll sideways, though not its cells (Understanding 1.4.10).
-- **Kind:** Every product: at 320 CSS px wide, each list item and each table cell reads without scrolling sideways, while a data table as a whole may scroll (WCAG 2.2, 1.4.10), since people who enlarge the page lose their place when they scroll back and forth along each line. Current practice: the form for each kind of data; comparisons of up to about five items with options in columns, fixed headers and a value for every item in every row; wide tables become lists on phones, and comparisons show about two items there.
+- **Why:** A table lets people compare values across rows and columns, so it holds items with shared attributes and is never used for layout; long text, or fields that don't fit columns, go in a list; and cards suit a few items, or items whose details differ (GOV.UK, "Table"; Primer, "DataTable"; PatternFly, "Table"; Cloudscape, "View resources"). Visual products suit a grid, and products chosen by specifications a list (MacDonald 2026, "Product Listing Page"); an engineer comparing parts in a list nearly missed key differences, so desktop gets a table and phones a list, where a wide table scrolls both ways (Olah 2024). People weigh only a few options against each other and forget which column is which, so a comparison holds up to five items with its headers in view, about two on a phone, and a missing or inconsistent value makes it useless (Moran and Dykes 2024). WCAG lets a data table as a whole scroll sideways, though not its cells (WCAG 2.2, 1.4.10; Understanding 1.4.10), since people who enlarge the page lose their place when they scroll back and forth along each line.
 - **Applies when:** a screen shows a collection of items.
-- **Check:** for each collection, name what people do with it: compare by several attributes, read long text, or browse visual items. Each of these fails: cards for items people compare by several attributes; a table used for layout; a comparison of more than about five items at once; a comparison whose headers scroll out of view; a comparison with an empty cell, or with one meaning written two ways, such as "None" and "0"; a phone layout where reading one row of a table needs sideways scrolling (current practice only: WCAG lets a data table scroll sideways). At 320 px wide, a list item or a single table cell that needs sideways scrolling fails every product.
-- **Fail:** eight plans as cards with features in different orders. Servers as cards when people compare their CPU, memory and region.
-- **Pass:** servers in a table with CPU, memory and region columns, and the same rows stacked as a list on a phone.
-- **Not a fail:** a grid of image thumbnails people browse by look.
+- **Check:** for each collection, name what people do with it: compare by several attributes, read long text, or browse visual items. Each of these fails: cards for items people compare by several attributes; a table used for layout; a comparison of more than about five items at once; a comparison whose headers scroll out of view; a comparison with an empty cell, or with one meaning written two ways, such as "None" and "0"; a phone layout where reading one row of a table needs sideways scrolling (WCAG lets a data table scroll sideways). At 320 px wide, a list item or a single table cell that needs sideways scrolling fails.
+- **Fail:**
+  - eight plans as cards with features in different orders;
+  - servers as cards when people compare their CPU, memory and region.
+- **Pass:**
+  - servers in a table with CPU, memory and region columns, and the same rows stacked as a list on a phone;
+  - a grid of image thumbnails people browse by look.
 
 ### 7. What a screen starts with is what most people would choose
 
 Where a screen chooses before people do, such as a selected option, a filled-in field, a sort order or a filter, it picks what most people would pick and what serves them, never what earns the product more. A question about the person or their case starts with nothing selected. A list starts in the order its main use needs, such as newest or most urgent first. Where people can change the order, or it isn't obvious, the screen shows the current one.
 
 - **Why:** People tend to keep what is chosen for them, partly because they read it as a recommendation (Johnson and Goldstein 2003), though how much defaults move choices varies widely and stays uncertain (Jachimowicz et al. 2019; Maier et al. 2022). An answer selected in advance makes people more likely to miss the question or send the wrong answer (GOV.UK, "Radios"). Cloudscape bases a table's first order on how people use it ("Table"). People who can't see the order read the list wrongly, such as taking the top row for the newest, so Carbon marks the sorted column and its direction ("Data table").
-- **Kind:** Current practice.
 - **Applies when:** a screen starts with an option selected, a field filled in, or a list in an order or filter people can change.
 - **Check:** list each choice the screen makes before people do, and name whom it serves, from the frame (rule 1) and the product's data where there is some. One that serves the product against the person fails, such as the dearer plan or the largest donation selected for them. An answer already selected in a question about the person fails. A list whose first order doesn't fit its main use fails, such as an inbox sorted by sender. Where people can change a list's order, or the order isn't obvious, no sign of the current order fails. Which choice most people make, where there is no evidence, is a question for the owner, not a fail.
-- **Fail:** "Have you lived abroad in the last five years?" with "No" already selected. A donation form that starts on its largest amount. A table sorted by revenue with no mark on any column.
-- **Pass:** an incident list sorted by severity, highest first. A time zone filled in from the person's browser.
-- **Not a fail:** a plan marked "Recommended" that people still have to select. A setting that starts on the value most accounts use. A contact list in A–Z order, or a chat in time order, with no sort label.
+- **Fail:**
+  - "Have you lived abroad in the last five years?" with "No" already selected;
+  - a donation form that starts on its largest amount;
+  - a table sorted by revenue with no mark on any column.
+- **Pass:**
+  - an incident list sorted by severity, highest first;
+  - a time zone filled in from the person's browser;
+  - a plan marked "Recommended" that people still have to select;
+  - a setting that starts on the value most accounts use;
+  - a contact list in A–Z order, or a chat in time order, with no sort label.
 
 ### 8. Long lists come in parts that fit the task, and people know where they are
 
 Long lists that people search, compare or work through come in pages or behind "Load more", with the total and the range in view ("26–50 of 1,240"). The page and the place in the list live in the URL, and Back returns to the same place. If a list loads more as people scroll, as a social feed does, the footer stays reachable and the keyboard can leave the feed. A list of one page has no pagination.
 
 - **Why:** Content that keeps loading as people scroll causes problems for keyboard users, and a feed has no common keyboard convention, so people need a key that moves focus out of it, such as Ctrl+End (GOV.UK, "Pagination"; WAI-ARIA APG, "Feed Pattern"). Pages let people keep their place: "Load more" beats endless scrolling, and people return to the same place after an item (MacDonald 2026, "Product Listing Page"); every page has a URL, and one page needs no pagination (Primer, "Pagination"); the range and the total stay in view, with "+" when the total isn't known (Carbon, "Pagination"; Cloudscape, "Table").
-- **Kind:** Every product: whatever follows a list that loads more as people scroll, such as the footer, stays reachable by pointer and keyboard, since people otherwise can't get to it. Current practice: pages or "Load more" for lists people search, compare or work through; the total and the range in view; the place in the URL and kept on Back; no pagination for one page.
 - **Applies when:** a list can hold more items than fit on one screen.
-- **Check:** scroll to the end of each long list with a wheel, then with the keyboard (Tab, End, Ctrl+End): a footer you can't reach fails. Open an item and press Back: landing at the top of the list fails current practice. No total or range in view, or a reload on page 3 that lands on page 1, fails current practice. A list people search that loads endlessly as they scroll fails current practice. Make a list exactly one page long, then one item longer: pagination on the first, or an empty last page on the second, fails current practice.
-- **Fail:** an activity log that loads more forever, so the footer's links can't be reached. A results list that returns to page 1 after Back.
-- **Pass:** "Showing 26–50 of 1,240", page numbers, `?page=2` in the URL, and Back to the same row.
-- **Not a fail:** a social feed that loads as people scroll, with the footer's links also in the menu and a key to leave the feed.
+- **Check:** scroll to the end of each long list with a wheel, then with the keyboard (Tab, End, Ctrl+End): a footer you can't reach fails. Open an item and press Back: landing at the top of the list fails. No total or range in view, or a reload on page 3 that lands on page 1, fails. A list people search that loads endlessly as they scroll fails. Make a list exactly one page long, then one item longer: pagination on the first, or an empty last page on the second, fails.
+- **Fail:**
+  - an activity log that loads more forever, so the footer's links can't be reached;
+  - a results list that returns to page 1 after Back.
+- **Pass:**
+  - "Showing 26–50 of 1,240", page numbers, `?page=2` in the URL, and Back to the same row;
+  - a social feed that loads as people scroll, with the footer's links also in the menu and a key to leave the feed.
 
 ### 9. An empty state says why it is empty and what to do next
 
 Each kind of empty says its own thing. First use: what goes here, and one way to start. No results: that nothing matched, with the query or filters still in view, so people can see what found nothing and change it, and one step to widen or clear them, and the list's controls kept. Nothing left to do: say so, with no action. No access: why, and who can give it. A list that failed or is still loading is never shown as empty. An illustration is optional, and text alone fits small or repeated spaces. What people still need after the first item, such as a limit or a link to settings, also sits outside the empty state.
 
 - **Why:** People who see a generic empty state for data they created may think it was deleted, so a list that failed or is still loading never shows as empty (Primer, "Degraded experiences"; Cloudscape, "Empty states"). Each kind of empty needs its own words: systems separate first use, no results and errors, make the image optional, use text alone where several show at once, and say why access is missing and how to ask for it (Carbon, "Empty states"; SAP Fiori, "Empty States"; Shopify, "Empty state"). Nearly half of ecommerce sites gave people no good way out of a search with no results, and search tips alone didn't help, since people rarely read them (Sousa 2025); Cloudscape offers "Clear filter" and keeps sorting and pagination when nothing matches ("Empty states"; "Table").
-- **Kind:** Every product: a list that failed or is still loading never says it is empty, since people take it as having no data and act on that. Current practice: each kind with its own message and next step; no results with the query in view, a way to widen or clear it, and the list's controls kept; the illustration optional.
 - **Applies when:** a list, table, panel or page can be empty.
-- **Check:** create each kind: a new account (first use), a search for nonsense, filters that match nothing, the last item removed, a role without access. Then block the list's request, and slow it: "No items", or an empty state, while it fails or loads fails. An empty state that doesn't say why, or offers no next step where one exists, fails current practice; so does a no-results state that clears the query or hides the filters. Then add the first item: anything people still need that went away with the empty state fails current practice.
-- **Fail:** "No projects yet. Create your first project" shown while the projects request is failing. A no-results page that empties the search box. The only link to import settings, inside the message of an empty list.
-- **Pass:** "No projects match 'acme'. Clear search", with the search box still holding "acme". "You don't have access to billing. Ask a workspace owner."
-- **Not a fail:** "All caught up" with no button, when nothing needs doing. A private item, such as another team's project, that shows the same "not found" page as a missing one, where knowing it exists would itself reveal something; HTTP allows this (RFC 9110).
+- **Check:** create each kind: a new account (first use), a search for nonsense, filters that match nothing, the last item removed, a role without access. Then block the list's request, and slow it: "No items", or an empty state, while it fails or loads fails. An empty state that doesn't say why, or offers no next step where one exists, fails; so does a no-results state that clears the query or hides the filters. Then add the first item: anything people still need that went away with the empty state fails.
+- **Fail:**
+  - "No projects yet. Create your first project" shown while the projects request is failing;
+  - a no-results page that empties the search box;
+  - the only link to import settings, inside the message of an empty list.
+- **Pass:**
+  - "No projects match 'acme'. Clear search", with the search box still holding "acme";
+  - "You don't have access to billing. Ask a workspace owner.";
+  - "All caught up" with no button, when nothing needs doing;
+  - a private item, such as another team's project, that shows the same "not found" page as a missing one, where knowing it exists would itself reveal something; HTTP allows this (RFC 9110).
 
 ### 10. Loading keeps what people have, and adds the rest as it arrives
 
 On the first load, the page shows its frame and the most important content first, and the rest as it arrives. A region whose layout is known holds a skeleton of the same size and shape; one whose layout isn't known shows a spinner where the content will go. Waits under about a second show neither. On refresh, filtering or paging, the old content stays in view and is marked as updating, rather than swapped for a spinner. A control people can press never shows a state that isn't known to be true: while its real state loads, it shows the last state people saw, kept on the device, or a neutral loading look, never a default such as Off. As a starting point, a page people come back to shows what they saw last time at once, marked as updating, while the new data loads (default).
 
 - **Why:** Swapping what people are looking at for a fallback is jarring and loses their place, so the old results stay, and stay usable, until the new ones are ready (React, "Suspense"; Cloudscape, "Loading and refreshing"). A loading state that flashes for under a second makes the product feel slower, and a row of small indicators is noise, so Primer shows none under a second, one indicator for a group, and each piece, the most important first, as soon as it loads ("Loading"); Material 3 shows none under 200 ms ("Loading indicator"). About a second is the limit for a response people haven't prepared for (Card et al. 1991). A skeleton fits a known layout and matches its size and shape, so nothing jumps; where the layout isn't known, a spinner or progress bar fits (PatternFly, Atlassian, Geist and Fluent 2, "Skeleton"). Few studies compare them: in two online studies, a realistic copy of the page that took clicks early beat both a skeleton and a spinner on rated speed, task time and preference (Dufresne et al. 2025), so a skeleton is chosen for fit, not for speed. A switch that shows a default, then flips to its real state, invites a press that turns it the wrong way, and looks broken, while content people saw last time, kept on the device, lets them start reading at once (Interface Craft, "Perceived Performance").
-- **Kind:** Current practice: the frame and the most important content first; a skeleton that matches a known layout, or a spinner where the layout is unknown; nothing for waits under a second; old content kept and marked as updating on refresh, filtering and paging; a control that shows only a known state, the last one seen or a loading look. Default: on return, the content people last saw at once, marked as updating.
 - **Applies when:** a page or a region loads data.
 - **Check:** slow the network (DevTools, "Slow 4G") and reload. Content that appears all at once after a long blank, a skeleton whose shape doesn't match the content that replaces it, or more than one spinner in one region fails. Change a filter, the sort and the page: the old list swapped for a spinner or a skeleton fails, unless the old results would mislead. Reload with the network slowed: a switch, checkbox, bookmark or read mark that shows a default before its real state, then flips, fails.
-- **Fail:** a full-page spinner on every filter change, which wipes the list. Skeleton rows half the height of the real rows. A bookmark icon that shows empty on every load, then fills.
-- **Pass:** the list stays, faded slightly with "Updating…" above it, until the filtered results replace it. A switch that shows the state people last saw while it checks the server.
-- **Not a fail:** a skeleton in place of the old results when they no longer match what was asked, such as after switching workspaces.
+- **Fail:**
+  - a full-page spinner on every filter change, which wipes the list;
+  - skeleton rows half the height of the real rows;
+  - a bookmark icon that shows empty on every load, then fills.
+- **Pass:**
+  - the list stays, faded slightly with "Updating…" above it, until the filtered results replace it;
+  - a switch that shows the state people last saw while it checks the server;
+  - a skeleton in place of the old results when they no longer match what was asked, such as after switching workspaces.
 
 ### 11. Failures, gaps and old data say what they are
 
-When one part fails, only that part is replaced, by a message that says what failed and what to do, often Retry, and the rest of the page keeps working. A full error page is for when the page's main purpose can't be served, and it gives a way on. A value that couldn't load never shows as zero. A missing value looks different from a zero, and a value hidden by permission says so. A partial list says it is partial. Data people act on shows when it was last updated, and an offline state shows on every screen, with what still works.
+When one part fails, only that part is replaced, by a message that says what failed and what to do, often Retry, and the rest of the page keeps working. A full error page is for when the page's main purpose can't be served, and it gives a way on. A value that couldn't load never shows as zero; a part the task doesn't need, such as a count, may be left out whole instead. A missing value looks different from a zero, and a value hidden by permission says so. A partial list says it is partial. Data people act on shows when it was last updated, and an offline state shows on every screen, with what still works.
 
 - **Why:** People act on what they see, so a part that failed and shows as empty or zero reads as true. Primer and Cloudscape replace only the failed part with a message and keep the rest of the page working, with a full error page only when the page's main purpose fails; Primer may leave out a part the task doesn't need, and hides a count it can't compute rather than guess it (Primer, "Degraded experiences"; Cloudscape, "Error messages"). A message says what happened and then what to do, since "An error occurred" leaves people without context (Geist, "Error"; Neusesser and Sunwall 2023), and a full error page says what happened to people's answers and how else to do what they came for (GOV.UK, "There is a problem with the service pages"). Cloudscape tells an empty value from a real zero ("Empty states"), GOV.UK links a missing answer to the question that fills it ("Summary list"), and Carbon says when people lack permission to see data and how to ask ("Empty states"). Cloudscape shows the time of each refresh ("Loading and refreshing"), and SAP Fiori shows the offline state on every screen, with the time of the last sync ("Offline").
-- **Kind:** Every product: a part that failed never shows as empty, as zero or as a real value. It says that it failed, or, if the task doesn't need it, such as a count, it is left out whole, since people act on what they see. Current practice: only the failed part replaced, with what to do next; a full error page only when the main purpose fails; missing, zero and hidden values told apart; partial lists marked; last-updated times on data people act on; offline shown on every screen.
 - **Applies when:** data can fail, be missing, be partial or go out of date.
-- **Check:** block each request in turn in DevTools. A region that turns blank under its heading, or shows 0, fails. A message with no next step, or the whole page replaced when one part failed, fails current practice. In tables and summaries, find missing, zero and hidden values: one mark for all three fails current practice. Go offline (Network panel, "Offline") and use the product: no visible sign fails current practice.
-- **Fail:** "0 orders today" when the orders request failed. "Something went wrong" with no next step, filling the whole page because a side panel's request failed.
-- **Pass:** "Orders unavailable. Retry" in the panel that failed, with the list beside it still working. "Not provided" for a field never filled, "0" for a real zero, and "Hidden: ask an admin" for a value the person can't see.
-- **Not a fail:** a full error page when the page's own record can't load.
+- **Check:** block each request in turn in DevTools. A region that turns blank under its heading, or shows 0, fails. A message with no next step, or the whole page replaced when one part failed, fails. In tables and summaries, find missing, zero and hidden values: one mark for all three fails. Go offline (Network panel, "Offline") and use the product: no visible sign fails.
+- **Fail:**
+  - "0 orders today" when the orders request failed;
+  - "Something went wrong" with no next step, filling the whole page because a side panel's request failed.
+- **Pass:**
+  - "Orders unavailable. Retry" in the panel that failed, with the list beside it still working;
+  - "Not provided" for a field never filled, "0" for a real zero, and "Hidden: ask an admin" for a value the person can't see;
+  - a full error page when the page's own record can't load.
 
 ### 12. People know when an AI is answering, and can stop it
 
 An AI that people interact with, such as a chat assistant or a support agent, says it is an AI in the interface, by its first reply at the latest, unless that is obvious to the people it serves. Content an AI made is marked as made by AI where it sits beside content people wrote, once for a group that is all AI-made. People can stop an answer while it is being written, and a stopped answer keeps what was written so far.
 
 - **Why:** People who can't tell an AI's reply from a person's are misled about who answers them. In the EU, an AI system that interacts with people tells them so, clearly and by the first interaction at the latest, unless a reasonably well-informed person would find it obvious; the Commission reads "obvious" narrowly, and a notice only in the terms or the docs isn't enough (AI Act, Article 50(1) and (5); European Commission, "Guidelines on Article 50"). Carbon and Cloudscape mark AI-made content with a label beside it, and Cloudscape puts one label on a group that is all AI-made (Carbon, "Carbon for AI"; Cloudscape, "Generative AI output label"). An answer can go wrong or run long, so people need to stop it, and one that disappears when stopped throws away what they already read; Cloudscape keeps the stopped text in view ("Response regeneration").
-- **Kind:** Every product: in the EU, an AI people interact with says it is an AI, in the interface, by its first reply at the latest, unless that is obvious to the people it serves (AI Act, Article 50(1) and (5)), since people otherwise take its replies for a person's. Current practice: AI-made content marked beside it, once for a group that is all AI-made; answers people can stop, which keep what was written.
 - **Applies when:** people interact with an AI in the product, or the product shows content an AI made beside content people wrote.
-- **Check:** as a new user, start a conversation with each AI the product offers: no words in the interface that say it is an AI, before or with its first reply, fail, and so does a notice found only in the terms or the docs. Find each place where AI-made text, images or summaries sit beside people's own: no mark there fails current practice, and so does a mark on every item of a group that is all AI-made. Stop an answer while it is being written: no way to stop it, or an answer that disappears, fails current practice.
-- **Fail:** a support chat whose agent is "Sam", with a photo of a person and no sign that Sam is an AI. An AI summary of a ticket above the customer's own messages, in the same style, with no mark.
-- **Pass:** "AI assistant" under the chat's title, and a first reply that starts "I'm an AI assistant". "Generated by AI" once above a list of suggested replies.
-- **Not a fail:** a code assistant used only by developers, with no notice: the Commission's guidelines count it as obvious.
+- **Check:** as a new user, start a conversation with each AI the product offers: no words in the interface that say it is an AI, before or with its first reply, fail, and so does a notice found only in the terms or the docs. Find each place where AI-made text, images or summaries sit beside people's own: no mark there fails, and so does a mark on every item of a group that is all AI-made. Stop an answer while it is being written: no way to stop it, or an answer that disappears, fails.
+- **Fail:**
+  - a support chat whose agent is "Sam", with a photo of a person and no sign that Sam is an AI;
+  - an AI summary of a ticket above the customer's own messages, in the same style, with no mark.
+- **Pass:**
+  - "AI assistant" under the chat's title, and a first reply that starts "I'm an AI assistant";
+  - "Generated by AI" once above a list of suggested replies;
+  - a code assistant used only by developers, with no notice: the Commission's guidelines count it as obvious.
 
 ### 13. An ad says it is an ad
 
 An ad or a sponsored item says so where it shows, so people can tell it from what was chosen for them. On an online platform that serves people in the EU, each ad also says on whose behalf it runs and, if someone else paid, who paid, and people can get from the ad itself to why they see it. Where people can choose how the platform orders what it suggests, such as "Recommended" or "Newest", that choice is reachable from the list itself.
 
 - **Why:** An ad that isn't marked can't be told from a result chosen for the person, so people choose on what someone paid to show them. The EU requires these marks for each ad on an online platform (a service that stores what its users post and shows it to the public, such as a marketplace, a social network or an app store), and a choice of order reachable directly from the part of the page it orders; micro and small companies are exempt (Digital Services Act, Articles 3(i), 19, 26(1) and 27(3)).
-- **Kind:** Every product: on an online platform in the EU, each ad marked as an ad, with whom it runs for and who paid if that differs, and why the person sees it reachable from the ad; where people can choose the order of what is suggested, the choice reachable from that list (Digital Services Act, Articles 26(1) and 27(3)), since people otherwise take paid placement for what fits them, and can't find the order they would choose. Current practice: every ad or sponsored item marked as one, wherever it shows.
-- **Applies when:** the product shows ads or sponsored items, or orders what it suggests to people. The Every product part applies to online platforms under the Digital Services Act that serve people in the EU, unless the company is micro or small by the EU's definition.
+- **Applies when:** the product shows ads or sponsored items, or orders what it suggests to people, except its own promotions, such as of its paid plan, which no one paid it to show. What the Digital Services Act requires applies to online platforms that serve people in the EU, except micro and small companies by the EU's definition.
 - **Check:** find each ad and sponsored item: no mark that says it is an ad fails. On an EU platform, no name for whom it runs, or for who paid where that differs, fails too; open its menu or its info link: no way from the ad to why it shows fails. Find each list the platform orders for people, such as a feed, search results or recommendations: if the product offers another order anywhere, such as in settings, but not from the list itself, it fails.
-- **Fail:** a "Sponsored" listing in marketplace results with no advertiser's name and no "Why this ad?". A feed whose "Most recent" order exists only in account settings.
-- **Pass:** "Sponsored · Paid for by Acme Ltd" above a listing, with "Why am I seeing this ad?" in its menu. A "Sort: Recommended / Newest" control at the top of the feed.
-- **Not a fail:** the platform's own promotion of its paid plan, which no one paid it to show, so it isn't an ad in the Act's sense.
+- **Fail:**
+  - a "Sponsored" listing in marketplace results with no advertiser's name and no "Why this ad?";
+  - a feed whose "Most recent" order exists only in account settings.
+- **Pass:**
+  - "Sponsored · Paid for by Acme Ltd" above a listing, with "Why am I seeing this ad?" in its menu;
+  - a "Sort: Recommended / Newest" control at the top of the feed.
 
 ### 14. A few actions show, and the rest go in one menu
 
 A card, row or table toolbar shows the actions people use most as buttons, three at most, and the rest go in one overflow menu. A toolbar of tools shows as many as fit, most used first, and moves the rest into its overflow menu as the window narrows.
 
 - **Why:** Each visible action competes with the others: things emphasized the same way no longer stand out from each other (Duncan and Humphreys 1989). PatternFly advises at most three visible actions in a toolbar and no overflow menu of two or fewer, and Carbon groups two or three buttons and puts more into menus (PatternFly, "Overflow menu"; Carbon, "Button usage"). Apple keeps every action that fits in a toolbar and lets the system move the rest into an overflow menu (Apple, "Toolbars").
-- **Kind:** Current practice: at most three visible actions in a group of buttons.
+- **Applies when:** the actions of a card, a row or a toolbar, except filters, search, sorting and view controls beside them, which change the view.
 - **Check:** count the visible actions in each toolbar, card and row, and check that the visible ones are the ones used most.
-- **Fail:** a table toolbar with seven equal buttons. A "…" menu that holds only Edit.
-- **Pass:** Export and Share as buttons, and five rarer actions in a "…" menu.
-- **Not a fail:** an editor's formatting toolbar, where every control is used all the time. Filters, search, sorting and view controls beside the actions: they change the view and don't count as actions.
+- **Fail:**
+  - a table toolbar with seven equal buttons;
+  - a "…" menu that holds only Edit.
+- **Pass:**
+  - Export and Share as buttons, and five rarer actions in a "…" menu;
+  - an editor's formatting toolbar, where every control is used all the time.
 
 ### 15. An image shows something people need, or it goes
 
 Every picture earns its place, however it is drawn: photos, screenshots, illustrations, icons used as pictures, background patterns and textures, and shapes or glows drawn in CSS or SVG. Each one shows what people need to see: the product, the real people, the result. Decorative pictures are left out, and so is a picture repeated on every step of a flow that tells nothing new after the first. In the product, an illustration belongs only in an empty, error or success state, onboarding or a feature tour, and it is the first thing to drop when space is tight. A person in a photo looks toward the content the photo should lead to. A generated or altered photo or video that looks real, of people, places or events, says so where it is shown.
 
 - **Why:** People look closely at photos of real products and people that carry information, and skip feel-good and stock images, which take up space and add little (Nielsen 2010; Paul, "7 Tips", 2024; Krause 2023); interesting but irrelevant additions, pictures among them, lowered what people learned (Sundararajan and Adesope 2020), and pictures behind content slowed reading (Gillan and Richman 1994). Atlassian keeps illustrations in the product to empty, error and success states, onboarding and feature tours, and patterns to messages and promotional areas, and Carbon drops the empty-state image when space is tight (Atlassian, "Illustrations"; Carbon, "Empty states pattern"). A face looking toward an ad's text or product drew attention there and helped people remember it (Sajjacholapunt and Ball 2014; Palcu et al. 2017). People take a realistic photo as a record of something real, and from 2 August 2026, whoever shows a realistic image or video made or altered by AI in the EU must say so (EU AI Act, Article 50(4)).
-- **Kind:** Every product: a generated or altered photo or video that looks real says so where it is shown (EU AI Act, Article 50(4)). Current practice: the rest.
-- **Applies when:** a screen or section shows any picture or graphic beyond text and controls. Lines, borders and boxes that group content are not pictures.
+- **Applies when:** a screen or section shows any picture or graphic beyond text and controls, except lines, borders and boxes that group content.
 - **Check:** list the pictures from the screenshot and from the CSS: `background-image`, gradients, `::before` and `::after`, and inline SVG that isn't an icon or a chart. For each, write down what it tells people that the text doesn't. These fail:
   - a picture that tells nothing;
   - a picture repeated on each step of a flow with nothing new to tell;
@@ -197,9 +247,17 @@ Every picture earns its place, however it is drawn: photos, screenshots, illustr
   - in the product, an illustration outside an empty, error or success state, onboarding or a feature tour.
 
   In photos of people meant to lead to a headline or a button, a face looking away from it fails. Ask the owner which photos and videos are generated or altered: one that looks real, with no notice where it is shown, fails.
-- **Fail:** a stock photo of a handshake beside a pricing table. A grid of feature cards whose icons repeat their headings. An illustration above every section of the settings. A dot pattern behind a sign-in form. A generated photo of "our team" on an About page, with no notice.
-- **Pass:** on a marketing page, a screenshot of the real feature beside its description. An empty list with one small illustration and a sentence about what will appear there.
-- **Not a fail:** a brand image in a marketing hero, when the page's own rules call for one. A row of real customers' or integrations' logos, which is proof, not decoration.
+- **Fail:**
+  - a stock photo of a handshake beside a pricing table;
+  - a grid of feature cards whose icons repeat their headings;
+  - an illustration above every section of the settings;
+  - a dot pattern behind a sign-in form;
+  - a generated photo of "our team" on an About page, with no notice.
+- **Pass:**
+  - on a marketing page, a screenshot of the real feature beside its description;
+  - an empty list with one small illustration and a sentence about what will appear there;
+  - a brand image in a marketing hero, when the page's own rules call for one;
+  - a row of real customers' or integrations' logos, which is proof, not decoration.
 
 ## Page
 
@@ -208,31 +266,35 @@ Every picture earns its place, however it is drawn: photos, screenshots, illustr
 A work screen leads with the person's task, or with what needs their action, most urgent first. A dashboard leads with what needs attention; a summary figure leads only when it answers the first question people bring, and then with what it is compared to: a target, a trend or the last period. Someone coming back to a long task they started lands on its overview with the next part marked, or where they left off, with their answers kept.
 
 - **Why:** People open a work screen to act, so what needs them comes first: PatternFly and Carbon put the most important dashboard content at the top, and Linear orders a person's issues by focus, urgent work first (PatternFly, "Dashboard"; Carbon, "Dashboards"; Linear, "My issues", convention). A big number shows only the latest figure and can mislead, and many dashboards lack a comparison, such as past data or a trend, that frequent users may know but newcomers don't (Bach et al. 2023). People who leave a long task continue where they left off, without losing their answers (GOV.UK, "Task list"; WCAG 2.2, 2.2.5, AAA).
-- **Kind:** Current practice: work screens lead with the task or what needs action; a long task picked up where it was left, or from its overview; dashboards with what needs attention, and figures only with a comparison.
 - **Applies when:** always.
 - **Check:** write down what the first screen leads with, and compare it with the frame (rule 1). On a work screen, compare it with the person's most frequent task and with what needs action: neither leading fails. On a dashboard, a row of figures with no comparison leading the page fails. Start a long task, leave it, and come back: landing on its first step, or with answers lost, fails.
-- **Fail:** a support queue that opens on four figure tiles while unanswered tickets wait below the fold. A six-step application that reopens on step 1, empty.
-- **Pass:** the queue opens on tickets waiting for an answer, oldest first.
-- **Not a fail:** a status page that leads with one figure, uptime this month against the target, because that is the question people bring.
+- **Fail:**
+  - a support queue that opens on four figure tiles while unanswered tickets wait below the fold;
+  - a six-step application that reopens on step 1, empty.
+- **Pass:**
+  - the queue opens on tickets waiting for an answer, oldest first;
+  - a status page that leads with one figure, uptime this month against the target, because that is the question people bring.
 
 ### 17. One primary action per view
 
 A page, dialog, side panel or step has one action in the primary style. Other actions use lower styles. When the actions are equal, none is primary, and a view with no main action has no primary button.
 
 - **Why:** Two primary buttons give the eye two places to start, and neither stands out from the other (Duncan and Humphreys 1989). Most design systems ask for one per screen or area, and Apple for one or two per view, though none cites a study; Carbon counts a dialog and a side panel on their own, and Atlassian says not every screen needs one (Material 3, "All buttons"; Carbon, "Button usage"; Atlassian, "Button"; GOV.UK, "Button"; Apple, "Buttons"; Primer, "Button").
-- **Kind:** Current practice.
-- **Applies when:** each page, dialog, side panel and step. A page made of independent areas may have one per area.
+- **Applies when:** each page, dialog, side panel and step, and each area of a page made of independent areas.
 - **Check:** count the buttons in the primary style in each view, in its busiest real state, including empty states and banners.
-- **Fail:** Save, Publish and Invite all filled on one settings page. Three empty dashboard widgets, each with a filled Create button.
-- **Pass:** Publish filled, Save draft secondary and Preview as a text button. Several empty widgets, each with a tertiary Add button (Carbon, "Empty states").
-- **Not a fail:** a dialog with its own primary button over a page that has one: the dialog is its own view.
+- **Fail:**
+  - Save, Publish and Invite all filled on one settings page;
+  - three empty dashboard widgets, each with a filled Create button.
+- **Pass:**
+  - Publish filled, Save draft secondary and Preview as a text button;
+  - several empty widgets, each with a tertiary Add button (Carbon, "Empty states");
+  - a dialog with its own primary button over a page that has one: the dialog is its own view.
 
 ### 18. The first screen shows what this is and what to do
 
 Without scrolling, the screen shows what it is for and the main thing to read or do: the offer on a landing page, what needs attention on a dashboard, the task on a step of a flow.
 
 - **Why:** What is below the first screen is seen only after people scroll, and the upper left of a screen draws the most looks (Jiang et al. 2023).
-- **Kind:** Current practice.
 - **Applies when:** every page, most of all the pages people land on.
 - **Check:** look at a screenshot of the first screen for about five seconds, then write what the screen is for and what to do, and compare that with its job. This is the five-second test. It measures first impressions, not usability (Chan 2024, "Testing Visual Design").
 - **Fail:** a dashboard whose first screen is a welcome message and an illustration, with what needs attention below the fold.
@@ -243,18 +305,22 @@ Without scrolling, the screen shows what it is for and the main thing to read or
 Headings are marked up as headings, in order in the code, without skipped levels. Within a section, a lower heading is never stronger than the one above it, and a heading over running text is stronger than that text.
 
 - **Why:** Screen-reader users move through a page by its headings, so the structure people see must also be in the code (WCAG 2.2, 1.3.1), and clear headings help everyone find what they want (WCAG 2.2, Understanding 2.4.6). Skipped levels confuse readers (W3C, "Page Structure: Headings"). A label over a group of rows can be quiet: Apple's lists offer a default group header beside prominent ones (Apple, `UIListContentConfiguration`).
-- **Kind:** Every product: headings are marked up as headings (WCAG 2.2, 1.3.1). Current practice: a lower heading never outweighs a higher one in its section, and no levels are skipped.
-- **Check:** list the headings in the code with their levels, and compare their computed size and weight down the levels.
-- **Fail:** an h4 styled larger than the h3 above it. Section titles as bold `div`s that screen readers can't jump to. A page that goes from h1 to h4.
-- **Pass:** h1 for the page title, h2 for sections and h3 for subsections, each a step smaller or lighter.
-- **Not a fail:** a short label over a group of rows, such as settings, quieter than the rows, when every group uses the same label style.
+- **Check:** list the headings in the code with their levels, and compare their computed size and weight down the levels and with the text under them. Text styled as a heading but not marked up as one fails. Headings out of order in the code, a skipped level, a lower heading that outweighs a higher one in its section, or a heading no stronger than the running text under it, fails.
+- **Fail:**
+  - an h4 styled larger than the h3 above it;
+  - section titles as bold `div`s that screen readers can't jump to;
+  - a page that goes from h1 to h4.
+- **Pass:**
+  - h1 for the page title, h2 for sections and h3 for subsections, each a step smaller or lighter;
+  - a short label over a group of rows, such as settings, quieter than the rows, when every group uses the same label style.
 
 ### 20. The product's own promotions stay below the task
 
 A promotion of the product's own features, plans or trials has one look of its own, quieter than the screen's primary action and than any warning. On a screen whose task is something else, it never takes the primary style.
 
 - **Why:** A promotion as strong as the main action competes with it (Duncan and Humphreys 1989), and one in the look of a warning teaches people to ignore warnings (Vance et al. 2019). Systems give promotions a look of their own: Atlassian a discovery button for new experiences, Primer an upsell banner beside its status banners (Atlassian, "Button"; Primer, "Banner").
-- **Kind:** Current practice.
 - **Check:** count the promotions on a screen where people work, and compare their weight with the primary action and with the warnings.
-- **Fail:** a filled primary "Start trial" button on a settings page whose task is editing the profile. An upgrade offer in the warning style.
+- **Fail:**
+  - a filled primary "Start trial" button on a settings page whose task is editing the profile;
+  - an upgrade offer in the warning style.
 - **Pass:** a quiet notice about a new feature, in the product's promotion style, at the top of the list it affects, weaker than the list's Create button.

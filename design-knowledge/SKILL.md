@@ -1,12 +1,12 @@
 ---
 name: design-knowledge
-description: 'Standards and sources for product UI design. Foundation guides cover each aspect of every page: content, copy, controls and accessibility (structure); layout, hierarchy, type, color, surfaces, and icons and images (style); interaction and motion (behavior). Product guides cover the product behind the pages: its conceptual model, and journeys across pages and over time. Pattern guides cover recurring kinds of pages and tasks: navigation, notifications, sign-in and accounts, settings, sharing and access, lists and search, forms, creating, editing and deleting things, help, AI and agents, and marketing pages. Read the guides for every subject a design or a review touches, and for questions like "what''s the standard for X in a UI".'
+description: 'Standards and sources for product UI design. Foundation guides cover each aspect of every page: content, copy, controls, layout and accessibility (structure); spacing and alignment, hierarchy, type, color, surfaces, and icons and images (style); interaction and motion (behavior). Product guides cover the product behind the pages: its conceptual model, and journeys across pages and over time. Pattern guides cover recurring kinds of pages and tasks: navigation, notifications, sign-in and accounts, settings, sharing and access, lists and search, forms, creating, editing and deleting things, help, AI and agents, and marketing pages. Read the guides for every subject a design or a review touches, and for questions like "what''s the standard for X in a UI".'
 argument-hint: "[subject or question]"
 ---
 
 # Design knowledge
 
-A design or a review of a page, a component or a journey touches every guide of the layers it works in, and each pattern guide whose page or task the work includes. Their rules at the levels in scope are its checklist. `grep -E '^## |^### ' <guides>` lists them, each title the rule's claim under its level; read a rule in full when you check the work against it.
+A design or a review of a page, a component or a journey touches every guide of the layers it works in, and each pattern guide whose page or task the work includes. Their rules at the levels in scope are its checklist. `grep -E '^## |^### |^- \*\*Applies when' <guides>` lists them, each title the rule's claim under its level, with when it applies; read a rule in full when you check the work against it.
 
 ## Levels, layers and guides
 
@@ -21,17 +21,21 @@ Each piece of design work looks at a level, the part of the product it is, throu
 
 Levels follow what people use, not how the code is layered: Radix calls its Dialog a primitive, but people use its trigger and its close button separately, so here it is a component. In Atomic Design's terms, primitives are atoms, components are molecules and organisms, and pages are pages (Brad Frost, 2016).
 
-The layers are the web's own three, the same three kinds of problem Interface Craft's critique names, and each builds on the one before (MDN, "What is JavaScript?"; Interface Craft skill, "Design Critique"):
+The layers are ordered so that the first decides the most of whether a design works, and each later one changes little of what came before: worked in order, they seldom send the work back, and stopping early still leaves the biggest problems fixed. They are the three kinds of problem Interface Craft's critique names (Interface Craft skill, "Design Critique"):
 
 | Layer | It settles | Guides |
 | --- | --- | --- |
-| Structure | What is there and what it does: the concepts, the steps of each journey, what each page and part holds and what leads, every state and what it says, the words, which control each choice gets, what each action does (where it leads, what it changes and what is kept), and what assistive technology gets | conceptual model, journeys, content, copy, controls, accessibility; and each pattern guide, for the pages and tasks the work includes |
-| Style | How it looks: where things sit, size, type, color, surfaces, icons, visual weight, and the look of each state | layout, hierarchy, type, color, surfaces, icons and images |
+| Structure | What is there and what it does: the concepts, the steps of each journey, what each page and part holds, where each part sits and what leads, every state and what it says, the words, which control each choice gets, what each action does (where it leads, what it changes and what is kept), and what assistive technology gets | conceptual model, journeys, content, copy, controls, layout, accessibility; and each pattern guide, for the pages and tasks the work includes |
+| Style | How it looks, finished: spacing and alignment, size, type, color, surfaces, icons, visual weight, and the look of each state | spacing and alignment, hierarchy, type, color, surfaces, icons and images |
 | Behavior | How it responds and moves from moment to moment: when each state shows, the answer to a press, focus and keys, announcements, transitions and motion | interaction, motion |
 
-Each rule belongs to one layer, by one question: is it about what is there, what it says and what an action ends in (structure), how it looks (style), or what happens between a person's input and the result (behavior)? A rule with two answers is two rules, and a guide holds the rules of one layer, so a layer's checklist is its guides.
+Each rule belongs to the layer where its fix is made: what is there, where it sits, what it says and what an action ends in is structure; how it looks is style; what happens between a person's input and the result is behavior. A rule with two answers is two rules, and a guide holds the rules of one layer, so a layer's checklist is its guides.
 
-Each foundation guide groups its rules by level: rules for every level, then for primitives, components and pages, as far as its subject has them. Work at one level takes that level's rules and those for every level, so a guide with no rules at a level has nothing to do there. The product guides work at the journey level, and wherever a concept shows on a page.
+Each foundation guide groups its rules by level: rules for every level, then for primitives, components and pages, as far as its subject has them. Work at one level takes that level's rules and those for every level, so a guide with no rules at a level has nothing to do there. The product guides work at the journey level, and wherever a concept shows on a page. The pattern guides work at the pages and tasks they name, and each of their rules is judged by its "Applies when".
+
+The rules are a floor: meeting them all makes a product well made, not yet good. Each says what must be true, why, when it applies, how to check it, and what fails and passes: Pass lists cases that meet it, with the reason where one looks like a fail.
+
+When a product's own documented rule differs from a guide, the product's rule comes first, unless following it makes people fail: they can't see, read, reach or use what they need, or they do the wrong thing. What WCAG 2.2 A and AA or the law requires always holds, whatever popular products do. A value marked "default" is a starting point, taken from strong designers' practice: departing from it is a gap only when a harm can be named.
 
 Layers are settled in order, and inside a layer, what other parts depend on comes first. Structure goes top-down, the whole before its parts, since each part is judged in its next larger context, a component on its page and a page in its journey (Eliel Saarinen, quoted in *Time*, 1956). Style and behavior go bottom-up, the shared primitives before what uses them. The work still moves between levels both ways (Frost, 2016).
 
@@ -47,14 +51,15 @@ A design is judged against the guides and against its product's own standards, w
 
 | Read for | File |
 | --- | --- |
-| Layout: grouping, alignment, spacing, grids and page regions, reading order, density, and how they hold across widths, zoom, content length and right-to-left languages | `foundations/layout.md` |
+| Layout: where each part sits: the same place across items of one kind, next to what it acts on, where people expect it, a form's column, where an action's result appears, the grid, margins and reading width, how it changes with the window, density, sticky areas, short screens, one modal at a time | `foundations/layout.md` |
+| Spacing and alignment: grouping by space, gaps, the spacing scale, alignment lines, centering, padding, side items in a list, hit areas, the edges of text and numbers, and nothing that moves, overlaps, gets cut off or shows out of the code's order, across widths, zoom, content length and right-to-left languages | `foundations/spacing-and-alignment.md` |
 | Hierarchy: what people see first, second and third; emphasis by size, weight, contrast, color, space and position; the levels of text and of buttons; what looks usable, and the look of each state of a control | `foundations/hierarchy.md` |
-| Type: typefaces, the type scale, line height and length, letter spacing, weights, figures, line breaks and truncation, font loading, other languages, text size settings | `foundations/type.md` |
+| Type: typefaces, the type scale, line height, paragraph alignment, letter spacing, weights, figures, line breaks and truncation, font loading, other languages, text size settings | `foundations/type.md` |
 | Color: contrast, color as a cue, what colors mean, the palette and its tokens, states and statuses, themes (light, dark, forced colors, higher contrast), text over images | `foundations/color.md` |
 | Surfaces: levels, shadows, edges in dark themes and forced colors, clipping, corners, borders and dividers, see-through materials, scrims, the order of floating layers | `foundations/surfaces.md` |
-| Icons and images: the icon set, size, stroke and color next to text, meaning and labels; avatars, other companies' logos, photos, screenshots and illustrations | `foundations/icons-and-images.md` |
-| Controls: nothing reachable only by hover or right-click, disabled controls, choosing a control, what a field accepts, a click for every drag or gesture, undo and confirmation | `foundations/controls.md` |
-| Interaction: when each state shows, the answer to a press, waits, focus and changed values, announcements, keyboard, pointer and touch, where results appear, time limits, when errors appear, shortcuts, view changes in a single-page app | `foundations/interaction.md` |
+| Icons and images: the icon set, size, stroke and color next to text, meaning; avatars, other companies' logos, photos, screenshots and illustrations | `foundations/icons-and-images.md` |
+| Controls: nothing reachable only by hover or right-click, controls that look alike acting alike, a changed value that never takes people elsewhere, disabled controls, choosing a control, what a field accepts, icon-only controls, a click for every drag or gesture, undo and confirmation, time limits and content that moves or updates by itself | `foundations/controls.md` |
+| Interaction: when each state shows, the answer to a press, waits, focus, announcements, keyboard, pointer and touch, messages that appear on their own, when errors appear, shortcuts, view changes in a single-page app | `foundations/interaction.md` |
 | Motion: the job of each animation, duration and easing, entering, leaving and moving, motion that plays by itself or follows scrolling, reduced motion | `foundations/motion.md` |
 | Content: each screen's job, which information and actions it shows, in what form, order and amount, which leads (the first screen, the primary action, headings, promotions), which images belong, what it starts with, AI notices and ads, and its empty, loading, failed, partial and out-of-date states | `foundations/content.md` |
 | Copy: names, headings, labels and titles, the words on buttons, links and fields, error and status messages, voice and tone, capitalization, dates, numbers, money and counts | `foundations/copy.md` |
@@ -91,8 +96,8 @@ A design is judged against the guides and against its product's own standards, w
 | Measuring a page: the type, colors, borders, radii, spacing and motion it renders | `scripts/style-inventory.js` |
 | Every source, with its link | `sources.md` |
 
-Every WCAG 2.2 A and AA criterion sits in the foundation guide whose subject it concerns, marked Every product. Not covered yet: charts, brand identity, front-end code, and patterns not in the table above.
+Every WCAG 2.2 A and AA criterion sits in the guide whose subject it concerns, cited by number. Not covered yet: charts, brand identity, front-end code, and patterns not in the table above.
 
 ## Sources
 
-The guides are complete on their own: using them never needs a source opened. `sources.md` lists every source, and the rules for adding one.
+The guides, with the section above on how they apply, are complete: using them never needs a source opened. `sources.md` lists every source, and the rules for adding one.

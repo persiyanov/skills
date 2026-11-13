@@ -20,7 +20,7 @@ Status: Draft | Approved
 ## Solution
 <The approach and the key flows.>
 
-<What each consumer sees, shown concretely: an API's request and full response, a UI's screens in every state, a prompt's transcript, a refactor's module tree, a rule applied to past cases.>
+<What each consumer sees, shown concretely: an API's request and full response, a UI's design (`design.md` and its Paper section, from /designing), a prompt's transcript, a refactor's module tree, a rule applied to past cases.>
 
 ### Data (when stored state or a data format changes)
 <What changes. Existing data: how it gets there.>
