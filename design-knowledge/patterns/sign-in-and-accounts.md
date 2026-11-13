@@ -1,6 +1,6 @@
 # Sign-in and accounts
 
-Covers how people get an account, get in and stay in, and look after their account: when to ask for an account, the sign-in page, passwords, passkeys, failed attempts, codes and links sent by email or text, two-step verification and recovery, signing in again, security changes, and deleting an account. Read it for any product with accounts. Not covered here: memory tests and puzzles at sign-in, password managers, the warning before a session ends, the message for a wrong email or password, asking only for what's needed, and where a link lands after sign-in, which other guides hold. The problem it solves: people who give up at a sign-up wall, are refused a strong password, lock themselves or others out, lose their account with their phone, or can't leave.
+Covers how people get an account, get in and stay in, and look after their account: when to ask for an account, the sign-in page, memory tests and puzzles, passwords, passkeys, failed attempts, codes and links sent by email or text, two-step verification and recovery, signing in again, security changes, and deleting an account. Read it for any product with accounts. Not covered here: password managers, the warning before a session ends, the message for a wrong email or password, asking only for what's needed, and where a link lands after sign-in, which other guides hold. The problem it solves: people who give up at a sign-up wall, are refused a strong password, lock themselves or others out, lose their account with their phone, or can't leave.
 
 - These rules are a floor: meeting them all makes a product well made, not yet good.
 - **Every product:** holds even when popular products break it, and no product's own rules change it.
@@ -72,9 +72,23 @@ After repeated wrong passwords or codes, the product makes people wait longer be
 - **Pass:** on a phone, "Too many tries. Try again in 2 minutes", with the wait growing each time.
 - **Not a fail:** a bank that blocks after the number of tries its regulator sets, with a stated way back in.
 
+### 6. Signing in asks for no memory test and no puzzle
+
+No step of signing in, or of getting back into an account, makes people remember, transcribe or work something out unless another way skips it. Password fields accept paste and password managers. Passkeys, sign-in links by email and signing in with another account need no memory at all. A code sent by text or email can be pasted whole into one field (`autocomplete="one-time-code"`). No step asks people to retype distorted text or solve a sum; where bots must be stopped, the check runs without a task.
+
+- **Why:**
+  - Remembering a password, transcribing a code and solving a puzzle are cognitive function tests; blocking paste or password managers fails 3.3.8, and signing in with the device (WebAuthn) or an emailed link meets it (Understanding 3.3.8).
+  - CAPTCHAs were screen reader users' biggest problem (WebAIM 2024).
+- **Kind:** Every product: no step of signing in to an existing account, or of getting back into it, requires a cognitive function test unless it offers another way, a mechanism that helps (password managers, or pasting, including a code sent to the person), object recognition, or pictures, video or sound the person supplied (WCAG 2.2, 3.3.8), since people with memory, reading or attention difficulties otherwise can't get in. Current practice: no puzzle at all, at sign-up too; a passkey, an emailed link or another account offered.
+- **Applies when:** a product has sign-in, a way back into an account, or a step that confirms who someone is. At sign-up the rule is current practice only: 3.3.8 covers existing accounts, not creating one (Understanding 3.3.8).
+- **Check:** at each step of signing in and of a forgotten password, paste into the password and code fields, and let a password manager fill the password: blocked fails. Look for a puzzle, a transcription, a sum, or a question people must answer from memory, such as a security question: one with no other way past it fails, unless it only asks people to recognize objects, or pictures, video or sound they supplied, which fails current practice. An audio version of a puzzle that people must type out is not another way. A code split into one-digit boxes that refuse a pasted code fails. At sign-up, a puzzle fails current practice.
+- **Fail:** a password field whose script blocks paste. A step that asks people to retype distorted letters. Six one-digit boxes that keep only the first digit of a pasted code. A forgotten-password page that asks "What was the name of your first school?" with no other way back in.
+- **Pass:** a password field that password managers fill, beside "Email me a sign-in link". A code field with `autocomplete="one-time-code"` that takes a pasted code.
+- **Not a fail:** asking for a password when paste and password managers work. A code from an authenticator app that can be pasted.
+
 ## Second steps and recovery
 
-### 6. A code or link sent to people says where it went, works on any device, and expires with a reason
+### 7. A code or link sent to people says where it went, works on any device, and expires with a reason
 
 A page that waits for a code or a link lets people send it again. At sign-up it says where the code went, such as the email address, and lets people fix a wrong address; at sign-in it neither shows the phone number nor lets people change where the code goes. A sign-in link comes with a code people can type on the device they started on. The code field takes a pasted code, with spaces or hyphens as people copied it. A link that has expired, been used or been replaced says so, and why, and offers a new one; an old code is refused with a way to get a new one. At sign-up, a likely typo in the email, such as "gmial.com", gets a warning that doesn't block. An email address is confirmed only where the product depends on it.
 
@@ -86,7 +100,7 @@ A page that waits for a code or a link lets people send it again. At sign-up it 
 - **Pass:** "We sent a code to ana@acme.com. Send again · Change email". "This link expired after 15 minutes. Send a new one."
 - **Not a fail:** a password-reset link alone, which works on whatever device opens it. No email confirmation in a product that never relies on the email.
 
-### 7. Two-step verification takes more than one method, and recovery is set up with it, never weaker
+### 8. Two-step verification takes more than one method, and recovery is set up with it, never weaker
 
 People can add more than one second step, a passkey or a security key among them; codes by text message come with another method and a word on their risk. When people turn on two-step verification, the product sets up recovery with it, such as codes to save or a second method, and checks they saved the codes. Getting back in is never weaker than signing in: access to the email alone doesn't turn two-step off. The product says what to do when every method is lost, such as a support route that checks who people are. Every recovery is sent to people's addresses with a way to say it wasn't them, and afterwards the product offers a passkey.
 
@@ -100,7 +114,7 @@ People can add more than one second step, a passkey or a security key among them
 
 ## The account afterwards
 
-### 8. Signing in again returns people to where they were, with their work
+### 9. Signing in again returns people to where they were, with their work
 
 After a session ends, people who sign in again land where they were, with what they had typed still there, but nothing they hadn't finished is sent for them. How long a session lasts follows the risk of what the account can do.
 
@@ -112,7 +126,7 @@ After a session ends, people who sign in again land where they were, with what t
 - **Pass:** the same payment form with the typed values, and its Pay button still waiting.
 - **Not a fail:** a sign-out people chose, after which the product opens at its start.
 
-### 9. Changing the email, password or second steps asks again, and tells every address
+### 10. Changing the email, password or second steps asks again, and tells every address
 
 Changing the email, the password, the phone number or the second steps asks people to confirm it's them, unless they just did so for another such change; a sign-in alone doesn't count. A new email address is confirmed with a code or link before it replaces the old one. The change is sent to every address on the account, the old one included, and by push where the product has an app, with a way to say it wasn't them. A new password ends the other sessions, or offers to, and people can see where they are signed in and end any one session.
 
@@ -124,7 +138,7 @@ Changing the email, the password, the phone number or the second steps asks peop
 - **Pass:** a passkey prompt, then a code sent to the new address, then "Your email changed to ana@new.com. Not you? Lock your account", sent to both addresses and by push.
 - **Not a fail:** no second prompt when people change the phone number right after confirming it's them to change the email.
 
-### 10. People can delete their account in the product, and hand over what they own first
+### 11. People can delete their account in the product, and hand over what they own first
 
 Where people can create an account in the product, they can delete it there too, not only deactivate it, and the way to it isn't hidden in the terms. Before it's done, the product says what it will delete, what it must keep and why, what happens to a subscription, and when deletion will be complete, and it tells people when it is. Someone who owns things others use, such as a team workspace, chooses who takes them over before their account goes.
 

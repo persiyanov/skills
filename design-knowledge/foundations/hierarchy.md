@@ -1,6 +1,6 @@
 # Hierarchy
 
-Covers how a page ranks what matters: what people see first, second and third; the means of emphasis (size, weight, contrast, color, space and position); the levels of text and of actions; and how the ranking holds across text sizes, widths, themes and states.
+Covers how the look ranks what matters and shows what can be used: what people see first, second and third; the means of emphasis (size, weight, contrast, color, space and position); the levels of text and of buttons; what looks usable, and the look of each state of a control; and how the ranking holds across text sizes, widths, themes and states. Not covered here: which content and actions a page shows and which leads, its first screen, and the outline of its headings.
 
 - These rules are a floor: meeting them all makes a product well made, not yet good.
 - **Every product:** holds even when popular products break it, and no product's own rules change it.
@@ -123,9 +123,33 @@ When the text grows, the window narrows, the theme changes or the content change
   - text that keeps its size when the root font size changes: the order can't change. Whether text follows the user's text-size setting is an accessibility question, not one of ranking;
   - a large page title that shrinks into the bar as people scroll, and grows back at the top (Apple, "Toolbars"; Material 3, "App bars").
 
+### 10. What can be used looks usable, and nothing else does
+
+Every button, field, link and draggable item shows at rest, before any hover, that it can be used: a button by its shape or its place among actions, a field by its box, a draggable item by its handle, a link by its color, and inside a paragraph also by an underline. Nothing that can't be used borrows those signs, and every part of a control that looks usable takes the press: a checkbox's or switch's label, its box and the space between them are one target, and no layer people can't see takes the presses meant for what is under it. Whether buttons show the hand cursor is the product's choice; whichever it is, every button does the same. Controls that look alike also act alike everywhere: a click on a row opens it in every such list, or selects it in every one.
+
+- **Why:** People find a control by the cues they can see at rest, so one without them goes unused, and the same cues on something that can't be used draw wasted presses (Norman 2008). A link marked only by hue is lost to people who can't see the difference, unless it has 3:1 contrast with the text (WCAG 2.2, 1.4.1, F73, G183); GOV.UK and Primer underline links in text, the hand cursor marks a link, a label works its control, and systems split on the cursor for buttons (GOV.UK, "Links"; Primer, "Link"; CSS Basic User Interface 3; HTML Standard, "The label element"; Tailwind CSS, "Upgrade guide"; the button styles of Primer, Carbon, Fluent 2 and GOV.UK).
+- **Kind:** Every product: a link inside text differs from the text around it by more than hue, such as an underline, bold, or 3:1 contrast with the text (WCAG 2.2, 1.4.1, F73, G183); a cue that shows only on hover or focus doesn't count; no invisible layer covers a control and takes its presses. Current practice: every button, field and draggable item shows at rest that it can be used; links in body text underlined; no link color, underline, hover effect or hand cursor on anything that does nothing; one cursor for all buttons, and one behavior for controls that look alike, and never the hand on a disabled control; a checkbox's or switch's label and the space beside it work as part of the control.
+- **Applies when:** always.
+- **Check:** take a screenshot with the pointer off the page. Mark what can be clicked, typed in or dragged: a control you can't pick out from the screenshot alone fails current practice, such as a button drawn as plain text in the body color. For links inside text with no underline or bold, measure the link color against the text color: under 3:1 fails; 3:1 or more with no underline fails current practice only. Move the pointer over headings, plain text, cards, images and badges: a hover effect or a hand cursor on something that does nothing when clicked fails. Compare the cursor over buttons on several screens: a mix fails. Click a row in each list and table: rows that look alike but open in one list and select in another fail current practice. Click the label, and the gap beside the box, of each checkbox, radio button and switch: one that does nothing fails current practice. Press every visible control: one that doesn't respond because a layer on top takes the press fails.
+- **Fail:** Edit as plain gray text styled like the labels around it. A card that lifts and shows the hand on hover but does nothing when clicked. Words in the link color used for emphasis. A link in a paragraph marked by a blue hue at 1.3:1 against the text, underlined only on hover. A card's buttons under a transparent sheen that takes every click. A click on a row that opens the invoice in one table and only selects it in another that looks the same.
+- **Pass:** links underlined inside paragraphs. Text buttons in the accent color in a toolbar, where their place shows they are actions. The arrow over every button and the hand only over links, or the hand over every button.
+- **Not a fail:** navigation links and tabs with no underline: their place shows that they can be clicked, as F73 allows for navigation links.
+
+### 11. Every state a control can be in has a look of its own
+
+Each control has a look for each state it can be in, such as hover, pressed, keyboard focus, selected, open, disabled and busy. Disabled controls have no hover or pressed look. A custom button can show the press by shrinking slightly, to about 0.97 of its size (default).
+
+- **Why:** A button with no pressed look can feel as if it didn't respond (Apple, "Buttons"); Emil Kowalski scales anything pressable to 0.95–0.98 while pressed, so the press shows at once (Emil Kowalski, "emil-design-eng"), and without visible focus keyboard users lose their place (WCAG 2.2, 2.4.7). Material 3 and Carbon give each state a look, and disabled controls none (Material 3, "Applying states"; Carbon, "Disabled states").
+- **Kind:** Every product: keyboard focus is visible on every control (WCAG 2.2, 2.4.7). Current practice: a look of its own for each state a control can be in; a pressed look on every custom button; no hover or pressed look on disabled controls. Default: a custom button scales to about 0.97 while pressed.
+- **Applies when:** always.
+- **Check:** for each kind of control, show each state: force hover, focus and active in DevTools (":hov"), and set the attributes for selected, open, disabled and busy. A state with no look of its own fails, and so does a custom button with no pressed look. Tab through the page: a stop with no visible focus fails. Hover and press a disabled control: any change in its look fails; a not-allowed cursor doesn't count.
+- **Fail:** a custom button that looks the same at rest and when pressed. A focus outline removed with `outline: none` and nothing in its place.
+- **Pass:** a button that darkens while pressed, and a ring on keyboard focus.
+- **Not a fail:** a press shown by a change of color, with no scaling. Navigation bars and other containers with no hover look, which Material 3 doesn't give them.
+
 ## Primitive
 
-### 10. Inside text, stress a few words, with weight
+### 12. Inside text, stress a few words, with weight
 
 To stress words in running text, set a few of them in the product's emphasized weight, clearly heavier than the text around them: Material 3 uses medium on body text, Apple semibold (Material 3, "Type scale"; Apple, "Typography"). Bold everywhere stresses nothing. Color alone reads as a link, and an underline means a link.
 
@@ -135,7 +159,7 @@ To stress words in running text, set a few of them in the product's emphasized w
 - **Fail:** half of each paragraph in bold. A key phrase in the link color that can't be clicked.
 - **Pass:** a few key phrases in the emphasized weight, in the body color.
 
-### 11. Button styles rank actions, and the danger style marks only destructive ones
+### 13. Button styles rank actions, and the danger style marks only destructive ones
 
 The product has one style per level of action: primary, the strongest, often filled; secondary, quieter; tertiary, quieter still, often text only. The styles stay the same across the product. A secondary style is quieter than the primary one, such as an outline or a tonal fill beside a filled primary. A destructive action uses a danger style, never the primary one, and the strong danger style is for the final step, such as the confirm button of a delete dialog.
 
@@ -148,7 +172,7 @@ Buttons offered as one set of choices share a size, and the preferred one differ
 - **Pass:** Delete as a quiet danger text button in the settings list, and a filled red Delete only in the confirm dialog.
 - **Not a fail:** a product whose design system orders its styles differently, as long as each level keeps one style.
 
-### 12. An icon carries the same weight as the text beside it
+### 14. An icon carries the same weight as the text beside it
 
 An icon next to a label matches the label's color and weight, so neither outweighs the other.
 
@@ -161,7 +185,7 @@ An icon next to a label matches the label's color and weight, so neither outweig
 
 ## Component
 
-### 13. The current item stands out, and finished ones never outweigh it
+### 15. The current item stands out, and finished ones never outweigh it
 
 In steps, tasks, tabs and navigation, the item the user is on now is the strongest of its peers. Finished items stay findable but never outweigh it.
 
@@ -171,7 +195,7 @@ In steps, tasks, tabs and navigation, the item the user is on now is the stronge
 - **Fail:** finished steps in bold with green checks, and the current step in plain text.
 - **Pass:** the current step in a stronger weight with an accent marker; finished steps in secondary text with a check.
 
-### 14. Urgency sets emphasis, and the urgent look stays rare
+### 16. Urgency sets emphasis, and the urgent look stays rare
 
 Errors, warnings, notices and confirmations each have one look, ranked by how much they need from the user. Routine messages never borrow the look of urgent ones.
 
@@ -180,60 +204,3 @@ Errors, warnings, notices and confirmations each have one look, ranked by how mu
 - **Check:** list the messages the screen can show, with their look. Two levels sharing a look, or a routine message in the error or warning look, fail.
 - **Fail:** a product tip in the same red box as payment errors. Info, warning and error notices that differ only in their icon.
 - **Pass:** errors in red with an icon and a title, warnings in amber, info in neutral, each used only for its level.
-
-### 15. A few actions show, and the rest go in one menu
-
-A card, row or table toolbar shows the actions people use most as buttons, three at most, and the rest go in one overflow menu. A toolbar of tools shows as many as fit, most used first, and moves the rest into its overflow menu as the window narrows.
-
-- **Why:** Each visible action competes with the others (rule 2). PatternFly advises at most three visible actions in a toolbar and no overflow menu of two or fewer, and Carbon groups two or three buttons and puts more into menus (PatternFly, "Overflow menu"; Carbon, "Button usage"). Apple keeps every action that fits in a toolbar and lets the system move the rest into an overflow menu (Apple, "Toolbars").
-- **Kind:** Current practice: at most three visible actions in a group of buttons.
-- **Check:** count the visible actions in each toolbar, card and row, and check that the visible ones are the ones used most.
-- **Fail:** a table toolbar with seven equal buttons. A "…" menu that holds only Edit.
-- **Pass:** Export and Share as buttons, and five rarer actions in a "…" menu.
-- **Not a fail:** an editor's formatting toolbar, where every control is used all the time. Filters, search, sorting and view controls beside the actions: they change the view and don't count as actions.
-
-## Page
-
-### 16. One primary action per view
-
-A page, dialog, side panel or step has one action in the primary style. Other actions use lower styles. When the actions are equal, none is primary, and a view with no main action has no primary button.
-
-- **Why:** Two primary buttons give the eye two places to start (rule 2). Most design systems ask for one per screen or area, and Apple for one or two per view, though none cites a study; Carbon counts a dialog and a side panel on their own, and Atlassian says not every screen needs one (Material 3, "All buttons"; Carbon, "Button usage"; Atlassian, "Button"; GOV.UK, "Button"; Apple, "Buttons"; Primer, "Button").
-- **Kind:** Current practice.
-- **Applies when:** each page, dialog, side panel and step. A page made of independent areas may have one per area.
-- **Check:** count the buttons in the primary style in each view, in its busiest real state, including empty states and banners.
-- **Fail:** Save, Publish and Invite all filled on one settings page. Three empty dashboard widgets, each with a filled Create button.
-- **Pass:** Publish filled, Save draft secondary and Preview as a text button. Several empty widgets, each with a tertiary Add button (Carbon, "Empty states").
-- **Not a fail:** a dialog with its own primary button over a page that has one: the dialog is its own view.
-
-### 17. The first screen shows what this is and what to do
-
-Without scrolling, the screen shows what it is for and the main thing to read or do: the offer on a landing page, what needs attention on a dashboard, the task on a step of a flow.
-
-- **Why:** What is below the first screen is seen only after people scroll, and the upper left of a screen draws the most looks (Jiang et al. 2023).
-- **Kind:** Current practice.
-- **Applies when:** every page, most of all the pages people land on.
-- **Check:** look at a screenshot of the first screen for about five seconds, then write what the screen is for and what to do, and compare that with its job. This is the five-second test. It measures first impressions, not usability (Chan 2024, "Testing Visual Design").
-- **Fail:** a dashboard whose first screen is a welcome message and an illustration, with what needs attention below the fold.
-- **Pass:** the alert that needs action, and the figures people check first with what they are compared to, in the first screen.
-
-### 18. Headings show the structure
-
-Headings are marked up as headings, in order in the code, without skipped levels. Within a section, a lower heading is never stronger than the one above it, and a heading over running text is stronger than that text.
-
-- **Why:** Screen-reader users move through a page by its headings, so the structure people see must also be in the code (WCAG 2.2, 1.3.1), and clear headings help everyone find what they want (WCAG 2.2, Understanding 2.4.6). Skipped levels confuse readers (W3C, "Page Structure: Headings"). A label over a group of rows can be quiet: Apple's lists offer a default group header beside prominent ones (Apple, `UIListContentConfiguration`).
-- **Kind:** Every product: headings are marked up as headings (WCAG 2.2, 1.3.1). Current practice: a lower heading never outweighs a higher one in its section, and no levels are skipped.
-- **Check:** list the headings in the code with their levels, and compare their computed size and weight down the levels.
-- **Fail:** an h4 styled larger than the h3 above it. Section titles as bold `div`s that screen readers can't jump to. A page that goes from h1 to h4.
-- **Pass:** h1 for the page title, h2 for sections and h3 for subsections, each a step smaller or lighter.
-- **Not a fail:** a short label over a group of rows, such as settings, quieter than the rows, when every group uses the same label style.
-
-### 19. The product's own promotions stay below the task
-
-A promotion of the product's own features, plans or trials has one look of its own, quieter than the screen's primary action and than any warning. On a screen whose task is something else, it never takes the primary style.
-
-- **Why:** A promotion as strong as the main action competes with it (rule 2), and one in the look of a warning teaches people to ignore warnings (Vance et al. 2019). Systems give promotions a look of their own: Atlassian a discovery button for new experiences, Primer an upsell banner beside its status banners (Atlassian, "Button"; Primer, "Banner").
-- **Kind:** Current practice.
-- **Check:** count the promotions on a screen where people work, and compare their weight with the primary action and with the warnings.
-- **Fail:** a filled primary "Start trial" button on a settings page whose task is editing the profile. An upgrade offer in the warning style.
-- **Pass:** a quiet notice about a new feature, in the product's promotion style, at the top of the list it affects, weaker than the list's Create button.

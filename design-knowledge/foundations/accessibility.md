@@ -1,6 +1,6 @@
 # Accessibility
 
-Covers what screen readers, speech input, switches and other assistive technology get from a web interface: which element each part is, its name, states and values; text alternatives for images and media; structure in the code; instructions that don't rest on one sense; what may change when focus or a value changes; announcements; how forms tie labels, hints and errors to fields; sign-in without memory tests; processes that don't ask twice; time limits; landmarks, headings and view changes; ways to find a page and its help; and why a scanner or an overlay doesn't stand in for any of this. Not covered here: contrast and color as a cue, text size, spacing, zoom and reflow, target sizes, the keys, where focus goes when dialogs, menus and panels open and close, how focus looks, content shown on hover, motion and flashing, consistent places and names, the page's language, and the words of labels, headings, links and errors.
+Covers what screen readers, speech input, switches and other assistive technology get from a web interface: which element each part is, its name, states and values; text alternatives for images and media; structure in the code, and its order; instructions that don't rest on one sense; how forms tie labels, hints and errors to fields; landmarks and headings; and why a scanner or an overlay doesn't stand in for any of this. Not covered here: contrast and color as a cue, text size, spacing, zoom and reflow, target sizes, the keys, focus, announcements, time limits and view changes, sign-in without memory tests, processes that don't ask twice, ways to find a page and its help, how focus looks, content shown on hover, motion and flashing, consistent places and names, the page's language, and the words of labels, headings, links and errors.
 
 - These rules are a floor: meeting them all makes a product well made, not yet good.
 - **Every product:** holds even when popular products break it, and no product's own rules change it.
@@ -10,7 +10,7 @@ Covers what screen readers, speech input, switches and other assistive technolog
 
 Every product meets WCAG 2.2 Level A and AA, also the international standard ISO/IEC 40500:2025 (W3C, "WCAG 2.2 Approved as an ISO Standard"). Laws point to it or to its earlier versions: EU consumer services such as online shops and banking, except those run by microenterprises, since 28 June 2025, at WCAG 2.1 AA until the standard's WCAG 2.2 version, published in September 2026, is cited in the EU's Official Journal (Directive (EU) 2019/882; AccessibleEU, "EN 301 549 has been updated"); US state and local governments from 26 April 2027, or 2028 for smaller ones, at WCAG 2.1 AA (DOJ, "Extension of Compliance Dates"); UK public sector sites, monitored against WCAG 2.2 AA since October 2024 (Cox 2024).
 
-The rules come in three groups: rules for every level, then rules for components (a form field, a sign-in step, a media player, a process of several steps, and content that updates itself or times out) and pages (landmarks and headings, view changes, and the ways to find a page and its help).
+The rules come in three groups: rules for every level, then rules for components (a form field and a media player) and pages (landmarks and headings).
 
 ## Every level
 
@@ -81,35 +81,18 @@ Instructions never name a control only by its shape, size, place, color or sound
 - **Pass:** "Select Continue, under the form."
 - **Not a fail:** "the form below", when the form comes next in the reading order and nothing else could be meant (WCAG 2.2, Understanding 1.3.3). A video player that suggests landscape for full screen but works in portrait.
 
-### 6. Focus and changed values never take people somewhere else
+### 6. The code holds the content in the order people need it
 
-Focusing a control never opens a page, a window or a dialog, and never moves focus. Changing a value, such as choosing an option, ticking a box or typing a character, never submits a form, opens a page or window, or moves focus, unless the page says so before the control.
+The order of elements in the code is the order the content needs: what people need first comes first, a heading before its section, a label before its field. Keyboard and screen-reader users get the content in that order.
 
-- **Why:**
-  - Opening a page or window, moving focus and changing the meaning of the page are changes of context (WCAG 2.2, 3.2.1 and 3.2.2), and submitting a form when its last field is filled, or opening a window when an option changes, fails (W3C, Failures F36 and F37). With the keyboard, moving through a select's options or a group of radio buttons changes the value at each step (W3C, Technique H84; Failure F37).
-  - Screens that change unexpectedly were screen reader users' fourth biggest problem (WebAIM 2024).
-- **Kind:** Every product: focus never starts a change of context (WCAG 2.2, 3.2.1), and changing a control's value never starts one unless people were told before using it (3.2.2), since keyboard and screen reader users reach and change controls one step at a time, and are taken somewhere they didn't choose. Current practice: changes of context only on a button press.
-- **Applies when:** a page has anything that takes focus.
-- **Check:** Tab through the page: anything that opens, submits or moves focus when it merely gets focus fails. Change each select, radio group, checkbox and field with the keyboard, including the arrow keys through a select's options: a change that submits, opens a page or window, or moves focus, with no text before the control saying it will, fails.
-- **Fail:** a language select that reloads the page as soon as the arrow key reaches the next option. A code field that submits and moves to the next page when the sixth digit is typed, with nothing saying so.
-- **Pass:** a language select with a "Change language" button. "Enter the 6-digit code. We'll continue as soon as all 6 digits are in." above the code field.
-- **Not a fail:** a filter that updates the results below without moving focus. A switch that saves its setting at once. Suggestions under a search field. A select that changes which fields follow, with focus staying on it.
+- **Why:** Keyboard and screen-reader users get the code order (WCAG 2.2, 1.3.2 Meaningful Sequence and 2.4.3 Focus Order).
+- **Kind:** Every product: where the order changes the meaning or how things work, the code holds the content in an order that keeps it (WCAG 2.2, 1.3.2 and 2.4.3). Current practice: the code order is the content's order everywhere.
+- **Applies when:** always. The content's order is the order the job needs: what people need first comes first.
+- **Check:** read the page in the accessibility tree, or with styles turned off, from top to bottom. An order that changes the meaning, or puts what people need after what they don't, fails.
+- **Fail:** a plan's price placed in the code after its Choose button, so a screen reader reaches the button before the price.
+- **Pass:** each plan reads name, price, features, then the button, as the card shows them.
 
-### 7. Changes people need to know about are announced, once and politely
-
-A change that happens without moving focus, such as a saved state, a count of results, a finished upload or an error that appears, reaches screen readers through a status region. A change shown in place, such as a count or a badge that turns to "Paused", is a status message too: it needs no extra message on screen, but it reaches screen readers. The region is in the page, empty, before the message goes in, and the message is short and said once. Most messages are polite and wait until the screen reader finishes; only an urgent error interrupts. A long wait announces its start and its end, not every step. A message that matters also stays on the screen, since an announcement can't be heard again.
-
-- **Why:**
-  - A message that appears without taking focus is lost to screen reader users unless a role or property passes it on. This covers results, waits, progress and errors, and text that stays on the page and changes, such as a cart count going from "0 items" to "3 items" (WCAG 2.2, definition of "status message"; Understanding 4.1.3).
-  - A message put into a live region already on the page was read in almost every pairing of the main browsers and screen readers, while a region added together with its content mostly wasn't (TetraLogical 2024). An announcement can't be heard again, support for `aria-atomic`, `aria-relevant` and `aria-busy` is uneven, and assertive messages are for critical ones (Soueidan 2024). Primer announces when work starts and when it ends or fails, once for a group of loading parts (Primer, "Loading").
-- **Kind:** Every product: status messages that appear without taking focus can be read by assistive technology through their role (WCAG 2.2, 4.1.3), since people using a screen reader otherwise don't know that a save worked, a search found nothing or an error appeared. Current practice: an empty status region in the page from the start; `role="status"` for results, saves and progress, and `role="alert"` only for urgent errors; one short message for each change; the start and end of long waits; important messages also left on the screen.
-- **Applies when:** a page changes without moving focus.
-- **Check:** list the changes that appear without moving focus. Find each in the accessibility tree: no `role="status"`, `role="alert"`, `role="log"` or `aria-live` fails. In the code, check that the region exists, empty, when the page loads: a region added together with its message fails current practice, and so does `role="alert"` on a message that isn't an urgent error. Whether a screen reader actually reads it needs a screen reader test.
-- **Fail:** "Saved" that appears beside a form with no status role. A cart count that changes from "0 items" to "3 items" with nothing announced. A results count announced at every keystroke. Every message marked `role="alert"`.
-- **Pass:** a status region in the app's frame that says "12 results" when typing stops. "Upload complete" in a status region, with the file also listed on screen.
-- **Not a fail:** an error inside a dialog that takes focus. A change that moves focus to its result. A Copy button whose label turns to "Copied" while a status region says "Reference copied" once (MoJ Design System, "Copy button").
-
-### 8. The page itself works with assistive technology; a scanner's score or an overlay doesn't stand in for it
+### 7. The page itself works with assistive technology; a scanner's score or an overlay doesn't stand in for it
 
 Accessibility is built into the page and checked by using it: with the keyboard alone, with a screen reader, and at 400% zoom. The check covers what third parties put in the page, such as a cookie banner, a chat widget or a payment form, as people meet them on the way. An automated scan runs first and catches repeated mistakes, such as missing names, labels and language; passing it shows only that those are gone. No overlay or widget that promises to fix the page from outside is added: none makes the page meet these rules, and they can clash with people's own tools.
 
@@ -126,7 +109,7 @@ Accessibility is built into the page and checked by using it: with the keyboard 
 
 ## Component
 
-### 9. A field's label, purpose, hint and error are tied to it in the code
+### 8. A field's label, purpose, hint and error are tied to it in the code
 
 Each field's visible label is its name, tied with `<label for>` or by wrapping the field (rule 2). Hints and errors are tied with `aria-describedby`, so they are read when the field gets focus, and a field with an error is marked `aria-invalid="true"` until it is fixed. Fields that ask for the person's own details, such as name, username, password, email, phone, address, birthday or card, carry their `autocomplete` value, so browsers and password managers can fill them. After a failed submit, focus moves to the first error, or to a summary at the top that links to each field.
 
@@ -141,21 +124,7 @@ Each field's visible label is its name, tied with `<label for>` or by wrapping t
 - **Pass:** `<label for="email">Work email</label>` with `<input id="email" type="email" autocomplete="email" aria-describedby="email-hint email-error">`.
 - **Not a fail:** fields about someone else, or a search field, with no `autocomplete` value, since WCAG asks only for details about the person filling the form. A one-field form whose error returns focus to the field.
 
-### 10. Signing in asks for no memory test and no puzzle
-
-No step of signing in, or of getting back into an account, makes people remember, transcribe or work something out unless another way skips it. Password fields accept paste and password managers. Passkeys, sign-in links by email and signing in with another account need no memory at all. A code sent by text or email can be pasted whole into one field (`autocomplete="one-time-code"`). No step asks people to retype distorted text or solve a sum; where bots must be stopped, the check runs without a task.
-
-- **Why:**
-  - Remembering a password, transcribing a code and solving a puzzle are cognitive function tests; blocking paste or password managers fails 3.3.8, and signing in with the device (WebAuthn) or an emailed link meets it (Understanding 3.3.8).
-  - CAPTCHAs were screen reader users' biggest problem (WebAIM 2024).
-- **Kind:** Every product: no step of signing in to an existing account, or of getting back into it, requires a cognitive function test unless it offers another way, a mechanism that helps (password managers, or pasting, including a code sent to the person), object recognition, or pictures, video or sound the person supplied (WCAG 2.2, 3.3.8), since people with memory, reading or attention difficulties otherwise can't get in. Current practice: no puzzle at all, at sign-up too; a passkey, an emailed link or another account offered.
-- **Applies when:** a product has sign-in, a way back into an account, or a step that confirms who someone is. At sign-up the rule is current practice only: 3.3.8 covers existing accounts, not creating one (Understanding 3.3.8).
-- **Check:** at each step of signing in and of a forgotten password, paste into the password and code fields, and let a password manager fill the password: blocked fails. Look for a puzzle, a transcription, a sum, or a question people must answer from memory, such as a security question: one with no other way past it fails, unless it only asks people to recognize objects, or pictures, video or sound they supplied, which fails current practice. An audio version of a puzzle that people must type out is not another way. A code split into one-digit boxes that refuse a pasted code fails. At sign-up, a puzzle fails current practice.
-- **Fail:** a password field whose script blocks paste. A step that asks people to retype distorted letters. Six one-digit boxes that keep only the first digit of a pasted code. A forgotten-password page that asks "What was the name of your first school?" with no other way back in.
-- **Pass:** a password field that password managers fill, beside "Email me a sign-in link". A code field with `autocomplete="one-time-code"` that takes a pasted code.
-- **Not a fail:** asking for a password when paste and password managers work. A code from an authenticator app that can be pasted.
-
-### 11. Video and audio carry captions and description, and sound never starts by itself
+### 9. Video and audio carry captions and description, and sound never starts by itself
 
 Recorded video with sound has captions that say who is speaking and include the sounds that matter. What the video shows that its sound doesn't say is described in the sound: in the narration ("Open Settings, then Billing") or in an audio description track. Recorded audio alone, such as a podcast, has a transcript, and silent video that informs has a description or transcript. Live video with sound, such as a webinar, has live captions. Automatic captions are corrected before they count. Sound that starts by itself and lasts more than 3 seconds can be paused, stopped or turned down on its own.
 
@@ -167,35 +136,9 @@ Recorded video with sound has captions that say who is speaking and include the 
 - **Pass:** a demo narrated as "Open Settings, then Billing", with corrected captions and a transcript beside it.
 - **Not a fail:** a short, silent decorative loop that carries no information. A video labeled as the alternative to the text beside it.
 
-### 12. A process never asks for the same thing twice, and an error clears nothing
-
-Within one process, such as sign-up, checkout or an application, what people already gave is filled in or offered to pick when it is needed again: "Billing address: same as delivery", a name carried to the next step. A failed submit keeps what people typed. People type something again only when retyping is the point, for security, or when the old answer no longer holds. Nothing people type is lost, and focus doesn't move, when the page redraws, such as when its scripts finish loading.
-
-- **Why:** Some people with cognitive disabilities have trouble remembering what they entered before. The browser's own autofill doesn't count, and a form that shows an error without clearing the card number people typed is WCAG's own example (Understanding 3.3.7). People who start typing before a page's scripts finish loading lose their text or their place when the page redraws the field, so Vercel asks for fields that keep their value and focus through it (Vercel, "Web Interface Guidelines").
-- **Kind:** Every product: information people entered or were given earlier in the same process is filled in or offered to pick when it is needed again, unless retyping is essential, needed for security, or the earlier answer is no longer valid (WCAG 2.2, 3.3.7), since people otherwise have to recall or retype it, and make mistakes. Current practice: earlier answers shown, ready to keep or change; text and focus kept when the page redraws.
-- **Applies when:** a process has more than one step, or a form can fail on submit.
-- **Check:** walk each process from start to end and list what each step asks: an answer asked again that isn't filled in or offered to pick fails, unless an exception applies. Submit each form with one error: fields that come back empty fail. Reload with the network and CPU slowed and start typing in the first field at once: text that disappears, or focus that leaves the field, as the page finishes loading fails current practice.
-- **Fail:** a checkout that asks for the delivery address again at billing, with no "Same as delivery". A sign-up form that clears every field because the email was taken. A search box that empties itself when the page's scripts finish loading.
-- **Pass:** "Billing address: same as delivery", ticked by default, with the address shown.
-- **Not a fail:** "Confirm password" when creating a password, and a password field emptied after a failed submit, for security. A new code sent by email.
-
-### 13. Time limits warn and can be extended; content that updates itself can be paused
-
-A session or a step that times out warns people before it ends and lets them extend it with one simple action, or people can turn the limit off or lengthen it. Content that updates itself on a timer beside other content, such as a live feed, a log, a ticker or figures that refresh every minute, can be paused, stopped or hidden, or set to update less often.
-
-- **Why:**
-  - People who read, type or move slowly need more time, and content that keeps changing can't be read (Understanding 2.2.1 and 2.2.2). Anything that updates at a preset interval, such as weather, news or stock prices, counts as updating itself, with no five-second allowance (Understanding 2.2.2).
-  - HMRC warns 2 minutes before a 15-minute sign-out, with one button to stay signed in and Escape doing the same, tested with users, screen readers and magnifiers (HMRC, "Service timeout").
-- **Kind:** Every product: every time limit the product sets can be turned off, adjusted to at least ten times its length, or extended after a warning that gives at least 20 seconds, at least ten times, unless it is a required part of a real-time event such as an auction, with no possible alternative, essential because more time would spoil the activity, or longer than 20 hours (WCAG 2.2, 2.2.1); content that updates itself beside other content can be paused, stopped, hidden or slowed, unless the updating is essential (2.2.2); since otherwise people lose their work, or can't read what keeps changing. Current practice: a warning dialog a few minutes before a session ends, with one button to stay.
-- **Applies when:** a product has sessions or steps that expire, or content that updates itself.
-- **Check:** list every time limit the product sets: session timeouts, expiring holds, timed steps. Let each run out: no warning with a way to extend, and no setting to turn it off or lengthen it, fails, unless an exception applies. For each region that updates itself on a timer (a feed, figures or a list that refresh, a chat log), look for pause, stop or a setting for how often it updates: missing fails.
-- **Fail:** a session that signs people out after 15 minutes with no warning, losing a half-filled form. An activity feed that inserts new items at the top while people read, with no way to pause.
-- **Pass:** at 13 minutes, a dialog "For your security, we'll sign you out in 2 minutes", with "Stay signed in". A feed that collects new items behind a "3 new items" button.
-- **Not a fail:** content that changes only when people act, or when they come back to the page. A sign-out after more than 20 hours. A live auction's countdown. A time-based sign-in code that expires, which WCAG says can be considered essential (Understanding 2.2.1).
-
 ## Page
 
-### 14. Every page has a main region, headings and a way past repeated blocks
+### 10. Every page has a main region, headings and a way past repeated blocks
 
 Each page has one `<main>`, and its header, navigation and footer in `<header>`, `<nav>` and `<footer>`; several navigation regions each get a name. Headings mark each section, under a first-level heading, normally one, that names the page, and each heading sits at most one level below the heading before it. People can skip what repeats on every page, such as a long navigation: landmarks and headings let screen reader users jump past it, and a "Skip to content" link, first in the tab order and visible on focus, serves keyboard users. A skip link that is there works.
 
@@ -208,29 +151,3 @@ Each page has one `<main>`, and its header, navigation and footer in `<header>`,
 - **Fail:** an app whose content area is a `<div>`, with no `main` and no headings. A "Skip to content" link whose target can't take focus, so focus stays put. Two `<nav>` regions both read as "navigation".
 - **Pass:** `<main>` with a first-level heading naming the page, `<nav aria-label="Main">` and `<nav aria-label="Account">`, and a skip link on the first Tab.
 - **Not a fail:** no skip link on a page with landmarks and headings. A second first-level heading for the site's name. A heading that goes back up several levels, such as an h4 followed by an h2.
-
-### 15. When an app changes view without loading a page, its title, focus and announcement follow
-
-In a single-page app, each view has its own title, set when the view changes, as a page load would. Focus then moves either into the new view, to its first heading or its main region, which take focus without joining the tab order (`tabindex="-1"`) and are read when they do, or back to the top, with the new title announced in a status region (rule 7), as after a page load. A heading or region that takes focus needs no announcement as well, so nothing is read twice. Focus never stays on a link that is gone.
-
-- **Why:**
-  - When a view changes without a page load, screen reader users hear nothing and focus can stay on a link that is gone, unless the app moves focus or announces the new title; some frameworks announce the title by default, and others leave both to the app (Next.js, SvelteKit and React Router, "Accessibility"; Nuxt, "NuxtRouteAnnouncer").
-  - Angular asks for focus where people can go straight into the new content, such as its heading, not on the page itself, while SvelteKit puts focus on the page itself and announces the title, as a page load does (Angular, "Accessibility in Angular"; SvelteKit, "Accessibility"). WCAG counts a resource at its own address as a page, so a view with its own address needs its own title (WCAG 2.2, definition of "web page"; 2.4.2).
-- **Kind:** Every product: a view at its own address has a title that says its topic or purpose (WCAG 2.2, 2.4.2), since people using a screen reader or many tabs otherwise can't tell where they are. Current practice: the title set on every view change; focus on the new view's heading or main region, or at the top with the new title announced; no announcement on top of a focused heading or region; focus never left on a link that is gone.
-- **Applies when:** a page changes its main content without a full page load.
-- **Check:** move between views with the keyboard. A browser tab title that stays the same, for a view at its own address, fails. Focus should land on the new view's heading or main region, or return to the top with the new title announced, and the next Tab should go into the new view or on from the top: anything else fails current practice. In the code, find the framework's route announcer or the app's own focus handling: neither fails current practice. Whether a screen reader reads the new view's name needs a screen reader test.
-- **Fail:** an app whose title stays "Dashboard" on every view. After choosing "Settings" in the sidebar, focus is lost with the removed link and nothing is announced.
-- **Pass:** "Billing · Settings · Acme" as the new title, and focus on the heading "Billing".
-- **Not a fail:** focus that stays on a tab when choosing it changes the panel below, since that is a widget, not a new view. Focus sent to the top with the new title announced, as a page load does.
-
-### 16. People can reach a page more than one way, and help sits in the same place on every page
-
-Every page in a product can be found in at least two ways, such as the navigation and a search, a command menu, a site map or links from related pages, except a step in a process or its result. Where help repeats across pages, such as contact details, a contact form, a chat or help articles, it sits in the same order relative to the rest of the page on each.
-
-- **Why:** People find pages in different ways, and some find one easier, such as search for people with low vision; and people who need help find it more easily when it is in the same place (Understanding 2.4.5 and 3.2.6).
-- **Kind:** Every product: more than one way to reach each page in a set, unless the page is a step in a process or its result (WCAG 2.2, 2.4.5); help that repeats across pages (contact details, a contact form, a self-help link, a chat) keeps the same order relative to the rest of the page, unless the person changed it (3.2.6); since people who can't use one way are otherwise stuck, and people who need help don't find it where they found it before.
-- **Applies when:** a product has more than one page.
-- **Check:** pick three pages and reach each in two ways: one reachable only through the navigation fails, unless it is a step in a process. List the help on several pages (a contact link, a chat button, a help link): one that moves to a different place in the order fails.
-- **Fail:** settings pages reachable only through a nested menu, with no search and no links. A help link in the header on some pages and only in the footer on others.
-- **Pass:** a command menu that finds every settings page, beside the sidebar. A "Help" button in the same place on every page.
-- **Not a fail:** checkout steps reachable only from the step before. A site of three or four pages, each linked from the home page, with a link home on every page (Understanding 2.4.5). A product with no help on its pages. A chat button that moves when the window narrows, since WCAG compares pages at the same width.

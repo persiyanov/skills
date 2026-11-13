@@ -1,6 +1,6 @@
 # Lists, search and choosing
 
-Covers finding and acting on items in a collection: selecting many items and acting on them at once, editing in a table, searching, filtering, and choosing one item from many, as in assigning a task, linking a record or mentioning someone. Read it for any page with a list or table that people select from, search or filter, and for any picker. Not covered here: a record's own page, the form of a list (table, list or cards), its first order, paging, and its empty, loading and failed states, which the foundation guides hold. The problem it solves: people act on items they can't see, lose track of what a selection or a filter covers, and can't tell look-alike options apart.
+Covers finding and acting on items in a collection: selecting many items and acting on them at once, searching, filtering, and choosing one item from many, as in assigning a task, linking a record or mentioning someone. Read it for any page with a list or table that people select from, search or filter, and for any picker. Not covered here: a record's own page, where an edited row stays, the form of a list (table, list or cards), its first order, paging, and its empty, loading and failed states, which the foundation guides hold. The problem it solves: people act on items they can't see, lose track of what a selection or a filter covers, and can't tell look-alike options apart.
 
 - These rules are a floor: meeting them all makes a product well made, not yet good.
 - **Every product:** holds even when popular products break it, and no product's own rules change it.
@@ -59,20 +59,9 @@ A form that edits several records at once never shows one record's value as if a
 - **Fail:** a bulk price edit that shows the first item's price, and saves it to all twelve.
 - **Pass:** "Price: Multiple values" left as it is, and "Apply to 12 products" changing only the status that was set.
 
-### 5. An edit in a table keeps the row where it is
-
-A value edited in a table cell shows it can be edited, saves when people confirm it or move on, and the row stays where it is until people refresh, even when the new value no longer matches the filter or the sort. Edits of more than one simple value go to a dialog or the record's page.
-
-- **Why:** a row that jumps away, or disappears from a filtered list, the moment its value changes leaves people unsure the change saved and where the row went, so Cloudscape keeps changes displayed until the person refreshes the table and stops sorting when a cell changes, and Atlassian moves complex edits to a dialog or a page (Cloudscape, "Inline edit"; Atlassian, "Dynamic table").
-- **Kind:** Current practice.
-- **Applies when:** people edit values in a data table's cells. Spreadsheet-like grids, where every cell can be edited, aren't covered.
-- **Check:** sort and filter a table, then edit a cell so the row no longer matches: a row that moves or disappears before a refresh fails. Look for the sign that a cell can be edited: none fails.
-- **Fail:** a task whose status is changed to Done in a list filtered to Open, which vanishes at once.
-- **Pass:** the row stays, its status now Done, until people refresh or change the filter.
-
 ## Searching
 
-### 6. Search covers everything people look for, or says what it covers
+### 5. Search covers everything people look for, or says what it covers
 
 The main search finds everything people come to find: records, people, settings and help. A search box that covers less says so in its field, such as "Search projects", and a narrower scope starts on "All" and is easy to widen.
 
@@ -84,7 +73,7 @@ The main search finds everything people come to find: records, people, settings 
 - **Pass:** one field that finds projects, people and settings, grouped; a table's own box that reads "Search invoices".
 - **Not a fail:** a box above one table that searches only it, and says so. A search that starts on the place people are in, shown in the field, such as one code repository, with one step to widen it.
 
-### 7. Search keeps the query and says what it found
+### 6. Search keeps the query and says what it found
 
 After a search, the query stays in the field, ready to edit. The page says how many results matched, zero included, or "1,000+" where the exact total isn't known. Results show as people type when they come back fast, and after people submit when the data is large or slow. Before people type, the field may offer recent or common searches; while they type, suggestions that move with the arrow keys and take Enter.
 
@@ -98,7 +87,7 @@ After a search, the query stays in the field, ready to edit. The page says how m
 
 ## Filtering
 
-### 8. Filters, search and select-all cover the whole collection
+### 7. Filters, search and select-all cover the whole collection
 
 A filter, a search over a list and "select all matching" act on the whole collection, not only on the items loaded so far. Where the product can only work on what it loaded, it says so.
 
@@ -109,7 +98,7 @@ A filter, a search over a list and "select all matching" act on the whole collec
 - **Fail:** "No results" for a customer on page 9 of a list that loaded page 1.
 - **Pass:** a filter that asks the server and shows "1 of 2,430 customers".
 
-### 9. Applied filters show in one place, each easy to remove
+### 8. Applied filters show in one place, each easy to remove
 
 Every filter in use shows near the results, each with its own way to remove it, and one control clears them all. A closed filter panel shows how many filters apply, and can clear them without being opened. People can pick several values in one filter; values in one filter widen the results, and separate filters narrow them. Filters apply at once when results come back fast and people set one at a time, and with an Apply button when they set several or results are slow. A filter shown as a shortcut above the list stays in the full filter panel too. On shopping sites, where the count is exact, each value shows how many results it would leave.
 
@@ -123,7 +112,7 @@ Every filter in use shows near the results, each with its own way to remove it, 
 
 ## Choosing one item
 
-### 10. A picker tells look-alike options apart, and says what it is doing
+### 9. A picker tells look-alike options apart, and says what it is doing
 
 Where two options can share a name, as people, companies and records people create can, each option carries a detail that tells them apart, such as an email, a company or a place. A picker that loads its options shows that it is loading, says so when loading fails and offers to try again, says when nothing matches, and never shows a failed load as "No matches".
 
@@ -135,7 +124,7 @@ Where two options can share a name, as people, companies and records people crea
 - **Pass:** "Anna Smith · anna@acme.com" and "Anna Smith · Globex"; "Couldn't load contacts. Retry".
 - **Not a fail:** a list of countries with names only.
 
-### 11. A picker over a list that may be incomplete has a way out
+### 10. A picker over a list that may be incomplete has a way out
 
 When what people need may not be in the list, the picker offers a next step: a "None of these" answer, using what they typed, or creating the item, without losing what they had entered elsewhere on the page. Before creating a record, it shows close matches, so people don't create a second copy. Where only listed values are valid, it offers none of these.
 
@@ -147,7 +136,7 @@ When what people need may not be in the list, the picker offers a next step: a "
 - **Pass:** "No contacts match 'Ivan P.' · Create contact 'Ivan P.'", which opens over the note and shows "Ivan Petrov · Acme" as a possible match first.
 - **Not a fail:** a currency picker with no way to add a currency.
 
-### 12. Many similar matches get a fuller view, and choices stay put
+### 11. Many similar matches get a fuller view, and choices stay put
 
 When many options match, the best matches come first, the picker says how many there are, and a fuller view, with details side by side, is one step away. What people have chosen stays visible, and the list doesn't reorder while they choose.
 

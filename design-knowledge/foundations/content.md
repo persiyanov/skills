@@ -1,6 +1,6 @@
 # Content
 
-Covers each page's job (who it is for, what they need and what the product needs from them), which information and actions it shows, in what form, order and amount, what it starts with, what an AI made, ads, and how it shows the states of its data: empty, loading, failed, partial and out of date. Not covered here: the words themselves, what stands out, spacing, feedback after an action, how loading indicators move, and how marketing pages present proof, prices and their first screen (rules 1 and 5 still apply to them).
+Covers each page's job (who it is for, what they need and what the product needs from them), which information and actions it shows, in what form, order and amount, which of them leads (the first screen, the primary action, the outline of its headings, and the product's own promotions), which images belong, what it starts with, what an AI made, ads, and how it shows the states of its data: empty, loading, failed, partial and out of date. Not covered here: the words themselves, how much each thing stands out by its look, spacing, feedback after an action, how loading indicators move, and how marketing pages present proof, prices and their first screen (rules 1 and 5 still apply to them).
 
 - These rules are a floor: meeting them all makes a product well made, not yet good.
 - **Every product:** holds even when popular products break it, and no product's own rules change it.
@@ -8,7 +8,7 @@ Covers each page's job (who it is for, what they need and what the product needs
 - **Default:** a starting point for designing, taken from strong designers' practice: a review finding only when a harm can be named.
 - **Fail and Pass:** examples. A Pass shows one way to meet the rule, not the only one.
 
-The rules come in three groups: rules for every level, then rules for components (a collection of items, its form, and what it starts with; a list and its pages, a region as it loads, fails or stays empty, what an AI made, and ads) and pages (what the first screen leads with).
+The rules come in three groups: rules for every level, then rules for components (a collection of items, its form, and what it starts with; a list and its pages, a region as it loads, fails or stays empty, what an AI made, ads, the actions a toolbar shows, and images) and pages (what the first screen leads with, the primary action, headings and promotions).
 
 ## Every level
 
@@ -172,9 +172,38 @@ An ad or a sponsored item says so where it shows, so people can tell it from wha
 - **Pass:** "Sponsored · Paid for by Acme Ltd" above a listing, with "Why am I seeing this ad?" in its menu. A "Sort: Recommended / Newest" control at the top of the feed.
 - **Not a fail:** the platform's own promotion of its paid plan, which no one paid it to show, so it isn't an ad in the Act's sense.
 
+### 14. A few actions show, and the rest go in one menu
+
+A card, row or table toolbar shows the actions people use most as buttons, three at most, and the rest go in one overflow menu. A toolbar of tools shows as many as fit, most used first, and moves the rest into its overflow menu as the window narrows.
+
+- **Why:** Each visible action competes with the others: things emphasized the same way no longer stand out from each other (Duncan and Humphreys 1989). PatternFly advises at most three visible actions in a toolbar and no overflow menu of two or fewer, and Carbon groups two or three buttons and puts more into menus (PatternFly, "Overflow menu"; Carbon, "Button usage"). Apple keeps every action that fits in a toolbar and lets the system move the rest into an overflow menu (Apple, "Toolbars").
+- **Kind:** Current practice: at most three visible actions in a group of buttons.
+- **Check:** count the visible actions in each toolbar, card and row, and check that the visible ones are the ones used most.
+- **Fail:** a table toolbar with seven equal buttons. A "…" menu that holds only Edit.
+- **Pass:** Export and Share as buttons, and five rarer actions in a "…" menu.
+- **Not a fail:** an editor's formatting toolbar, where every control is used all the time. Filters, search, sorting and view controls beside the actions: they change the view and don't count as actions.
+
+### 15. An image shows something people need, or it goes
+
+Every picture earns its place, however it is drawn: photos, screenshots, illustrations, icons used as pictures, background patterns and textures, and shapes or glows drawn in CSS or SVG. Each one shows what people need to see: the product, the real people, the result. Decorative pictures are left out, and so is a picture repeated on every step of a flow that tells nothing new after the first. In the product, an illustration belongs only in an empty, error or success state, onboarding or a feature tour, and it is the first thing to drop when space is tight. A person in a photo looks toward the content the photo should lead to. A generated or altered photo or video that looks real, of people, places or events, says so where it is shown.
+
+- **Why:** People look closely at photos of real products and people that carry information, and skip feel-good and stock images, which take up space and add little (Nielsen 2010; Paul, "7 Tips", 2024; Krause 2023); interesting but irrelevant additions, pictures among them, lowered what people learned (Sundararajan and Adesope 2020), and pictures behind content slowed reading (Gillan and Richman 1994). Atlassian keeps illustrations in the product to empty, error and success states, onboarding and feature tours, and patterns to messages and promotional areas, and Carbon drops the empty-state image when space is tight (Atlassian, "Illustrations"; Carbon, "Empty states pattern"). A face looking toward an ad's text or product drew attention there and helped people remember it (Sajjacholapunt and Ball 2014; Palcu et al. 2017). People take a realistic photo as a record of something real, and from 2 August 2026, whoever shows a realistic image or video made or altered by AI in the EU must say so (EU AI Act, Article 50(4)).
+- **Kind:** Every product: a generated or altered photo or video that looks real says so where it is shown (EU AI Act, Article 50(4)). Current practice: the rest.
+- **Applies when:** a screen or section shows any picture or graphic beyond text and controls. Lines, borders and boxes that group content are not pictures.
+- **Check:** list the pictures from the screenshot and from the CSS: `background-image`, gradients, `::before` and `::after`, and inline SVG that isn't an icon or a chart. For each, write down what it tells people that the text doesn't. These fail:
+  - a picture that tells nothing;
+  - a picture repeated on each step of a flow with nothing new to tell;
+  - in the product, a background pattern or texture behind content, except in a message or a promotional area;
+  - in the product, an illustration outside an empty, error or success state, onboarding or a feature tour.
+
+  In photos of people meant to lead to a headline or a button, a face looking away from it fails. Ask the owner which photos and videos are generated or altered: one that looks real, with no notice where it is shown, fails.
+- **Fail:** a stock photo of a handshake beside a pricing table. A grid of feature cards whose icons repeat their headings. An illustration above every section of the settings. A dot pattern behind a sign-in form. A generated photo of "our team" on an About page, with no notice.
+- **Pass:** on a marketing page, a screenshot of the real feature beside its description. An empty list with one small illustration and a sentence about what will appear there.
+- **Not a fail:** a brand image in a marketing hero, when the page's own rules call for one. A row of real customers' or integrations' logos, which is proof, not decoration.
+
 ## Page
 
-### 14. The first screen leads with what people came for
+### 16. The first screen leads with what people came for
 
 A work screen leads with the person's task, or with what needs their action, most urgent first. A dashboard leads with what needs attention; a summary figure leads only when it answers the first question people bring, and then with what it is compared to: a target, a trend or the last period. Someone coming back to a long task they started lands on its overview with the next part marked, or where they left off, with their answers kept.
 
@@ -185,3 +214,47 @@ A work screen leads with the person's task, or with what needs their action, mos
 - **Fail:** a support queue that opens on four figure tiles while unanswered tickets wait below the fold. A six-step application that reopens on step 1, empty.
 - **Pass:** the queue opens on tickets waiting for an answer, oldest first.
 - **Not a fail:** a status page that leads with one figure, uptime this month against the target, because that is the question people bring.
+
+### 17. One primary action per view
+
+A page, dialog, side panel or step has one action in the primary style. Other actions use lower styles. When the actions are equal, none is primary, and a view with no main action has no primary button.
+
+- **Why:** Two primary buttons give the eye two places to start, and neither stands out from the other (Duncan and Humphreys 1989). Most design systems ask for one per screen or area, and Apple for one or two per view, though none cites a study; Carbon counts a dialog and a side panel on their own, and Atlassian says not every screen needs one (Material 3, "All buttons"; Carbon, "Button usage"; Atlassian, "Button"; GOV.UK, "Button"; Apple, "Buttons"; Primer, "Button").
+- **Kind:** Current practice.
+- **Applies when:** each page, dialog, side panel and step. A page made of independent areas may have one per area.
+- **Check:** count the buttons in the primary style in each view, in its busiest real state, including empty states and banners.
+- **Fail:** Save, Publish and Invite all filled on one settings page. Three empty dashboard widgets, each with a filled Create button.
+- **Pass:** Publish filled, Save draft secondary and Preview as a text button. Several empty widgets, each with a tertiary Add button (Carbon, "Empty states").
+- **Not a fail:** a dialog with its own primary button over a page that has one: the dialog is its own view.
+
+### 18. The first screen shows what this is and what to do
+
+Without scrolling, the screen shows what it is for and the main thing to read or do: the offer on a landing page, what needs attention on a dashboard, the task on a step of a flow.
+
+- **Why:** What is below the first screen is seen only after people scroll, and the upper left of a screen draws the most looks (Jiang et al. 2023).
+- **Kind:** Current practice.
+- **Applies when:** every page, most of all the pages people land on.
+- **Check:** look at a screenshot of the first screen for about five seconds, then write what the screen is for and what to do, and compare that with its job. This is the five-second test. It measures first impressions, not usability (Chan 2024, "Testing Visual Design").
+- **Fail:** a dashboard whose first screen is a welcome message and an illustration, with what needs attention below the fold.
+- **Pass:** the alert that needs action, and the figures people check first with what they are compared to, in the first screen.
+
+### 19. Headings show the structure
+
+Headings are marked up as headings, in order in the code, without skipped levels. Within a section, a lower heading is never stronger than the one above it, and a heading over running text is stronger than that text.
+
+- **Why:** Screen-reader users move through a page by its headings, so the structure people see must also be in the code (WCAG 2.2, 1.3.1), and clear headings help everyone find what they want (WCAG 2.2, Understanding 2.4.6). Skipped levels confuse readers (W3C, "Page Structure: Headings"). A label over a group of rows can be quiet: Apple's lists offer a default group header beside prominent ones (Apple, `UIListContentConfiguration`).
+- **Kind:** Every product: headings are marked up as headings (WCAG 2.2, 1.3.1). Current practice: a lower heading never outweighs a higher one in its section, and no levels are skipped.
+- **Check:** list the headings in the code with their levels, and compare their computed size and weight down the levels.
+- **Fail:** an h4 styled larger than the h3 above it. Section titles as bold `div`s that screen readers can't jump to. A page that goes from h1 to h4.
+- **Pass:** h1 for the page title, h2 for sections and h3 for subsections, each a step smaller or lighter.
+- **Not a fail:** a short label over a group of rows, such as settings, quieter than the rows, when every group uses the same label style.
+
+### 20. The product's own promotions stay below the task
+
+A promotion of the product's own features, plans or trials has one look of its own, quieter than the screen's primary action and than any warning. On a screen whose task is something else, it never takes the primary style.
+
+- **Why:** A promotion as strong as the main action competes with it (Duncan and Humphreys 1989), and one in the look of a warning teaches people to ignore warnings (Vance et al. 2019). Systems give promotions a look of their own: Atlassian a discovery button for new experiences, Primer an upsell banner beside its status banners (Atlassian, "Button"; Primer, "Banner").
+- **Kind:** Current practice.
+- **Check:** count the promotions on a screen where people work, and compare their weight with the primary action and with the warnings.
+- **Fail:** a filled primary "Start trial" button on a settings page whose task is editing the profile. An upgrade offer in the warning style.
+- **Pass:** a quiet notice about a new feature, in the product's promotion style, at the top of the list it affects, weaker than the list's Create button.

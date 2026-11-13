@@ -14,12 +14,11 @@ Standards: `standards.md`
 - Biggest risk: <one line>
 
 ## Where it is
-- Depth: <structural / behavioral / visual>, <what is being worked on now>
-- Canvas: <the Paper file, page and section>
+- Layer: <structure / style / behavior>, <what is being worked on now>
+- Canvas: <the Paper file and page>
 - Prototype: <branch; how to run it; a sign-in per role; how to reach each state>
 
 ## Today
-- Problems: <element: the harm it does, one per line>
 - Keep: <what today's design does well>
 
 ## Directions
@@ -31,23 +30,16 @@ Standards: `standards.md`
 
 ## Choices
 
-### C1. <the question> (<level>, <depth>)
+### C1. <the question> (<level>, <layer>)
 - Options: <each in a few words, "change nothing" among them>
 - Pick: <option>
 - Why: <the facts and qualities that decided it, and why each other option lost>
 - Changed on <date>: <the fact, constraint or flaw that changed it>
 
-## Checks
-
-### <depth, or the build>, <date>
-Found <n>; fixed <n>; undone <n>. Left open:
-
-| Gap | Why |
-| --- | --- |
-| <its number, and what it says> | <for the user / set aside: the fact that contradicts it> |
-
 ## For the user
 - Decisions: <the decision, its options, the recommendation>
-- Questions only real users can answer: <question>: <the test, or "accepted as a risk">
+- Still open: <the gap, and why no iteration settled it>
 - Not checked: <what no review could check, and why>
+- Assumptions: <from `standards.md`>
+- Questions only real users can answer: <question>: <the test, or "accepted as a risk">
 ```

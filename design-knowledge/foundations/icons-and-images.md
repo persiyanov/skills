@@ -1,6 +1,6 @@
 # Icons and images
 
-Covers the icons of an interface (their set, how they are drawn and delivered, their size, stroke and color next to text, their meaning, and when an icon needs a label), avatars, other companies' logos, and the photos, screenshots and illustrations on product screens and marketing pages: when they belong, how they load and how they meet their surroundings. Alt text and the contrast of icons are covered here only where a rule needs them.
+Covers the icons of an interface (their set, how they are drawn and delivered, their size, stroke and color next to text, their meaning, and when an icon needs a label), avatars, other companies' logos, and the photos, screenshots and illustrations on product screens and marketing pages: how they load and how they meet their surroundings. Not covered here: whether an image belongs at all. Alt text and the contrast of icons are covered here only where a rule needs them.
 
 - These rules are a floor: meeting them all makes a product well made, not yet good.
 - **Every product:** holds even when popular products break it, and no product's own rules change it.
@@ -8,7 +8,7 @@ Covers the icons of an interface (their set, how they are drawn and delivered, t
 - **Default:** a starting point for designing, taken from strong designers' practice: a review finding only when a harm can be named.
 - **Fail and Pass:** examples. A Pass shows one way to meet the rule, not the only one.
 
-The rules come in three groups: rules for every level, then rules for primitives (a single icon or image, and how it is drawn and loaded) and components (an icon with its text, an avatar, a logo, and a section of a page with images, such as a hero, a feature list or an empty state).
+The rules come in three groups: rules for every level, then rules for primitives (a single icon or image, and how it is drawn and loaded) and components (an icon with its text, an avatar and a logo).
 
 ## Every level
 
@@ -128,21 +128,3 @@ A third-party logo keeps the colors, proportions and clear space its owner publi
 - **Fail:** a "Works with" row where the LinkedIn, Slack and Microsoft Teams logos are all recolored to one gray. The logos of agents not yet connected, shown in gray at half opacity.
 - **Pass:** LinkedIn's "in" mark in its own blue and proportions, on a "Sign in with LinkedIn" button. "Works with Microsoft Teams" written in text. A neutral plug icon while no agent is connected, then the agent's own logo once it connects.
 - **Not a fail:** GitHub's mark in gray, which GitHub allows. A site's own favicon beside a link to that site, the way browsers and search results show it. A row of customer logos in one color on a marketing page, where the customers agreed to that use. The product's own logo.
-
-### 10. An image shows something people need, or it goes
-
-Every picture earns its place, however it is drawn: photos, screenshots, illustrations, icons used as pictures, background patterns and textures, and shapes or glows drawn in CSS or SVG. Each one shows what people need to see: the product, the real people, the result. Decorative pictures are left out, and so is a picture repeated on every step of a flow that tells nothing new after the first. In the product, an illustration belongs only in an empty, error or success state, onboarding or a feature tour, and it is the first thing to drop when space is tight. A person in a photo looks toward the content the photo should lead to. A generated or altered photo or video that looks real, of people, places or events, says so where it is shown.
-
-- **Why:** People look closely at photos of real products and people that carry information, and skip feel-good and stock images, which take up space and add little (Nielsen 2010; Paul, "7 Tips", 2024; Krause 2023); interesting but irrelevant additions, pictures among them, lowered what people learned (Sundararajan and Adesope 2020), and pictures behind content slowed reading (Gillan and Richman 1994). Atlassian keeps illustrations in the product to empty, error and success states, onboarding and feature tours, and patterns to messages and promotional areas, and Carbon drops the empty-state image when space is tight (Atlassian, "Illustrations"; Carbon, "Empty states pattern"). A face looking toward an ad's text or product drew attention there and helped people remember it (Sajjacholapunt and Ball 2014; Palcu et al. 2017). People take a realistic photo as a record of something real, and from 2 August 2026, whoever shows a realistic image or video made or altered by AI in the EU must say so (EU AI Act, Article 50(4)).
-- **Kind:** Every product: a generated or altered photo or video that looks real says so where it is shown (EU AI Act, Article 50(4)). Current practice: the rest.
-- **Applies when:** a screen or section shows any picture or graphic beyond text and controls. Lines, borders and boxes that group content are not pictures.
-- **Check:** list the pictures from the screenshot and from the CSS: `background-image`, gradients, `::before` and `::after`, and inline SVG that isn't an icon or a chart. For each, write down what it tells people that the text doesn't. These fail:
-  - a picture that tells nothing;
-  - a picture repeated on each step of a flow with nothing new to tell;
-  - in the product, a background pattern or texture behind content, except in a message or a promotional area;
-  - in the product, an illustration outside an empty, error or success state, onboarding or a feature tour.
-
-  In photos of people meant to lead to a headline or a button, a face looking away from it fails. Ask the owner which photos and videos are generated or altered: one that looks real, with no notice where it is shown, fails.
-- **Fail:** a stock photo of a handshake beside a pricing table. A grid of feature cards whose icons repeat their headings. An illustration above every section of the settings. A dot pattern behind a sign-in form. A generated photo of "our team" on an About page, with no notice.
-- **Pass:** on a marketing page, a screenshot of the real feature beside its description. An empty list with one small illustration and a sentence about what will appear there.
-- **Not a fail:** a brand image in a marketing hero, when the page's own rules call for one. A row of real customers' or integrations' logos, which is proof, not decoration.

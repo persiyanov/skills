@@ -105,13 +105,13 @@ Buttons for one item sit on or beside that item. Filters and view options sit ri
 - **Fail:** an Edit button in the page header that changes one card further down the page. A filter bar separated from its list by a summary panel. A button at the end of each row, further from its row's content than from the button above it, with no lines or backgrounds marking the rows: the buttons read as one column.
 - **Pass:** Edit on the card it changes, and the filters directly above the list. Buttons at the end of rows separated by lines.
 
-### 7. The visual order follows the content's order, and the code order follows the visual order
+### 7. What people see keeps the code's order
 
-People read a screen from the top and from the leading edge, so what comes first in the content comes first there. The keyboard and screen readers follow the order in the code, so it matches what people see.
+People read a screen from the top and from the leading edge, and the keyboard and screen readers follow the order in the code. So what people see comes in the code's order: nothing is moved away from it by CSS.
 
 - **Why:** Keyboard and screen-reader users get the code order (WCAG 2.2, 1.3.2 Meaningful Sequence and 2.4.3 Focus Order).
-- **Kind:** Every product: where the order changes the meaning or how things work, the code order follows the visual order (WCAG 2.2, 1.3.2 and 2.4.3). Current practice: the code order follows the visual order everywhere, and the visual order follows the content's order.
-- **Applies when:** always. The content's order is the order the job needs: what people need first comes first.
+- **Kind:** Every product: where the order changes the meaning or how things work, what people see follows the code order (WCAG 2.2, 1.3.2 and 2.4.3). Current practice: what people see follows the code order everywhere.
+- **Applies when:** always.
 - **Check:** press Tab from the top of the page, and compare the order focus moves in with the order on screen. Look for CSS that moves things away from their code order: `order`, `row-reverse` and `column-reverse`, grid placement, absolute positioning.
 - **Fail:** `row-reverse` shows Cancel then Save, while Tab reaches Save first.
 - **Pass:** the code order is Cancel, Save, and that is what people see.

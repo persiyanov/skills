@@ -1,6 +1,6 @@
 # Forms
 
-Covers how a form is put together and how it behaves as people fill it in: one page or several steps, how required fields are marked, when answers are checked, how changes are saved, the keyboard a field brings up on a phone, and what a form asks. Read it for any form: sign-up and checkout, create and edit pages, settings forms and applications. Not covered here: labels, hints and error wording, the order and width of fields, what assistive technology gets, and long processes over several visits, which other guides hold. The problem it solves: forms that interrupt people with errors before they finish, save some changes but not others, hide which fields they must fill, and fight the person typing on a phone.
+Covers how a form is put together and how it behaves as people fill it in: one page or several steps, how required fields are marked, how changes are saved, the keyboard a field brings up on a phone, and what a form asks, never twice. Read it for any form: sign-up and checkout, create and edit pages, settings forms and applications. Not covered here: labels, hints and error wording, when errors appear, the order and width of fields, what assistive technology gets, and long processes over several visits, which other guides hold. The problem it solves: forms that save some changes but not others, hide which fields they must fill, ask for the same thing twice, and fight the person typing on a phone.
 
 - These rules are a floor: meeting them all makes a product well made, not yet good.
 - **Every product:** holds even when popular products break it, and no product's own rules change it.
@@ -32,19 +32,7 @@ People can tell at each field, before they type, whether they must fill it in. T
 - **Pass:** "(optional)" after the label of each optional field, in every form of the product.
 - **Not a fail:** a sign-in form with an email and a password and no marks. A short sign-up form marked with "(optional)" and a long configuration form marked with "(required)", each marking its smaller group, as Carbon does.
 
-### 3. Errors wait until people finish an answer, and clear as soon as it is right
-
-No field shows an error before people have finished their first answer: not when they first move into it, and not on the first key press. A field is checked when people leave it, whether they typed in it or skipped a required one, or when they submit. On a page of one question, the check runs on Continue. Once a field shows an error, it checks again as people type, so the error goes the moment the answer is right. Errors that appear without a submit reach screen readers too.
-
-- **Why:** checks at the field help people fix answers while they are still fresh in mind, and draw attention to required fields people skipped, but an error before people finish an answer interrupts them, and one that stays after the fix makes them think the fix failed (Scott 2024, "Inline Form Validation"; Wang 2025, "Few Guesses, More Success"). Cloudscape shows no field as checked on a first visit, flags a required field left empty, and checks again on each key press while people fix it (Cloudscape, "Validation"). GOV.UK checks only on submit, since early checks trouble people who type slowly and are hard to announce reliably (GOV.UK, "Recover from validation errors"); on a page of one question, the button sits right under the field, so nothing is lost by waiting. An error that appears without moving focus is a status message, which screen readers get only through its role (WCAG 2.2, 4.1.3).
-- **Kind:** Every product: an error that appears without a submit, and without moving focus, reaches screen readers through its role (WCAG 2.2, 4.1.3), since people who can't see it otherwise go on unaware. Current practice: no error before a first answer is finished; each field checked when people leave it, or on submit; pages of one question checked on Continue; an error that clears on the key press that fixes it.
-- **Applies when:** a form checks its answers.
-- **Check:** open the form and move into the first field: an error then fails current practice. Type the first letter of an email address: an error then fails current practice. Type a wrong value, leave the field, then fix it: an error that stays after the fix until people leave the field fails current practice. With a screen reader, leave a field with a wrong value: an error that isn't announced fails.
-- **Fail:** "Enter a valid email" from the first letter typed. "Required" shown as soon as people click into an empty field.
-- **Pass:** "Enter an email address like name@example.com" after people leave a field with "anna@", gone the moment they type the rest.
-- **Not a fail:** a password checklist that ticks off each rule as people type. A count of characters left, or an error once text goes over the limit, as people type. "This username is taken", shown after a short pause in typing.
-
-### 4. A form saves one way, chosen by what a change touches
+### 3. A form saves one way, chosen by what a change touches
 
 A form either saves each change as people make it, or saves everything together with one Save button, never both in one form. Changes that apply at once suit switches and a person's own preferences, where any value they pass through on the way does no harm. Typed text in a form of several fields, groups of choices, and changes that touch money, security, privacy or other people wait for Save; one value edited in place may save when people confirm it or leave it. In a form that waits for Save, an on or off choice is a checkbox, since people expect a switch to act at once. Saving as people go keeps any failure in view until it saves, and for typed text it also shows that it is saving and when it saved.
 
@@ -56,7 +44,7 @@ A form either saves each change as people make it, or saves everything together 
 - **Pass:** a personal preferences page whose switches save at once; a team settings form with checkboxes and one Save. "Couldn't save 1 change. Retry", which stays until it saves.
 - **Not a fail:** a document editor that saves as people type and shows "Saving…" and "Saved". An issue's title edited in place that saves when people press Enter or click away.
 
-### 5. Changes not yet saved show before people try to leave
+### 4. Changes not yet saved show before people try to leave
 
 In a form that saves with a Save button, the screen shows that something changed and isn't saved yet, from the first change: a bar with Save and Discard, or a mark on the Save button. Before people leave in a way that would lose the changes, the product asks, or keeps the changes for them; Cancel and Discard may discard without asking, since that is what they say. When nothing changed, it asks nothing.
 
@@ -68,7 +56,7 @@ In a form that saves with a Save button, the screen shows that something changed
 - **Pass:** "Unsaved changes · Discard · Save" in a bar from the first edit.
 - **Not a fail:** a create page or a dialog, where nothing is saved until its button is pressed, that shows no bar but asks before leaving would lose what people typed. Cancel that discards without asking.
 
-### 6. Fields on phones bring up the right keyboard
+### 5. Fields on phones bring up the right keyboard
 
 Each field tells the phone what it expects, so the keyboard fits the answer: numbers for an amount or a code made only of digits, the email keyboard for an email, a phone pad for a phone number, and no automatic capitals or corrections in a username or a code. The return key says what it will do, such as Next, Search or Send. A code made only of digits, such as a US ZIP code or a one-time code, gets a number keyboard on a text field, not on a number field, which is meant for amounts people step up and down.
 
@@ -80,7 +68,7 @@ Each field tells the phone what it expects, so the keyboard fits the answer: num
 - **Pass:** a code field with a number keyboard and the code's leading zero kept; an email field with the @ key and no capital at the start; "Search" on the return key of a search field.
 - **Not a fail:** a full keyboard for a postal code in a country whose codes hold letters, such as SW1A 1AA.
 
-### 7. A form asks only what the product needs now
+### 6. A form asks only what the product needs now
 
 Each question has a use the product makes of the answer now, at this step. What the product needs later is asked later, at the step that needs it. A question the product only wants, such as company size on a sign-up, goes, or becomes optional and says why it is asked.
 
@@ -91,3 +79,15 @@ Each question has a use the product makes of the answer now, at this step. What 
 - **Fail:** a sign-up that asks for a phone number, a company size and a job title before people have seen the product.
 - **Pass:** a sign-up with an email and a password; the company name asked when people first invite their team.
 - **Not a fail:** a field the law requires at that step, such as a date of birth for an age check.
+
+### 7. A process never asks for the same thing twice, and an error clears nothing
+
+Within one process, such as sign-up, checkout or an application, what people already gave is filled in or offered to pick when it is needed again: "Billing address: same as delivery", a name carried to the next step. A failed submit keeps what people typed. People type something again only when retyping is the point, for security, or when the old answer no longer holds. Nothing people type is lost, and focus doesn't move, when the page redraws, such as when its scripts finish loading.
+
+- **Why:** Some people with cognitive disabilities have trouble remembering what they entered before. The browser's own autofill doesn't count, and a form that shows an error without clearing the card number people typed is WCAG's own example (Understanding 3.3.7). People who start typing before a page's scripts finish loading lose their text or their place when the page redraws the field, so Vercel asks for fields that keep their value and focus through it (Vercel, "Web Interface Guidelines").
+- **Kind:** Every product: information people entered or were given earlier in the same process is filled in or offered to pick when it is needed again, unless retyping is essential, needed for security, or the earlier answer is no longer valid (WCAG 2.2, 3.3.7), since people otherwise have to recall or retype it, and make mistakes. Current practice: earlier answers shown, ready to keep or change; text and focus kept when the page redraws.
+- **Applies when:** a process has more than one step, or a form can fail on submit.
+- **Check:** walk each process from start to end and list what each step asks: an answer asked again that isn't filled in or offered to pick fails, unless an exception applies. Submit each form with one error: fields that come back empty fail. Reload with the network and CPU slowed and start typing in the first field at once: text that disappears, or focus that leaves the field, as the page finishes loading fails current practice.
+- **Fail:** a checkout that asks for the delivery address again at billing, with no "Same as delivery". A sign-up form that clears every field because the email was taken. A search box that empties itself when the page's scripts finish loading.
+- **Pass:** "Billing address: same as delivery", ticked by default, with the address shown.
+- **Not a fail:** "Confirm password" when creating a password, and a password field emptied after a failed submit, for security. A new code sent by email.

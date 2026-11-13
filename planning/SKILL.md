@@ -7,7 +7,7 @@ description: Plan and build an approved spec, or a request whose design is settl
 
 ## 1. Read first
 
-Work on a branch that has the latest main. Then read the spec, the repo's policies for the paths it changes, and the code itself. Find every caller and consumer of the code that changes, and what already does part of the job.
+Work on a branch that has the latest main. Then load /principles and read the spec, the repo's policies for the paths it changes, and the code itself. Find every caller and consumer of the code that changes, and what already does part of the job.
 
 Plan from an approved spec. With no spec, plan from the user's request, and treat that request as the spec. If the spec is still a Draft or the design is undecided, stop and run /brainstorming.
 
@@ -20,7 +20,7 @@ A ticket is one self-contained change: it does one thing, leaves the system work
 - **Keep independent changes separate,** like a refactor and the feature that needs it.
 - **Stop splitting** when the next split leaves a partial behavior, or needs scaffolding that costs more than the check is worth.
 
-Default to one PR per plan. If multi-repo, one PR per repo. Unless there's a strong reason to have multi-PR deployment, like a change that can't ship at once. Then ship it in stages: add the new, migrate to it, remove the old.
+Default to one PR per plan. If multi-repo, one PR per repo. Unless there's a strong reason to have multi-PR deployment, like a change that can't ship at once. Then ship it in stages: add the new, migrate to it, remove the old. Never shrink the design to fit fewer PRs or deploys.
 
 ## 3. Write and show
 
@@ -30,7 +30,7 @@ Otherwise write the plan in the format under Files, and check that everything th
 
 ## 4. Build
 
-Build the tickets in order without waiting for replies. Build only what the spec asks for. When you find other work, mention it in your next report and keep building. Build each ticket yourself, and use subagents only for research and review.
+Build the tickets in order without waiting for replies. Build only what the spec asks for. Take what people see from the approved screens in "Before and after" on the design's Paper page. When you find other work, mention it in your next report and keep building. Build each ticket yourself, and use subagents only for research and review.
 
 Every step you can run is your job: CLIs, QA, and live checks the user's rules allow. Leave to the user only decisions that need their judgment and what only they have.
 
@@ -46,7 +46,7 @@ If an acceptance check or the next ticket needs a merge, a deploy or a person, s
 
 ## 5. Get it merge-ready
 
-When a PR's linters and affected tests pass, run /zen-review on its full diff.
+When a PR's linters and affected tests pass, run /zen-review on its full diff. When it changes what people see, also run /design-review on the build: it checks each page against its approved screen.
 
 The PR description says how it was validated and links the spec.
 

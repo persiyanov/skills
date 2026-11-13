@@ -1,6 +1,6 @@
 # Navigation
 
-Covers how people move around a product: what the main navigation holds and its shape at each width, where the account, settings and notifications go, what people create in the sidebar, how people tell where they are and go up a level, the browser's Back, the addresses of views, tabs, and the command menu. Read it for any product with more than one place to go. Not covered here: links that land on the thing they name, skip links and landmarks, a second way to reach each page, how the current item stands out, keyboard shortcuts, the words of labels, Back inside a form with steps, and paging through a long list, which other guides hold. The problem it solves: people who can't find a section, can't tell where they are, lose their place when they press Back or share a link, or are stuck on a page a link dropped them on.
+Covers how people move around a product: what the main navigation holds and its shape at each width, where the account, settings and notifications go, what people create in the sidebar, how people tell where they are and go up a level, the browser's Back, the addresses of views, tabs, the command menu, a second way to reach each page, and help in the same place on every page. Read it for any product with more than one place to go. Not covered here: links that land on the thing they name, skip links and landmarks, how the current item stands out, keyboard shortcuts, the words of labels, Back inside a form with steps, and paging through a long list, which other guides hold. The problem it solves: people who can't find a section, can't tell where they are, lose their place when they press Back or share a link, or are stuck on a page a link dropped them on.
 
 - These rules are a floor: meeting them all makes a product well made, not yet good.
 - **Every product:** holds even when popular products break it, and no product's own rules change it.
@@ -134,3 +134,15 @@ Where a product has a command menu, one shortcut opens it from any page, and a c
 - **Fail:** "Resync all chats", run every week, found only in the command menu. A menu that opens only with ⌘K, with nothing on screen to open it.
 - **Pass:** a search field in the top bar that opens the command menu and shows ⌘K; "Resync all chats" also in the panel's ⋯ menu.
 - **Not a fail:** a rare command, such as reloading the window, found only in a code editor's command menu. A small product with no command menu.
+
+### 11. People can reach a page more than one way, and help sits in the same place on every page
+
+Every page in a product can be found in at least two ways, such as the navigation and a search, a command menu, a site map or links from related pages, except a step in a process or its result. Where help repeats across pages, such as contact details, a contact form, a chat or help articles, it sits in the same order relative to the rest of the page on each.
+
+- **Why:** People find pages in different ways, and some find one easier, such as search for people with low vision; and people who need help find it more easily when it is in the same place (Understanding 2.4.5 and 3.2.6).
+- **Kind:** Every product: more than one way to reach each page in a set, unless the page is a step in a process or its result (WCAG 2.2, 2.4.5); help that repeats across pages (contact details, a contact form, a self-help link, a chat) keeps the same order relative to the rest of the page, unless the person changed it (3.2.6); since people who can't use one way are otherwise stuck, and people who need help don't find it where they found it before.
+- **Applies when:** a product has more than one page.
+- **Check:** pick three pages and reach each in two ways: one reachable only through the navigation fails, unless it is a step in a process. List the help on several pages (a contact link, a chat button, a help link): one that moves to a different place in the order fails.
+- **Fail:** settings pages reachable only through a nested menu, with no search and no links. A help link in the header on some pages and only in the footer on others.
+- **Pass:** a command menu that finds every settings page, beside the sidebar. A "Help" button in the same place on every page.
+- **Not a fail:** checkout steps reachable only from the step before. A site of three or four pages, each linked from the home page, with a link home on every page (Understanding 2.4.5). A product with no help on its pages. A chat button that moves when the window narrows, since WCAG compares pages at the same width.
