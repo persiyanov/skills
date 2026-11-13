@@ -71,11 +71,11 @@ A field for an answer of fixed length, such as a postcode, a year or a two-digit
 
 ### 5. The result appears where the action happened
 
-The result of an action shows where the person is looking: the item changes in place, a message appears next to the control or field, or the view moves to the new item. When the change itself is visible, no message is needed. A toast is for the result of something done in the background or out of view; it is never the only place for an error or an action, and a toast with an action stays until it is used or closed.
+The result of an action shows where the person is looking: the item changes in place, a message appears next to the control or field, or the view moves to the new item. When the change itself is visible, no message is needed. A toast is for the result of something done in the background or out of view. A toast that closes by itself never holds the only way to an error or an action, and a toast with an action stays until it is used or closed (default).
 
 - **Why:** People need to see what their action did (Nielsen 1994), and a toast far from it can fall outside the area people magnify and reaches screen readers far from its cause, so Primer adds no message when the change shows (Primer, "Accessible notifications and messages"; "Notification messaging"). Material 3 keeps a toast with an action until it is used (Material 3, "Snackbar"). WCAG lets a message that disappears on its own hold information or an action people can't find elsewhere only when people can turn its timer off, make it at least ten times longer, or are warned before it closes and can extend it with a simple action (WCAG 2.2, 2.2.1), since people who read slowly or look away lose it.
 - **Applies when:** an action has a result people need to know: saved, sent, failed, or done in the background.
-- **Check:** do each main action and note where its result appears: a result shown only far from the action, when it could show in place, fails. Let each toast expire: one that held an action, such as Undo, Retry or View, or an error, that can't be found anywhere else fails; one whose action can also be found elsewhere fails.
+- **Check:** do each main action and note where its result appears: a result shown only far from the action, when it could show in place, fails. Let each toast expire: one that held an action, such as Undo, Retry or View, or an error, that can't be found anywhere else fails.
 - **Fail:**
   - a Save error shown only in a toast that closes after 4 s;
   - "Deleted. Undo" in a toast that closes after 5 s, with no other way to restore the item;
@@ -84,6 +84,7 @@ The result of an action shows where the person is looking: the item changes in p
   - "Saved" next to the Save button;
   - an error under the field that caused it;
   - "Export ready" with a View link, in a toast that stays until closed, and the export also listed on the Exports page;
+  - "Archived. Undo" in a toast that closes after 5 s, when the item can also be restored from the archive;
   - a switch that turns on with no message: the switch shows the result;
   - a disappearing toast that repeats what the page already shows.
 
@@ -102,7 +103,7 @@ The main content's edges sit on a few columns, and every page keeps the same mar
 
 ### 7. The layout changes with the window, and each part with its own width
 
-The number of panes and the kind of navigation change at the window classes. A component changes when its own container gets too narrow for it, not at a device width. A row of logos or marks fits its container on one line, or wraps into rows of about equal length, never leaving one alone on a line. Breakpoints are set in `rem` or `em`, so people who set a larger text size in the browser get the narrow layout sooner.
+The number of panes and the kind of navigation change at the window classes. A component changes when its own container gets too narrow for it, not at a device width. A row of logos or marks fits its container on one line, or wraps into rows of about equal length, never leaving one alone on a line. Breakpoints are set in `rem` or `em`, so people who set a larger text size in the browser get the narrow layout sooner (default).
 
 One pane is flexible and takes the width left over; side panes keep a fixed width, and a pane people resize stops where its content still fits. When panes stack into one column, the main pane comes first, and supporting content follows it or opens in a sheet.
 

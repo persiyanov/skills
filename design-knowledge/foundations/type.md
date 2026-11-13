@@ -122,17 +122,18 @@ Only short labels go in capitals: a word or a few, such as a table header or a b
   - two-word table headers in capitals at 0.06 em;
   - abbreviations such as API or PDF in running text.
 
-### 9. Text is regular weight or heavier, and every weight is real
+### 9. Small text is regular weight or heavier, and every weight is real
 
-Weights lighter than regular are only for large display text. Every weight and style the page uses is loaded as its own font face, so the browser never fakes bold or italic.
+Text under about 18 px is regular weight or heavier, and lighter weights are kept for display text, 36 px and up (default). Every weight and style the page uses is loaded as its own font face, so the browser never fakes bold or italic. Text is smoothed with `-webkit-font-smoothing: antialiased` and `-moz-osx-font-smoothing: grayscale`, set once on the root, as Tailwind's `antialiased` does (default).
 
-- **Why:** Light weights are hard to see, most of all in small text, so Apple asks to avoid them and to set a thin custom font larger than usual (Apple, "Typography"). Material 3 keeps lighter weights for large sizes such as display type, whose styles start at 36, and Carbon's productive set uses Light only for its 42 and 54 px headings (Material 3, "Editorial treatments"; Carbon, "Type sets"). When a font has no face for a weight or style, the browser may fake it from another face (MDN, "font-synthesis").
-- **Check:** list the computed weight and size of each text style. A weight under 400 on text smaller than 36 px fails. Compare the weights and styles in use with the font faces the page loads (`document.fonts`): a weight in use with no face of its own is faked.
+- **Why:** Light weights are hard to see, most of all in small text, so Apple asks to avoid them and to set a thin custom font larger than usual (Apple, "Typography"). Material 3 keeps lighter weights for large sizes such as display type, whose styles start at 36, Carbon's productive set uses Light only for its 42 and 54 px headings, and Jakub Krehel fails them under 18 px (Material 3, "Editorial treatments"; Carbon, "Type sets"; interfaces "better-typography"). When a font has no face for a weight or style, the browser may fake it from another face (MDN, "font-synthesis"). On macOS, light text on a dark background looks heavier unless it is smoothed this way (MDN, "font-smooth"), and Jakub Krehel sets it once on the root (interfaces "better-typography").
+- **Check:** list the computed weight and size of each text style. A weight under 400 on text under about 18 px fails. Compare the weights and styles in use with the font faces the page loads (`document.fonts`): a weight in use with no face of its own is faked.
 - **Fail:**
   - 14 px body text at weight 300;
   - a semibold label that the browser fakes from the regular face, because the semibold file isn't loaded.
 - **Pass:**
   - a light weight only on a 56 px marketing headline;
+  - a 24 px subheading at weight 300: readable, though below the 36 px default;
   - the same weights in light and dark themes: at the font's default grade, Material's tests found no difference in readability between light and dark mode (Gilbert et al. 2022).
 
 ### 10. Numbers that line up or change keep their digits in place

@@ -1,8 +1,8 @@
 # Interaction
 
-Covers how an interface answers use, from moment to moment: when each state of a control shows; the answer to a press, from the first change on screen to a long wait; what focus may do; announcements; keyboard, pointer and touch; messages that appear on their own; changes that show at once; when a form shows its errors; edits in a table; shortcuts; and what follows a view change in a single-page app. Not covered here: what looks usable and how each state looks, where an action's result appears, what changing a value may do, which control fits a choice, disabled controls, undo and confirmation, time limits, target sizes and the space between targets, and how things animate.
+Covers how an interface answers use, from moment to moment: when each state of a control shows; the answer to a press, from the first change on screen to a long wait; what focus may do; announcements; keyboard, pointer and touch; selecting text; messages that appear on their own; changes that show at once; when a form shows its errors; edits in a table; shortcuts; and what follows a view change in a single-page app. Not covered here: what looks usable and how each state looks, where an action's result appears, what changing a value may do, which control fits a choice, disabled controls, undo and confirmation, time limits, target sizes and the space between targets, and how things animate.
 
-The rules come in four groups: rules for every level, then rules for primitives (what a press does), components (a widget, a form or a table: its keys, its messages, changes that show at once, a form's errors, edits in a table) and pages (shortcuts across a product, and view changes in a single-page app).
+The rules come in four groups: rules for every level, then rules for primitives (what a press does, and what text can be selected), components (a widget, a form or a table: its keys, its messages, changes that show at once, a form's errors, edits in a table) and pages (shortcuts across a product, and view changes in a single-page app).
 
 ## Every level
 
@@ -33,7 +33,7 @@ A control shows a state only while the state holds: hover only under a pointer t
 - **Fail:**
   - a row that stays highlighted after a tap on a phone;
   - a switch that shows Off while its real state loads, then flips to On.
-- **Pass:** hover styles inside `@media (hover: hover)`.
+- **Pass:** hover styles inside `@media (hover: hover) and (pointer: fine)`, which also leaves out touchscreens that report hover with a coarse pointer (Emil Kowalski, "Feeling Native On Mobile").
 
 ### 3. Focus never takes people somewhere else
 
@@ -72,9 +72,9 @@ A change that happens without moving focus, such as a saved state, a count of re
 
 ### 5. A press acts on release, and a second press never repeats the action
 
-A click or tap acts when it is released over the control, so sliding off cancels it. While an action is under way, its control shows that it's busy and ignores more presses, and the server treats a repeated request as one. The busy control keeps its size, its place and keyboard focus.
+A click or tap acts when it is released over the control, so sliding off cancels it. While an action is under way, its control shows that it's busy and ignores more presses, and the server treats a repeated request as one. The busy control keeps its size, its place and keyboard focus. On something that can be both pressed and dragged, a drag starts only once the pointer has moved about 10 px; less is a press (default).
 
-- **Why:** An action on press takes away the chance to slide off and cancel a slip. WCAG 2.2 accepts one only when the release undoes it, as when holding a button shows a password, or when acting on press is the point, as on an on-screen keyboard, and accepts an action that runs on slide-off when it can be undone (2.5.2). People click twice from habit, on slow connections or because of tremors, so GOV.UK also asks the server to treat a repeat as one (GOV.UK, "Button"); a busy button set to native `disabled` drops focus, so Primer and React Aria keep it focusable ("Button" in both). A busy control that grows or shrinks pushes the controls beside it, and people press the wrong one.
+- **Why:** An action on press takes away the chance to slide off and cancel a slip. WCAG 2.2 accepts one only when the release undoes it, as when holding a button shows a password, or when acting on press is the point, as on an on-screen keyboard, and accepts an action that runs on slide-off when it can be undone (2.5.2). People click twice from habit, on slow connections or because of tremors, so GOV.UK also asks the server to treat a repeat as one (GOV.UK, "Button"); a busy button set to native `disabled` drops focus, so Primer and React Aria keep it focusable ("Button" in both). A busy control that grows or shrinks pushes the controls beside it, and people press the wrong one. A hand that shakes a little during a click would otherwise start a drag, so Apple waits for about 10 px of movement (Emil Kowalski, "apple-design").
 - **Applies when:** a control starts an action that takes time or changes something.
 - **Check:** with the network slowed, click each submit, send and pay button twice quickly, then five times: a second request in the Network panel, or a duplicate result, fails. Press each button and menu item, slide off and release: an action that runs fails. While a button is busy, check that it kept its width and that focus stayed on it (`document.activeElement`), and press Enter: a change of width, an action that runs again, or focus that left it fails.
 - **Fail:**
@@ -87,13 +87,27 @@ A click or tap acts when it is released over the control, so sliding off cancels
   - keys of an on-screen keyboard that act on press;
   - a button that shows the password while held and hides it on release.
 
+### 6. Text people may need can be selected, and a control's label isn't selected by accident
+
+Content people may need to copy, such as an ID, an order number, an address, an error message or a message someone wrote, can be selected and copied. A long press or a drag across a button, tab or chip doesn't select its label or open the system's copy menu (default).
+
+- **Why:** People copy IDs, error codes and addresses to paste into a search, a support request or another app, and text they can't select has to be retyped, letter by letter. On iOS, holding a finger on a web button selects its label, or opens the copy and share menu on a link, which native controls never do; so the labels of controls are set apart from content, never the whole page (Emil Kowalski, "Feeling Native On Mobile").
+- **Applies when:** a page shows text people may need elsewhere.
+- **Check:** select each kind of content text with the mouse, and with a long press in touch emulation or on a phone: text that can't be selected fails. Search the CSS for `user-select: none`: on `body`, or on a container of content text, it fails. Hold a finger on buttons, tabs and chips on a phone, and note each label that gets selected.
+- **Fail:**
+  - `user-select: none` on `body`, so a customer's address can't be copied;
+  - an error message with a code, in text that can't be selected.
+- **Pass:**
+  - `user-select: none` on buttons, tabs, chips and drag handles, and content text that selects;
+  - an API key that can't be selected, with a Copy button beside it.
+
 ## Component
 
-### 6. Keys work the way people expect
+### 7. Keys work the way people expect
 
-Everything a pointer can do also works from the keyboard, without holding a key down or pressing keys within a set time, except what depends on the pointer's path, such as freehand drawing. Focus can leave every part with Tab, the arrow keys or Escape, or with a key the page tells people about. Tab moves from one control to the next. Inside a group such as tabs, a menu, a radio group, a list or a grid, the arrow keys move and Tab leaves the group. Enter or Space presses a focused button, Enter follows a link, Space ticks a checkbox, and Enter in a text field submits its form. Escape closes the top layer, such as a menu, a popover or a dialog, and puts focus back on what opened it, and so does every other close request the platform has, such as the back gesture on Android. When a dialog opens, focus moves into it, and while a modal one is open, Tab stays inside it, and scrolling inside it or over its backdrop never moves the page behind; when an item is deleted or a panel closes, focus moves to the nearest sensible place, never back to the top of the page.
+Everything a pointer can do also works from the keyboard, without holding a key down or pressing keys within a set time, except what depends on the pointer's path, such as freehand drawing. Focus can leave every part with Tab, the arrow keys or Escape, or with a key the page tells people about. Tab moves from one control to the next. Inside a group such as tabs, a menu, a radio group, a list or a grid, the arrow keys move and Tab leaves the group. Enter or Space presses a focused button, Enter follows a link, Space ticks a checkbox, and Enter in a text field submits its form. Escape closes the top layer, such as a menu, a popover or a dialog, and puts focus back on what opened it, and so does every other close request the platform has, such as the back gesture on Android. When a dialog opens, focus moves into it, and while a modal one is open, Tab stays inside it, and scrolling inside it or over its backdrop never moves the page behind. Scrolling to the end of a menu, popover, sheet or panel that isn't modal doesn't move the page either (`overscroll-behavior: contain`) (default). When an item is deleted or a panel closes, focus moves to the nearest sensible place, never back to the top of the page.
 
-- **Why:** Keyboard users can use only what keys reach, and focus that gets stuck or lost stops them: when a dialog closes and focus doesn't go back, they must Tab through the page to find their place. WCAG 2.2 requires that everything works from the keyboard, except what depends on the pointer's path; that focus can leave every part, with a standard key or one the page names; and that an opened dialog or menu takes focus or is reached by the next Tab, and that closing it puts focus back on what opened it, or in a logical place when that is gone (2.1.1, 2.1.2, 2.4.3, F85). The other keys follow browsers and the W3C's patterns (HTML Standard, "Implicit submission"; MDN, "Using the Popover API"; WAI-ARIA Authoring Practices, "Developing a Keyboard Interface", "Menu and Menubar Pattern", "Dialog (Modal) Pattern").
+- **Why:** Keyboard users can use only what keys reach, and focus that gets stuck or lost stops them: when a dialog closes and focus doesn't go back, they must Tab through the page to find their place. WCAG 2.2 requires that everything works from the keyboard, except what depends on the pointer's path; that focus can leave every part, with a standard key or one the page names; and that an opened dialog or menu takes focus or is reached by the next Tab, and that closing it puts focus back on what opened it, or in a logical place when that is gone (2.1.1, 2.1.2, 2.4.3, F85). The other keys follow browsers and the W3C's patterns (HTML Standard, "Implicit submission"; MDN, "Using the Popover API"; WAI-ARIA Authoring Practices, "Developing a Keyboard Interface", "Menu and Menubar Pattern", "Dialog (Modal) Pattern"). A scroll that runs past the end of an inner area moves the page under an open menu or sheet, so Jakub Krehel and Emil Kowalski contain it (interfaces "better-ui"; Emil Kowalski, "Feeling Native On Mobile").
 - **Applies when:** always.
 - **Check:** put the mouse away and Tab from the top of the page: a control Tab never reaches, or one that can't be used with Enter, Space or the arrows, fails, and so does one that acts only after a key is held down; so does a place focus can't leave with Tab, the arrows or Escape, unless the page says which key leaves it. With a menu open inside a dialog, press Escape once: a dialog that closes along with the menu fails. Scroll inside each open modal past its end, and over its backdrop, on a phone too: a page that moves behind it fails. In tabs, menus, radio groups and lists, arrows that don't move, or Tab that doesn't leave, fail. Open each menu, popover and dialog from the keyboard and close it with Escape: focus that doesn't land back on what opened it fails. Delete an item with the keyboard, and close each panel: focus left on the page itself (`document.activeElement` is `body`) fails.
 - **Fail:**
@@ -109,19 +123,22 @@ Everything a pointer can do also works from the keyboard, without holding a key 
   - arrow keys in a menu that wrap from the last item to the first, or stop there: the menu pattern allows both;
   - an in-page link that jumps to a section: focus stays on the page, but the browser starts the next Tab at that section.
 
-### 7. A message that appears on its own keeps focus in place, reaches screen readers and stays long enough
+### 8. A message that appears on its own keeps focus in place, reaches screen readers and stays long enough
 
-A message that appears on its own, such as a toast or a status, never takes focus from what people are doing, and every result and error message reaches screen readers. Keyboard users can jump to the toasts with one key. A toast that disappears stays at least 5 s, and pauses while hovered or focused, or while the tab is hidden.
+A message that appears on its own, such as a toast or a status, never takes focus from what people are doing, and every result and error message reaches screen readers. Keyboard users can jump to the toasts with one key. A toast that disappears stays at least 4 s, and 5 s by default, and pauses while hovered or focused, or while the tab is hidden.
 
-- **Why:** A toast sits at the end of the page's code, so its Undo is many key presses away: React Aria and Base UI reach the toasts with F6, Radix with F8 and Sonner with Alt+T (React Aria, "Toast"; Base UI, "Toast"; Radix Primitives, "Toast"; Emil Kowalski, "Working With Sonner"). Adobe and Fluent 2 keep toasts without an action up 5 to 7 s, paused on hover (Adobe, "Toast"; Fluent 2, "Toast"), and a toast that expires in a hidden tab is never seen, so Sonner stops its timer there (Emil Kowalski, "Design Engineering"). Result and error messages that don't take focus reach screen readers only through a live region (WCAG 2.2, 4.1.3).
+- **Why:** A toast sits at the end of the page's code, so its Undo is many key presses away: React Aria and Base UI reach the toasts with F6, Radix with F8 and Sonner with Alt+T (React Aria, "Toast"; Base UI, "Toast"; Radix Primitives, "Toast"; Emil Kowalski, "Working With Sonner"). Adobe and Fluent 2 keep toasts without an action up 5 to 7 s, paused on hover, Material 3 gives a snackbar 4 to 10 s, and Sonner closes a toast after 4 s (Adobe, "Toast"; Fluent 2, "Toast"; Material 3, "Snackbar"; Emil Kowalski, "ask-sonner"), and a toast that expires in a hidden tab is never seen, so Sonner stops its timer there (Emil Kowalski, "Design Engineering"). Result and error messages that don't take focus reach screen readers only through a live region (WCAG 2.2, 4.1.3).
 - **Applies when:** a message appears on its own, such as a toast or a status.
-- **Check:** in the accessibility tree, check that each result and error message that appears without taking focus is in a live region (`role="status"`, `role="alert"`, `role="log"` or `aria-live`): one that isn't fails. Note where focus is before and after each message appears: focus moved to a toast or status fails. With the keyboard only, reach a toast's action: no key that jumps to the toasts fails. Start an action that ends in a toast, switch to another tab, and come back: a toast that expired while hidden fails.
-- **Fail:** a "Saved" toast that takes focus away from the form.
+- **Check:** in the accessibility tree, check that each result and error message that appears without taking focus is in a live region (`role="status"`, `role="alert"`, `role="log"` or `aria-live`): one that isn't fails. Note where focus is before and after each message appears: focus moved to a toast or status fails. With the keyboard only, reach a toast's action: no key that jumps to the toasts fails. Time each toast that closes by itself: under about 4 s fails. Start an action that ends in a toast, switch to another tab, and come back: a toast that expired while hidden fails.
+- **Fail:**
+  - a "Saved" toast that takes focus away from the form;
+  - an "Invite sent" toast that closes after 2 s.
 - **Pass:**
   - a "Saved" status that screen readers read out while focus stays in the form;
+  - a toast that stays 4 s, as Sonner's do, and pauses while hovered;
   - a dialog that needs an answer, such as a warning that the session is about to end, taking focus.
 
-### 8. Small changes show at once, and a failed one visibly goes back
+### 9. Small changes show at once, and a failed one visibly goes back
 
 Small, frequent changes that almost always succeed, such as renaming, starring, reordering or moving a card, show their result at once, before the server confirms. If the server rejects one, the item returns to its true state where the person can see it, with a message saying what failed. Changes that wait for a connection show that they are waiting. Payments, sending, and anything that can't be undone wait for the server: people act on a result they see, and putting the screen back can't undo what they did next.
 
@@ -134,7 +151,7 @@ Small, frequent changes that almost always succeed, such as renaming, starring, 
   - changes made offline, kept with a visible count of waiting changes and sent when the connection returns;
   - a payment that waits for the server behind a busy button.
 
-### 9. Errors wait until people finish an answer, and clear as soon as it is right
+### 10. Errors wait until people finish an answer, and clear as soon as it is right
 
 No field shows an error before people have finished their first answer: not when they first move into it, and not on the first key press. A field is checked when people leave it, whether they typed in it or skipped a required one, or when they submit. On a page of one question, the check runs on Continue. Once a field shows an error, it checks again as people type, so the error goes the moment the answer is right. Errors that appear without a submit reach screen readers too.
 
@@ -150,7 +167,7 @@ No field shows an error before people have finished their first answer: not when
   - a count of characters left, or an error once text goes over the limit, as people type;
   - "This username is taken", shown after a short pause in typing.
 
-### 10. An edit in a table keeps the row where it is
+### 11. An edit in a table keeps the row where it is
 
 A value edited in a table cell shows it can be edited, saves when people confirm it or move on, and the row stays where it is until people refresh, even when the new value no longer matches the filter or the sort. Edits of more than one simple value go to a dialog or the record's page.
 
@@ -162,7 +179,7 @@ A value edited in a table cell shows it can be edited, saves when people confirm
 
 ## Page
 
-### 11. Shortcuts are easy to find and hard to press by accident
+### 12. Shortcuts are easy to find and hard to press by accident
 
 A product people use every day gives its frequent commands keyboard shortcuts, shows each next to its command (in the menu item, the tooltip, the command palette), and lists them all in one place, often under ?. A shortcut never takes a key the browser or the system uses for something else. A shortcut that is a single letter, number or symbol can be turned off or given a modifier key, or works only while its part of the page has focus.
 
@@ -178,7 +195,7 @@ A product people use every day gives its frequent commands keyboard shortcuts, s
   - Ctrl+F opening the product's own search over a long list that the browser's find can't search, which keeps the key's job;
   - Cmd or Ctrl+K opening a command menu, the common key in work tools, where people can change it.
 
-### 12. When an app changes view without loading a page, its title, focus and announcement follow
+### 13. When an app changes view without loading a page, its title, focus and announcement follow
 
 In a single-page app, each view has its own title, which says its topic or purpose, set when the view changes, as a page load would. Focus then moves either into the new view, to its first heading or its main region, which take focus without joining the tab order (`tabindex="-1"`) and are read when they do, or back to the top, with the new title announced in a status region (rule 4), as after a page load. A heading or region that takes focus needs no announcement as well, so nothing is read twice. Focus never stays on a link that is gone.
 

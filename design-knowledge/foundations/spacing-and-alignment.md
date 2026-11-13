@@ -8,9 +8,9 @@ The rules come in four groups: rules for every level, then rules for primitives 
 
 ### 1. More space between groups than inside them
 
-Space alone shows what belongs together: the gap around a group is at least 1.5 times the largest gap inside it. A heading sits closer to what it introduces than to what is above it. A label sits closer to its own field than to the field before it.
+Space alone shows what belongs together: the gap around a group is at least 1.5 times the largest gap inside it, and about 2 times by default. A heading sits closer to what it introduces than to what is above it. A label sits closer to its own field than to the field before it.
 
-- **Why:** People group things by how the gaps compare, not by their size: the closer grouping wins about 79% of the time when one gap is 1.2 times the other, and about 96% at 1.5 times (Wertheimer 1923; Kubovy et al. 1998). No study gives designers a minimum, and the often-repeated "at least 2×" has no source.
+- **Why:** People group things by how the gaps compare, not by their size: the closer grouping wins about 79% of the time when one gap is 1.2 times the other, and about 96% at 1.5 times (Wertheimer 1923; Kubovy et al. 1998). No study gives designers a minimum. About 2× is a common starting value, and it keeps the gap above 1.5× when real content and rounding shrink it (Jakub Krehel, interfaces "better-layout").
 - **Applies when:** groups that space alone shows, except items grouped by a shared border or background, which group whatever the gaps (Palmer 1992), or by a strong shared color (Quinlan and Wilton 1998).
 - **Check:** look first. Blur a screenshot until the text can't be read, or squint: the shapes that remain should match the groups in the content. Then measure each group you see, between what is drawn (letters, icon shapes, visible edges), not between boxes. The smallest gap between the group and anything around it should be at least 1.5 times the largest gap between its own items: one less than 1.5 times larger fails.
 - **Fail:**
@@ -76,15 +76,17 @@ Parts that share no role don't need to share a line.
   - a centered empty state that stands alone in its area;
   - a centered block inside its own border or background, in a left-aligned list: the box makes it a region of its own.
 
-### 5. What people see keeps the code's order
+### 5. What people see keeps the code's order wherever the order matters
 
-People read a screen from the top and from the leading edge, and the keyboard and screen readers follow the order in the code. So what people see comes in the code's order: nothing is moved away from it by CSS.
+People read a screen from the top and from the leading edge, and the keyboard and screen readers follow the order in the code. Where the order carries meaning or use, such as the steps of a task, a row of buttons or the order focus moves in, what people see comes in the code's order. Elsewhere, keeping the code's order is the default.
 
 - **Why:** Keyboard and screen-reader users get the code order. WCAG 2.2 requires what people see to follow it where the order changes the meaning or how things work (1.3.2 Meaningful Sequence, 2.4.3 Focus Order).
 - **Applies when:** always.
-- **Check:** press Tab from the top of the page, and compare the order focus moves in with the order on screen. Look for CSS that moves things away from their code order: `order`, `row-reverse` and `column-reverse`, grid placement, absolute positioning. An order on screen that differs from the code's fails.
+- **Check:** press Tab from the top of the page, and compare the order focus moves in with the order on screen. Look for CSS that moves things away from their code order: `order`, `row-reverse` and `column-reverse`, grid placement, absolute positioning. An order on screen that differs from the code's fails when it changes what the content means or runs against the order focus moves in.
 - **Fail:** `row-reverse` shows Cancel then Save, while Tab reaches Save first.
-- **Pass:** the code order is Cancel, Save, and that is what people see.
+- **Pass:**
+  - the code order is Cancel, Save, and that is what people see;
+  - a card that shows its image above its heading with `order`, while the heading comes first in the code: the meaning and the focus order don't change.
 
 ### 6. Nothing moves while the page loads or a control changes state
 
@@ -130,7 +132,7 @@ Data tables (though not their single cells), maps, code and toolbars that must s
 | a `1fr` grid track or a flex child that holds long text | the track won't shrink below its content and pushes the page wider | `minmax(0, 1fr)`; `min-width: 0` on the flex child |
 | `width: 100vw` | it includes the scrollbar, so the page scrolls sideways on desktop | `width: 100%` |
 | `height: 100vh` on a phone | the browser's bars cover the bottom | `100svh`, which always fits; `100dvh` only where the area must follow the bars as they move, because it resizes content while the user scrolls (CSS Values and Units 4) |
-| a bar or button fixed to the bottom of a phone screen | the on-screen keyboard covers it; `100dvh` doesn't help, because the keyboard doesn't change viewport units (web.dev, "The large, small, and dynamic viewport units") | keep it in the page's flow, or move it above the keyboard while the keyboard is open |
+| a bar or button fixed to the bottom of a phone screen | the on-screen keyboard covers it; `100dvh` doesn't help, because by default the keyboard doesn't change viewport units (web.dev, "The large, small, and dynamic viewport units") | keep it in the page's flow, or move it above the keyboard while the keyboard is open; `interactive-widget=resizes-content` in the viewport meta makes the keyboard shrink the page in Chrome and Firefox on Android, but not in Safari on iOS (MDN, "<meta name="viewport">"; caniuse) |
 | a menu or tooltip inside a box with `overflow: hidden` | the menu is cut off at the box's edge | render it outside the box, in a portal or the top layer |
 | a dialog taller than the screen | its buttons fall below the screen | a `max-height` on the dialog, a body that scrolls, and the buttons outside the scrolling part |
 | controls and text at the screen's edge on a phone with a notch | the notch or the home bar covers them | keep them inside `env(safe-area-inset-*)`, which needs `viewport-fit=cover` in the viewport meta |
@@ -193,17 +195,18 @@ Status labels, toggles and chevrons in a list whose rows vary in height all foll
 
 ### 12. Controls side by side read as separate, and their hit areas are large enough and don't overlap
 
-Controls side by side keep a visible gap, and text and icon buttons without a border get more of it than bordered buttons, because their padding doesn't show. Hit areas never overlap. A target smaller than 24 by 24 px keeps the spacing WCAG 2.5.8 asks for, except what 2.5.8 exempts: a link inside a sentence, a small target whose action a full-size one on the page also offers, a control the browser draws and the page doesn't restyle, and a size that is legally required or essential to the information. On touch screens, hit areas are at least 44 by 44 px, or 48 by 48 dp on Android.
+Controls side by side keep a visible gap, and text and icon buttons without a border get more of it than bordered buttons, because their padding doesn't show. Hit areas never overlap. A target smaller than 24 by 24 px keeps the spacing WCAG 2.5.8 asks for, except what 2.5.8 exempts: a link inside a sentence, a small target whose action a full-size one on the page also offers, a control the browser draws and the page doesn't restyle, and a size that is legally required or essential to the information. On touch screens, hit areas are 44 by 44 px, or 48 by 48 dp on Android (default).
 
-- **Why:** Controls that touch read as one, and overlapping hit areas cause wrong presses. WCAG 2.2, 2.5.8 asks for targets of at least 24 by 24 CSS px, or spacing that keeps a 24 px circle on each target clear of the others. Fingers need more: Apple's default is 44 by 44 pt, with 28 as the minimum, and Android asks for 48 by 48 dp, allowing smaller targets for mouse and trackpad (Apple, "Accessibility"; Android Developers, "Make apps more accessible").
-- **Check:** measure the gaps between the visible shapes, and between the hit areas. Hit areas that overlap fail, and so does a target under 24 by 24 px without the spacing 2.5.8 asks for. With touch input (a coarse pointer, or touch emulation), measure each hit area at any width: under 44 by 44 px fails.
+- **Why:** Controls that touch read as one, and overlapping hit areas cause wrong presses. WCAG 2.2, 2.5.8 asks for targets of at least 24 by 24 CSS px, or spacing that keeps a 24 px circle on each target clear of the others, and puts 44 by 44 px at AAA (2.5.5). Fingers need more: Apple's default is 44 by 44 pt, with 28 as the minimum, and Android asks for 48 by 48 dp, allowing smaller targets for mouse and trackpad (Apple, "Accessibility"; Android Developers, "Make apps more accessible").
+- **Check:** measure the gaps between the visible shapes, and between the hit areas. Hit areas that overlap fail, and so does a target under 24 by 24 px without the spacing 2.5.8 asks for. With touch input (a coarse pointer, or touch emulation), list each hit area under 44 by 44 px: each departs from the default.
 - **Fail:**
   - two borderless icon buttons whose icons are 4 px apart;
-  - a 28 px close button on a phone.
+  - a 16 px close button on a phone, 2 px from the button beside it.
 - **Pass:**
   - 8 px between two bordered buttons;
   - a 20 px icon inside a 44 px hit area on a phone;
-  - a 32 px button in a desktop toolbar used with a mouse.
+  - a 32 px button in a desktop toolbar used with a mouse;
+  - a 32 px button on a phone, 8 px from the next: it meets 2.5.8, below the 44 px default.
 
 ### 13. In lists and tables, text shares one edge and numbers line up by their digits
 
@@ -221,9 +224,9 @@ Controls side by side keep a visible gap, and text and icon buttons without a bo
 
 ### 14. Content past an edge shows that it's there
 
-When a row scrolls sideways, something at its edge shows that there is more: by default, part of the next item.
+When a row scrolls sideways, something at its edge shows that there is more: by default, 16 to 32 px of the next item.
 
-- **Why:** With nothing at the edge, nothing tells people the rest exists, so they can't reach it; a partly visible item tells them there is more (Feldman et al. 2023).
+- **Why:** With nothing at the edge, nothing tells people the rest exists, so they can't reach it; a partly visible item tells them there is more (Feldman et al. 2023). Jakub Krehel shows 16 to 32 px of it (interfaces "better-layout").
 - **Applies when:** the hidden content matters for the job.
 - **Check:** in the screenshots at each width, look for a scrolling row that ends exactly at the edge with nothing that shows there is more. Such a row fails.
 - **Fail:** a row of cards that ends exactly at the container's edge, with four more cards off screen.
