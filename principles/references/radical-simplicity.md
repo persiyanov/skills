@@ -1,12 +1,12 @@
 # Radical Simplicity
 
-Find the simplest complete system the job needs. This applies to code, products, APIs, processes, prompts, and skills.
+Find the simplest complete system the job needs: how it should've been done from day one, knowing what we know today. This applies to every change, whether a feature, a fix, a speed-up or a review finding, and to code, products, APIs, processes, prompts, and skills.
 
 Start with a concrete use. What is someone trying to accomplish, and what would they reasonably expect? From the other side, what should the system know and take care of for them?
 
 Describe that job without assuming today's design, but keep real constraints. Compare what it needs with what exists. For each unexplained piece, ask what need it serves and whether a different design removes that need. For each missing capability, ask what users currently do to compensate.
 
-When the design feels harder than its purpose, or discussion is about settings before the job is clear, question the model itself. Existing structure explains the present; it does not decide the future. When adding a requirement, redesign as if it had been there from the start instead of adding it on top: what would we have built had we known this from day one?
+When the design feels harder than its purpose, or discussion is about settings before the job is clear, question the model itself. Existing structure and past decisions explain the present; they do not decide the future. A change shaped by them keeps the cause, and the next change builds on it.
 
 Count complexity across the whole system, including what users and callers must understand, decide, repeat, or repair. A stronger guarantee or a better boundary can simplify more than deleting code. Moving work onto every caller does not make that work disappear.
 
@@ -16,6 +16,6 @@ Every rule and mechanism traces to a real need or constraint, or is removed: [Th
 
 Make changes to what users can expect explicit. Involve the owner when a product decision needs them.
 
-Carry the chosen design through callers, types, documentation, and tests. Deliver in steps when useful, and verify the whole job.
+Carry the chosen design through callers, types, documentation, and tests. Deliver in steps when useful, and verify the whole job. A longer way there is a cost to state, never a reason to aim lower: when the cost is real, say what the smaller change gives up and let the user choose. Return on effort decides which problems to take on, never how well to solve them.
 
 Ask: What complexity does the problem require, and what comes from choices we could change?

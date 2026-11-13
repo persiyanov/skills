@@ -24,7 +24,7 @@ Picture it happening for real: a real person, on a real day, the tenth time as w
 
 - **Why do we need this at all?** Ask it of every field, step, job, approval and rule. A value you can derive from data you hold is not a new field. An approval given in chat needs no second approval on a card.
 - **What do we already have in hand?** Use the id you hold, not a name search. Read the database, not memory. Use real data, not invented data.
-- **What would we build from scratch today?** Compare it with the change you are about to add on top: [Radical Simplicity](radical-simplicity.md).
+- **How should it have been done from day one?** Compare it with the change you are about to add on top: [Radical Simplicity](radical-simplicity.md).
 - **What is the plain version, and is the effort the size of the problem?** Most work is CRUD, background jobs and copy. Pick the conventional design an ordinary engineer would recognise, and make it work for the 99% case. Skip the extra code for a rare case, the subagents for a five-step list, the folder for one prompt, the statistics where reading the code would do.
 
 ## Does it hold together

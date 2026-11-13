@@ -50,7 +50,7 @@ Review, fix, and verify without stopping to ask. In report-only or review-only m
 
 ## 4. Fix
 
-Aim for the best end state, even when the road to it is longer. Every confirmed finding ends as fixed, left, or your decision.
+Aim for how it should've been done from day one, even when the road there is longer. Every confirmed finding ends as fixed, left, or your decision.
 
 1. Decide the fix for every confirmed finding before you edit. Load /principles. Ask first what would make the problem impossible: a deleted path, a single owner, a type or a constraint, a smaller rule. Use that when it exists, and patch only when nothing removes the cause. When the fix needs a refactor first, add the refactor to the findings file as a shape finding.
 2. When two or more confirmed findings come from one rule, in this run or across runs, question the rule first, as the contract angle does. If the smaller contract changes a requirement, it goes to Needs your decision, and its findings wait for the answer.
