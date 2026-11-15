@@ -6,19 +6,25 @@ The rules come in three groups: rules for every level, then rules for components
 
 ## Every level
 
-### 1. Things of one kind are laid out the same way
+### 1. Things of one kind share one layout, and it fits every version of their data
 
 Every card, row or tile of one kind puts the same part in the same place, with the same spacing. People can then compare items and find a part by where it sits. Leading thumbnails, avatars and icons line up, and cards in a row share a height. Inside a row, what tells the items apart comes first, and actions sit at the trailing end. A part people compare across items, such as a status, a meter, a price or an action, stays the same distance from the edge it belongs to, even when the text above it is longer.
 
-- **Why:** Once people learn where a part sits, they find it by position, and stable positions beat moving ones (Scarr et al. 2013). Material 3 lines up leading elements, gives similar elements the same spacing, and orders a row by importance, with supplementary actions at the trailing end ("Grids & spacing"; "Lists").
+Draw that layout for every version of the item, including each optional part missing. A slot or column that many items leave empty doesn't sit ahead of the parts every item has: move it after them, or rethink the item. Space kept for content that is still loading is a different case (spacing and alignment, rule 6).
+
+- **Why:** Once people learn where a part sits, they find it by position, and stable positions beat moving ones (Scarr et al. 2013). Material 3 lines up leading elements, gives similar elements the same spacing, and orders a row by importance, with supplementary actions at the trailing end ("Grids & spacing"; "Lists"). A layout drawn only for the full case leaves holes wherever real data is missing: the hole splits parts that belong together and takes width from the text people read (Emil Kowalski, "break-ui").
 - **Applies when:** the items are of one kind.
-- **Check:** look at the siblings side by side. Measure the part's distance from the edge it belongs to, in the shortest item and in the longest.
+- **Check:** look at the siblings side by side. Measure the part's distance from the edge it belongs to, in the shortest item and in the longest. Count how many items lack each part, and draw the item with each optional part empty.
 - **Fail:**
   - a usage meter right under the name on short cards, and lower down on cards with a long description;
-  - one list with dividers next to a sibling list without them (Interface Craft, "Refining Today").
+  - one list with dividers next to a sibling list without them (Interface Craft, "Refining Today");
+  - activity lines that keep a date slot between the status mark and the text, where a third of the lines have no date, so the mark sits far from its text and the text gets cut off;
+  - a table column that shows "—" in most rows.
 - **Pass:**
   - the meter on the bottom edge of every card, with descriptions clamped to two lines;
-  - a grid of photos of different heights, where no part is compared across items.
+  - a grid of photos of different heights, where no part is compared across items;
+  - the subject first and the date at the end of the line, so a line without a date ends sooner;
+  - a timeline that leads every entry with its time, because every entry has one.
 
 ### 2. Controls sit next to what they act on
 
