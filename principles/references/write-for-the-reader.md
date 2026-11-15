@@ -15,4 +15,6 @@ A correction from the user means a step was missed. Find which one and redo the 
 
 Sources: Larry McEnerney's *The Craft of Writing Effectively* (value is the reader's; writing changes minds), Eugene Schwartz's levels of awareness, Chip and Dan Heath's *Made to Stick* (the curse of knowledge, the core message), Amazon's Working Backwards press release, Barbara Minto's *Pyramid Principle*, and Paul Grice's maxims (as much as needed, true, relevant, clear).
 
+For how to write the text itself, use the writing skill.
+
 Ask: Who reads this, what should they think or do after, and does every line move them there in their own words?

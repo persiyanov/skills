@@ -83,4 +83,4 @@ Some confirmed findings are not fixed:
 
 ## 6. Report
 
-Write the report from the findings file, with /readable, in the format of `references/report.md`. No praise. After the user answers Needs your decision, run Fix and Verify on those findings.
+Write the report from the findings file, with /writing, in the format of `references/report.md`. No praise. After the user answers Needs your decision, run Fix and Verify on those findings.

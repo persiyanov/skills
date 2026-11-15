@@ -68,8 +68,14 @@ it **provides** [differentiation].
 
 - **SAM-level (homepage, deck):** [the cross-segment framing]
 - **SOM-level (landing pages, campaigns):** [per-segment framings, as proven]
-- **Words to use:** [customer verbatims, anchor phrasing]
+- **Words to use:** [customer verbatims, anchor phrasing, each with where it was heard]
 - **Words to avoid:** [buzzwords, wrong-shelf terms, 2nd-order benefit claims]
+- **Voice:** [three to five traits, each with one thing to do and one to avoid]
+
+## Objections and switching
+
+- **Objections:** [what stops the target customer from buying, and the answer to each, with proof]
+- **Why they switch:** [what pushes them off the alternative, what pulls them to us, and what holds them back: habit, cost, risk]
 
 ## Parked segments (sequence / runner-ups)
 

@@ -28,7 +28,7 @@ Thinking principles apply to all work: read them first. The others apply when th
 
 - **Experience First** (`references/experience-first.md`). Choose user delight over implementation convenience. Use when weighing product, UX, or feature-scope tradeoffs.
 - **Narrate It as the User** (`references/narrate-it-as-the-user.md`). Narrate concrete requests from real users' point of view (what they see, what they can do next, how they know what happened) through every state and down to the calls behind each step, and question every idea they must keep in mind that the world did not force. Use when designing or reviewing behavior a consumer will experience.
-- **Write for the Reader** (`references/write-for-the-reader.md`). Decide the reader, the change you want in them, and their value in their words before the first word, and read it cold before showing it. Use when writing anything someone reads: copy, a changelog, an email, a message, a doc, a prompt.
+- **Write for the Reader** (`references/write-for-the-reader.md`). Decide the reader, the change you want in them, and their value in their words before the first word, and read it cold before showing it. Use when writing anything someone reads: copy, a changelog, an email, a message, a doc, a prompt. For the writing itself, use the writing skill.
 
 ## Code and Architecture
 

@@ -14,14 +14,12 @@ Install by cloning and symlinking a skill folder into `~/.claude/skills/` or `~/
 | distill | Questions each contract a design makes and proposes the smallest correct one |
 | cut-state | Finds stored state that doesn't earn its place and removes it |
 | thebar | Compares work with the ideal end state when it goes off track |
-| readable | Presents docs, specs and reports so a reader can find and use them |
 | positioning | Product positioning: segment, alternative, differentiation |
 | product-design | Research-first UI and UX design (built on Refero's design skill, see below) |
 | design-knowledge | Standards for product UI in 24 guides: what to do, why, how to check it, with sources |
 | design-review | Judges a UI or design with fresh eyes, cell by cell, and returns gaps with proof, worst first; never edits |
 | designing | Designs or changes product UI on a Paper canvas, cell by cell: one review and one frame each, which you steer |
-| technical-writing | Writes docs, skill files, prompts, and replies in the plain style of Google's developer documentation |
-| writing | Writes and edits anything people or models read, from replies and messages to docs, skills, and landing pages. It replaces readable, technical-writing, stop-slop, writing-clearly-and-concisely, copywriting, marketing-psychology, and product-marketing-context once tried |
+| writing | Writes and edits anything people or models read, from replies and messages to docs, skills, and landing pages. |
 
 ## Borrowed
 
@@ -33,12 +31,9 @@ Thanks to these authors. Most skills below are modified from the original; the l
 | sharpen | [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) by Lauren Tan, via [backnotprop/bro](https://github.com/backnotprop/bro) | MIT |
 | bro, facts, readback, clean-room | [backnotprop/bro](https://github.com/backnotprop/bro) | No license upstream |
 | grilling | [Matt Pocock's skills](https://github.com/mattpocock/skills) | MIT |
-| copywriting, marketing-psychology, product-marketing-context | [marketingskills](https://github.com/coreyhaines31/marketingskills) by Corey Haines | MIT |
 | show-me | [HumanLayer skills](https://github.com/humanlayer/skills/tree/main/plugins/show-me) (ASCII diagrams instead of Mermaid) | MIT |
 | product-design (in part) | [Refero design skill](https://github.com/referodesign/refero_skill), without the Refero MCP parts | MIT |
-| stop-slop | [Hardik Pandya](https://github.com/hardikpandya/stop-slop) | MIT |
 | interface-craft | Josh Puckett, [DialKit](https://github.com/joshpuckett/dialkit) | Not stated |
-| writing-clearly-and-concisely | [Jesse Vincent (obra)](https://github.com/obra/the-elements-of-style); *The Elements of Style* is public domain | Not stated |
 | agent-browser | [Vercel Labs](https://github.com/vercel-labs/agent-browser) | Apache-2.0 |
 | context7-mcp | [Upstash Context7](https://github.com/upstash/context7) | MIT |
 
