@@ -566,6 +566,7 @@ Each source cited in these skills, once, with what we use from it and where to f
 | --- | --- | --- |
 | Eliel Saarinen, quoted by Eero Saarinen in "Art: The Maturing Modern" (*Time*, 2 July 1956) | design each thing in its next larger context | https://time.com/archive/6826330/art-the-maturing-modern/ |
 | Brad Frost, *Atomic Design* (2016), chapter 2 | levels of a UI: atoms ("a form label, an input or a button"), molecules, organisms, which can hold other organisms, templates and pages; "Atomic design is not a linear process": design moves between the levels in both directions | https://atomicdesign.bradfrost.com/chapter-2/ |
+| Brad Frost, "Interface Inventory" (2013) | list every part of an interface by kind before changing it, so none is missed and the inconsistencies show | https://bradfrost.com/blog/post/interface-inventory/ |
 | Marc Edwards, "Formulas for optical adjustments" (Bjango, 2023) | a circle looks smaller than a square of the same width; center a triangle on its centroid | https://bjango.com/articles/opticaladjustments/ |
 | Andrey Sitnik and Travis Turner, "OKLCH in CSS: why we moved from RGB and HSL" (Evil Martians, 2022) | OKLCH for palettes | https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl |
 | Val Head, "Designing With Reduced Motion For Motion Sensitivities" (Smashing Magazine, 2020) | replace motion with fades rather than removing all animation | https://www.smashingmagazine.com/2020/09/design-reduced-motion-sensitivities/ |

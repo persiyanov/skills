@@ -1,86 +1,86 @@
 ---
 name: designing
-description: Design or change product UI, from a new feature to an overhaul to polish, on a Paper canvas, cell by cell: one review and one frame per cell, which the user follows and steers. Use for "design X", "redesign Y", "improve", "polish" or "iterate on" a journey, page or component, for fixing what a design review found, for feedback on a design, a customer request that changes what users see, and the UI part of a spec, before it is approved. Skip it for copy-only edits and for UI bugs whose fix is known.
+description: Design or change product UI, from a new feature to an overhaul to polish, on a Paper canvas, cell by cell. Each cell gets one review and one frame, which the user follows and steers. Use for "design X", "redesign Y", "improve", "polish" or "iterate on" a journey, page or component, for fixing what a design review found, for feedback on a design, a customer request that changes what users see, and the UI part of a spec before the user approves it. Skip it for copy-only edits and for UI bugs with a known fix.
 argument-hint: "<target> [levels] [layers] [guides]"
 ---
 
 # Designing
 
-When a step names a skill (/name), invoke it with the Skill tool at that step.
+When a step names a skill, invoke it with the Skill tool.
 
-You own this design and its result: make each choice yourself, and be able to say why. "The user" is whoever asked for the design; "people" are those who use the product. Cells, levels, layers, guides and the order of the cells come from the /design-knowledge skill's `SKILL.md`.
+You own the design. Make each choice yourself and be ready to explain it. "The user" is whoever asked for the design. "People" are the people who use the product. design-knowledge's `SKILL.md` defines cells, levels and layers.
 
-Three things hold in every case:
+Three rules always apply:
 
-- **What is the user's to decide stays theirs.**
-- **You draw every frame yourself.** Subagents only review.
-- **The design lives in one place:** on Paper until the user's yes, in code after it.
+- The user makes the decisions that are theirs.
+- You draw every frame. Subagents only review.
+- Work on Paper until the user approves the design, then in code.
 
-And two habits: judge what people will see by looking at it, since a change has effects nobody intended (Schön, 1983); and do less, and finish it: every element has a reason in the person's job, or it goes (Karri Saarinen, "10 rules for crafting products that stand out", 2025).
+Look at the result of every change, because changes have side effects nobody planned (Schön, 1983). Do less, and finish what you do. Remove anything the person doesn't need for their job (Karri Saarinen, "10 rules for crafting products that stand out", 2025).
 
 ## Setup
 
-When `design.md` exists, read it and go on from its "Where it is". When /brainstorming started the work, start from the spec and ask only what it leaves open. Otherwise put the work in `docs/specs/YYYY-MM-DD-<slug>/`, then:
+If `design.md` exists, read it and pick up where it says the work stands. If /brainstorming started the work, start from its spec. Otherwise create `docs/specs/YYYY-MM-DD-<slug>/`, then:
 
-1. **The problem.** A request often names a fix: find the cause behind it, whether it is real and who has it (Linear Method, "Manage design projects").
-2. **The standards.** Write `standards.md` as design-knowledge says under "Product standards": the people, the product's qualities, the best products.
-3. **Today, on Paper.** Pick the project's Paper file, or ask whether to create one. Its tokens match the product's theme on the main branch: compare with `get_tokens` and fix each difference with `set_tokens`. Draw today's screens from the values the running app renders, as token references, and compare them with a screenshot. A part that isn't HTML, such as a chart, can stay a picture. New work has no today. When a /design-review started the work, go on from its page.
-4. **The cells,** for the target and what the user named, on the overview card.
-5. **The user.** In one message, confirm the problem, the target, the cells and the canvas, and ask only what only they know: what customers said, a constraint, what must stay, and what would make a polished result still feel wrong (impeccable, "shape").
+1. **Find the problem.** Users often ask for a fix. Find out what problem it should solve, whether that problem is real, and who has it (Linear Method, "Manage design projects").
+2. **Write `standards.md`:** the people, the product's qualities, and the best products to compare with. "Product standards" in design-knowledge says what goes in it.
+3. **Draw today's screens on Paper.** Use the project's Paper file, or ask to create one. First make the file's tokens match the product's theme, with `get_tokens` and `set_tokens`. Then draw each screen with the values the running app renders, using the tokens, and check it against a screenshot. A chart or another part that isn't HTML can stay an image. Skip this for new work. If a /design-review started the work, continue on its page.
+4. **List the cells** for the target, and put them on the overview card.
+5. **Send the user one message.** Confirm the problem, the target, the cells and the canvas. Ask only what they alone know: what customers said, constraints, what must stay, and what would make a polished result still feel wrong (impeccable, "shape").
 
-Then start `design.md`, in the format of `references/design.md`.
+Then start `design.md` from `references/design.md`.
 
 ## The loop
 
-Once for each cell, in order:
+For each cell, in order:
 
-1. **Review.** A subagent reviews the cell with /design-review, since you know why each part was made and it doesn't. Keep one for each layer: a fresh one at the layer's first cell, then the same one asked "what about now?" at each later cell, with the new frame, what changed, and your reason for each gap left as is. If it is lost, start a fresh one.
-2. **Fix and draw.** Fix each gap; leave it as is with a one-line reason; or, when it is the user's call, draw the options and go on with your pick. It is their call when the options differ in direction or scope, or change something they chose.
-   - Reuse before you add: remove something, use what people know from other products (Nielsen, 2023), reuse the product's own component, token or word, correct a value, and only then add something new (interfaces plugin, "better-interface").
-   - Fix to what the best products and established design systems do, not to the smallest step from today. A call never offers an option that convention already rules out.
-   - A part that differs from the others doing the same job matches them, or the change goes to every place (zen-review, "conventions").
-   - When the cell's question is open, such as what a page is for, draw 2–3 options that differ in structure, each from a different reference, with "change nothing" among them: the first idea is a familiar one (Jansson and Smith, 1991).
-   - Must-haves such as contrast, target sizes, accessible names and focus order hold in every change.
-   - Each bolder move the review brings goes to the user as a call, drawn beside what it would replace, with your view of it.
-   - Record each choice people would notice in `design.md`.
-   - Draw it as one frame, as "The canvas" says.
-3. **Next.** Update the card, tell the user in two lines what changed and what waits on them, and go on to the next cell. The user can, at any time, say "again" for another iteration of the cell, answer a call, so the After takes their answer, or stop.
+1. **Review.** Have a subagent review the cell with /design-review. It doesn't know why you made each choice, so it sees the design as people will. Use one subagent per layer. Start a new one at the first cell of a layer, and at each later cell ask the same one "what about now?" Send it the new frame, what changed, and why you left any gap unfixed. If it's gone, start a new one.
+2. **Fix and draw.** Fix each gap, or leave it and say why in one line. If a fix is the user's call, draw the options and carry on with your pick. It's their call when the options differ in direction or scope, or when one would change something they chose.
+   - Reuse before you add. Remove something, use a pattern people know from other products (Nielsen, 2023), reuse the product's own component, token or word, or fix a value. Add something new only if none of that works (interfaces plugin, "better-interface").
+   - Follow what the best products and design systems do, even when that means a big change. Don't offer the user an option that convention already rules out.
+   - If a part works differently from others that do the same job, make it match them, or change all of them (zen-review, "conventions").
+   - If you're not sure what a part should be, such as what a page is for, draw two or three options with different structures. Base each on a different reference, and include "change nothing". First ideas tend to copy what you've already seen (Jansson and Smith, 1991).
+   - Keep contrast, target sizes, accessible names and focus order right in every change.
+   - Draw each bolder move the reviewer suggests next to what it would replace, and give it to the user as a call, with your opinion.
+   - Record in `design.md` each choice people would notice.
+   - Draw one frame with every part of the cell, in each state the reviewer named. "The canvas" below says how.
+3. **Next.** Update the card, tell the user in two lines what changed and what they need to decide, and go to the next cell. At any point the user can stop you, ask for another iteration of the same cell, or answer a call. When they answer, redraw the After to match.
 
-A gap whose cause is in an earlier cell is fixed there, and what depends on it is redrawn. Going above the target, or reopening a choice the user made, is their call.
+If a gap comes from an earlier cell, fix it there and redraw what depends on it. Ask the user before you go beyond the target or reopen something they decided.
 
 ## The user
 
-The user's time goes to what only they can decide. What they say about the design is one of three things:
+Spend the user's time only on what they alone can decide. When they comment on the design, they're asking a question, naming a problem or proposing a fix.
 
-| They | Treat it as | Do |
+| They | It is | You |
 | --- | --- | --- |
-| Ask a question | A test of the design | Answer from `design.md`: the choice, the options it beat, and what decided it. Change nothing unless the question brings a fact, a constraint or a flaw the record lacks; then name it and change both. Never give a reason made up afterwards |
-| Name a problem | Real, unless a fact says otherwise | Choose the fix yourself |
-| Name a fix | A proposal | Find the problem behind it and test the fix against the other options. Where it loses, say so and why. The decision stays theirs |
+| Ask a question | A test of the design | Answer from `design.md`: the choice, the options it beat, and why. Change nothing unless the question shows a fact, a constraint or a flaw you missed. If it does, say what you missed and update the design and the record. Never invent a reason after the fact |
+| Name a problem | Real, unless you have facts against it | Choose the fix yourself |
+| Propose a fix | A suggestion | Find the problem behind it and compare the fix with other options. If another one is better, say so and why. The user decides |
 
-Models give way when a person pushes back, even when they were right. What the user says is a sample of a kind of problem: find its cell, and fix it everywhere.
+Models tend to give in when someone pushes back, even when they were right. Keep your choice unless you learn a new fact. Treat each comment as an example of a wider problem: find the cell it belongs to and fix it everywhere.
 
 ## Build
 
-When the Paper cells are done, give the user `design.md`'s "For the user" list, and ask for their yes. When /brainstorming started the work, hand back to its approval instead. Then:
+When the Paper cells are done, give the user the "For the user" list from `design.md` and ask them to approve. If /brainstorming started the work, go back to it instead, because it approves the spec and the design together.
 
-- **A change small enough for one branch:** build it from the frames, taking every value from Paper. Run the behavior cells in the running build, with the same loop: a value judged by feel gets a live control (Interface Craft, "Live Tuning"), and versions of a behavior sit behind a switch that shows one at a time (Emil Kowalski, "prototype"). Then have a fresh subagent check the build with /design-review, have the user try it, and ship.
-- **A new feature or a larger change:** building it is the /planning skill's work, and the behavior cells run in its build.
+- **A small change, on one branch:** build it from the frames, taking every value from Paper. Then work through the behavior cells in the running app with the same loop. For values people judge by feel, such as animation timing, add a live control (Interface Craft, "Live Tuning"). To compare versions of a behavior, add a switch that shows one at a time (Emil Kowalski, "prototype"). Then have a new subagent check the build with /design-review, let the user try it, and ship.
+- **A new feature or a larger change:** build it with /planning, and work through the behavior cells in that build.
 
-After the build, each change shows on the canvas as a frame of screenshots of the changed part, before and after.
+After the build, show each change on the canvas as before-and-after screenshots.
 
 ## The canvas
 
-Every piece of work looks the same, so the user learns it once. Its page reads left to right, then down.
+Every piece of work uses the same layout, so the user only has to learn it once. Each page reads left to right, then down.
 
-- **The page:** one for each piece of work in the project's Paper file, named after its target and the date it began.
-- **The overview card,** at the top left: the target and the dates; the cells in order, with each one's frames and the one in progress; each call waiting on the user, named as the frame shows it, with your pick; and what comes next.
-- **Before and after,** to the right of the card: each screen of the target as it was when the work began and as it is now, side by side, in the order people meet them.
-- **The frames,** one per iteration, left to right in the order they were made, three to a row and 80 px apart:
-  - **Name:** `<n> · <layer> × <level> · <note>`, such as `15 · Structure × Component · every part`.
-  - **Before notes | Before | After | After notes:** the same screens, side by side, with each side's notes on its outer edge. The Before is the latest After, or today at the start; the After is a copy of it changed only by this iteration.
-  - **Markers on the mockup,** numbered, beside what they point at, not over it (Ginns, 2006). On the Before each gap is red, its note saying what is wrong. On the After the same number is green where fixed, gray where left as is, or amber where it is the user's call, its note saying what changed or why not.
-  - **Under the After,** each call shows its options side by side, each with its idea in a line, and your pick outlined.
-- **Four colors, one meaning each:** red is still wrong, green is fixed, gray is left as is, amber waits on the user. When the user answers, the marker turns green.
+- **Page:** one per piece of work in the project's Paper file, named after the target and the start date.
+- **Overview card,** top left: the target, the dates, the cells in order with their frames and the current one, open calls with your pick, and what's next. Name each call the way its frame does.
+- **Before and after,** right of the card: each screen of the target as it was at the start and as it is now, side by side, in the order people see them.
+- **Frames:** one per iteration, left to right in the order you made them, three per row, 80 px apart.
+  - Name each one `<n> · <layer> × <level> · <note>`, such as `15 · Structure × Component · every part`.
+  - Lay it out as Before notes, Before, After, After notes, so the two screens sit side by side. The Before is the last After, or today's screens at the start. The After is a copy of the Before with only this iteration's changes.
+  - Number the markers and put each next to what it points at, never on top of it (Ginns, 2006). On the Before, each gap is red, with a note on what's wrong. On the After, the same number is green if fixed, gray if left as is, or amber if it's the user's call, with a note on what changed or why not.
+  - Put calls under the After: the options side by side, one line each, with your pick outlined.
+- **Colors:** red means still wrong, green fixed, gray left as is, and amber the user's call. When the user decides, the marker turns green.
 
-Paper puts a new artboard wherever there is room: move each to its place, and name it when you create it, since renaming cuts a name to 50 characters.
+Paper drops new artboards wherever there's room, so move each one into place. Name artboards when you create them, because renaming cuts names to 50 characters.
