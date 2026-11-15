@@ -6,11 +6,9 @@ argument-hint: "[subject or question]"
 
 # Design knowledge
 
-A design or a review of a page, a component or a journey touches every guide of the layers it works in, and each pattern guide whose page or task the work includes. Their rules at the levels in scope are its checklist. `grep -E '^## |^### |^- \*\*Applies when' <guides>` lists them, each title the rule's claim under its level, with when it applies; read a rule in full when you check the work against it.
+Design work and reviews go one cell at a time: one level of the product, such as a page, through one layer of decisions, such as structure, checked against that layer's guides.
 
 ## Levels, layers and guides
-
-Each piece of design work looks at a level, the part of the product it is, through a layer, the kind of decision, and checks it against a guide, the subject of the rules.
 
 | Level | What it is | Examples |
 | --- | --- | --- |
@@ -19,9 +17,9 @@ Each piece of design work looks at a level, the part of the product it is, throu
 | Component | A part made of primitives or of other components | a form field, a card, a form, a table with its toolbar |
 | Primitive | One element with no parts people use separately | a button, an icon, a text style, a color |
 
-Levels follow what people use, not how the code is layered: Radix calls its Dialog a primitive, but people use its trigger and its close button separately, so here it is a component. In Atomic Design's terms, primitives are atoms, components are molecules and organisms, and pages are pages (Brad Frost, 2016).
+Levels follow what people use, not how the code is layered: Radix calls its Dialog a primitive, but people use its trigger and its close button separately, so here it is a component. In Atomic Design's terms, primitives are atoms, components are molecules and organisms (Brad Frost, 2016).
 
-The layers are ordered so that the first decides the most of whether a design works, and each later one changes little of what came before: worked in order, they seldom send the work back, and stopping early still leaves the biggest problems fixed. They are the three kinds of problem Interface Craft's critique names (Interface Craft skill, "Design Critique"):
+The first layer decides the most of whether a design works, and each later one changes little of what came before, so worked in order they seldom send the work back (Interface Craft skill, "Design Critique"):
 
 | Layer | It settles | Guides |
 | --- | --- | --- |
@@ -29,15 +27,23 @@ The layers are ordered so that the first decides the most of whether a design wo
 | Style | How it looks, finished: spacing and alignment, size, type, color, surfaces, icons, visual weight, and the look of each state | spacing and alignment, hierarchy, type, color, surfaces, icons and images |
 | Behavior | How it responds and moves from moment to moment: when each state shows, the answer to a press, focus and keys, announcements, transitions and motion | interaction, motion |
 
-Each rule belongs to the layer where its fix is made: what is there, where it sits, what it says and what an action ends in is structure; how it looks is style; what happens between a person's input and the result is behavior. A rule with two answers is two rules, and a guide holds the rules of one layer, so a layer's checklist is its guides.
+A rule belongs to the layer where its fix is made, a rule with two answers is two rules, and a guide holds the rules of one layer. Foundation guides group their rules by level: every level, then primitives, components and pages. Product guides work at the journey level and wherever a concept shows on a page; pattern guides work at the pages and tasks they name, each rule judged by its "Applies when". Each rule says what must be true, why, when it applies, how to check it, and what fails and passes.
 
-Each foundation guide groups its rules by level: rules for every level, then for primitives, components and pages, as far as its subject has them. Work at one level takes that level's rules and those for every level, so a guide with no rules at a level has nothing to do there. The product guides work at the journey level, and wherever a concept shows on a page. The pattern guides work at the pages and tasks they name, and each of their rules is judged by its "Applies when".
+The cells go in this order:
 
-The rules are a floor: meeting them all makes a product well made, not yet good. Each says what must be true, why, when it applies, how to check it, and what fails and passes: Pass lists cases that meet it, with the reason where one looks like a fail.
+| | Journey | Page | Component | Primitive |
+| --- | --- | --- | --- | --- |
+| Structure | 1 | 2 | 3 | 4 |
+| Style | | 7 | 6 | 5 |
+| Behavior | | 10 | 9 | 8 |
 
-When a product's own documented rule differs from a guide, the product's rule comes first, unless following it makes people fail: they can't see, read, reach or use what they need, or they do the wrong thing. What WCAG 2.2 A and AA or the law requires always holds, whatever popular products do. A value marked "default" is a starting point, taken from strong designers' practice: departing from it is a gap only when a harm can be named.
+Structure goes top-down, because each part is judged in its next larger context, a component on its page and a page in its journey (Eliel Saarinen, quoted in *Time*, 1956). Style and behavior go bottom-up, shared primitives first, each still judged on a real page, as in Puckett's redesign: the architecture, then a visual language tried on raw components, then the full pages (Interface Craft, "Redesigning a Mobile Web App, Part 2"). A journey has only structure: how it looks and responds is its pages'.
 
-Layers are settled in order, and inside a layer, what other parts depend on comes first. Structure goes top-down, the whole before its parts, since each part is judged in its next larger context, a component on its page and a page in its journey (Eliel Saarinen, quoted in *Time*, 1956). Style and behavior go bottom-up, the shared primitives before what uses them. The work still moves between levels both ways (Frost, 2016).
+The work takes the cells at its target's level and below, narrowed to the levels, layers or guides the user names: redesigning a card takes the card and its primitives in every layer; its copy alone is two cells with only the copy guide's rules. A problem is fixed at the level of its cause, so the work can go back up (Frost, 2016); above the target, that is the user's call.
+
+A cell's checklist is its layer's rules at its level and at every level. `grep -E '^## |^### |^- \*\*Applies when' <guides>` lists them, each title the rule's claim; read a rule in full when you check the work against it. The rules are a floor: meeting them all makes a product well made, not yet good.
+
+When a product's own documented rule differs from a guide, the product's rule comes first, unless following it makes people fail: they can't see, read, reach or use what they need, or they do the wrong thing. What WCAG 2.2 A and AA or the law requires always holds. A value marked "default" is a starting point from strong designers' practice: departing from it is a gap only when a harm can be named.
 
 ## Product standards
 

@@ -14,30 +14,19 @@ Standards: `standards.md`
 - Biggest risk: <one line>
 
 ## Where it is
-- Layer: <structure / style / behavior>, <what is being worked on now>
+- Cell: <layer × level>, frame <n>; next: <cell>
 - Canvas: <the Paper file and page>
-- Prototype: <branch; how to run it; a sign-in per role; how to reach each state>
-
-## Today
-- Keep: <what today's design does well>
-
-## Directions
-| Direction | What it is | What looking at it showed |
-| --- | --- | --- |
-
-- Pick: <direction>, because <the fact or quality that decided it>. <For each other direction, why it lost.>
-- The user saw them on <date>: <what they said, and why> | not shown: <why>
+- Build: <branch; how to run it; a sign-in per role; how to reach each state> | not yet
 
 ## Choices
 
-### C1. <the question> (<level>, <layer>)
+### C1. <the question> (<layer × level>)
 - Options: <each in a few words, "change nothing" among them>
-- Pick: <option>
+- Pick: <option>, the user's call on <date> | yours
 - Why: <the facts and qualities that decided it, and why each other option lost>
 - Changed on <date>: <the fact, constraint or flaw that changed it>
 
 ## For the user
-- Decisions: <the decision, its options, the recommendation>
 - Still open: <the gap, and why no iteration settled it>
 - Not checked: <what no review could check, and why>
 - Assumptions: <from `standards.md`>
