@@ -21,6 +21,7 @@ Install by cloning and symlinking a skill folder into `~/.claude/skills/` or `~/
 | design-review | Judges a UI or design with fresh eyes, cell by cell, and returns gaps with proof, worst first; never edits |
 | designing | Designs or changes product UI on a Paper canvas, cell by cell: one review and one frame each, which you steer |
 | technical-writing | Writes docs, skill files, prompts, and replies in the plain style of Google's developer documentation |
+| writing | Writes and edits anything people or models read, from replies and messages to docs, skills, and landing pages. It replaces readable, technical-writing, stop-slop, writing-clearly-and-concisely, copywriting, marketing-psychology, and product-marketing-context once tried |
 
 ## Borrowed
 
