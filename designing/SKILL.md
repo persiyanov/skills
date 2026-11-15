@@ -19,7 +19,7 @@ Follow these principles at every step. Each one gives its reason, so that you ca
   - If the product already has a part that does the same job well, follow it, because people already know how it works.
   - If the part is new, or if today's version is what you're changing, look at how the best products handle it. Put what you looked at on the canvas, next to your frame.
   - Aim for what the best products do, even when it's a big change from today, because small steps keep today's habits.
-- **Design with real data and every version.** Draw every version that people will see. A design that you draw only for the common case fails in use, and a design that you check only against rules is correct but not good.
+- **Design with real data and every version.** Draw every version that people will see, including the extremes of everything that varies: the shortest and longest data, one item and many, the narrowest and widest windows that people use, and the largest text size. A design that you draw only for the common case fails in use, and a design that you check only against rules is correct but not good.
 - **Fix the cause of each finding.** A finding is a symptom, and one decision often causes several gaps (Kara Pernice and Rachel Krause, NN/g, 2024). Fixing each symptom separately adds weight and creates the next round's gaps. For the method, see step 2 in [Design each cell](#design-each-cell).
 - **Explore when you're unsure.** If you can't tell what something should be, draw two or three options with different structures. Base each option on a different reference, and include "change nothing." First ideas tend to repeat what you've already seen (Jansson and Smith, 1991).
 - **Remove what people wouldn't miss.** Every element takes attention from the rest of the screen (Jakob Nielsen, 1994). A reason for an element isn't enough, because you can find a reason for almost anything. Ask instead whether people would do their job worse without it. Fixes add weight one at a time, so after each change, look at the whole design and check what you can remove (Schön, 1983).
@@ -61,7 +61,7 @@ When the Paper cells are done, build the design in the following steps:
 1. Give the design and its open items to whoever asked for it, and get their approval.
 2. Build a small change from the frames on a branch. For a larger change, use /planning.
 3. Work through the behavior cells in the running build, because still images can't show how something responds and moves. For values that people judge by feel, add a live control (Interface Craft, "Live Tuning"). To compare versions of a behavior, add a switch (Emil Kowalski, "prototype").
-4. Have a new subagent check the build with /design-review.
+4. Have a new subagent check the build with /design-review, and have it check your fixes again before the user tries the build, because a fix can break something else.
 5. Let the user try the build, and then ship it.
 
 After you ship, show later changes on the canvas as before-and-after screenshots.
