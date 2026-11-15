@@ -29,7 +29,7 @@ Follow these principles at every step. Each one gives its reason, so that you ca
 
 ## Before you start
 
-If `design.md` already exists, continue from it. Otherwise, do the following:
+If the work already has a `design.md`, continue from it and from the overview card on the canvas, which shows where the work stands. Otherwise, do the following:
 
 1. Find the problem behind the request. Users often ask for a fix instead of describing the problem (Linear Method, "Manage design projects").
 2. Write `standards.md`. For what goes in it, see "Product standards" in design-knowledge. Each reviewer starts with no context, so this file tells it who the people are and which products set the bar. Write it before you design, so that nobody adjusts it to fit the design.

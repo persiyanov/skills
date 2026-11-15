@@ -6,9 +6,11 @@ argument-hint: "[subject or question]"
 
 # Design knowledge
 
-You design and review one cell at a time. A cell is one level of the product, such as a page, in one layer of decisions, such as structure. You check it against that layer's guides.
+This skill holds the standards for product UI. You design and review a product one cell at a time: one level of the product, such as a page, in one layer of decisions, such as structure. You check each cell against its layer's guides, and you judge the whole design against the product's own standards.
 
-## Levels, layers and guides
+## Levels
+
+A part's level depends on what people use separately:
 
 | Level | What it is | Examples |
 | --- | --- | --- |
@@ -17,9 +19,11 @@ You design and review one cell at a time. A cell is one level of the product, su
 | Component | A part made of primitives or of other components | a form field, a card, a form, a table with its toolbar |
 | Primitive | One element with no parts people use separately | a button, an icon, a text style, a color |
 
-A part's level depends on what people use separately. Radix calls its Dialog a primitive, but people use the trigger and the close button separately, so here a dialog is a component. In Atomic Design terms, primitives are atoms, and components are molecules and organisms (Brad Frost, 2016).
+Radix calls its Dialog a primitive, but people use the trigger and the close button separately, so here a dialog is a component. In Atomic Design terms, primitives are atoms, and components are molecules and organisms (Brad Frost, 2016).
 
-Work through the layers in order. Structure decides most of whether a design works, and each later layer changes little of what came before, so you rarely have to go back (Interface Craft skill, "Design Critique").
+## Layers and guides
+
+Each layer settles one kind of decision, and each guide covers one layer. Structure decides most of whether a design works, and each later layer changes little of what came before, so working in order rarely sends you back (Interface Craft skill, "Design Critique"):
 
 | Layer | It settles | Guides |
 | --- | --- | --- |
@@ -27,9 +31,15 @@ Work through the layers in order. Structure decides most of whether a design wor
 | Style | How it looks, finished: spacing and alignment, size, type, color, surfaces, icons, visual weight, and the look of each state | spacing and alignment, hierarchy, type, color, surfaces, icons and images |
 | Behavior | How it responds and moves from moment to moment: when each state shows, the answer to a press, focus and keys, announcements, transitions and motion | interaction, motion |
 
-A rule belongs to the layer where you'd fix it, so each guide covers one layer. If a fix spans two layers, it's two rules. Foundation guides group their rules by level: every level, then primitive, component and page. Product guides apply to journeys, and to any page where a concept appears. Pattern guides apply to the pages and tasks they name, and each of their rules says when it applies. Every rule says what must be true, why, when it applies, how to check it, and what passes and fails.
+A rule belongs to the layer where you'd fix it, so if a fix spans two layers, it's two rules. Every rule says what must be true, why, when it applies, how to check it, and what passes and fails. The guides apply as follows:
 
-Work through the cells in this order:
+- **Foundation guides** group their rules by level: every level, then primitive, component, and page.
+- **Product guides** apply to journeys, and to any page where a concept appears.
+- **Pattern guides** apply to the pages and tasks that they name, and each of their rules says when it applies.
+
+## Cell order
+
+Work through the cells in the following order:
 
 | | Journey | Page | Component | Primitive |
 | --- | --- | --- | --- | --- |
@@ -37,25 +47,35 @@ Work through the cells in this order:
 | Style | | 7 | 6 | 5 |
 | Behavior | | 10 | 9 | 8 |
 
-Structure goes top-down, because you judge each part in the context of the next larger one: a component on its page, and a page in its journey (Eliel Saarinen, quoted in *Time*, 1956). Style and behavior go bottom-up, shared primitives first, but you still judge each primitive on a real page. Puckett works this way in his redesign: the architecture first, then a visual language tried on raw components, then the full pages (Interface Craft, "Redesigning a Mobile Web App, Part 2"). Journeys have only structure. Their look and behavior come from their pages.
+Structure goes top-down, because you judge each part in the context of the next larger one: a component on its page, and a page in its journey (Eliel Saarinen, quoted in *Time*, 1956). Style and behavior go bottom-up, shared primitives first, but you still judge each primitive on a real page. Puckett works this way in his redesign: the architecture first, then a visual language tried on raw components, then the full pages (Interface Craft, "Redesigning a Mobile Web App, Part 2"). Journeys have only structure, because their look and behavior come from their pages.
 
-The target decides which cells you cover: its own level and every level below, in each layer. If the user names levels, layers or guides, cover only those. A card redesign covers the card and its primitives in all three layers. A copy pass on the card covers two cells and uses only the copy guide.
+## Choose the cells
 
-Fix each problem at the level where it starts, even if that means going back up (Frost, 2016). Ask the user before you go above the target.
+The target decides which cells you cover: its own level and every level below, in each layer. If the user names levels, layers, or guides, cover only those. For example, a card redesign covers the card and its primitives in all three layers, and a copy pass on the card covers two cells and uses only the copy guide.
 
-Before you start a cell, list every part of the target at that level (Brad Frost, "Interface Inventory", 2013). For a page's components, that's each control group, card, row, menu and toolbar. For its primitives, it's each text style, color, icon, spacing value and button.
+Fix each problem at the level where it starts, even if that means going back up (Frost, 2016). Ask the user before you go above the target, because the target is their choice.
 
-A cell's checklist is its layer's rules for its level, plus the rules for every level. `grep -E '^## |^### |^- \*\*Applies when' <guides>` lists them by title. Read a rule in full before you check the work against it. The rules are a minimum: a product that meets them all is well made, but not yet good.
+## Check a cell
 
-If the product has its own documented rule that differs from a guide, follow the product's rule, unless it makes people fail: they can't see, read, reach or use what they need, or they do the wrong thing. WCAG 2.2 A and AA and the law always apply. A value marked "default" is a starting point taken from good designers' practice. Departing from it is a gap only if you can name the harm.
+To check a cell, follow these steps:
+
+1. List every part of the target at the cell's level, so that you don't miss any (Brad Frost, "Interface Inventory", 2013). For a page's components, list each control group, card, row, menu, and toolbar. For its primitives, list each text style, color, icon, spacing value, and button.
+2. List the cell's rules: its layer's rules for its level, plus the rules for every level. `grep -E '^## |^### |^- \*\*Applies when' <guides>` lists them by title.
+3. Read each rule in full before you check the work against it.
+
+The rules are a minimum: a product that meets them all is well made, but not yet good.
+
+## When a product's rule differs from a guide
+
+Follow the product's documented rule, unless it makes people fail: they can't see, read, reach, or use what they need, or they do the wrong thing. WCAG 2.2 A and AA and the law always apply. A value marked "default" is a starting point taken from good designers' practice, so departing from it is a gap only if you can name the harm.
 
 ## Product standards
 
-Judge a design against the guides and against the product's own standards. Write the standards in `standards.md`, next to the work, before you design anything, so nobody can bend them to fit the design later (Designer Fund, "Inside design at Linear", 2026). Give a source for each line, and mark anything nobody can confirm as an assumption.
+Judge a design against the guides and against the product's own standards. Write the standards in `standards.md`, next to the work, before you design anything, so that nobody can bend them to fit the design later (Designer Fund, "Inside design at Linear", 2026). Give a source for each line, mark anything that nobody can confirm as an assumption, and cover the following:
 
-- **The people:** who uses the product, what they know, and the job they come to do, with a real case and real data. Include the state they arrive in: what's at stake for them, and how stressed or rushed they are, since stress narrows what people take in (Easterbrook, 1959; Interface Craft skill, "Design Critique"). Base this on evidence such as customer messages, support threads and usage data. Never present an imagined person as real.
-- **The product's own rules:** its UI rules, components, tokens and voice, plus a short ranked list of the qualities people should notice in this product and not in others (Interface Craft, "Facets of Quality"). These say what "the best version" means here.
-- **The best products** for the same job, and where to see them. Use them yourself if you can, since screenshots don't show motion or feel. Otherwise use their public pages or Mobbin screens, never memory. Say what each does well and whether it suits this product, and don't blend several into one. Measure any value you borrow on that product's own page with `scripts/style-inventory.js`, never from a screenshot.
+- **The people:** Who uses the product, what they know, and the job they come to do, with a real case and real data. Include the state they arrive in: what's at stake for them, and how stressed or rushed they are, because stress narrows what people take in (Easterbrook, 1959; Interface Craft skill, "Design Critique"). Base this on evidence, such as customer messages, support threads, and usage data. Never present an imagined person as real.
+- **The product's own rules:** Its UI rules, components, tokens, and voice, plus a short ranked list of the qualities that people should notice in this product and not in others (Interface Craft, "Facets of Quality"). These say what "the best version" means here.
+- **The best products:** The best products for the same job, with screens or links to them, because a reviewer compares parts side by side. Use the products yourself if you can, because screenshots don't show motion or feel. Otherwise, use their public pages or Mobbin screens, never memory. Say what each one does well and whether it suits this product, and keep them separate rather than blending several into one. Measure any value that you borrow on that product's own page with `scripts/style-inventory.js`, never from a screenshot.
 
 ## Foundations
 
