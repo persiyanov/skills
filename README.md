@@ -20,6 +20,7 @@ Install by cloning and symlinking a skill folder into `~/.claude/skills/` or `~/
 | design-knowledge | Standards for product UI in 24 guides: what to do, why, how to check it, with sources |
 | design-review | Judges a UI or design with fresh eyes, cell by cell, and returns gaps with proof, worst first; never edits |
 | designing | Designs or changes product UI on a Paper canvas, cell by cell: one review and one frame each, which you steer |
+| technical-writing | Writes docs, skill files, prompts, and replies in the plain style of Google's developer documentation |
 
 ## Borrowed
 

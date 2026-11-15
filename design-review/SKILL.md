@@ -6,56 +6,62 @@ argument-hint: "<target> [levels] [layers] [guides]"
 
 # Design review
 
-Find where a design falls short, and prove it. Don't edit the design. Fixing it is /designing's job.
+Use this skill to find where a design falls short and to prove it, one cell at a time, as design-knowledge's `SKILL.md` describes. Don't edit the design. You need fresh eyes, so run as a new session or a new subagent that had no part in making the design.
 
-You need fresh eyes, so run as a new session or a new subagent that had no part in making the design. design-knowledge's `SKILL.md` defines cells, levels and layers.
+## Principles
+
+Follow these principles in every review. Each one gives its reason, so that you can apply it to cases that it doesn't name.
+
+- **Judge what people will see.** Look at the screens, and treat the designer's notes as claims to check, because a note can be wrong and people never read it.
+- **Start with what each part is for.** Ask this before you ask how a part works. Walk through the design as each person in `standards.md`, with their real case, starting where they start. At each step, ask whether they know what to do, notice the control, connect it with their goal, and see that it worked (Wharton et al., 1994). A part that exists only because it was there before is a gap, because it costs attention and helps nobody.
+- **Look at the whole before the rules.** A design can pass every rule and still look wrong, because the rules are a floor (Interface Craft skill, "Design Critique"). Note anything that looks wrong, even if no rule names it. Measure it, such as the width of an empty gap and how many rows have it, so that it becomes a gap with proof. Blur the screen to see what stands out first, which should be what the job needs first.
+- **Cover the whole cell.** Gaps hide where nobody looked, so check every part, every version that people will meet, and every rule. Versions include empty, loading, and error states, each role and width, and data that's missing or at its longest (Emil Kowalski, "break-ui"). Read each rule in full and run its check. Stop when you've checked every rule, not when you run out of ideas (Moran and Gordon, NN/g, 2023).
+- **Compare with the rest of the product.** People learn a part once and expect it to work the same everywhere. Compare each part with the parts that do the same job on two or three similar pages, and treat a difference with no reason in `standards.md` as a gap.
+- **Compare with the best products.** The rules only make a design correct, and the best products show what good looks like. Put the same part from each best product in `standards.md` beside ours, at the same size, and measure its values on its own page. Use the products yourself where you can, because a screenshot can't show how something feels. If `standards.md` describes a product only in words, find screens of it first.
+- **Prove each gap.** The designer can't tell a proven gap from a guess, and anyone can check a count, but nobody can check an adjective. Name the element, quote its text, and give one of the following proofs:
+  - a step that you reproduced, where someone gets stuck
+  - a measurement from the DOM or from Paper, not from a screenshot, because a screenshot's pixels depend on its scale
+  - a rule that you read in full, with its "Applies when" and "Pass"
+- **Say which gaps a change introduced.** For a change, check the version before it, and say whether each gap is new or was already there. The user decides which gaps to fix now, and they can't choose well if old problems look like new ones.
+- **Question the assumptions.** A design built on an unquestioned assumption can improve only within it (Interface Craft, "Conceptual Range"). List what the design takes for granted, including decisions already made, and ask how much better it could be without each assumption. Report what you find as bolder moves, apart from the gaps, because they're proposals without proof.
+- **Check the last fixes first.** When the designer asks again about the next cell or a new frame, judge each fix since your last look, and each reason for leaving a gap, before you review the cell. Fixes often break something else, and you remember what you asked for, so you're best placed to check them.
 
 ## Set up
 
-- **Target and cells:** what the user named, in every state and every place it appears, and its cells. For the whole product, review a sample: every page of each main journey, one page of each kind, the most-visited pages, and a few at random (W3C, WCAG-EM 2.0).
-- **Input:** the Paper frames while the design is on Paper. Otherwise a running app (a URL or a branch, a login for each role, a way to reach each state) or a build. Code alone won't show you what people see, so if you have none of these, ask.
-- **Standards:** `standards.md` from whoever called you, or write it now. "Product standards" in design-knowledge says what goes in it.
-- **Folder:** one outside the repo for screenshots and notes. Capture each state of a running app once, at each width, with its DOM. Go back to the app only to use or measure something.
+Before the first cell, gather the following:
 
-## Review a cell
+- **Target and cells:** what the user named, in every state and every place it appears, and its cells. For the whole product, review a sample: every page of each main journey, one page of each kind, the most-visited pages, and a few pages at random (W3C, WCAG-EM 2.0).
+- **Input:** the Paper frames while the design is on Paper, and otherwise a running app or a build, with a login for each role and a way to reach each state. If you have only code, ask for one of these, because code doesn't show what people see.
+- **Standards:** `standards.md` from whoever called you. If there's none, write it as "Product standards" in design-knowledge describes. When the product's own rules and a guide conflict, follow design-knowledge.
+- **Folder:** a folder outside the repo for screenshots and notes, so that each gap's proof has a path.
+- **Tools:** design-knowledge's `scripts/style-inventory.js` measures the styles that a page uses, and this skill's `scripts/layout-overlay.js` shows its alignment.
 
-List the cell's parts and rules, as design-knowledge describes. Then check:
+## When the user runs a review
 
-- **Purpose.** Ask what each part is for before you ask how it works. Walk through it as each person in `standards.md`, with their real case, starting where they start. At each step, will they know what to do, notice the control, connect it with their goal, and see that it worked (Wharton et al., 1994)? Note anything they came for and can't find. A part that exists only because it was there before is a gap.
-- **States.** Use it, or find the frame, in every state: empty, loading, partial, error, no access, each role, one item and ten times the real number, 360 and 1440 px wide, each theme, each item with each optional field empty, and the worst data each field allows (Emil Kowalski, "break-ui"). Click twice during a save, press Back, and reload halfway through a change.
-- **Look.** Blur the screen and list what stands out, in order. The first thing should be what the job needs first. Count competing sizes and colors with design-knowledge's `scripts/style-inventory.js`, and check alignment with this skill's `scripts/layout-overlay.js`.
-- **Rules.** Read each of the cell's rules in full and run its Check on every part it applies to. Stop when you've checked every rule, not when you run out of ideas (Moran and Gordon, NN/g, 2023).
-- **Consistency.** Compare names, components, tokens, type, icons, placement and behavior with the parts that do the same job on two or three similar pages. A difference with no reason in `standards.md` is a gap.
-- **Best products.** Put the same part from each best product in `standards.md` next to ours, at the same size, and measure its values on its own page. Use the product yourself if you can, because screenshots don't show how it feels.
-- **Assumptions.** List what the design takes for granted, including decisions already made, and ask how much better it could be without each one. Why do people need this step at all, for example (Interface Craft, "Conceptual Range")?
+If the user runs this skill directly, confirm the target and its cells once, and then review each cell in order. For each cell, draw a frame of today's screens on the Paper canvas, named `<n> · <layer> × <level> · review`, with a red numbered marker and a note for each gap. For the layout, see "Canvas" in designing's `SKILL.md`.
 
-**Proof.** Every gap needs proof: a step you reproduced where the person gets stuck, a measurement from the DOM or from Paper (never from a screenshot), or a rule you read in full, with its "Applies when" and "Pass". Count, don't judge: "four background colors", not "too many". Name the element and quote its text. If standards conflict, follow design-knowledge.
+## Check a build
 
-**When the designer asks again** about the next cell or a new frame, first say whether each fix since your last look made things better, worse or no different, and whether you accept each reason for leaving a gap. Then review the cell.
+Run this check before a build of approved frames ships. Don't reopen the design. Here, a gap is a place where the build differs from its frame, or a problem that no frame can show. Check the following:
 
-## On its own
-
-When the user runs this skill directly, confirm the target and cells once, then review each cell in order. For each cell, draw a frame of today's screens on the Paper canvas, named `<n> · <layer> × <level> · review`, with a red numbered marker and a note for each gap. "The canvas" in designing describes the layout. /designing can start from these frames.
-
-## Checking a build
-
-Run this before a build of approved frames ships. Don't reopen the design. Here, a gap is a place where the build doesn't match its frame, or a problem no frame can show.
-
-1. **Against the frames:** compare each page with its frame at the same width, and check every page that uses a shared part the build changed. Read the lines the change deleted. A lost accessible name, focus style or reduced-motion check is a gap (interfaces plugin, "interface-review").
-2. **What frames can't show:** the WCAG 2.2 A and AA criteria that design-knowledge's `scripts/wcag-index.py` lists. Run axe on every page and state, then check keyboard-only use, the accessibility tree, 320 px width, 200% zoom, reduced motion, forced colors, each theme, and whether the styles match the product's tokens.
+- **Against the frames:** Compare each page with its frame at the same width, and check every page that uses a shared part that the build changed. Read the lines that the change deleted, because a lost accessible name, focus style, or reduced-motion check is a gap (interfaces plugin, "interface-review").
+- **What frames can't show:** Check the WCAG 2.2 A and AA criteria that design-knowledge's `scripts/wcag-index.py` lists. Run axe on every page and state, and then check keyboard-only use, the accessibility tree, 320 px width, 200% zoom, reduced motion, forced colors, each theme, and whether the styles match the product's tokens.
 
 ## What to return
 
-1. **Verdict:** a few sentences on whether each person can do their job, and where the cell is weakest.
-2. **Last fixes:** when the designer asked again, your view of each fix and each reason for leaving a gap.
-3. **Gaps:** every gap you can prove, worst first, starting with what most separates the cell from the best products. For each, give:
+Return the following, in this order, so that the designer can act on the review without redoing your work:
+
+1. **Verdict:** In a few sentences, say whether each person can do their job, and where the cell is weakest.
+2. **Last fixes:** When the designer asked again, give your judgment of each fix and of each reason for leaving a gap.
+3. **Gaps:** List every gap that you can prove, worst first, so that the designer fixes what matters most first. Put first the gaps that most separate the cell from the best products. For each gap, give the following:
    - a number and a short title
    - the part
-   - the rule it breaks (guide, number and title), the step where someone gets stuck, or the other place that does it differently
-   - what's wrong, counted, measured or quoted, and who it hurts
-   - the proof: screenshot path and location, and the code's file and line
+   - the rule it breaks (guide, number, and title), the step where someone gets stuck, or the other place that does it differently
+   - what's wrong, as a count, a measurement, or a quote, and whom it hurts
+   - for a change, whether the change introduced the gap or it was already there
+   - the proof: the screenshot's path and the place on it, and the code's file and line
 
-   If the cause is in another cell, say which. Report a gap in a shared part once, with every place it shows up (interfaces plugin, "better-interface"). Describe the problem, not the fix.
-4. **Bolder moves:** up to three, kept apart from the gaps because they're proposals, not proven faults. A bolder move is a different design that could be much better, even if it reopens a decision or goes beyond the target. For each, give the assumption it questions, the idea, the evidence and how strong it is (a product that does it, a fact about the people, a number), what it would reopen and cost, and the cheapest way to test it, such as one frame. If none is strong, list none (impeccable, "critique").
-5. **What held up:** each part with no gaps, so it's clear you covered every part, and anything a change could easily break.
-6. **Not proven or not covered:** each item with the test that would settle it, such as a usability test with five users (Nielsen, 2000).
+   If the cause is in another cell, name that cell. Report a gap in a shared part once, and list every place it appears (interfaces plugin, "better-interface"). Describe the problem, and leave the fix to the designer, who weighs each fix against the whole design.
+4. **Bolder moves:** List up to three. For each, give the assumption it questions, the idea, the evidence and how strong it is, what it would reopen and cost, and the cheapest way to test it, such as one frame. If none is strong, list none, because a weak one wastes the user's time (impeccable, "critique").
+5. **What held up:** List each part with no gaps, so that the designer can see you covered every part, and anything that a change could easily break.
+6. **Not proven or not covered:** List each item, with the test that would settle it, such as a usability test with five users (Nielsen, 2000).
