@@ -1,14 +1,16 @@
 # Experience First
 
-Choose user delight over implementation convenience. The product is the experience, and every technical decision either helps or hurts it.
+Choose what delights the user over what's convenient to build, because the product is the experience, and every technical decision either helps it or hurts it. Apply that in four ways:
 
 - **Say no to most things.** Every feature, control, and option must justify itself.
-- **Ship less, ship better.** A polished experience with three features beats a rough one with ten.
-- **Pay close attention to the details.** Transitions, alignment, spacing, feedback, error states.
-- **Improve the core workflow.** Every feature serves the central workflow or gets out of the way.
+- **Ship fewer things, finished.** A polished experience with three features beats a rough one with ten.
+- **Get the details right:** transitions, alignment, spacing, feedback, and error states.
+- **Serve the core workflow.** Every feature serves the central workflow or gets out of its way.
 
-The user is whoever consumes the work. For a UI that is the end user. For a library or an internal API it is the colleague who imports it. The engineer who maintains the code next is a user too. Weigh their experience the same way; to check it rather than assert it, narrate it: [Narrate It as the User](narrate-it-as-the-user.md).
+For example, an export takes 40 seconds and shows nothing while it runs. Showing its progress, and letting people leave the page while it finishes, does more for them than a second export format.
 
-Build foundations to support that experience. [Foundational Thinking](foundational-thinking.md) helps decide what to build first and what to learn first.
+The user is whoever uses the work. For a UI, that's the end user. For a library or an internal API, it's the colleague who imports it. The engineer who maintains the code next is a user too. Weigh their experience the same way, and to check it rather than assert it, narrate it: [Narrate It as the User](narrate-it-as-the-user.md).
 
-Ask: Which part of this did we shape for our convenience rather than the user's experience?
+Build the foundations that support that experience. [Foundational Thinking](foundational-thinking.md) helps you decide what to build first and what to learn first.
+
+Ask: Which part of this did we shape for our convenience rather than for the user's experience?

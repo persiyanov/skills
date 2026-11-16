@@ -2,7 +2,7 @@
 
 Validate external data where it enters the system. Inside, rely on facts the types or constructors already guarantee. Check conditions that can change at the point where they matter.
 
-A valid cancellation request does not prove an order is still cancellable. Check its current state when changing it, using a transaction or other synchronization to prevent another operation slipping between the check and the write.
+For example, a valid cancellation request doesn't prove that the customer can still cancel the order. Check the order's current state when you change it, and use a transaction or other synchronization, so that no other operation slips in between the check and the write.
 
 - Parse inputs such as config, CLI arguments, and API responses into types the rest of the code can trust.
 - Avoid repeating checks for facts already guaranteed. Propagate errors without revalidating the same data at every layer.
