@@ -4,7 +4,7 @@ Group changes that belong together, and check that they work before you build on
 
 Know the starting state and any existing failures. For a long transformation or data migration, use batches that make errors easy to find and recover from. Investigate unexpected failures before you rely on the result.
 
-A regression test that fails for the expected reason can confirm the bug. The fix must then make it pass. Planned intermediate edits can be incomplete in isolated work. [Outcome-Oriented Execution](outcome-oriented-execution.md) explains why live deployments need different care.
+A regression test that fails for the expected reason can confirm the bug. The fix must then make it pass. Planned intermediate edits can be incomplete in isolated work. [Work Toward the End State](work-toward-the-end-state.md) explains why live deployments need different care.
 
 Choose commit and release boundaries that make changes understandable and safe to deliver. A test and its fix can share a commit. Check the completed result as well as the steps along the way. [Prove It Works](prove-it-works.md) helps choose the check.
 

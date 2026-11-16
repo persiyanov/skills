@@ -1,4 +1,4 @@
-# Separate Before Serializing Shared State
+# Separate Shared State Before You Lock It
 
 Eliminate shared mutable state before you serialize access to it. Concurrent writes to shared state create race conditions that are intermittent, hard to reproduce, and expensive to debug. Instructions and conventions aren't concurrency control: telling agents or goroutines to "take turns" doesn't work.
 

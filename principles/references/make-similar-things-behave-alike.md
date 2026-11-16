@@ -1,4 +1,4 @@
-# Consistency Protocol
+# Make Similar Things Behave Alike
 
 Make similar things follow one rule, so that someone who learned one can predict the other. For the thing in front of you, ask what else nearby does a similar job.
 

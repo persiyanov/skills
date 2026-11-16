@@ -11,6 +11,6 @@ For example, an export takes 40 seconds and shows nothing while it runs. Showing
 
 The user is whoever uses the work. For a UI, that's the end user. For a library or an internal API, it's the colleague who imports it. The engineer who maintains the code next is a user too. Weigh their experience the same way, and to check it rather than assert it, narrate it: [Narrate It as the User](narrate-it-as-the-user.md).
 
-Build the foundations that support that experience. [Foundational Thinking](foundational-thinking.md) helps you decide what to build first and what to learn first.
+Build the foundations that support that experience. [Build Foundations When Work Needs Them](build-foundations-when-work-needs-them.md) helps you decide what to build first and what to learn first.
 
 Ask: Which part of this did we shape for our convenience rather than for the user's experience?

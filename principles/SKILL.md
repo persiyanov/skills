@@ -34,20 +34,20 @@ Use the principles as follows:
 
 ## Code and architecture
 
-- **Laziness Protocol** (`references/laziness-protocol.md`). Think like a tired maintainer: do the hard thinking now that saves them work forever, and carry the change all the way through. Use when you write or change code.
-- **Consistency Protocol** (`references/consistency-protocol.md`). Make similar things follow one rule, so that someone who learned one can predict the others. Explain each difference and each temporary step of a migration. Use when similar things behave differently, or when a change would add an exception.
+- **Design for the Tired Maintainer** (`references/design-for-the-tired-maintainer.md`). Think like a tired maintainer: do the hard thinking now that saves them work forever, and carry the change all the way through. Use when you write or change code.
+- **Make Similar Things Behave Alike** (`references/make-similar-things-behave-alike.md`). Make similar things follow one rule, so that someone who learned one can predict the others. Explain each difference and each temporary step of a migration. Use when similar things behave differently, or when a change would add an exception.
 - **Minimize Reader Load** (`references/minimize-reader-load.md`). Reduce what a reader of the code must trace and keep in mind. Use when code is hard to follow or depends on hidden state.
 - **Model the Domain** (`references/model-the-domain.md`). Put the domain into a structure, such as a state machine, a typed model, a table, or a reducer, instead of conditionals scattered through the code. Use when you write stateful logic, or code that branches a lot or repeats an assumption about a shape across files.
-- **Boundary Discipline** (`references/boundary-discipline.md`). Validate inputs where they enter, and enforce business rules where state changes. Use when you handle external data, framework adapters, or conditions that can change before you use them.
-- **Type System Discipline** (`references/type-system-discipline.md`). Make the compiler prevent mistakes, without adding needless complexity. Use when types allow mix-ups, impossible states, or forgotten cases.
+- **Validate at the Boundary** (`references/validate-at-the-boundary.md`). Validate inputs where they enter, and enforce business rules where state changes. Use when you handle external data, framework adapters, or conditions that can change before you use them.
+- **Let Types Prevent Mistakes** (`references/let-types-prevent-mistakes.md`). Make the compiler prevent mistakes, without adding needless complexity. Use when types allow mix-ups, impossible states, or forgotten cases.
 - **Make Operations Idempotent** (`references/make-operations-idempotent.md`). Make retries safe, and never guess whether an uncertain external action happened. Use when work may repeat, overlap, or stop halfway.
-- **Separate Before Serializing Shared State** (`references/separate-before-serializing-shared-state.md`). Remove the sharing first. Where sharing is real, serialize access with a lock or a similar mechanism. Use when several actors might write the same file, branch, key, or object at once.
+- **Separate Shared State Before You Lock It** (`references/separate-shared-state-before-you-lock-it.md`). Remove the sharing first. Where sharing is real, serialize access with a lock or a similar mechanism. Use when several actors might write the same file, branch, key, or object at once.
 
 ## Delivery
 
-- **Foundational Thinking** (`references/foundational-thinking.md`). Build a foundation when upcoming work needs it, and test uncertain assumptions first. Use when you decide what to build first, or make a choice that's costly to undo.
+- **Build Foundations When Work Needs Them** (`references/build-foundations-when-work-needs-them.md`). Build a foundation when upcoming work needs it, and test uncertain assumptions first. Use when you decide what to build first, or make a choice that's costly to undo.
 - **Sequence Work into Verifiable Units** (`references/sequence-verifiable-units.md`). Group changes that belong together, and check each group before you build on it. Use when later work depends on earlier changes.
-- **Outcome-Oriented Execution** (`references/outcome-oriented-execution.md`). Reach the intended design without leaving temporary compatibility code behind. Migrate the callers and delete the old API in the same batch of changes, and protect live users throughout. Use when you carry out a planned rewrite or migration, or replace an internal API.
+- **Work Toward the End State** (`references/work-toward-the-end-state.md`). Aim every step at the intended end state. Keep each in-between state safe only for whoever depends on it, and remove what served only the way there. Use when you carry out a rewrite, a migration, a rollout, or any replacement.
 - **Build the Lever** (`references/build-the-lever.md`). Use an existing tool, or build the smallest useful one. Use when work is repetitive, easy to get wrong by hand, or hard to check by hand.
 
 ## Verification and debugging

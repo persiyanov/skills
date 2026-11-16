@@ -1,4 +1,4 @@
-# Foundational Thinking
+# Build Foundations When Work Needs Them
 
 Build foundations when upcoming work needs them. Test uncertain assumptions before making choices that will be costly to undo.
 

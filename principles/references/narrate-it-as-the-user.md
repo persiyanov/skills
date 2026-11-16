@@ -2,7 +2,7 @@
 
 Take the user's point of view and narrate one concrete request: "I ask for X. What do I see, what can I do next, and how do I know what happened?" Keep all three questions, because a design that answers only the first has an interface, not a model. If the narration needs a word that the user wouldn't use, implementation details are leaking.
 
-Users don't memorize rules. They compress what they experience into the fewest ideas that predict it, and they try the obvious variations to do so (see [Consistency Protocol](consistency-protocol.md)). Count the ideas one request needs. Keep the story as short as the job allows and no shorter. A story that stays short by hiding a distinction that the user will meet later has delayed an idea, not removed one.
+Users don't memorize rules. They compress what they experience into the fewest ideas that predict it, and they try the obvious variations to do so (see [Make Similar Things Behave Alike](make-similar-things-behave-alike.md)). Count the ideas one request needs. Keep the story as short as the job allows and no shorter. A story that stays short by hiding a distinction that the user will meet later has delayed an idea, not removed one.
 
 Every idea comes from the world or from us. The world forces a difference when removing it would make the system wrong, unsafe, or impossible. A provider, a schema, or last quarter's decision that made one path easier doesn't count. An idea the world did not force is a sign of a problem in the system, not the story. Trace an exception back before you add another.
 

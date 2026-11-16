@@ -1,4 +1,4 @@
-# Boundary Discipline
+# Validate at the Boundary
 
 Validate external data where it enters the system. Inside, rely on facts the types or constructors already guarantee. Check conditions that can change at the point where they matter.
 

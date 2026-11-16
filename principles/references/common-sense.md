@@ -16,7 +16,7 @@ Picture it happening for real: a real person, on a real day, the tenth time as w
 
 - **What happens today?** Walk one concrete case through the current system before you propose a change. Many proposals fix what already works, or miss that production already does the thing.
 - **Isn't this already handled?** The same problem usually exists somewhere else in the system, along with what already answers it: the docs, another endpoint, last week's decision.
-- **How does the rest of our system do it?** Do the same unless there is a reason: [Consistency Protocol](consistency-protocol.md).
+- **How does the rest of our system do it?** Do the same unless there is a reason: [Make Similar Things Behave Alike](make-similar-things-behave-alike.md).
 - **How does everyone else do it?** Find the convention, the library default, the vendor's official guidance. Others have solved ordinary problems many times, so deviate only for a reason that you can state: [Know What Is True](know-what-is-true.md).
 - **How did the people involved do it before?** Before you write in someone's voice or reopen their decision, read how they wrote, replied, or decided last time.
 
