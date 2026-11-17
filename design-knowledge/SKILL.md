@@ -28,7 +28,7 @@ Each layer settles one kind of decision, and each guide covers one layer. Struct
 | Layer | It settles | Guides |
 | --- | --- | --- |
 | Structure | What is there and what it does: the concepts, the steps of each journey, what each page and part holds, where each part sits and what leads, every state and what it says, the words, which control each choice gets, what each action does (where it leads, what it changes and what is kept), and what assistive technology gets | conceptual model, journeys, content, copy, controls, layout, accessibility, and each pattern guide for the pages and tasks the work includes |
-| Style | How it looks, finished: spacing and alignment, size, type, color, surfaces, icons, visual weight, and the look of each state | spacing and alignment, hierarchy, type, color, surfaces, icons and images |
+| Style | How it looks, finished: spacing and alignment, size, type, color, surfaces, icons, visual weight, and the look of each state | visual language, spacing and alignment, hierarchy, type, color, surfaces, icons and images |
 | Behavior | How it responds and moves from moment to moment: when each state shows, the answer to a press, focus and keys, announcements, transitions and motion | interaction, motion |
 
 A rule belongs to the layer where you'd fix it, so if a fix spans two layers, it's two rules. Every rule says what must be true, why, when it applies, how to check it, and what passes and fails. The guides apply as follows:
@@ -48,6 +48,8 @@ Work through the cells in the following order:
 | Behavior | | 10 | 9 | 8 |
 
 Structure goes top-down, because you judge each part in the context of the next larger one: a component on its page, and a page in its journey (Eliel Saarinen, quoted in *Time*, 1956). Style and behavior go bottom-up, shared primitives first, but you still judge each primitive on a real page. Puckett works this way in his redesign: the architecture first, then a visual language tried on raw components, then the full pages (Interface Craft, "Redesigning a Mobile Web App, Part 2"). Journeys have only structure, because their look and behavior come from their pages.
+
+When the target is the product's look itself, such as a new visual language or a restyle of every page, settle the product-wide choices that the visual-language guide covers first, and then work through the style cells. Building the look bottom-up from values, before anyone has decided what each value is for, ends in values tweaked one at a time.
 
 ## Choose the cells
 
@@ -75,12 +77,15 @@ Judge a design against the guides and against the product's own standards. Write
 
 - **The people:** Who uses the product, what they know, and the job they come to do, with a real case and real data. Include the state they arrive in: what's at stake for them, and how stressed or rushed they are, because stress narrows what people take in (Easterbrook, 1959; Interface Craft skill, "Design Critique"). Base this on evidence, such as customer messages, support threads, and usage data. Never present an imagined person as real.
 - **The product's own rules:** Its UI rules, components, tokens, and voice, plus a short ranked list of the qualities that people should notice in this product and not in others (Interface Craft, "Facets of Quality"). These say what "the best version" means here.
-- **The best products:** The best products for the same job, with screens or links to them, because a reviewer compares parts side by side. Use the products yourself if you can, because screenshots don't show motion or feel. Otherwise, use their public pages or Mobbin screens, never memory. Say what each one does well and whether it suits this product, and keep them separate rather than blending several into one. Measure any value that you borrow on that product's own page with `scripts/style-inventory.js`, never from a screenshot.
+- **The best products:** The best products for the same job, with screens or links to them, because a reviewer compares parts side by side. Use the products yourself if you can, because screenshots don't show motion or feel. Otherwise, use their public pages or Mobbin screens, never memory. Say what each one does well and whether it suits this product, and keep them separate rather than blending several into one. Follow the conventions that most of them share, because people already know them, but never take one product's look, such as its palette, type or shapes, because a copied look makes this product pass for that one.
+- **What each best product decided:** When the work sets the product's look, such as a visual language or a restyle, write down what each best product decided, which default it left, and why that fits it. Start with the whole page, because that's where the feel comes from: how large and dense the text and spacing are, how many weights and text colors separate levels, how soft the shapes are, how surfaces sit, how much color there is, and what the screen is for. Then go on to single parts. Measure the values on the product's own page with `scripts/style-inventory.js` wherever you can open it, because small previews hide scale and space. Where you can only see screens, such as a page behind a login, record counts and proportions from the largest screens you have, such as how many items a group shows and how many weights it uses, and mark them unmeasured. This record widens the options for this product and shows what to avoid copying.
+- **The user's verdicts:** Each verdict that the user gives on the look, such as "too close to that product" or "this panel looks cluttered", dated and in their words, with what it rules out and no more. Add each one when the user gives it, and never rewrite one to fit a design. Verdicts are how a fresh designer or reviewer learns this user's taste.
 
 ## Foundations
 
 | Read for | File |
 | --- | --- |
+| Visual language: the product's look as a whole, the few choices that hold on every page, where they come from, and whether the look is the product's own | `foundations/visual-language.md` |
 | Layout: where each part sits: the same place across items of one kind, next to what it acts on, where people expect it, a form's column, where an action's result appears, the grid, margins and reading width, how it changes with the window, density, sticky areas, short screens, one modal at a time | `foundations/layout.md` |
 | Spacing and alignment: grouping by space, gaps, the spacing scale, alignment lines, centering, padding, side items in a list, hit areas, the edges of text and numbers, and nothing that moves, overlaps, gets cut off or shows out of the code's order, across widths, zoom, content length and right-to-left languages | `foundations/spacing-and-alignment.md` |
 | Hierarchy: what people see first, second and third; emphasis by size, weight, contrast, color, space and position; the levels of text and of buttons; what looks usable, and the look of each state of a control | `foundations/hierarchy.md` |
@@ -126,7 +131,7 @@ Judge a design against the guides and against the product's own standards. Write
 | Measuring a page: the type, colors, borders, radii, spacing and motion it renders | `scripts/style-inventory.js` |
 | Every source, with its link | `sources.md` |
 
-Each guide cites the WCAG 2.2 A and AA criteria for its subject by number. The guides don't yet cover charts, brand identity, front-end code, or patterns not listed above.
+Each guide cites the WCAG 2.2 A and AA criteria for its subject by number. The guides don't yet cover charts, logos and brand marks, front-end code, or patterns not listed above.
 
 ## Sources
 

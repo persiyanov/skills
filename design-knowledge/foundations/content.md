@@ -131,16 +131,17 @@ Where a screen chooses before people do, such as a selected option, a filled-in 
 
 ### 8. Long lists come in parts that fit the task, and people know where they are
 
-Long lists that people search, compare or work through come in pages or behind "Load more", with the total and the range in view ("26–50 of 1,240"). The page and the place in the list live in the URL, and Back returns to the same place. If a list loads more as people scroll, as a social feed does, the footer stays reachable and the keyboard can leave the feed. A list of one page has no pagination.
+Long lists that people search, compare or work through come in pages or behind "Load more". The page shows how many items match the current search and filters, and the range of the current page sits with the page controls ("26–50 of 1,240" beside Previous and Next). The page and the place in the list live in the URL, and Back returns to the same place. If a list loads more as people scroll, as a social feed does, the footer stays reachable and the keyboard can leave the feed. A list of one page has no pagination.
 
-- **Why:** Content that keeps loading as people scroll causes problems for keyboard users, and a feed has no common keyboard convention, so people need a key that moves focus out of it, such as Ctrl+End (GOV.UK, "Pagination"; WAI-ARIA APG, "Feed Pattern"). Pages let people keep their place: "Load more" beats endless scrolling, and people return to the same place after an item (MacDonald 2026, "Product Listing Page"); every page has a URL, and one page needs no pagination (Primer, "Pagination"); the range and the total stay in view, with "+" when the total isn't known (Carbon, "Pagination"; Cloudscape, "Table").
+- **Why:** Content that keeps loading as people scroll causes problems for keyboard users, and a feed has no common keyboard convention, so people need a key that moves focus out of it, such as Ctrl+End (GOV.UK, "Pagination"; WAI-ARIA APG, "Feed Pattern"). Pages let people keep their place: "Load more" beats endless scrolling, and people return to the same place after an item (MacDonald 2026, "Product Listing Page"); every page has a URL, and one page needs no pagination (Primer, "Pagination"); the range and the total stay in view, with "+" when the total isn't known, and Carbon's pagination component holds the range together with the page controls (Carbon, "Pagination"; Cloudscape, "Table"). A range moved into the heading makes the heading's number count rows in one view and matches in another.
 - **Applies when:** a list can hold more items than fit on one screen.
-- **Check:** scroll to the end of each long list with a wheel, then with the keyboard (Tab, End, Ctrl+End): a footer you can't reach fails. Open an item and press Back: landing at the top of the list fails. No total or range in view, or a reload on page 3 that lands on page 1, fails. A list people search that loads endlessly as they scroll fails. Make a list exactly one page long, then one item longer: pagination on the first, or an empty last page on the second, fails.
+- **Check:** scroll to the end of each long list with a wheel, then with the keyboard (Tab, End, Ctrl+End): a footer you can't reach fails. Open an item and press Back: landing at the top of the list fails. No total or range in view, a range away from the page controls, a heading number that counts anything but the matching items, or a reload on page 3 that lands on page 1, fails. A list people search that loads endlessly as they scroll fails. Make a list exactly one page long, then one item longer: pagination on the first, or an empty last page on the second, fails.
 - **Fail:**
   - an activity log that loads more forever, so the footer's links can't be reached;
-  - a results list that returns to page 1 after Back.
+  - a results list that returns to page 1 after Back;
+  - "Customers 1–25 of 3,214" in the heading, with Previous and Next alone at the foot of the table.
 - **Pass:**
-  - "Showing 26–50 of 1,240", page numbers, `?page=2` in the URL, and Back to the same row;
+  - "Showing 26–50 of 1,240" beside the page numbers, `?page=2` in the URL, and Back to the same row;
   - a social feed that loads as people scroll, with the footer's links also in the menu and a key to leave the feed.
 
 ### 9. An empty state says why it is empty and what to do next

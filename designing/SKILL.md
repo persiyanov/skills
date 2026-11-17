@@ -18,14 +18,15 @@ Follow these principles at every step. Each one gives its reason, so that you ca
 - **Look at references before you draw.** Designers who see examples early produce more creative work than designers who see them late (Kulkarni, Dow, and Klemmer, 2014), and the user can't judge your pick without seeing what else exists. Find what answers the cell's question:
   - If the product already has a part that does the same job well, follow it, because people already know how it works.
   - If the part is new, or if today's version is what you're changing, look at how the best products handle it. Put what you looked at on the canvas, next to your frame.
-  - Aim for what the best products do, even when it's a big change from today, because small steps keep today's habits.
+  - Follow the conventions that most good products share, but never take one product's look. When the work sets the product's look, such as a visual language or a restyle, write down what each reference decided, starting with the whole page, as "Product standards" in design-knowledge describes, and use that record to widen your options, because a look copied from one product makes ours pass for that one.
+  - Aim as high as the best products, even when it's a big change from today, because small steps keep today's habits.
 - **Design with real data and every version.** Draw every version that people will see, including the extremes of everything that varies: the shortest and longest data, one item and many, the narrowest and widest windows that people use, and the largest text size. A design that you draw only for the common case fails in use, and a design that you check only against rules is correct but not good.
 - **Fix the cause of each finding.** A finding is a symptom, and one decision often causes several gaps (Kara Pernice and Rachel Krause, NN/g, 2024). Fixing each symptom separately adds weight and creates the next round's gaps. For the method, see step 2 in [Design each cell](#design-each-cell).
-- **Explore before you refine.** When a cell decides what the design is, such as the concept or the flow of new work, draw two or three directions with different structures before you polish any of them, and let the user pick. Base each on a different reference, and include the smallest change that fixes the cause, and "change nothing." First ideas tend to repeat what you've already seen (Jansson and Smith, 1991), and you won't feel unsure about your first idea when it's the only one you've drawn.
+- **Explore before you refine.** When a cell decides what the design is, such as the concept or the flow of new work, draw two or three directions with different structures before you polish any of them, and let the user pick. Include the smallest change that fixes the cause, and "change nothing." First ideas tend to repeat what you've already seen (Jansson and Smith, 1991), and you won't feel unsure about your first idea when it's the only one you've drawn. When the user decides a choice about the look, name what most products do, then draw options from that default to the most unusual one that a strong designer would choose, each justified by one of the product's ranked qualities, because the user can pick only what you drew.
 - **Remove what people wouldn't miss.** Every element takes attention from the rest of the screen (Jakob Nielsen, 1994). A reason for an element isn't enough, because you can find a reason for almost anything. Ask instead whether people would do their job worse without it. Fixes add weight one at a time, so after each change, look at the whole design and check what you can remove (Schön, 1983).
 - **Show the user what changed and what to decide.** The user steers by looking, so put every change on the Paper canvas, next to what was wrong before, together with the open calls and where the work stands. For a layout to start with, see [Canvas](#canvas).
-- **Keep the design in one place.** Keep it on Paper until the user approves it, and in code after that. Two copies drift apart, and then nobody knows which one is right. Take the values on Paper from the running app and the product's tokens, because the build copies them.
-- **Record each choice and why.** Write each choice that people would notice in `design.md`, with its options and why the others lost. If the user asks why, answer from the record. Change your answer only if they show you a fact that you missed, because models tend to give in when someone pushes back, even when they were right.
+- **Keep the design in one place.** Keep it on Paper until the user approves it, and in code after that. Two copies drift apart, and then nobody knows which one is right. Take the values on Paper from the running app and the product's tokens, because the build copies them. Draw the product's screens as layers bound to tokens, not as screenshots, so that they can be measured and changed. Paper's tokens apply to the whole file, so to try new values, add a set of tokens for the work and bind only the new frames to it, which leaves earlier frames and other pages as they were.
+- **Record each choice and why.** Write each choice that people would notice in `design.md`, with its options and why the others lost. Add each verdict that the user gives on the look to `standards.md`, in their words, so that the next designer and reviewer start from it. If the user asks why, answer from the record. Change your answer only if they show you a fact that you missed, because models tend to give in when someone pushes back, even when they were right.
 
 ## Before you start
 
@@ -33,7 +34,7 @@ If the work already has a `design.md`, continue from it and from the overview ca
 
 1. Find the problem behind the request. Users often ask for a fix instead of describing the problem (Linear Method, "Manage design projects").
 2. Write `standards.md`. For what goes in it, see "Product standards" in design-knowledge. Each reviewer starts with no context, so this file tells it who the people are and which products set the bar. Write it before you design, so that nobody adjusts it to fit the design.
-3. Draw today's screens on Paper.
+3. Draw today's screens on Paper from the values that the running pages render.
 4. Start `design.md` from `references/design.md`, in the same folder as `standards.md`.
 5. Send the user one message. Confirm the problem, the target, the cells, and where to keep the files. Ask only for what the user alone knows, such as what customers said and what must stay the same.
 
@@ -45,7 +46,7 @@ For each cell, in order, do the following:
 2. Turn the findings into changes:
    1. Group the findings by cause.
    2. Fix each cause where it starts: in an earlier cell, in every place where the same part appears, or in every problem of the kind that the user pointed out.
-   3. For each cause, choose the change that adds the least: remove something, reuse what exists, follow the best products, or, if none of these works, invent something.
+   3. For each cause, choose the change that adds the least: remove something, reuse what exists, follow the best products, or, if none of these works, invent something. Where the product and the best products all do a part one way, keep that way and fix the cause elsewhere, because people already know it.
    4. Check what the change breaks elsewhere.
    5. If you disagree with a finding, leave it, and tell the reviewer why.
 3. Draw one frame.
@@ -53,6 +54,17 @@ For each cell, in order, do the following:
 5. Go to the next cell.
 
 The user steers while you work, so keep going until they stop you or an unanswered call blocks the next cell. The user can ask for another iteration of any cell.
+
+## Design the look itself
+
+When the target is the product's look itself, such as a visual language or a restyle of every page, decide it from the top down before the style cells, because a value makes sense only once you know what it's for:
+
+1. Take the qualities ranked in `standards.md`, and what each best product decided, from the same file.
+2. List the choices that the look needs, starting with the whole page, such as size and density, weights, softness, surfaces and color, and then the parts that the product shows most. Treat each as a question with options and the qualities that decide it (MacLean, Young, Bellotti and Moran, 1991).
+3. For each choice, draw options from the default to something unusual, and let the user pick.
+4. Name the roles, such as the page, a card, each text level, and the job of each color, and then give each role its value.
+5. Draw the picks on one sheet of real parts, and then on real screens, including the densest screen and an empty one.
+6. Have the reviewer put each screen beside the best products at the same size, and judge it as a whole against design-knowledge's `foundations/visual-language.md`.
 
 ## Build the design
 
@@ -64,7 +76,7 @@ When the Paper cells are done, build the design in the following steps:
 4. Have a new subagent check the build with /design-review, and have it check your fixes again before the user tries the build, because a fix can break something else.
 5. Let the user try the build, and then ship it.
 
-After you ship, show later changes on the canvas as before-and-after screenshots.
+After you ship, the design lives in code, so show later changes on the canvas as before-and-after screenshots of the build.
 
 ## Canvas
 
@@ -73,7 +85,7 @@ Start with the following layout, which worked well in past projects. If a change
 - **Page:** Create one page per piece of work in the project's Paper file, and name it after the target and the start date. Arrange the page left to right, then top to bottom.
 - **Overview card:** In the top-left corner, show the target, the dates, the cells in order with their frames and whether a reviewer checked each one, the current cell, the open calls with your pick, and what's next.
 - **Before and after:** To the right of the card, show each screen as it was at the start and as it is now, side by side, in the order that people see them. Update it and the card after every change, because they're the only place where the user sees the current design.
-- **Frames:** Each frame records one step of the work: what the review found, what you changed, and the user's comments on it, so the user can follow the work one step at a time. Start a new frame for the next review, not for each comment. Once the next frame starts, leave the earlier frames as they are, because they're the record of each step. Place the frames left to right, three per row, 80 px apart. Name each frame `<n> · <layer> × <level> · <note>`, for example `15 · Structure × Component · every part`.
+- **Frames:** Each frame records one step of the work: what the review found, what you changed, and the user's comments on it, so the user can follow the work one step at a time. Start a new frame for each review, and for each round of the user's comments on the current design, not for each comment. Once the next frame starts, leave the earlier frames as they are, because they're the record of each step. Place the frames left to right, three per row, 80 px apart. Name each frame `<n> · <layer> × <level> · <note>`, for example `15 · Structure × Component · every part`.
 - **Frame layout:** Place the Before notes, the Before, the After, and the After notes in a row, so that the two screens are side by side. The Before is the previous After, or today's screens at the start. The After contains only this iteration's changes.
 - **Markers:** Put numbered markers on the mockup, beside what they point to and not on top of it (Ginns, 2006). Use the same number for a gap on the Before and its fix on the After. In each side's notes, say what was wrong or what changed.
 - **Calls:** Under the After, show the options side by side, one line each, and outline your pick.
