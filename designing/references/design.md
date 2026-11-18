@@ -15,6 +15,10 @@ Build: <the branch, how to run it, a login for each role, and how to reach each 
 - Tradeoff: <what we give up for it>
 - Biggest risk: <one line>
 
+## Cases
+
+- <a person and their job, or what varies and its extreme>: <the real data or value>, from <where it comes from>
+
 ## Choices
 
 ### C1. <the question> (<layer × level>)
