@@ -1,8 +1,8 @@
 # Content
 
-Covers each page's job (who it is for, what they need and what the product needs from them), which information and actions it shows, in what form, order and amount, which of them leads (the first screen, the primary action, the outline of its headings, and the product's own promotions), which images belong, what it starts with, what an AI made, ads, and how it shows the states of its data: empty, loading, failed, partial and out of date. Not covered here: the words themselves, how much each thing stands out by its look, spacing, feedback after an action, how loading indicators move, and how marketing pages present proof, prices and their first screen (rules 1 and 5 still apply to them).
+Covers each page's job (who it is for, what they need and what the product needs from them), which information and actions it shows, in what form, order and amount, how it shows each kind of thing and each event, which of them leads (the first screen, the primary action, the outline of its headings, and the product's own promotions), which images belong, what it starts with, what an AI made, ads, and how it shows the states of its data: empty, loading, failed, partial and out of date. Not covered here: the words themselves, how much each thing stands out by its look, spacing, feedback after an action, how loading indicators move, and how marketing pages present proof, prices and their first screen (rules 1 and 5 still apply to them).
 
-The rules come in three groups: rules for every level, then rules for components (a collection of items, its form, and what it starts with; a list and its pages, a region as it loads, fails or stays empty, what an AI made, ads, the actions a toolbar shows, and images) and pages (what the first screen leads with, the primary action, headings and promotions).
+The rules come in three groups: rules for every level, then rules for components (a collection of items, its form, and what it starts with; how each kind of thing and each event is shown; a list and its pages, a region as it loads, fails or stays empty, what an AI made, ads, the actions a toolbar shows, and images) and pages (what the first screen leads with, the primary action, headings and promotions).
 
 ## Every level
 
@@ -111,7 +111,42 @@ A table holds items that people compare by attributes they share. A list holds t
   - servers in a table with CPU, memory and region columns, and the same rows stacked as a list on a phone;
   - a grid of image thumbnails people browse by look.
 
-### 7. What a screen starts with is what most people would choose
+### 7. Each kind of thing is shown the way people recognize it
+
+Where a component names a thing people work with, such as a person, a company, a project or a file, it shows what kind of thing it is and which one: its mark, such as a face, a logo or its kind's icon, with its name beside it. In a crowded row, the face of someone the viewer works with, such as a teammate assigned to an issue, can stand alone, with the name one step away. Where people know a thing by something else, such as an account by the last four digits of its number, that leads instead. A state has a form of its own, apart from tags that only describe or group. What people read, or need exactly, stays text: titles, messages, descriptions, amounts, dates and IDs.
+
+- **Why:** Design systems draw a reference to a thing as its picture or icon with its name, and give a state a form of its own, apart from tags (Primer, "Token", "Avatar", "StateLabel" and "Label"; Atlassian, "Avatar tag", "Lozenge" and "Tag"; Fluent 2, "Persona"), and products for working with records draw a person or a company as a face, initials or a logo, mostly beside its name, while they keep titles, bodies and dates as text (6 of 6; Mobbin survey, 2026, convention). A name with no mark tells people neither what kind of thing it is nor which one at a glance, so they read every name to find one. A face or a logo shows which one only to people who already know it, and practice barely helps with unfamiliar faces or logos (Young and Burton 2018; Qin et al. 2014), so the name stays beside it, except for faces the viewer sees every day. Atlassian keeps these tags out of what people write, such as prompts and documents (Atlassian, "Avatar tag").
+- **Applies when:** a component names people, companies or other records, or shows their states, except names inside running text, such as a message, a description or a sentence of copy.
+- **Check:** list each thing the component names. A person or a company named without a face, initials or a logo of its own fails, including one with the same generic icon as every other. A record of another kind, such as a campaign or a file, named among things of other kinds with nothing that shows its kind, fails. A face, a logo or an icon with no name beside it fails, unless it is a teammate's face in a crowded row whose name can be reached by keyboard and touch, not only by hover. A state drawn like the tags beside it fails, and so does a title, a message or a description drawn as a chip or a tag.
+- **Fail:**
+  - a list of contacts where each person, their company and their campaign are names in the same plain text;
+  - every team member shown with the same generic person icon;
+  - "Paused" in the same gray pill as the "Enterprise" and "EU" tags beside it.
+- **Pass:**
+  - a person as a photo, or initials, in a circle with the name, and a company as its logo in a rounded square with its name;
+  - an account as "Checking ••7127", because people know it by those digits;
+  - a column of campaign names under a "Campaign" header, where every row is the same kind;
+  - a teammate's face alone as the assignee on each issue row, named on focus and on the issue's page;
+  - a message's text, an amount and a date as plain text.
+
+### 8. An event says who did what to which thing, and when
+
+Each entry in a history, such as an activity feed, a timeline or a log, says who acted (a person, an agent or the product), what they did, the thing they did it to, and when. On the thing's own page, the thing can be left out, and where one actor did everything in the history, the history can name them once. Each part takes the form that rule 7 gives it, such as a face and a name for a person, and the time comes last and quieter, with the exact time one step away. A change, such as a state that moved or an item added to a list, is one line, with the old and new value where a value changed. An event that carries what someone wrote, such as a message, a note or a reply, is a block: the same line as its header, then the text. A run of the product's own entries folds into one line that opens.
+
+- **Why:** An activity is defined by who acted, the kind of action, the thing it was done to, and when (W3C, "Activity Streams 2.0"). People who can't see who did what can't tell their own work from a teammate's or the product's. Salesforce draws each activity as one line of these parts, with its details under it on demand, and GitHub records a change as an actor, a type and a time, while a comment also has a body (Salesforce Lightning Design System, "Activity timeline"; GitHub Docs, "Issue event types", convention). Primer mutes the time and keeps its exact value reachable (Primer, "Timeline"). Attio folds automation events by default to cut their noise, and HubSpot can fold every entry's details (Attio, "Record page redesign", 2026; HubSpot Knowledge Base, "Filter activity index pages and record timelines"; convention).
+- **Applies when:** a screen lists what happened over time, such as an activity feed, a record's history, a timeline or an audit log.
+- **Check:** read each kind of entry. One whose actor, action, thing or time can't be found fails, unless the page is the thing's own, or one actor did everything and the history names them once. A change with no word on what changed, such as "Updated the deal", fails. Entries of one kind drawn in two shapes fail, and so do many of the product's own entries in a row, shown one by one between people's.
+- **Fail:**
+  - "Sent 2 days ago" on each message in a history where two accounts write to the same person;
+  - "Ana updated the deal", with no word on what changed;
+  - forty "Synced" entries between two notes that people wrote.
+- **Pass:**
+  - a face, then "Ana moved Acme to Won · 2h", on one line;
+  - a reply as a block: face, name, "replied" and the time, then the message;
+  - "12 automation events" as one line that opens them;
+  - "Approved · 3 Nov, 14:20 · by Ana" on the reimbursement's own page.
+
+### 9. What a screen starts with is what most people would choose
 
 Where a screen chooses before people do, such as a selected option, a filled-in field, a sort order or a filter, it picks what most people would pick and what serves them, never what earns the product more. A question about the person or their case starts with nothing selected. A list starts in the order its main use needs, such as newest or most urgent first. Where people can change the order, or it isn't obvious, the screen shows the current one.
 
@@ -129,7 +164,7 @@ Where a screen chooses before people do, such as a selected option, a filled-in 
   - a setting that starts on the value most accounts use;
   - a contact list in A–Z order, or a chat in time order, with no sort label.
 
-### 8. Long lists come in parts that fit the task, and people know where they are
+### 10. Long lists come in parts that fit the task, and people know where they are
 
 Long lists that people search, compare or work through come in pages or behind "Load more". The page shows how many items match the current search and filters, and the range of the current page sits with the page controls ("26–50 of 1,240" beside Previous and Next). The page and the place in the list live in the URL, and Back returns to the same place. If a list loads more as people scroll, as a social feed does, the footer stays reachable and the keyboard can leave the feed. A list of one page has no pagination.
 
@@ -144,7 +179,7 @@ Long lists that people search, compare or work through come in pages or behind "
   - "Showing 26–50 of 1,240" beside the page numbers, `?page=2` in the URL, and Back to the same row;
   - a social feed that loads as people scroll, with the footer's links also in the menu and a key to leave the feed.
 
-### 9. An empty state says why it is empty and what to do next
+### 11. An empty state says why it is empty and what to do next
 
 Each kind of empty says its own thing. First use: what goes here, and one way to start. No results: that nothing matched, with the query or filters still in view, so people can see what found nothing and change it, and one step to widen or clear them, and the list's controls kept. Nothing left to do: say so, with no action. No access: why, and who can give it. A list that failed or is still loading is never shown as empty. An illustration is optional, and text alone fits small or repeated spaces. What people still need after the first item, such as a limit or a link to settings, also sits outside the empty state.
 
@@ -161,7 +196,7 @@ Each kind of empty says its own thing. First use: what goes here, and one way to
   - "All caught up" with no button, when nothing needs doing;
   - a private item, such as another team's project, that shows the same "not found" page as a missing one, where knowing it exists would itself reveal something; HTTP allows this (RFC 9110).
 
-### 10. Loading keeps what people have, and adds the rest as it arrives
+### 12. Loading keeps what people have, and adds the rest as it arrives
 
 On the first load, the page shows its frame and the most important content first, and the rest as it arrives. A region whose layout is known holds a skeleton of the same size and shape; one whose layout isn't known shows a spinner where the content will go. Waits under about a second show neither. On refresh, filtering or paging, the old content stays in view and is marked as updating, rather than swapped for a spinner. A control people can press never shows a state that isn't known to be true: while its real state loads, it shows the last state people saw, kept on the device, or a neutral loading look, never a default such as Off. As a starting point, a page people come back to shows what they saw last time at once, marked as updating, while the new data loads (default).
 
@@ -177,7 +212,7 @@ On the first load, the page shows its frame and the most important content first
   - a switch that shows the state people last saw while it checks the server;
   - a skeleton in place of the old results when they no longer match what was asked, such as after switching workspaces.
 
-### 11. Failures, gaps and old data say what they are
+### 13. Failures, gaps and old data say what they are
 
 When one part fails, only that part is replaced, by a message that says what failed and what to do, often Retry, and the rest of the page keeps working. A full error page is for when the page's main purpose can't be served, and it gives a way on. A value that couldn't load never shows as zero; a part the task doesn't need, such as a count, may be left out whole instead. A missing value looks different from a zero, and a value hidden by permission says so. A partial list says it is partial. Data people act on shows when it was last updated, and an offline state shows on every screen, with what still works.
 
@@ -192,7 +227,7 @@ When one part fails, only that part is replaced, by a message that says what fai
   - "Not provided" for a field never filled, "0" for a real zero, and "Hidden: ask an admin" for a value the person can't see;
   - a full error page when the page's own record can't load.
 
-### 12. People know when an AI is answering, and can stop it
+### 14. People know when an AI is answering, and can stop it
 
 An AI that people interact with, such as a chat assistant or a support agent, says it is an AI in the interface, by its first reply at the latest, unless that is obvious to the people it serves. Content an AI made is marked as made by AI where it sits beside content people wrote, once for a group that is all AI-made. People can stop an answer while it is being written, and a stopped answer keeps what was written so far.
 
@@ -207,7 +242,7 @@ An AI that people interact with, such as a chat assistant or a support agent, sa
   - "Generated by AI" once above a list of suggested replies;
   - a code assistant used only by developers, with no notice: the Commission's guidelines count it as obvious.
 
-### 13. An ad says it is an ad
+### 15. An ad says it is an ad
 
 An ad or a sponsored item says so where it shows, so people can tell it from what was chosen for them. On an online platform that serves people in the EU, each ad also says on whose behalf it runs and, if someone else paid, who paid, and people can get from the ad itself to why they see it. Where people can choose how the platform orders what it suggests, such as "Recommended" or "Newest", that choice is reachable from the list itself.
 
@@ -221,7 +256,7 @@ An ad or a sponsored item says so where it shows, so people can tell it from wha
   - "Sponsored · Paid for by Acme Ltd" above a listing, with "Why am I seeing this ad?" in its menu;
   - a "Sort: Recommended / Newest" control at the top of the feed.
 
-### 14. A few actions show, and the rest go in one menu
+### 16. A few actions show, and the rest go in one menu
 
 A card, row or table toolbar shows the actions people use most as buttons, three at most, and the rest go in one overflow menu. A toolbar of tools shows as many as fit, most used first, and moves the rest into its overflow menu as the window narrows.
 
@@ -235,7 +270,7 @@ A card, row or table toolbar shows the actions people use most as buttons, three
   - Export and Share as buttons, and five rarer actions in a "…" menu;
   - an editor's formatting toolbar, where every control is used all the time.
 
-### 15. An image shows something people need, or it goes
+### 17. An image shows something people need, or it goes
 
 Every picture earns its place, however it is drawn: photos, screenshots, illustrations, icons used as pictures, background patterns and textures, and shapes or glows drawn in CSS or SVG. Each one shows what people need to see: the product, the real people, the result. Decorative pictures are left out, and so is a picture repeated on every step of a flow that tells nothing new after the first. In the product, an illustration belongs only in an empty, error or success state, onboarding or a feature tour, and it is the first thing to drop when space is tight. A person in a photo looks toward the content the photo should lead to. A generated or altered photo or video that looks real, of people, places or events, says so where it is shown.
 
@@ -258,11 +293,12 @@ Every picture earns its place, however it is drawn: photos, screenshots, illustr
   - on a marketing page, a screenshot of the real feature beside its description;
   - an empty list with one small illustration and a sentence about what will appear there;
   - a brand image in a marketing hero, when the page's own rules call for one;
-  - a row of real customers' or integrations' logos, which is proof, not decoration.
+  - a row of real customers' or integrations' logos, which is proof, not decoration;
+  - a face or a logo beside the name of the person or company it shows (rule 7).
 
 ## Page
 
-### 16. The first screen leads with what people came for
+### 18. The first screen leads with what people came for
 
 A work screen leads with the person's task, or with what needs their action, most urgent first. A dashboard leads with what needs attention; a summary figure leads only when it answers the first question people bring, and then with what it is compared to: a target, a trend or the last period. Someone coming back to a long task they started lands on its overview with the next part marked, or where they left off, with their answers kept.
 
@@ -276,7 +312,7 @@ A work screen leads with the person's task, or with what needs their action, mos
   - the queue opens on tickets waiting for an answer, oldest first;
   - a status page that leads with one figure, uptime this month against the target, because that is the question people bring.
 
-### 17. One primary action per view
+### 19. One primary action per view
 
 A page, dialog, side panel or step has one action in the primary style. Other actions use lower styles. When the actions are equal, none is primary, and a view with no main action has no primary button.
 
@@ -291,7 +327,7 @@ A page, dialog, side panel or step has one action in the primary style. Other ac
   - several empty widgets, each with a tertiary Add button (Carbon, "Empty states");
   - a dialog with its own primary button over a page that has one: the dialog is its own view.
 
-### 18. The first screen shows what this is and what to do
+### 20. The first screen shows what this is and what to do
 
 Without scrolling, the screen shows what it is for and the main thing to read or do: the offer on a landing page, what needs attention on a dashboard, the task on a step of a flow.
 
@@ -301,7 +337,7 @@ Without scrolling, the screen shows what it is for and the main thing to read or
 - **Fail:** a dashboard whose first screen is a welcome message and an illustration, with what needs attention below the fold.
 - **Pass:** the alert that needs action, and the figures people check first with what they are compared to, in the first screen.
 
-### 19. Headings show the structure
+### 21. Headings show the structure
 
 Headings are marked up as headings, in order in the code, without skipped levels. Within a section, a lower heading is never stronger than the one above it, and a heading over running text is stronger than that text.
 
@@ -315,7 +351,7 @@ Headings are marked up as headings, in order in the code, without skipped levels
   - h1 for the page title, h2 for sections and h3 for subsections, each a step smaller or lighter;
   - a short label over a group of rows, such as settings, quieter than the rows, when every group uses the same label style.
 
-### 20. The product's own promotions stay below the task
+### 22. The product's own promotions stay below the task
 
 A promotion of the product's own features, plans or trials has one look of its own, quieter than the screen's primary action and than any warning. On a screen whose task is something else, it never takes the primary style.
 

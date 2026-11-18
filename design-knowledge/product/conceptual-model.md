@@ -12,7 +12,7 @@ A product is built from a few concepts: the kinds of things people work with (a 
 
 - **Why:** a concept people don't know from their task is one more thing to learn, and one more to combine with every other (Johnson and Henderson 2002); hidden, it still acts on their work. The limit is the job: Atlassian tells teams to keep only the Jira statuses they need, since each adds complexity for everyone who works with it (Atlassian, "Best practices for workflows in Jira", convention).
 - **Applies when:** the product keeps things people create, change or track over time, except a one-screen tool with nothing to keep.
-- **Check:** write the model down: before the screens in a design, or from the screens, the product's docs and its data in a review. List each kind of thing people work with, what it holds, its states, the actions on it, how it relates to the others, and its name, counting every concept the product acts on, shown or not. For each concept, say in people's words what they would lose without it. One with no answer, or whose only answer is how the system is built, fails; so does an invented concept where one people already know, from their task or elsewhere in the product, would do.
+- **Check:** write the model down: before the screens in a design, or from the screens, the product's docs and its data in a review. List each kind of thing people work with, what it holds, its states, the actions on it, how it relates to the others, its name, and how screens show it, counting every concept the product acts on, shown or not. For each concept, say in people's words what they would lose without it. One with no answer, or whose only answer is how the system is built, fails; so does an invented concept where one people already know, from their task or elsewhere in the product, would do.
 - **Fail:**
   - an invoicing tool that makes people create a "template" before they can send the same invoice again;
   - a CRM where new contacts reach search only after someone presses "Rebuild index".
@@ -113,19 +113,21 @@ Where a screen shows one thing with another it relates to, such as a column nami
   - "First sent in: Issue 42", or "3 editions", which opens the list of them;
   - a column that names one of many on purpose and says so, such as "Latest edition".
 
-### 8. A thing keeps its name, states and rules wherever it appears
+### 8. A thing keeps its name, states, rules and form wherever it appears
 
-A thing people work with keeps the same name, the same states and the same rules wherever it appears: on every screen, in emails and notifications, in exports and imports, in the API, and in what an agent reads or writes about it. Each place may show it in its own form, since an email can't hold a badge and a file has no buttons, but a state or a rule never changes with the place. Where one place has to follow a different rule, it says so there. Where the difference changes what is kept, seen, sent or paid, it also breaks rule 4.
+A thing people work with keeps the same name, the same states and the same rules wherever it appears: on every screen, in emails and notifications, in exports and imports, in the API, and in what an agent reads or writes about it. On screens, it also keeps one form, drawn at the sizes its places need, such as a short form inside a sentence, a row in a list and the heading of its own page, and every size keeps what tells the thing apart, such as its face, its icon or its ID. A place outside the screens shows it in the form that place can hold, since an email can't hold a badge and a file has no buttons, but a state or a rule never changes with the place. Where one place has to follow a different rule, it says so there. Where the difference changes what is kept, seen, sent or paid, it also breaks rule 4.
 
-- **Why:** people learn a thing once and expect it to work the same wherever they meet it, so the model's names hold across the product and everything written about it (Johnson and Henderson 2002), and people shouldn't have to wonder whether different words or situations mean the same thing (Nielsen 1994, heuristic 4). A place that quietly follows another rule surprises people where they can't see it: HubSpot merges duplicate companies added through imports and forms, but not those created through its API (HubSpot, "Deduplicate records in HubSpot", convention).
+- **Why:** people learn a thing once and expect it to work the same wherever they meet it, so the model's names hold across the product and everything written about it (Johnson and Henderson 2002), and people shouldn't have to wonder whether different words or situations mean the same thing (Nielsen 1994, heuristic 4). A place that quietly follows another rule surprises people where they can't see it: HubSpot merges duplicate companies added through imports and forms, but not those created through its API (HubSpot, "Deduplicate records in HubSpot", convention). Displays that show the same things are coded the same way, so that people can tell they are the same (Hegarty 2011). Design systems draw one thing at several sizes, from its title inside a sentence to a card (Atlassian Support, "Smart Link view options"; GitHub Docs, "Autolinked references and URLs"; convention), and a thing drawn two ways has to be designed and checked twice on every device (Prater 2024).
 - **Applies when:** a thing appears in more than one place: screens, emails, notifications, exports, imports, an API or an agent's answers.
-- **Check:** follow one thing through every place it appears: its screens, the emails and notifications about it, an export, an import, the API and an agent's answer about it. A different name or state for the same thing fails; so does a rule that changes with the place and isn't stated in that place.
+- **Check:** follow one thing through every place it appears: its screens, the emails and notifications about it, an export, an import, the API and an agent's answer about it. A different name or state for the same thing fails; so does a rule that changes with the place and isn't stated in that place. On the screens, list each drawing of the thing with its size, and compare it with the form in the model (rule 1). Two drawings at one size fail, and so does a size that drops what tells the thing apart.
 - **Fail:**
   - an invoice that is "Overdue" in the app and "Unpaid" in the reminder email;
-  - duplicate contacts merged when added in the app, but not when imported through the API, with nothing said on the import screen or in the API docs.
+  - duplicate contacts merged when added in the app, but not when imported through the API, with nothing said on the import screen or in the API docs;
+  - one access level drawn as an icon chip on one card and as a gray badge on another.
 - **Pass:**
   - the import screen and the API docs both say "Records added through the API aren't checked for duplicates.";
-  - a place that shows a thing in its own form, such as a plain-text status in an email where the app shows a colored badge.
+  - a place that shows a thing in its own form, such as a plain-text status in an email where the app shows a colored badge;
+  - an issue as its ID inside a sentence, its ID, state and title in a list, and its title with its ID as the heading of its page.
 
 ## What the product does by itself
 
