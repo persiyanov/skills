@@ -60,7 +60,7 @@ The user steers while you work, so keep going until they stop you or an unanswer
 When the target is the product's look itself, such as a visual language or a restyle of every page, decide it from the top down before the style cells, because a value makes sense only once you know what it's for:
 
 1. Take the qualities ranked in `standards.md`, and what each best product decided, from the same file.
-2. List the choices that the look needs, starting with the whole page, such as size and density, weights, softness, surfaces and color, and then the form of each kind of thing that the product shows most, such as a person, a company, a state and an event, at each size it needs. Treat each as a question with options and the qualities that decide it (MacLean, Young, Bellotti and Moran, 1991).
+2. List the choices that the look needs, starting with the whole page, such as size and density, weights, softness, surfaces and color, and then the form of each kind of thing that the product shows most, such as a person, a file, a state and an event, at each size it needs. Treat each as a question with options and the qualities that decide it (MacLean, Young, Bellotti and Moran, 1991).
 3. For each choice, draw options from the default to something unusual, and let the user pick.
 4. Name the roles, such as the page, a card, each text level, and the job of each color, and then give each role its value.
 5. Draw the picks on one sheet of real parts, and then on real screens, including the densest screen and an empty one.
