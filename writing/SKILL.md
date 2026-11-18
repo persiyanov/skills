@@ -6,88 +6,46 @@ argument-hint: "[file or text]"
 
 # Writing
 
-Use this skill to write or edit any text that a person or a model reads. A good text changes what its reader knows or does, and the reader gets the message on the first pass, even if they only scan. Start from the reader's situation, follow the principles, and check the draft before you share it. For text inside a product's UI, also follow design-knowledge's `foundations/copy.md`.
+A text works when its reader gets what they need on the first pass, and nothing else. Every word costs the reader attention, so the information decides what goes in, and its form and length follow from it. A template, a past text, or a sense of how long this kind of text runs never sets them. For text inside a product's UI, also follow design-knowledge's `foundations/copy.md`.
 
-## Read the situation
+## Before you write
 
-Before the first word, answer the following five questions, because together they set the text's length, order, and tone. The first three follow the rhetorical situation (Lloyd Bitzer, "The Rhetorical Situation," 1968):
-
-| Question | Possible answers | What the answer changes |
-| --- | --- | --- |
-| Who reads it? | Someone who knows you and the context, a stranger, or a model | How much context you give, how much trust you build, and whether you give reasons |
-| What should they do after reading? | Understand, act, decide, or agree | The shape: the answer first, numbered steps, options with your pick, or a claim with proof |
-| How will they read it? | They scan it, read it once in full, or glance at it in an inbox or a feed | The length, what goes first, and the subject line or headings |
-| Whose voice is it? | The user's, the product's, a neutral document's, or yours | The tone and the words |
-| What does a mistake cost? | Little, a lot, or nobody can undo it once you send or publish it | Whether the user sees a draft before it goes out |
-
-Then write the change that you want in the reader as one sentence. That sentence is the core message, and it goes first. If nothing changes for the reader, don't write the text (Larry McEnerney, "The Craft of Writing Effectively").
+1. **Name the reader and the change.** Know who reads it, what they already know, and how they read it: they scan it, read it in full, or glance at it in an inbox. Write, in one sentence, what they should know or do afterward. That sentence goes first. If nothing changes for them, don't write the text. If nobody can take the text back once it's sent or published, show the user a draft first.
+2. **List what they must learn.** Write the facts down before any prose, and put only these in the text. If only some readers need a fact, put it where those readers meet it, such as the product or a later message.
+3. **Check each fact.** Confirm each claim at its source, and use a number where a vague word would hide one. Walk each instruction as the reader: if they can't do exactly what it says, it's wrong. If a claim needs a qualifier to stay true, narrow the claim or drop it first. Never invent a quote, a statistic, or a detail about a person.
 
 ## Principles
 
-Follow these principles in every text. Each one gives its reason, so that you can apply it to cases that it doesn't name.
-
-- **Put the answer first.** Busy readers read the first line of a text and of each paragraph, and often stop there (Jakob Nielsen, 1997). Open with the conclusion, the request, or the result, and give the context after it.
-- **Use the reader's words.** A term that you coined during the work is shorthand that only you can decode, and defining it doesn't help. Use the name that the reader uses every day, say what happens rather than how the system does it, and give each thing one name.
-- **Make every claim true and checkable.** A wrong name, number, or promise costs more trust than the text earns. Use numbers instead of vague words, name the source of each fact, and never invent a quote, a statistic, or a detail about a person.
-- **Make the skeleton carry the message.** Most readers scan: they read the headings, the first sentence of each paragraph, the run-in headings, and the tables (Jakob Nielsen, 1997). Choose each part's form by what the information is, so that the skeleton alone gives the whole message. `references/rules.md` matches each kind of information to its form.
-- **Write plain sentences.** A sentence that needs a second read loses the reader. Put one idea in each sentence, name who acts, and use the everyday word (Google, "Technical Writing One").
-- **Cut what doesn't move the reader.** Each extra sentence competes with the ones that matter. Remove warm-ups, recaps, hedges, and answers to questions that nobody asked. A text that's as long as the work behind it is usually too long.
-- **Sound like a knowledgeable colleague.** Readers trust plain, direct text and distrust hype (Google, "Voice and tone"). Remove slogans, taglines, and phrases that announce importance, and remove the patterns that mark text as AI-written, which `references/rules.md` lists.
-
-## Rules that agents break most
-
-These rules apply to almost every text, so follow them without opening the references. `references/rules.md` gives each one's reason and example:
-
-1. Put the answer, the request, or the result in the first line.
-2. Put one idea in each sentence.
-3. Name who acts: "Grip marked the message failed," not "The message was marked failed."
-4. Put a condition before its instruction: "If the file exists, read it."
-5. Use the reader's words, not terms that you coined during the work.
-6. Use numbers instead of vague words: "56 px," not "a large gap."
-7. Leave out taglines, slogans, and sentences that announce what comes next.
-8. Use bold only for run-in headings and the names of UI elements.
-9. Put anything that you compare on two or more attributes in a table.
-10. Don't use em dashes, and avoid semicolons. Use a period, a comma, or a colon instead.
-
-## Situations
-
-The five questions cover most texts. The following situations add a few rules of their own:
-
-- **Replying to the user in a chat.** The user knows the context and wants to act, so lead with the result and keep the reply short. Use plain English at about B2 level, and don't narrate your steps. If you need a decision, end with that one question.
-- **Writing in the user's voice.** Before you draft a message, an email, or a post that the user will send, read three to five of their past messages to the same person or channel. Match the length, the greeting, and the language, and make one request per message. Show the user the draft, because nobody can take back a sent message.
-- **Editing someone's text.** Keep every decision, fact, number, name, and open question, and keep the author's voice. Restructure freely, and list what you removed under the rewrite. If the original has a gap, ask about it instead of filling it.
-- **Convincing someone.** Start from the reader's problem or goal, in their words. How much of the problem you state first depends on how aware of it the reader already is (Eugene Schwartz, *Breakthrough Advertising*, 1966). Back each claim with proof, such as a number, a customer, or a demo, and ask for one action. If the project has a positioning file (`.agents/positioning.md`, `POSITIONING.md`, or `.agents/product-marketing-context.md`), read it first. Never invent proof.
-- **Instructing a model.** A skill file or a prompt is documentation for a model. Give the reason for each instruction, because a model that knows why a rule exists can apply it to cases that the text doesn't name (Anthropic, "Prompting best practices"). Describe the goal, and leave the method to the model, unless the method is a convention or a fact that it can't work out. Explain the cost of a mistake instead of writing ALWAYS or NEVER in capitals, and keep each instruction in one place.
-- **Writing in another language.** Write in the reader's language. The principles hold in every language, but follow that language's own conventions for punctuation, formality, and word order.
+- **Give each fact the smallest form that carries it.** A fact that fits one line gets one line, even beside an item that needs three. Separate items go in a list, and items compared on two attributes go in a table. Write a paragraph only for facts that connect through "because," "so," or "unless." Things of one kind share the order of their parts, not their size. Give each topic its own section, so that two independent features never share a heading.
+- **Use the word this reader expects.** Choose the word they would use for this thing here: "find people," not "pick people," and "use," not "leverage." Never use a term that you coined during the work, and give each thing one name. Say what happens, not how the system does it.
+- **Start from what the reader already has.** Say what changed in the thing they use. If a new kind joins one they already use, say when to use each. If they asked for the change, say so.
+- **Put the answer first**, in the text and in each paragraph. Readers scan the headings and first lines, and often stop there, so those alone must carry the message.
+- **Write plain sentences.** Put one idea in each sentence, and name who acts. Put a condition before its instruction.
+- **Sound like a colleague who knows the subject.** Leave out slogans, hype, sentences that announce what comes next, and the AI patterns in `references/rules.md`. Don't use em dashes, and avoid semicolons. Use bold only for run-in headings and the names of UI elements.
 
 ## Check the draft
 
-Before you share the text, check it in this order:
+Read the draft as the reader, who wasn't there when you did the work, and ask two questions:
 
-1. Read only the skeleton: the headings, the run-in headings, the first sentence of each paragraph and list item, and the tables. If the skeleton doesn't give the whole message, fix the structure before you fix any sentence.
-2. Read each sentence once at speaking pace. If you need to read it twice, split it, or name its actor and its verb.
-3. Read the text as the reader, who wasn't there when you did the work. Note what they'd understand and do, and whether they'd say "so what?" at any line.
-4. Delete each sentence that doesn't move the reader toward the change that you named.
-5. Check the text against the AI tells in `references/rules.md`.
+1. Would this reader miss this sentence? If not, delete it.
+2. Could this section be one line without losing a fact from your list? If it could, make it one line.
+
+Then read the draft once at speaking pace, and split any sentence that you have to read twice. Last, read only the headings and first lines. If they don't give the whole message, fix the structure.
+
+## Situations
+
+- **Replying to the user in a chat.** Lead with the result, use plain English at about B2 level, and don't narrate your steps. If you need a decision, end with that one question.
+- **Writing in the user's voice.** Read three to five of their past messages to the same person or channel, and match the greeting, the language, and the tone. Match their length only where they carried as much information. Make one request per message.
+- **Editing someone's text.** Keep every decision, fact, number, name, and open question, and keep the author's voice. Restructure freely, and list what you removed. If the original has a gap, ask about it instead of filling it.
+- **Convincing someone.** Start from the reader's problem, in their words. How much of the problem you state depends on how aware of it the reader already is. Back each claim with real proof, such as a number, a customer, or a demo, never invented, and ask for one action. If the project has a positioning file (`.agents/positioning.md`, `POSITIONING.md`, or `.agents/product-marketing-context.md`), read it first.
+- **Instructing a model.** Give the reason for each instruction, so that the model can apply it to cases that the text doesn't name. Describe the goal, and leave the method to the model, unless the method is a convention or a fact that it can't work out. Explain the cost of a mistake instead of writing ALWAYS or NEVER, and keep each instruction in one place.
+- **Writing in another language.** Write in the reader's language, and follow its conventions for punctuation, formality, and word order.
 
 ## References
 
-Read the following files when the text needs them:
-
-| File | When to read it |
+| File | Read it when |
 | --- | --- |
-| `references/rules.md` | You write anything longer than a short message, or you check a draft. It holds every concrete rule, from words to whole documents, each with its reason and an example. |
-| `references/conventions.md` | You write a format with fixed conventions, such as a commit message, a PR, an API reference, a README, release notes, an email, a cold message, a landing page, a post, or slides. |
+| `references/rules.md` | You check a draft, or you need a rule for words, sentences, structure, formatting, or AI patterns. |
+| `references/conventions.md` | You write a format with fixed conventions, such as a commit, a PR, an API reference, release notes, an email, a landing page, or slides. |
 | `references/examples.md` | You want to see a situation done well, as a before-and-after pair. |
-| `references/evidence.md` | You need to defend a rule with research. |
-
-## Sources
-
-This skill draws on the following sources:
-
-- Google, "Google developer documentation style guide," and the "Technical Writing One" and "Technical Writing Two" courses. https://developers.google.com/style and https://developers.google.com/tech-writing
-- Jakob Nielsen, "How users read on the web" (NN/g, 1997). https://www.nngroup.com/articles/how-users-read-on-the-web/
-- Microsoft, "Top 10 tips for Microsoft style and voice."
-- Anthropic, "Prompting best practices."
-- Lloyd Bitzer, "The Rhetorical Situation" (1968). Larry McEnerney, "The Craft of Writing Effectively." Eugene Schwartz, *Breakthrough Advertising* (1966). William Strunk Jr., *The Elements of Style* (1918).
-- The skills merged into this one: readable, technical-writing, stop-slop (Hardik Pandya, MIT), writing-clearly-and-concisely (Jesse Vincent), and copywriting and marketing-psychology (Corey Haines, MIT).
+| `references/evidence.md` | You need to defend a rule with research, or you want the sources. |

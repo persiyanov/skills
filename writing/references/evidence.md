@@ -141,7 +141,9 @@ Read this when a rule in `SKILL.md` or `rules.md` needs defending, when the user
 
 **Design for re-entry.** Readers are interrupted and return. Clear headings, short chunks, and local context (each section re-anchors its terms) let them recover position without rereading from the top.
 
-**Why typical AI output reads badly.** Heading, intro paragraph, six bullets, heading, intro paragraph, six bullets, conclusion restating everything. Uniform visual weight, identical section shapes, no distinction between claim, evidence, example, and caveat. The fix is representation by role: each kind of information gets the form that fits its job (see the table in SKILL.md).
+**Why typical AI output reads badly.** Heading, intro paragraph, six bullets, heading, intro paragraph, six bullets, conclusion restating everything. Uniform visual weight, identical section shapes, no distinction between claim, evidence, example, and caveat. The fix is representation by role: each kind of information gets the form that fits its job (see the table under "Documents" in `rules.md`).
+
+**Quantity.** Grice's maxim of quantity asks a speaker to be as informative as the exchange requires, and no more (Grice 1975). Strunk states the same rule for prose: "A sentence should contain no unnecessary words, a paragraph no unnecessary sentences... This requires not that the writer make all his sentences short, or that he avoid all detail and treat his subjects only in outline, but that every word tell" (Strunk 1918). Both set length by the information, not by a target.
 
 **The objective.** Not "make these words pleasant to read" but "minimize the text the reader must process to get what they need, without removing their ability to go deeper." A CEO needs recommendation, why, risk, decision. An engineer descends into architecture, constraints, edge cases. Someone two months later searches for "why did we choose X". One document serves all three when it is a hierarchy: purpose line, summary layer, sections each with a takeaway then reasoning then evidence, reference material last.
 
@@ -167,5 +169,10 @@ Read this when a rule in `SKILL.md` or `rules.md` needs defending, when the user
 - Morkes & Nielsen 1997; Jansen & Pollmann 2014 (bullets); Dyson & Haselgrove 2001; Shaikh 2005; Piepenbrock et al. 2014; Arditi & Cho 2007; Readwise 2022 (Bionic Reading).
 - Sachs 1967; Bransford & Franks 1971; Freebody & Anderson 1986; Roediger & Karpicke 2006.
 - W3C Cognitive Accessibility guidance (COGA design guide; WCAG 1.4.8 Visual Presentation).
+- Grice 1975, "Logic and Conversation" (the maxims); Strunk 1918, *The Elements of Style*.
+- Google, "Google developer documentation style guide," and the "Technical Writing One" and "Technical Writing Two" courses. https://developers.google.com/style and https://developers.google.com/tech-writing
+- Microsoft, "Top 10 tips for Microsoft style and voice." Anthropic, "Prompting best practices."
+- Bitzer 1968, "The Rhetorical Situation"; McEnerney, "The Craft of Writing Effectively"; Schwartz 1966, *Breakthrough Advertising*.
+- The skills merged into this one: readable, technical-writing, stop-slop (Hardik Pandya, MIT), writing-clearly-and-concisely (Jesse Vincent), and copywriting and marketing-psychology (Corey Haines, MIT).
 - Google Technical Writing courses (audience, lead sentences, lists and tables, key points first).
 - Mayer, coherence and signaling principles; Williams & Butterfield 1992 (advance organizers review).

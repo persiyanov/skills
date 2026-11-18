@@ -65,6 +65,40 @@ that network hop.
 Removed: "After some discussion" (no decision in it).
 ```
 
+## A product update
+
+The draft gives every feature the same size, explains how each one works, and adds a note that only some readers need. The rewrite gives each feature the words its news needs. A new kind of reminder says when to use which.
+
+Instead of:
+
+```text
+Saved views
+You can now save any filtered list of invoices as a view. Each view keeps
+its filters, its sort order, and its columns, and it shows in the sidebar
+under Views. If you're an Owner or an Admin, you can also share a view
+with your whole team from its menu.
+
+Two kinds of reminders
+Reminders now come in two kinds, which gives you more control over when
+your clients hear from you. Due-date reminders go out before an invoice is
+due. Overdue reminders, which are new, go out after it's late, and they
+repeat every week until the client pays.
+```
+
+Write:
+
+```text
+Saved views
+Save any filtered list of invoices as a view, and open it from the sidebar.
+
+Overdue reminders
+Use a due-date reminder, like the ones you have, before an invoice is due.
+Use an overdue reminder to chase a late one. It repeats every week until
+the client pays.
+```
+
+Removed: how a view stores its filters (the reader sees that when they save one), the sharing note (the menu shows it to the people who can share), and "which gives you more control" (no fact in it).
+
 ## A sentence in a doc
 
 The draft explains a mechanism with terms coined during the work. The rewrite says what happened, who did it, and what it cost.
