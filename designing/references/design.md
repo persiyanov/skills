@@ -23,7 +23,7 @@ Build: <the branch, how to run it, a login for each role, and how to reach each 
 
 ### C1. <the question> (<layer × level>)
 
-- Options: <each in a few words, including "change nothing">
+- Options: <each in a few words>
 - Pick: <option>, picked by the user on <date> | picked by you
 - Why: <the facts that decided it, and why each other option lost>
 - Changed on <date>: <the fact, constraint, or flaw that changed it>
