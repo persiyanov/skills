@@ -1,94 +1,136 @@
 ---
 name: designing
-description: Design or change product UI, from a new feature to an overhaul to polish, on a Paper canvas, cell by cell. Each cell gets one review and one frame, which the user follows and steers. Use for "design X", "redesign Y", "improve", "polish" or "iterate on" a journey, page or component, for fixing what a design review found, for feedback on a design, a customer request that changes what users see, and the UI part of a spec before the user approves it. Skip it for copy-only edits and for UI bugs with a known fix.
-argument-hint: "<target> [levels] [layers] [guides]"
+description: Design product UI on a Paper canvas, for new work, a redesign, polish, fixes from a review or from feedback, and a spec that changes what users see, or to run one of its actions by name, such as zoom in, focus, diverge, prune or converge. For copy alone, use /writing, and fix a UI bug with a known cause directly.
+argument-hint: "[action] <part> [aspects]"
 ---
 
 # Designing
 
-Use this skill to design or change a product's UI on a Paper canvas, one cell at a time: for each cell, you get a review, fix what it found, and draw one frame for the user. The user is whoever asked for the design. People are the people who use the product. For cells, levels, and layers, see design-knowledge's `SKILL.md`.
+Use this skill to design or change a product's UI on a Paper canvas. A design is parts inside parts, and you work on one part at a time with twelve actions, taken in whatever order the record allows, until you reach the goal. When the user names a goal, such as "design the account card", keep acting until you reach it. When the user names an action and a part, such as "zoom in on the filters", take that action, then carry on toward the goal. The user is whoever asked for the design. People are the people who use the product.
 
-## Principles
+## The design and where you are
 
-Follow these principles at every step. Each one gives its reason, so that you can apply it to cases that it doesn't name.
+- **The design** is parts inside parts: the journey, which is the flow across pages and can branch and loop, then pages, components and primitives, as design-knowledge's levels name them. Some parts are shared, such as a chip or a button, and appear in many places, and the look and the voice run through all of them.
+- **The target** is the part that the user named for the work. **The scope** is the target and every part inside it, as design-knowledge's "Scope" sets it. Paper shows what is there and how it looks, so behavior is judged in the running build.
+- **Where you are** is the current part, which starts as the target, and an optional focus inside it. The overview card on the canvas shows both.
 
-- **Let the user decide direction and scope.** It's their product, so they make the decisions that change the direction or scope of the work, or that undo something they chose. You make the rest. For their decisions, draw the options with your pick, and keep working on your pick until they answer, so that the work doesn't wait on them. Offer only options that a strong designer would choose, because each option costs the user time.
-- **Get a review from someone who didn't make the design.** You know why you made each choice, so you can't see the design the way people will, and if nobody reviews it, the user becomes the reviewer. Show the user only frames that a reviewer has checked. Have a subagent review each cell with /design-review. Keep the same subagent for all the cells in a layer: it remembers what it asked for, so checking your fixes stays quick. Your brief can point the reviewer at what worries you, but it can't leave anything out, such as the references, a role, or a frame, because what you leave out is what you can't see yourself.
-- **Work through the cells in order.** Each decision depends on the ones before it, so the order that design-knowledge gives rarely sends you back. Before you start a cell, list every part in it, so that you don't skip any.
-- **Look at references before you draw.** Designers who see examples early produce more creative work than designers who see them late (Kulkarni, Dow, and Klemmer, 2014), and the user can't judge your pick without seeing what else exists. Find what answers the cell's question:
-  - If the product already has a part that does the same job well, follow it, because people already know how it works.
-  - If the part is new, or if today's version is what you're changing, look at how the best products handle it. Put what you looked at on the canvas, next to your frame.
-  - Follow the conventions that most good products share, but never take one product's look. When the work sets the product's look, such as a visual language or a restyle, write down what each reference decided, starting with the whole page, as "Product standards" in design-knowledge describes, and use that record to widen your options, because a look copied from one product makes ours pass for that one.
-  - Aim as high as the best products, even when it's a big change from today, because small steps keep today's habits.
-- **Use the design the way people will.** A design judged as a still picture can pass every rule and still fail in use: a long title wraps over its actions, a part nobody needs stays, and a list built for ten items fails at a thousand. So keep a list of cases in `design.md`, and walk through the design with each one before anyone reviews it: each person in `standards.md` with their real job and data, starting where they start; the extremes of everything that varies, such as the shortest and longest data, none, one, the most it will hold after long use, the narrowest and widest windows that people use, and the largest text size; and the next places that the job takes them. Each comment from the user adds the case behind it, so a question such as "what if the title is 200 characters?" adds every text at its longest. A part that no case needs goes, and each place where a case gets stuck, scrolls or guesses is what to design next.
-- **Fix the cause of each finding.** A finding is a symptom, and one decision often causes several gaps (Kara Pernice and Rachel Krause, NN/g, 2024). Fixing each symptom separately adds weight and creates the next round's gaps. For the method, see step 2 in [Design each cell](#design-each-cell).
-- **Explore before you refine.** When a cell decides what the design is, such as the concept or the flow of new work, or when a review questions an assumption behind it, draw two or three directions with different structures before you polish any of them, and let the user pick. Name what most products do, so that the user knows the default, but draw only directions that differ in substance. First ideas tend to repeat what you've already seen (Jansson and Smith, 1991), and you won't feel unsure about your first idea when it's the only one you've drawn. When the user decides the look, each direction is a complete visual language: one idea of how the product should feel, carried through every choice that the look needs, and drawn on whole screens as people meet them. A lone value or a part can't show a look, because its choices feel right or wrong only together and the feel comes from the whole page. All directions serve the same ranked qualities and differ in the idea that carries them, enough that someone can tell them apart at a glance with the screens blurred. Each follows design-knowledge's `foundations/visual-language.md`.
-- **Give each fact the smallest form that carries it, or none.** Every element takes attention from the rest of the screen (Jakob Nielsen, 1994), and you can find a reason for almost anything. So for each fact, ask which case in `design.md` needs it, and leave it out if none does. Then give it the smallest form that carries it: a place or a mark before a word, where people meet the fact often enough to learn it and its name stays reachable; a word before a phrase; a link to the thing it belongs to before that thing's details; and what people need only sometimes, one step away. Most small facts, such as a date, a status, a count or an owner, already have a form that people know, so look at how the best products show the same fact before you choose. Fixes add weight one at a time, so after each change, look at the whole design and check what you can remove (Schön, 1983).
-- **Show the user what changed and what to decide.** The user steers by looking, so put every change on the Paper canvas, next to what was wrong before, together with the open calls and where the work stands. For the layout, see [Canvas](#canvas).
-- **Keep the design in one place.** Keep it on Paper until the user approves it, and in code after that. Two copies drift apart, and then nobody knows which one is right. Take the values on Paper from the running app and the product's tokens, because the build copies them. Draw the product's screens as layers bound to tokens, not as screenshots, so that they can be measured and changed. Paper's tokens apply to the whole file, so to try new values, add a set of tokens for the work and bind only the new frames to it, which leaves earlier frames and other pages as they were.
-- **Record each choice and why.** Write each choice that people would notice in `design.md`, with its options and why the others lost. Add each verdict that the user gives on the look to `standards.md`, in their words, so that the next designer and reviewer start from it. If the user asks why, answer from the record. Change your answer only if they show you a fact that you missed, because models tend to give in when someone pushes back, even when they were right.
+## The record
 
-## Before you start
+Every action reads the record and writes its result to it. That's what lets the actions combine in any order, and what lets a later session, or this one after a compaction, carry on from where the work stands.
 
-If the work already has a `design.md`, continue from it and from the overview card on the canvas, which shows where the work stands, and list its cases if it has none. Otherwise, do the following:
+- **`standards.md`:** the bar. It holds the people, the product's ranked qualities, the best products for the job and what each decided, and the user's verdicts, as design-knowledge's `product-standards.md` describes.
+- **`design.md`:** started from `references/design.md`, or continued if the work already has one. It holds the job, the cases, the trace from each job to the facts it needs, the parts that show them and each part's place, each choice with why the others lost, and every finding with its status, the open ones first and the worst on top, so that the worst gap in scope is always in view.
+- **The canvas:** the overview card, which shows your path and where you are, the work as it is now, today's version, the references, and one small frame per change, as [Canvas](#canvas) lays out.
 
-1. Find the problem behind the request. Users often ask for a fix instead of describing the problem (Linear Method, "Manage design projects").
-2. Write `standards.md`. For what goes in it, see "Product standards" in design-knowledge. Each reviewer starts with no context, so this file tells it who the people are and which products set the bar. Write it before you design, so that nobody adjusts it to fit the design.
-3. Draw today's screens on Paper from the values that the running pages render.
-4. Start `design.md` from `references/design.md`, in the same folder as `standards.md`, and list the cases to walk through.
-5. Send the user one message. Confirm the problem, the target, the cells, and where to keep the files. Ask only for what the user alone knows, such as what customers said and what must stay the same.
+## The goal
 
-## Design each cell
+You're done when a Review passes every part in scope, as design-review defines a pass, in each state that people meet. A pass asks for more than no findings: each part earns its place, and beside the best products, at the same size, each part is as good as the best of them, or the review says why ours is right. design-knowledge's rules are only the floor. If one part reaches 35 changes before it passes, counting its directions but not the parts inside it, stop work on it and tell the user what's left.
 
-For each cell, in order, do the following:
+## When to write to the user
 
-1. Get the review.
-2. Turn the findings into changes:
-   1. Group the findings by cause.
-   2. Fix each cause where it starts: in an earlier cell, in every place where the same part appears, or in every problem of the kind that the user pointed out.
-   3. For each cause, first find the case in `design.md` that needs what the finding asks for. If none does, leave it, as in sub-step 5. Otherwise, choose the change that adds the least: remove something, reuse what exists, follow the best products, or, if none of these works, invent something. Where the product and the best products all do a part one way, keep that way and fix the cause elsewhere, because people already know it.
-   4. Check what the change breaks elsewhere.
-   5. If you disagree with a finding, leave it, and tell the reviewer why.
-3. Walk through the cell with every case in `design.md`, and fix what breaks.
-4. Draw one frame.
-5. Tell the user in two sentences what changed and what's waiting for them.
-6. Go to the next cell.
+The user decides direction and scope, and you decide everything else, such as the wording, the layout and the values, and record why. Write to the user at the following points, and otherwise only to ask for a fact that only they know, such as what a customer said, because every other question makes them steer the work. Each message says where to look and what you need, in a few lines.
 
-The user steers while you work, so keep going until they stop you or an unanswered call blocks the next cell. The user can ask for another iteration of any cell.
+- **The job,** with the jobs that rest on assumptions, which Frame sends without waiting for an answer.
+- **A cut of a job that has evidence,** such as for a first release, because scope is theirs.
+- **Directions for the target,** or for any part where they asked for directions, for them to choose, because direction is theirs, and any directions that would change the product's look, because the look holds on every page.
+- **A change to a part above the target,** before you make it, because the target is their choice.
+- **A part that reaches the goal's cap,** with what's left.
+- **The design before Ship,** for their approval, and **the build,** for them to try before it ships.
+- **The result of an action that they named.**
 
-## Design the look itself
+## Rules that always hold
 
-When the target is the product's look itself, such as a visual language or a restyle of every page, decide it from the top down before the style cells, because a value makes sense only once you know what it's for:
+- **The design shows the product as it is:** the real people, data and behavior, and values from the running app and its tokens, because a design that shows a fact the product doesn't have misleads the people who rely on it.
+- **Every part earns its place:** a job in the trace, or a need of the product with a source, such as the law, needs what it shows, because a part that serves no job costs attention and blurs what the others mean. Prune decides where each part sits.
+- **The user sees only reviewed work,** because you can't see your own design the way people will.
+- **Paper holds the design until Ship,** and a prototype is a throwaway probe, because two copies of a design drift apart.
+- **The record holds every reason.** Answer the user's questions from it, and let a question change your answer or the design only when it shows a fact, a constraint or a flaw that you missed, because models tend to give in when someone pushes back, even when they were right.
+- **You draw and look yourself.** Subagents only review, because the work needs the job and the record that you hold.
 
-1. Take the qualities ranked in `standards.md`, and what each best product decided, from the same file.
-2. List the choices that the look needs: first those that hold on every page, as design-knowledge's `foundations/visual-language.md` frames them, then the form of each kind of thing that the product shows most, at each size it needs. Treat each as a question with options and the qualities that decide it (MacLean, Young, Bellotti and Moran, 1991). The list records what each direction answers, and nobody picks from it one choice at a time.
-3. Draw the directions, as "Explore before you refine" describes, on the whole screens where the people in `design.md` start their jobs and spend most of their time.
-4. Refine the picked direction on those screens. Then name the roles, such as the page, each surface, each text level, and the job of each color, give each role its value, and draw the product's parts with them on one sheet.
-5. Have the reviewer put each screen beside the best products at the same size, and judge it as a whole against design-knowledge's `foundations/visual-language.md`.
+## Actions
 
-## Build the design
+Any action can follow any other when what it needs is in the record. That's the only order.
 
-When the Paper cells are done, build the design in the following steps:
+| Action | Use it when | It needs | It leaves in the record |
+| --- | --- | --- | --- |
+| Zoom out | You need the part that holds this one: to see it where it lives, to find a cause that sits higher, or to check the whole after close work | A current part | The holding part, as the current part |
+| Zoom in | The work needs one part inside this one | A current part | That part, as the current part |
+| Focus | One aspect, or every part of one kind, needs attention across the current part | A current part | The focus, or the whole part again |
+| Frame | The job isn't in the record, or evidence says it's wrong, such as two failed fixes to one spot | Nothing | The job, the cases and each fact's meaning in `design.md`, and today's screens on the canvas |
+| Find references | Before you draw anything new, or whenever a part or an aspect falls short or needs ideas | The job | References on the canvas, each with what it decided |
+| Diverge | The current part's choice is open | The job and the references | Three directions side by side, at this part's level, each with the assumption it rests on |
+| Choose | Two or more directions or options are alive | Each one passed by a review | The pick, and why the others lost |
+| Prune | Before you polish a part, after a pick, when a review finds a part in the wrong place, and before a release | The trace | Each part's place in the trace, and why |
+| Converge | The current part's form has gaps, known or suspected | One design or direction of the part | One frame per change |
+| Review | Converge is done, and before Choose | Something drawn since the last review | Findings with their status, the parts that passed, and the open gaps, worst first |
+| Prototype | A still image can't show what you need to judge, such as feel, motion or density | A design to try | A throwaway build to judge it in, and what you learned |
+| Ship | A Review on Paper passes every part in scope | The user's approval of the design and its open items | A running build, and its findings |
 
-1. Give the design and its open items to whoever asked for it, and get their approval.
-2. Build a small change from the frames on a branch. For a larger change, use /planning.
-3. Work through the behavior cells in the running build, because still images can't show how something responds and moves. For values that people judge by feel, add a live control (Interface Craft, "Live Tuning"). To compare versions of a behavior, add a switch (Emil Kowalski, "prototype").
-4. Have a new subagent check the build with /design-review, and have it check your fixes again before the user tries the build, because a fix can break something else.
-5. Let the user try the build, and then ship it.
+### Zoom out, Zoom in and Focus
 
-After you ship, the design lives in code, so show later changes on the canvas as before-and-after screenshots of the build.
+These set where every other action works: references for an icon set when you're on the icons, and for whole flows when you're on the journey. Zoom in moves to one part inside the current one, such as the card's status icon. Focus stays on the current part and narrows to a slice across it: one aspect, such as its color or its copy, as design-knowledge's guides cover them, or every part of one kind, such as all its icons. A part is right only in what holds it, and a whole is only as good as its parts, so move up and down as the work needs, and use design-knowledge's "What depends on what" to see which decisions shape which. Whatever the focus, judge each change on the whole part, because aspects such as color, type and spacing work only together.
+
+### Frame
+
+Find the problem behind the request, because people often ask for a fix instead of describing the problem (Linear Method, "Manage design projects"). Write the trace before you draw: each person's jobs, each with its evidence, such as who asked, in what words and how often; the facts each job needs, with what each means, its values and what shows when there's none, read from the product's code and data; and the parts that show each fact. Jobs come from people, and facts from the code and data. A job without evidence is an assumption: mark it, including one written for a part that already exists. List the cases to walk through: each person with their real job and data, starting where they start, the extremes of everything that varies, as design-review's "Cover the whole part" lists them, and where the job goes next. If the work has no `standards.md`, write it first, so that nobody bends the bar to fit the design. Draw today's screens from the values that the running pages render. Then send the user the job in a few lines, the questions that the design answers and what it will and won't show, and carry on without waiting, but change course if they correct you, because a wrong job is the most expensive mistake that working alone allows. When you frame again, write down the assumption that failed.
+
+### Find references
+
+If another part of the product already does the same job well, follow it, because people already know it. Otherwise, look for references at whatever level and focus you're at, and as often as the work needs them: whole products and flows, one page, a single part such as a filter menu or a chip, a set of icons, type, motion, or imagery for a mood board. Take them from wherever the best examples are, such as the products' own pages, Mobbin or Pinterest, because they show what's really there, and study each one down to the details that matter at that level, such as which parts it has and which it leaves out, and each part's names, order and states. Follow what most of the best examples share, keep the product's own look, and aim as high as the best of them, even when it's a big change from today, because small steps keep today's habits. Examples seen early lead to more creative work than examples seen late (Kulkarni, Dow and Klemmer, 2014). You're done when the References artboard answers the current part's question with every best product in `standards.md` that answers it, or with at least two strong examples from elsewhere when none does, each with one line on what it decided.
+
+### Diverge
+
+A choice is open for new work, a redesign, a design that the user rejected, or a concept that a review found failing, and what today's version does settles nothing. Name what most products do, so that the user knows the default. Then draw three directions that differ in substance, each from the job and not from today's version, because first ideas repeat what you've already seen (Jansson and Smith, 1991). Each direction answers everything that the current part decides, so designs that differ in one detail are one direction. Draw each one finished at the current part's level, in what holds it, and leave the parts inside it as rough as the choice allows, because only the pick's insides get refined. Converge and Review work on a direction at this level only. When the choice is the look, each direction is a complete visual language: one idea of how the product should feel, carried through every choice that the look needs, from those that hold on every page to the form of each kind of thing that the product shows most, at each size it needs, as design-knowledge's `foundations/visual-language.md` frames it. Draw it on the whole screens where people start their jobs, because a lone value or part can't show a look.
+
+### Choose
+
+At the points that "When to write to the user" names, the user chooses. Put the directions side by side on the same content, each with one line on what it's best at and what it gives up, and mark your pick, because designers who make several designs at once make better ones (Dow et al., 2010), and people judge three designs more honestly than one (Tohidi et al., 2006). You choose everything else, on the evidence: the walk, the review and the comparison with the best products. Either way, write down why the others lost (MacLean, Young, Bellotti and Moran, 1991). Add each verdict from the user to `standards.md`, as design-knowledge's `product-standards.md` describes. After the user picks a look, name its roles, then give each role its value, and draw the product's parts with them on one sheet.
+
+### Prune
+
+Prune decides where each part sits, at any level: a journey's steps, a page's sections and filters, a component's lines, and a primitive's values. Check each part's place as design-knowledge's "Check a part" begins, using the trace, and ask what scope hammering asks: is it a must-have, could you ship without it, how likely is its case, and who sees it (Singer, *Shape Up*). Then give each part a place from design-knowledge's "A part's place", or **Later**: a job with evidence needs it, but it costs more than the release can carry, in attention, in confusion with another part or to build. The release's limit comes from the user or the spec, and the cut is theirs. Parts that overlap become fewer that combine, such as one Status filter in place of a filter for each state. A part that only an assumption needs stays marked until the user confirms or cuts it. Record each place and why in the trace. Cutting scope isn't cutting quality: what stays is made as good as the best products (Singer).
+
+### Converge
+
+Converge refines the form of the parts that stay: you tighten and polish them yourself. Repeat these steps, one change at a time, so that each change can be seen and undone:
+
+1. Assess the part against `standards.md`, every reference beside it at the same size, every design-knowledge guide that applies to it, and every case. Pick the worst gap that the assessment finds. A part in the wrong place outranks any gap in form, and calls for Prune.
+2. Fix its cause where it starts, in every place where the same part appears, with the change that adds the least: reuse what exists, follow the best products, or invent something, and Prune what the fix should take away. One decision often causes several gaps (Kara Pernice and Rachel Krause, NN/g, 2024).
+3. Give each fact the smallest form that people already know, because every element takes attention from the rest of the screen (Jakob Nielsen, 1994). Fixes add weight one at a time, so look at the whole after each change and Prune what it made unneeded (Schön, 1983).
+4. Walk the changed part through the cases.
+
+Converge is done when a full assessment finds nothing that would fail a pass, as the goal defines it, or when the part reaches the goal's cap.
+
+### Review
+
+Have fresh eyes, a subagent that had no part in the design, review the current part and every part inside it with /design-review. Tell it only what it can't find itself, such as where the work and its record are, and what you changed, because whatever your brief decides for it is what you can't see yourself. For each finding, read the rule it cites in full, then mark the finding confirmed, disproved with the proof, or unproven. Give each confirmed finding a status: fixed, open, left because the user or the record already decided it, or the user's decision. The review names the action that each cause calls for.
+
+### Prototype
+
+Make the part real in the running app when a still image can't show what you need to judge, such as how a palette feels across screens, how a panel moves, or how dense a table reads with real data. Add a switch to compare it with today's version (Emil Kowalski, "prototype"), and a live control for values that people judge by feel (Interface Craft, "Live Tuning"). Write what you learned in `design.md`, and carry it back to Paper, because the prototype is thrown away.
+
+### Ship
+
+Give the user the design, its open items and what the trace puts later, and build once they approve: on a branch, or with /planning for a larger change. Settle the behavior in the running build, with the same switch and live controls as Prototype. Have fresh eyes check the build with /design-review, and ship after the user tries it. After you ship, show later changes as before-and-after screenshots of the build.
+
+## Examples
+
+These are typical paths, not recipes.
+
+- **"Design the account card":** Frame, Zoom out to the Accounts page to see where the card lives, Zoom in to the card, Find references, Diverge, Review, Choose with the user, Prune, Converge, then Zoom in to each part of the card that falls short, Find references and Converge, then Zoom out to the card, Review, and Ship.
+- **"Polish the filters":** Zoom in to the filters, Find references, Converge, Review.
+- **"The card looks busy":** Prune, Converge, Review.
+- **"What's the smallest first version?":** Prune against the release's limit, send the user the cut, Converge, Review.
+- **"The card's icons look off":** Focus on the icons, Find references for icon sets, Converge, Review.
+- **A review finds that the concept fails:** Frame, Find references, Diverge.
+- **"Converge the card," named by the user:** Converge, Review, a note of what changed, and on toward the goal.
+- **"Try the new palette in the app":** Prototype, then Converge on Paper with what you learned.
 
 ## Canvas
 
-Lay out every piece of work the same way, so that the user knows where to look without reading the canvas first. Change the layout only when the user asks.
+Use one page per piece of work, named after the target and the start date, laid out so that the user knows where to look without reading anything:
 
-- **Page:** Create one page per piece of work in the project's Paper file, and name it after the target and the start date. Arrange the page left to right, then top to bottom.
-- **Overview card:** In the top-left corner, show the target, the dates, the cells in order with their frames and whether a reviewer checked each one, the current cell, the open calls with your pick, and what's next.
-- **Before and after:** To the right of the card, show each screen as it was at the start and as it is now, side by side, at every width you design, in the order that people see them. Update it and the card after every change, because they're the only place where the user sees the current design.
-- **Frames:** Each frame is one artboard, so that its screens, notes and markers stay together. It records one step of the work: what the review found, what you changed, and the user's comments on it, so the user can follow the work one step at a time. Start a new frame for each review, and for each round of the user's comments on the current design, not for each comment. Once the next frame starts, leave the earlier frames as they are, because they're the record of each step. Place the frames left to right, three per row, 80 px apart. Name each frame `<n> · <layer> × <level> · <note>`, for example `15 · Structure × Component · every part`.
-- **Frame layout:** Inside the frame, place the Before notes, the Before, the After, and the After notes in a row, and the references under them. Show each screen at 1:1: a page whole, and a component or a primitive cropped to the part that changed, with enough around it to see where it sits. The Before is the previous After, or today's screens at the start. The After contains only this iteration's changes. When the step offers directions, the After holds each one side by side, at the same size, with your pick outlined. Under the After, draw it for each case that changes how it looks, such as the longest data and the most items.
-- **Markers:** Mark the exact area each note is about. Outline the element, or the empty spot where something is missing, in the marker's color, and put the number on the outline's corner, outside the element so that it covers nothing. People connect a note to its part only when the two sit together (Ginns, 2006), and a marker in a margin or beside a whole section makes the user search for what it means. A note about several places gets its number on each. Use the same number for a gap on the Before and its fix on the After. In each side's notes, say what was wrong or what changed. Then check the screenshot: each number touches the outline of the element its note names.
-- **Calls:** Under the After, show the options side by side, one line each, and outline your pick.
-- **References:** Under the frame's row, show the screenshots that informed the step. Under each one, give its source and what it means for this design.
-- **Colors:** Use red for still wrong, green for fixed, gray for left as is, and amber for the user's call. When the user answers a call, change its marker to green.
-- **Paper:** Paper places new artboards wherever there's space, so move each one into place. Name each artboard when you create it, because renaming truncates names to 50 characters.
+- **Top:** an overview card that shows your path, so that the user can follow and steer the work. It holds the target, the parts that a review has passed, and the parts you've worked on as a path through the tree, each with its actions and counts, such as "Card: Frame · Find references · Diverge 3 · Review · Choose B · Prune 4 · Converge 14 · Review passes › Card head: Find references · Converge 6", then the current part, its focus and what's next. Bring it up to date after every action. Under it, the work as it is now, at full size and side by side, in each state that people meet: today's version on the left, then the directions or the one design. It's the only place the user needs to look, so keep it current.
+- **Below:** one row per part that you've worked on, with one small frame per change, named `<n> · <part> · <change>`: the part that changed, before and after on the same content, a numbered marker on the exact spot, and one line. People connect a note to its part only when the two sit together (Ginns, 2006). Leave earlier frames as they are, because they're the record.
+- **References:** one artboard, with each screenshot's source and one line on what it decided.
+- **Paper:** move each new artboard into place, and name it when you create it, because renaming truncates names to 50 characters. Paper drops some styles without an error, such as `left` and `top` on a new artboard, the base color of a `background` shorthand, camelCase properties in `write_html`, and an SVG's `stroke-opacity`, so read the result back with `get_computed_styles`. Draw screens as layers bound to tokens, not as screenshots, so that they can be measured. To try new values, add a set of tokens for the work and bind only the new frames to it, which leaves earlier frames and other pages as they were. Nest the frames as the groups that people should see, with padding inside a box and gaps between its children (Figma Learn, "Guide to auto layout"; Braid, "Layout").

@@ -17,8 +17,8 @@ Install by cloning and symlinking a skill folder into `~/.claude/skills/` or `~/
 | positioning | Product positioning: segment, alternative, differentiation |
 | product-design | Research-first UI and UX design (built on Refero's design skill, see below) |
 | design-knowledge | Standards for product UI in 24 guides: what to do, why, how to check it, with sources |
-| design-review | Judges a UI or design with fresh eyes, cell by cell, and returns gaps with proof, worst first; never edits |
-| designing | Designs or changes product UI on a Paper canvas, cell by cell: one review and one frame each, which you steer |
+| design-review | Judges a UI or design with fresh eyes, part by part: passes or fails each part beside the best products, and groups the gaps by cause, each naming the /designing action it calls for |
+| designing | Designs or changes product UI on a Paper canvas as parts inside parts, with twelve composable actions, either on its own toward finished, reviewed work or one action at a time |
 | writing | Writes and edits anything people or models read, from replies and messages to docs, skills, and landing pages. |
 
 ## Borrowed
@@ -31,6 +31,7 @@ Thanks to these authors. Most skills below are modified from the original; the l
 | sharpen | [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) by Lauren Tan, via [backnotprop/bro](https://github.com/backnotprop/bro) | MIT |
 | bro, facts, readback, clean-room | [backnotprop/bro](https://github.com/backnotprop/bro) | No license upstream |
 | grilling | [Matt Pocock's skills](https://github.com/mattpocock/skills) | MIT |
+| writing-for-agents | [Matt Pocock's skills](https://github.com/mattpocock/skills/tree/main/skills/productivity/writing-for-agents), unchanged | MIT |
 | show-me | [HumanLayer skills](https://github.com/humanlayer/skills/tree/main/plugins/show-me) (ASCII diagrams instead of Mermaid) | MIT |
 | product-design (in part) | [Refero design skill](https://github.com/referodesign/refero_skill), without the Refero MCP parts | MIT |
 | interface-craft | Josh Puckett, [DialKit](https://github.com/joshpuckett/dialkit) | Not stated |

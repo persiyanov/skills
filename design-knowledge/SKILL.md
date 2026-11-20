@@ -1,12 +1,12 @@
 ---
 name: design-knowledge
-description: 'Standards and sources for product UI design. Foundation guides cover each aspect of every page: content, copy, controls, layout and accessibility (structure); spacing and alignment, hierarchy, type, color, surfaces, and icons and images (style); interaction and motion (behavior). Product guides cover the product behind the pages: its conceptual model, and journeys across pages and over time. Pattern guides cover recurring kinds of pages and tasks: navigation, notifications, sign-in and accounts, settings, sharing and access, lists and search, forms, creating, editing and deleting things, help, AI and agents, and marketing pages. Read the guides for every subject a design or a review touches, and for questions like "what''s the standard for X in a UI".'
+description: 'Product UI standards with their sources, in guides for every aspect of a page, from layout and copy to color and motion, for the product behind the pages, and for recurring patterns such as forms, navigation and settings. Read the guides that a design or a review touches, and use them to answer questions like "what''s the standard for X in a UI".'
 argument-hint: "[subject or question]"
 ---
 
 # Design knowledge
 
-This skill holds the standards for product UI. You design and review a product one cell at a time: one level of the product, such as a page, in one layer of decisions, such as structure. You check each cell against its layer's guides, and you judge the whole design against the product's own standards.
+This skill holds the standards for product UI. A product's UI is parts inside parts, at four levels, and each guide covers one aspect of a part, such as its layout, its copy or its motion. You check each part against the guides for its level, in what holds it, and you judge the whole design against the product's own standards.
 
 ## Levels
 
@@ -23,7 +23,7 @@ Radix calls its Dialog a primitive, but people use the trigger and the close but
 
 ## Layers and guides
 
-Each layer settles one kind of decision, and each guide covers one layer. Structure decides most of whether a design works, and each later layer changes little of what came before, so working in order rarely sends you back (Interface Craft skill, "Design Critique"):
+Each guide covers one aspect of a part, and the guides group into three layers, each of which settles one kind of decision:
 
 | Layer | It settles | Guides |
 | --- | --- | --- |
@@ -31,41 +31,42 @@ Each layer settles one kind of decision, and each guide covers one layer. Struct
 | Style | How it looks, finished: spacing and alignment, size, type, color, surfaces, icons, visual weight, and the look of each state | visual language, spacing and alignment, hierarchy, type, color, surfaces, icons and images |
 | Behavior | How it responds and moves from moment to moment: when each state shows, the answer to a press, focus and keys, announcements, transitions and motion | interaction, motion |
 
-A rule belongs to the layer where you'd fix it, so if a fix spans two layers, it's two rules. Every rule says what must be true, why, when it applies, how to check it, and what passes and fails. The guides apply as follows:
+Every rule says what must be true, why, when it applies, how to check it, and what passes and fails. The guides apply as follows:
 
 - **Foundation guides** group their rules by level: every level, then primitive, component, and page.
-- **Product guides** apply to journeys, and to any page where a concept appears.
+- **Product guides** apply to journeys, and to any part where a concept appears, whatever its level.
 - **Pattern guides** apply to the pages and tasks that they name, and each of their rules says when it applies.
 
-## Cell order
+## What depends on what
 
-Work through the cells in the following order:
+Structure decides most of whether a design works, and each later layer changes little of what came before (Interface Craft skill, "Design Critique"). You judge each part in the context of the next larger one: a component on its page, and a page in its journey (Eliel Saarinen, quoted in *Time*, 1956). A value makes sense only once you know what it's for, and values chosen before the whole that they serve end up tweaked one at a time. In Puckett's redesign, each value follows from what the look should convey: he names the attributes first, and then picks, for example, a corner radius that leans slightly friendly (Interface Craft, "Redesigning a Mobile Web App, Part 2"). Building goes the other way, shared parts first, because pages are made of them, and a part that the product already has comes in finished. Journeys have only structure, because their look and behavior come from their pages.
 
-| | Journey | Page | Component | Primitive |
-| --- | --- | --- | --- | --- |
-| Structure | 1 | 2 | 3 | 4 |
-| Style | | 7 | 6 | 5 |
-| Behavior | | 10 | 9 | 8 |
+## Scope
 
-Structure goes top-down, because you judge each part in the context of the next larger one: a component on its page, and a page in its journey (Eliel Saarinen, quoted in *Time*, 1956). Style and behavior go bottom-up, shared primitives first, but you still judge each primitive on a real page. Puckett works this way in his redesign: the architecture first, then a visual language tried on raw components, then the full pages (Interface Craft, "Redesigning a Mobile Web App, Part 2"). Journeys have only structure, because their look and behavior come from their pages.
+The target decides the scope: the target and every part inside it, in every aspect. List every part inside it, down to its primitives, so that you miss none (Brad Frost, "Interface Inventory", 2013): for a page, each control group, card, row, menu and toolbar, and each text style, color, icon, spacing value and button. If the user names levels, layers or aspects, cover only those. For example, a card redesign covers the card and every part inside it in every aspect, and a copy pass on the card covers the same parts with only the copy guide.
 
-When the target is the product's look itself, such as a new visual language or a restyle of every page, settle the product-wide choices that the visual-language guide covers first, and then work through the style cells. Building the look bottom-up from values, before anyone has decided what each value is for, ends in values tweaked one at a time.
+Fix each problem at the level where it starts, even if that means going back up (Frost, 2016).
 
-## Choose the cells
+## A part's place
 
-The target decides which cells you cover: its own level and every level below, in each layer. If the user names levels, layers, or guides, cover only those. For example, a card redesign covers the card and its primitives in all three layers, and a copy pass on the card covers two cells and uses only the copy guide.
+Every part takes attention from the rest, so each one earns its place:
 
-Fix each problem at the level where it starts, even if that means going back up (Frost, 2016). Ask the user before you go above the target, because the target is their choice.
+| Place | When it fits | Rules |
+| --- | --- | --- |
+| In view | Most people need it for the screen's main job | content 3 |
+| Only where it differs | It matters for some items or states, so it shows only there | content 4 |
+| One step away | Only some people need it, behind a control that names it | content 3 and 16, help 1, settings 2 |
+| Gone | Nothing is lost without it, or another part already shows it | content 1 and 4, conceptual model 1 and 2, hierarchy 4 |
 
-## Check a cell
+## Check a part
 
-To check a cell, follow these steps:
+To check a part, follow these steps:
 
-1. List every part of the target at the cell's level, so that you don't miss any (Brad Frost, "Interface Inventory", 2013). For a page's components, list each control group, card, row, menu, and toolbar. For its primitives, list each text style, color, icon, spacing value, and button.
-2. List the cell's rules: its layer's rules for its level, plus the rules for every level. `grep -E '^## |^### |^- \*\*Applies when' <guides>` lists them by title.
-3. Read each rule in full before you check the work against it.
+1. Take it away, with the rest of the design in place, and say what is lost, for whom and how often, because people look for what to add and overlook what to take away unless they're prompted (Adams et al., 2021). That decides its place, as "A part's place" sets out.
+2. List its rules: for each aspect in scope, its guide's rules for the part's level, plus the rules for every level. `grep -E '^## |^### |^- \*\*Applies when' <guides>` lists them by title.
+3. Read each rule in full before you check the part against it.
 
-The rules are a minimum: a product that meets them all is well made, but not yet good.
+The rules are a floor: a product that meets them all is well made, but not yet good.
 
 ## When a product's rule differs from a guide
 
@@ -73,13 +74,7 @@ Follow the product's documented rule, unless it makes people fail: they can't se
 
 ## Product standards
 
-Judge a design against the guides and against the product's own standards. Write the standards in `standards.md`, next to the work, before you design anything, so that nobody can bend them to fit the design later (Designer Fund, "Inside design at Linear", 2026). Give a source for each line, mark anything that nobody can confirm as an assumption, and cover the following:
-
-- **The people:** Who uses the product, what they know, and the job they come to do, with a real case and real data. Include the state they arrive in: what's at stake for them, and how stressed or rushed they are, because stress narrows what people take in (Easterbrook, 1959; Interface Craft skill, "Design Critique"). Base this on evidence, such as customer messages, support threads, and usage data. Never present an imagined person as real.
-- **The product's own rules:** Its UI rules, components, tokens, and voice, plus a short ranked list of the qualities that people should notice in this product and not in others (Interface Craft, "Facets of Quality"). These say what "the best version" means here.
-- **The best products:** The best products for the same job, with screens or links to them, because a reviewer compares parts side by side. Use the products yourself if you can, because screenshots don't show motion or feel. Otherwise, use their public pages or Mobbin screens, never memory. Say what each one does well and whether it suits this product, and keep them separate rather than blending several into one. Follow the conventions that most of them share, because people already know them, but never take one product's look, such as its palette, type or shapes, because a copied look makes this product pass for that one.
-- **What each best product decided:** When the work sets the product's look, such as a visual language or a restyle, write down what each best product decided, which default it left, and why that fits it. Start with the whole page, because that's where the feel comes from: how large and dense the text and spacing are, how many weights and text colors separate levels, how soft the shapes are, how surfaces sit, how much color there is, and what the screen is for. Then go on to single parts. Measure the values on the product's own page with `scripts/style-inventory.js` wherever you can open it, because small previews hide scale and space. Where you can only see screens, such as a page behind a login, record counts and proportions from the largest screens you have, such as how many items a group shows and how many weights it uses, and mark them unmeasured. This record widens the options for this product and shows what to avoid copying.
-- **The user's verdicts:** Each verdict that the user gives on the look, such as "too close to that product" or "this panel looks cluttered", dated and in their words, with what it rules out and no more. Add each one when the user gives it, and never rewrite one to fit a design. Verdicts are how a fresh designer or reviewer learns this user's taste.
+Each piece of work judges its design against the guides and against the product's own standards, written in `standards.md` next to the work. When you write or check a `standards.md`, read `product-standards.md`: the people, the product's own rules and ranked qualities, the best products and what each decided, and the user's verdicts.
 
 ## Foundations
 
@@ -135,4 +130,4 @@ Each guide cites the WCAG 2.2 A and AA criteria for its subject by number. The g
 
 ## Sources
 
-You never need to open a source to use the guides. `sources.md` lists every source and the rules for adding one.
+The guides carry what each source says, so you can use them as they are. `sources.md` lists every source and the rules for adding one.
