@@ -63,7 +63,7 @@ If the user runs this skill directly, confirm the target and the pass once, and 
 
 ## Check a build
 
-Run this check on the build that follows the user's style approval, before it ships. The frames are settled, so judge whether the build matches them, and what no frame can show, which is where the behavior pass is reviewed. Here a failure is a place where the build differs from its frame with no reason in the record, or a problem that no frame can show. Check the following:
+Run this check on the build that follows the user's style approval, before it ships. The frames are approved, so judge whether the build matches them, and what no frame can show, which is where the behavior pass is reviewed. Here a failure is a place where the build differs from its frame with no reason in the record, or a problem that no frame can show. Check the following:
 
 - **Against the frames:** Compare each page with its frame at the same width, and check every page that uses a shared part that the build changed. Read the lines that the change deleted, because the result can't show what is gone: anything people relied on with nothing in its place is a failure, such as an accessible name, a focus style or a reduced-motion check (interfaces plugin, "interface-review").
 - **What frames can't show:** Check the WCAG 2.2 A and AA criteria that design-knowledge's `scripts/wcag-index.py` lists. Run axe on every page and state, and then check the accessibility tree, 320 px width, 200% zoom, reduced motion, forced colors, each theme, and whether the styles match the product's tokens.
