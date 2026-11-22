@@ -30,7 +30,7 @@ Otherwise write the plan in the format under Files, and check that everything th
 
 ## 4. Build
 
-Build the tickets in order without waiting for replies. Build only what the spec asks for. Take what people see from the approved screens in "Before and after" on the design's Paper page. When you find other work, mention it in your next report and keep building. Build each ticket yourself, and use subagents only for research and review.
+Build the tickets in order without waiting for replies. Build only what the spec asks for. Take what people see from the approved screens on the design's Paper page, the work as it is now. When you find other work, mention it in your next report and keep building. Build each ticket yourself, and use subagents only for research and review.
 
 Every step you can run is your job: CLIs, QA, and live checks the user's rules allow. Leave to the user only decisions that need their judgment and what only they have.
 
