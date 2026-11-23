@@ -2,7 +2,7 @@
 
 The design is built in the running product, on its own branch.
 
-- **Build with the product's own components and tokens,** with real data, a test login for each role from the repo's seed or example files, and a way to reach each state by its address or by test data. Data the API doesn't have yet is mocked on the branch, marked, and listed under the spec's Open questions as an API change.
+- **Build with the product's own components and tokens,** with a test login for each role from the repo's seed or example files, and a way to reach each state by its address or by test data. Data the API doesn't have yet is mocked on the branch, marked, and listed under the spec's Open questions as an API change.
 - **Forks are variants behind a switch** in the real page, one shown at a time, so that the user flips between them (Emil Kowalski, "prototype"; interfaces plugin, "variant"). Show screenshots of the variants side by side as well.
 - **A value that people judge by feel,** such as a duration or a density, gets a live control (Interface Craft, "Live Tuning").
 - **Commit before you fix a review's findings,** and give the verifier both commits, so that it can run the design before and after.
