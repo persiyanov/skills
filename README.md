@@ -16,9 +16,9 @@ Install by cloning and symlinking a skill folder into `~/.claude/skills/` or `~/
 | thebar | Compares work with the ideal end state when it goes off track |
 | positioning | Product positioning: segment, alternative, differentiation |
 | product-design | Research-first UI and UX design (built on Refero's design skill, see below) |
-| design-knowledge | Standards for product UI in 24 guides: what to do, why, how to check it, with sources |
-| design-review | Runs a part's tests with fresh eyes in one pass (structure, style or behavior), proves each failure, and names the part and layer where its cause sits |
-| designing | Designs or changes product UI on a Paper canvas as a tree of parts, worked one part at a time in three passes (structure, style, behavior), each part made to pass its tests |
+| design-knowledge | Standards for product UI in 27 guides: what must be true, why, what it protects, how it's checked, with sources; `rules.py` prints them by kind of part, task, guide or quality |
+| design-review | Reviews a UI or a design in any medium through ten lenses in four groups (concept, simplicity, functional, craft), proves each failure, and lists them in fix order |
+| designing | Settles a design spec with the user, draws the whole design alone, has it reviewed and fixed, and shows the finished design with every fork |
 | writing | Writes and edits anything people or models read, from replies and messages to docs, skills, and landing pages. |
 
 ## Borrowed

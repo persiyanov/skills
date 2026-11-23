@@ -12,6 +12,7 @@ Space alone shows what belongs together: the gap around a group is at least 1.5 
 
 - **Why:** People group things by how the gaps compare, not by their size: the closer grouping wins about 79% of the time when one gap is 1.2 times the other, and about 96% at 1.5 times (Wertheimer 1923; Kubovy et al. 1998). No study gives designers a minimum. About 2× is a common starting value, and it keeps the gap above 1.5× when real content and rounding shrink it (Jakub Krehel, interfaces "better-layout").
 - **Applies when:** groups that space alone shows, except items grouped by a shared border or background, which group whatever the gaps (Palmer 1992), or by a strong shared color (Quinlan and Wilton 1998).
+- **Protects:** coherence
 - **Check:** look first. Blur a screenshot until the text can't be read, or squint: the shapes that remain should match the groups in the content. Then measure each group you see, between what is drawn (letters, icon shapes, visible edges), not between boxes. The smallest gap between the group and anything around it should be at least 1.5 times the largest gap between its own items: one less than 1.5 times larger fails.
 - **Fail:**
   - a label 16 px below the field before it and 16 px above its own input;
@@ -29,6 +30,7 @@ Use a border, a background or a divider for:
 Siblings of one kind share one container, not a box each. Never use a box and a large gap for the same group.
 
 - **Why:** A shared border or background groups as strongly as space and can override it (Palmer 1992), so space can do the job without adding marks. Every box adds edges, and the share of a screen's pixels that are edges predicted how long people took to find things (r = .83; Rosenholtz et al. 2007). Material 3 keeps a card for content and actions about one subject ("Cards").
+- **Protects:** economy
 - **Check:** hide the boxes: add `*{border-color:transparent!important;background-color:transparent!important;box-shadow:none!important}` to the page and take a screenshot. For a dialog or side panel, put its selector before `*`, so it keeps its own background. If the groups show as clearly as before, the boxes are extra. If a group disappears, its box is doing the grouping, which fails except in the uses listed above. Then count the boxes inside boxes.
 - **Fail:**
   - four metrics in a row, each in its own card (Interface Craft, "Refining Presscut");
@@ -44,6 +46,7 @@ The gaps between sections match each other, and the gaps between the items of a 
 
 - **Why:** People read a smaller gap as a closer tie (rule 1), so unequal gaps between equal things suggest groups that aren't there (Material 3, "Grids & spacing").
 - **Applies when:** the gaps between items at one level of the structure, except gaps between levels, which differ on purpose (rule 1).
+- **Protects:** precision
 - **Check:** measure the gaps between items at the same level, from what is drawn. Gaps meant to be equal match to the pixel.
 - **Fail:**
   - 32 px between a chart and the tables below it, but 16 px between the two tables (Interface Craft, "Refining Presscut");
@@ -60,6 +63,7 @@ Parts that share no role don't need to share a line.
 
 - **Why:** People take aligned items as related, and poor alignment slowed search on screens (Apple, "Layout"; Parush et al. 1998). Between nearby edges people see an offset far smaller than a pixel (Hu et al. 2021), so an edge 1 to 4 px off a line it shares with a neighbor looks like an accident, not a choice, but the farther apart two edges are, the larger an offset must be before anyone sees it (Burbeck 1987). Interface Craft counts the lines across a whole screen and cuts four to two ("Layout & Alignment"; "Refining Today").
 - **Applies when:** every screen, panel and dialog, except a few pixels between unrelated parts far apart.
+- **Protects:** precision
 - **Check:** draw the lines on a screenshot of the whole window, through every pane. Up close, mark each edge 1 to 4 px off a line it shares with a neighbor. Across the screen, list the parts with one role and mark any that miss the line the others share. Then count the lines: lines close together, such as 8 px apart, are the first to merge.
 - **Fail:**
   - list icons 2 px left of the heading's text;
@@ -82,6 +86,7 @@ People read a screen from the top and from the leading edge, and the keyboard an
 
 - **Why:** Keyboard and screen-reader users get the code order. WCAG 2.2 requires what people see to follow it where the order changes the meaning or how things work (1.3.2 Meaningful Sequence, 2.4.3 Focus Order).
 - **Applies when:** always.
+- **Protects:** accessibility
 - **Check:** press Tab from the top of the page, and compare the order focus moves in with the order on screen. Look for CSS that moves things away from their code order: `order`, `row-reverse` and `column-reverse`, grid placement, absolute positioning. An order on screen that differs from the code's fails when it changes what the content means or runs against the order focus moves in.
 - **Fail:** `row-reverse` shows Cancel then Save, while Tab reaches Save first.
 - **Pass:**
@@ -94,6 +99,7 @@ Nothing moves unless the user moved it: reserve the space for content that arriv
 
 - **Why:** Content that moves after it appears makes people lose their place or press the wrong thing; a Cumulative Layout Shift of 0.1 or less counts as good (web.dev, "Optimize Cumulative Layout Shift").
 - **Applies when:** something visible moves that the user didn't ask to move, such as a button pushed aside when the button next to it changes its label, except the content below a section the user opens, which moves on purpose.
+- **Protects:** precision
 - **Check:** compare the screenshots of the loading and loaded states, and of the rest and hover states, for elements that moved. In the browser, a `PerformanceObserver` on `layout-shift` entries (ignoring those with `hadRecentInput`) reports shifts as they happen. Anything that moves without the user moving it fails.
 - **Fail:**
   - rows jump when an image without `width` and `height` loads;
@@ -116,6 +122,7 @@ Data tables (though not their single cells), maps, code and toolbars that must s
 
 - **Why:** Content that is cut off or covered is lost. WCAG 2.2 requires it at 200% text size, except in captions and images of text (1.4.4), at 320 CSS px wide (1.4.10) and with larger text spacing (1.4.12); text cut short passes only with a way to reveal the rest (Understanding 1.4.10). Translations are usually longer, most of all short ones: text of up to 10 characters can grow 200–300% (W3C Internationalization, "Text size in translation"). A field hidden under the on-screen keyboard means typing blind.
 - **Applies when:** always.
+- **Protects:** accessibility
 - **Check:** take screenshots:
   - at each supported width, down to 320 px;
   - at 200% and 400% zoom;
@@ -148,6 +155,7 @@ Every gap and padding is a step on the product's scale. A product without one us
 
 - **Why:** A scale makes equal things equal by construction, and choices fast. Material 3, Carbon, Atlassian, Primer, Fluent 2 and Polaris all have 2, 4, 8, 12, 16, 24, 32, 40 and 48, and all but Carbon add 6 and 20. No study shows that one unit works better than another, and Apple publishes no scale.
 - **Applies when:** always.
+- **Protects:** precision
 - **Check:** list every gap and padding the target uses, from the computed styles, and compare them with the product's tokens.
 - **Fail:** 15 px of padding on one card and 16 px on its sibling (rule 3).
 - **Pass:** an 18 px gap between every pair of list rows in a product whose scale has no 18: it is consistent, and it groups correctly.
@@ -160,6 +168,7 @@ Icons, arrows and letters sit in boxes larger than their visible shapes. Center 
 
 - **Why:** Icons are drawn in square boxes, but their visible shapes differ, so a play triangle centered by its box looks off center. A line of text has space above the capitals and below the baseline, so equal padding around its box looks uneven (Interface Craft, "Layout & Alignment" and "Typography Details").
 - **Applies when:** a visible shape is lopsided in its box, or text is the only content of a control.
+- **Protects:** precision
 - **Check:** look at a screenshot at 2×, and judge the visible shape, not the box.
 - **Fail:**
   - a play icon centered by its box in a round button;
@@ -175,6 +184,7 @@ Icons, arrows and letters sit in boxes larger than their visible shapes. Center 
 Measure padding from the visible content to the container's visible edge. A container that starts with a title needs less top padding than its other sides, because the title's line box adds space above the letters (rule 9).
 
 - **Why:** Interface Craft, "Layout & Alignment" (containers).
+- **Protects:** precision
 - **Check:** measure the padding on each side, from the visible content to the visible edge; for a title, from the top of its capitals. Sides meant to be equal that differ by 1 px or more fail.
 - **Fail:**
   - a card with 20 px of padding on every side, whose title looks further from the top than from the left, for example because the title is centered on a taller button beside it;
@@ -187,6 +197,7 @@ Measure padding from the visible content to the container's visible edge. A cont
 Status labels, toggles and chevrons in a list whose rows vary in height all follow one rule: they are centered on rows of one or two lines, not set on the first line. In rows of three lines or more they may sit at the top, level with the first line.
 
 - **Why:** Parts of one kind that sit the same way in every row are found by where they sit (Scarr et al. 2013). Material 3 centers side items in short rows and sets them at the top from three lines ("Lists"), Carbon sets them at the top, and Fluent 2 on iOS keeps them centered; Interface Craft centers them ("Layout & Alignment").
+- **Protects:** precision
 - **Check:** look at a list with one-line and two-line rows together.
 - **Fail:** toggles set on the first line of each row, so they zigzag down a list of one- and two-line rows.
 - **Pass:**
@@ -198,6 +209,7 @@ Status labels, toggles and chevrons in a list whose rows vary in height all foll
 Controls side by side keep a visible gap, and text and icon buttons without a border get more of it than bordered buttons, because their padding doesn't show. Hit areas never overlap. A target smaller than 24 by 24 px keeps the spacing WCAG 2.5.8 asks for, except what 2.5.8 exempts: a link inside a sentence, a small target whose action a full-size one on the page also offers, a control the browser draws and the page doesn't restyle, and a size that is legally required or essential to the information. On touch screens, hit areas are 44 by 44 px, or 48 by 48 dp on Android (default).
 
 - **Why:** Controls that touch read as one, and overlapping hit areas cause wrong presses. WCAG 2.2, 2.5.8 asks for targets of at least 24 by 24 CSS px, or spacing that keeps a 24 px circle on each target clear of the others, and puts 44 by 44 px at AAA (2.5.5). Fingers need more: Apple's default is 44 by 44 pt, with 28 as the minimum, and Android asks for 48 by 48 dp, allowing smaller targets for mouse and trackpad (Apple, "Accessibility"; Android Developers, "Make apps more accessible").
+- **Protects:** precision
 - **Check:** measure the gaps between the visible shapes, and between the hit areas. Hit areas that overlap fail, and so does a target under 24 by 24 px without the spacing 2.5.8 asks for. With touch input (a coarse pointer, or touch emulation), list each hit area under 44 by 44 px: each departs from the default.
 - **Fail:**
   - two borderless icon buttons whose icons are 4 px apart;
@@ -216,6 +228,7 @@ Controls side by side keep a visible gap, and text and icon buttons without a bo
 - Icons of different shapes center on one vertical line, and the text after them shares one edge.
 
 - **Why:** Right-aligned numbers put units under units, so a longer number is visibly a larger one. Left-aligned text scans best, numbers with the same rounding compare best, and a header follows its column (EU Data Visualisation Guide 2023); Cloudscape right-aligns only the numbers people compare ("Table"). Tabular figures (`font-variant-numeric: tabular-nums`) give every digit the same width. Icons: Interface Craft, "Layout & Alignment".
+- **Protects:** precision
 - **Check:** for each column of numbers, check its alignment, its decimals and its header. For icons, draw their center lines and the text edge on a screenshot.
 - **Fail:**
   - centered prices with zero, one or two decimals;
@@ -228,6 +241,7 @@ When a row scrolls sideways, something at its edge shows that there is more: by 
 
 - **Why:** With nothing at the edge, nothing tells people the rest exists, so they can't reach it; a partly visible item tells them there is more (Feldman et al. 2023). Jakub Krehel shows 16 to 32 px of it (interfaces "better-layout").
 - **Applies when:** the hidden content matters for the job.
+- **Protects:** precision
 - **Check:** in the screenshots at each width, look for a scrolling row that ends exactly at the edge with nothing that shows there is more. Such a row fails.
 - **Fail:** a row of cards that ends exactly at the container's edge, with four more cards off screen.
 - **Pass:** part of the next card showing at the edge.
@@ -240,6 +254,7 @@ In Arabic, Hebrew, Persian and Urdu, the whole layout mirrors: reading starts at
 
 - **Why:** Apple, Human Interface Guidelines, "Right to left"; Material 3, "Bidirectionality & RTL"; Wikimedia Codex, "Bidirectionality".
 - **Applies when:** a product ships a right-to-left language.
+- **Protects:** precision
 - **Check:** set `dir="rtl"` on the page and take the screenshots at each width. Search the CSS for physical properties such as `left`, `right` and `margin-left` where a logical one (`inline-start`, `inline-end`) belongs, and for `translateX` and `background-position`, which have no logical form and need a mirrored value.
 - **Fail:** `margin-right: 8px` on a list icon. In Hebrew the icon moves to the right of the text, the margin moves to its outer side, and the icon touches the text.
 - **Pass:** `margin-inline-end: 8px`, or a `gap` on the row.

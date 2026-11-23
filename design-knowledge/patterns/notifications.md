@@ -12,6 +12,7 @@ Each kind of notice goes where people will meet it in time, chosen by how urgent
 
 - **Why:** NN/g keeps push for what can't wait, the product for what people can read when they like, email for a lasting record, and text messages for critical alerts, and finds that too many alerts lead people to ignore or turn them off and miss what matters (Kenderova and Neusesser 2026). Notices that need action are often urgent and should interrupt, while passive ones are easily missed (Flaherty 2024), and Carbon keeps a dialog for messages that are critical and need attention at once (Carbon, "Notifications"). Apple asks for urgency stated truly, lets a Time Sensitive notice break through a Focus only for an event happening now or within the hour, and doesn't notify about a new message in a mailbox people are viewing, since the message already shows (Apple, "Managing notifications"; Apple, "Notifications"). NN/g also never sends a safety alert by a channel people may not see in time, such as email alone (Kenderova and Neusesser 2026).
 - **Applies when:** a product sends notices by push, email or text message, or shows them in the product.
+- **Protects:** usability
 - **Check:** list each kind of notice with its channel and its urgency. Something people can read later, sent by push or text at the urgency of a failure, fails; something critical sent only as an email or a list entry fails. Turn on Focus or Do Not Disturb: a notice that breaks through it for an event more than an hour away fails. Open the thing a notice is about, then cause the event again: a push about what is on the screen fails.
 - **Fail:**
   - "Weekly tips" sent as a push, at the same level as "Payment failed";
@@ -29,6 +30,7 @@ A notice people may read away from the product, such as a push or an email, name
 
 - **Why:** a notice read later needs more context than feedback on an action people just took (Flaherty 2024; Carbon, "Notifications"), and NN/g asks notices to say what happened, what action is needed and by when, without people having to open the app (Kenderova and Neusesser 2026). Apple keeps sensitive, personal or confidential information out of notifications, gives a plain description for when people hide previews, avoids a button that only opens the app, and avoids telling people to do something in the app later, which they find hard to remember (Apple, "Notifications"). The App Store asks apps not to send sensitive personal information by push (App Store Review Guidelines, 4.5.4).
 - **Applies when:** a product sends notices people may read outside it.
+- **Protects:** clarity
 - **Check:** read each push and each email on its own, away from the product: one that doesn't name the event and the item fails. On a locked screen, a test result or an account detail shown by default fails, and so does a notice that says nothing about its kind when previews are hidden. Tap each button on a notice: one that only opens the app fails.
 - **Fail:**
   - "You have updates.";
@@ -45,6 +47,7 @@ A burst of similar events that people don't answer one by one, such as 30 commen
 
 - **Why:** Apple and Carbon ask products not to send the same notification again when people haven't answered it, and Carbon groups notices by source or urgency (Apple, "Notifications"; Carbon, "Notifications"). Fluent folds similar processes into one toast that says how many, and Android groups notifications that arrive together (Fluent 2, "Toast"; Android Developers, "Notifications"). NN/g notifies each separate event, such as each failed unlock, at once, uses thresholds for conditions that go on, resends a reminder with rising urgency where it prevents a failure, and asks alerts to expire once their issue is resolved and to say when a device recovers by itself (Kenderova and Neusesser 2026). Linear sends a notice to the desktop app or browser people are active in (Linear Docs, "Notifications"; convention).
 - **Applies when:** a product can send many notices of one kind, notices about a state that can end, or notices to more than one device.
+- **Protects:** economy
 - **Check:** cause the same kind of event 30 times in a few minutes: 30 separate notices, not grouped by the product or the system, fail, unless each needs its own answer. Leave a routine notice unanswered for a day: a second copy fails. Read a notice on the desktop: the same notice still sounding on the phone fails. Cause a warning, then fix its cause: a warning that stays fails, and so does no word when something recovered by itself.
 - **Fail:**
   - "Motion detected" 99 times in one night;
@@ -63,6 +66,7 @@ A product that sends many notices, or whose notices people come back to, keeps t
 
 - **Why:** Carbon suggests a notification panel, in guidance it calls provisional, for people who get many system notices or need to look back at them, in time order (Carbon, "Notifications"). PatternFly lists notices newest first, keeps unread ones marked until people act on them, clears an entry from the drawer without deleting it from the system, and never uses its drawer as the only place for events that need action now (PatternFly, "Notification drawer"). GitHub's Done takes a notice out of the inbox and keeps it for three months (GitHub Docs, "Managing notifications from your inbox"; convention).
 - **Applies when:** a product sends many notices, or notices people come back to.
+- **Protects:** usability
 - **Check:** open the list: entries out of time order within their group, unread ones not marked, or no way to mark one done, fails. Clear an entry: no way to find it again fails. Cause an event that needs action now: one found only in the list fails.
 - **Fail:** "Payment failed: update your card" only in the inbox, while people keep working in the editor.
 - **Pass:**
@@ -75,6 +79,7 @@ A badge, a dot or a count on a tab, a bell or an item marks only what is new to 
 
 - **Why:** Apple uses badges only for unread notifications, keeps them for information that matters so they keep their meaning, and warns that people can turn badges off, so a message carried only by a badge can be missed (Apple, "Notifications"; Apple, "Tab bars"). PatternFly finds that an unread mark that is there most of the time stops working (PatternFly, "Notification badge"), and NN/g finds that people can't tell what matters when every alert looks the same (Kenderova and Neusesser 2026).
 - **Applies when:** a product shows badges, dots or counts on tabs, icons or items.
+- **Protects:** economy
 - **Check:** list every badge on the main screens: one on a routine total, such as the number of reports, fails. For each important event, find where else it shows: one shown only as a badge fails.
 - **Fail:**
   - badges on Settings, Help and Reports;
@@ -92,6 +97,7 @@ The product asks for permission to notify only when people turn on, or start to 
 
 - **Why:** a browser keeps a permanent "no" until people change it themselves, so web.dev asks products to request a permission after a user action, with the reason clear, and never on page load (Harbach and Steiner 2024). Apple asks during onboarding only for what the app needs before it can work, and shows why first (Apple, "Onboarding"), and the App Store doesn't let an app require push notifications in order to work (App Store Review Guidelines, 4.5.4).
 - **Applies when:** a product sends push or browser notifications.
+- **Protects:** usability
 - **Check:** open the product fresh, as a new account: a permission prompt before any action fails, unless setting up alerts is the product's first step. Turn on a feature that notifies: no word on what it will send, before the system's prompt, fails.
 - **Fail:** the browser's "Allow notifications?" on the first page load of a blog.
 - **Pass:**
@@ -104,6 +110,7 @@ Inside the product, people choose which kinds of notice they get and on which ch
 
 - **Why:** Apple asks for notification settings inside the app, and for explicit agreement before marketing notifications (Apple, "Managing notifications"). The App Store allows promotions by push only after people opt in on the app's own screen, with a way there to opt out (App Store Review Guidelines, 4.5.4). NN/g sends by default only alerts about the product's core purpose, and found that a participant couldn't separate sales alerts from motion alerts (Kenderova and Neusesser 2026). Carbon asks for notification preferences, and Android puts every notification in a channel people can change at any time (Carbon, "Notifications"; Android Developers, "Notification channels"). Linear sets each channel separately, and sends an email digest only for what wasn't read in the app (Linear Docs, "Notifications"; convention). WCAG's AAA level lets people postpone or turn off interruptions, except in emergencies (Understanding 2.2.4). In the EU, marketing by email or text message goes to private persons only if they agreed first, except a business's own customers about its similar products, who can refuse when their address is collected and in every message, free and easily; for companies, each EU country sets its own rule (ePrivacy Directive, Article 13). Without that, people receive what they never chose.
 - **Applies when:** a product sends notices by more than one channel, or sends marketing.
+- **Protects:** usability
 - **Check:** as a new account, open the notification settings from inside the product: no choice per kind or per channel, or no way to pause what isn't critical, fails. Look at the defaults: marketing on, or in the same kind as product notices, fails; in the EU, marketing email to a private person without a yes, outside the exception for a business's own customers, fails. Read a notice in the product, then wait for the email digest: the same notice in the email fails.
 - **Fail:**
   - only "Unsubscribe from all" at the bottom of emails;

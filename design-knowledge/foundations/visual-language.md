@@ -12,6 +12,7 @@ The product's look is a few choices made once for the whole product, and every p
 
 - **Why:** qualities that a product names for itself, ranked, are what tell a team whether a design is good for this product rather than good in general (Interface Craft, "Facets of Quality"). A look whose parts follow different ideas looks like a mix of component libraries rather than the work of one designer (Interface Craft skill, "Design Critique"), and a rule of the look, such as which controls get a shape, holds only if every control follows it (Interface Craft, "Style Details").
 - **Applies when:** the look of a product's interface, except a second register that the product's standards set apart, such as its marketing site.
+- **Protects:** coherence
 - **Check:** measure the rendered pages: the text sizes and weights in use, the spacing inside and between groups, the corner radii, how surfaces are set apart, and the colors with how much of the screen each covers. For each choice, name the ranked quality it serves. A choice no quality explains fails, and so do two choices that pull against each other, such as a quality ranked "calm" beside five weights and a saturated color on every row. Then compare one component on two pages: a different look for the same job fails.
 - **Fail:**
   - a side panel whose parts come from three pages, each bringing its own text sizes and surface styles;
@@ -28,6 +29,7 @@ No screen could pass for another product's with the logos hidden, and no set of 
 
 - **Why:** people prefer a design that is new while it still looks typical of its kind, and novelty that breaks typicality loses them (Hekkert et al. 2003). A look shared with competitors is a weak way to be recognized, and a choice made for its obvious meaning, such as green for sustainability, is often the one competitors made too (Romaniuk 2025). A first idea tends to repeat the examples a designer has just seen (Jansson and Smith 1991), so a look drawn after studying one product often comes out as that product.
 - **Applies when:** the main pages of a product's interface, except conventions that most products share.
+- **Protects:** coherence
 - **Check:** put each main screen beside the same screen of each product in the product's standards, at the same size, with logos and names hidden. A screen that someone who knows those products could take for one of them fails. Then trace each set of values to where it came from: one copied whole from a single product fails. A value that leaves the common default with no ranked quality behind it fails rule 1.
 - **Fail:**
   - three directions for a redesign, each with one reference product's palette, type and panels;

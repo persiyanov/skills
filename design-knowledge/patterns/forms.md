@@ -8,6 +8,7 @@ A form people don't know, or a long one they fill in rarely, asks one thing per 
 
 - **Why:** one question per page helps people understand what they are asked, and makes errors easy to spot and fix (GOV.UK, "Question pages"; Wang 2025, "Few Guesses, More Success"). GOV.UK groups questions where research shows people repeat and switch between tasks quickly, and Cloudscape and Shopify edit a record on one page, since people who only want to change one value would page through answers they only need to see (GOV.UK, "Question pages"; Cloudscape, "Page edit"; Shopify, "Forms and saving"). The W3C puts the step in the page title too (W3C WAI, "Multi-page Forms"). GOV.UK keeps the browser's Back button working, returning people to the page as they last saw it, except after an action they should do only once, such as a payment (GOV.UK, "Question pages"): a payment step that Back offers again lets people pay twice without meaning to. WCAG 2.2 requires a step's answers to come back with it, unless entering them again is essential, needed for security, or the answers no longer hold (3.3.7), since otherwise people must recall and type them again.
 - **Applies when:** a form asks for more than a few things.
+- **Protects:** usability
 - **Check:** name how often people fill in each form, whether they know its subject, and whether it creates something or edits it. An unfamiliar form that asks many unrelated things on one long page fails, and so does an edit split into steps. Go forward two steps, then press the browser's Back: a step that comes back empty, or a jump out of the form, fails. Read each step's page title: one that doesn't name the step fails. Pay, then press Back: a payment step ready to be sent again fails.
 - **Fail:**
   - editing a saved product forces people through three steps to change its price;
@@ -23,6 +24,7 @@ People can tell at each field, before they type, whether they must fill it in. T
 
 - **Why:** when the marking isn't clear, many people feel they must answer optional questions too (Wang 2025, "Few Guesses, More Success"). Systems disagree on the mark: GOV.UK writes "(optional)" and never uses asterisks; Atlassian, Material 3 and Fluent 2 put an asterisk on required fields, explained by a note; Carbon writes "(optional)" or "(required)" on whichever group is smaller, the same way at least in forms of one kind (GOV.UK, "Question pages"; Atlassian, "Form"; Material 3, "Text fields"; Fluent 2, "Field"; Carbon, "Forms"). Fluent 2 allows one instruction at the top when every field is required, and Primer leaves a sign-in form unmarked, since every field is expected (Primer, "Forms"). Of 51 forms of four or more fields seen, 9 used asterisks, 7 "(optional)", 2 both, 4 another mark, and 29 none, many of them sign-up forms (Mobbin survey, 2026, convention).
 - **Applies when:** a form has fields that are required and fields that aren't.
+- **Protects:** familiarity
 - **Check:** open each form and find, at each field, whether it must be filled in: a field you can't tell about until an error fails. Compare forms of the same kind across the product: two styles fail. A form that marks its fields only with a note at the top fails, unless every field is required, and so does an asterisk that nothing explains.
 - **Fail:**
   - two settings forms in one product, one with asterisks and one with "(optional)";
@@ -38,6 +40,7 @@ A form either saves each change as people make it, or saves everything together 
 
 - **Why:** a page that saves by itself looks the same as one that waits for Save, so people who met automatic saving on another page leave expecting a save that didn't happen (GitLab Pajamas, "Saving and feedback"). Primer never mixes the two in one form, and saves at once only controls such as switches; with radio buttons that save at once, the arrow keys apply every option they pass over, so a person browsing a notification setting sends changes they never chose (Primer, "Saving"). People expect a switch to act at once, even one that needs Save (Al-Jasim and Murano 2023). Pajamas keeps automatic saving off data with financial, security or privacy effects, saves a text field when people leave it, and keeps a failed save in view until a retry works, while Primer adds no "Saved" text to a switch, whose position already shows it (GitLab Pajamas, "Saving and feedback"; Primer, "Saving"). Pages with text fields had a Save button, pages of only switches had none, and 4 of 33 mixed the two (Mobbin survey, 2026, convention).
 - **Applies when:** a form changes something that is saved.
+- **Protects:** usability
 - **Check:** list each control in a form and whether it saves at once or waits for Save: both in one form fails. Find each control that saves at once and ask whom it affects, and whether a value passed through on the way does harm: a group of options that saves while people arrow through it fails, and so does an instant change to something shared, paid for or about security. Turn the network off and change a field that saves by itself: no sign of the failure, or a value that looks saved but is gone on reload, fails.
 - **Fail:**
   - a settings form whose switches save at once beside text fields that wait for Save;
@@ -55,6 +58,7 @@ In a form that saves with a Save button, the screen shows that something changed
 
 - **Why:** a form that looks the same before and after a change gives people no way to know their change isn't kept until they leave, so Shopify shows a save bar with Save and Discard as soon as a value differs from where it started (Shopify, "Save bar"). Cloudscape asks before any action that would lose what people entered, whatever its size, but not when nothing changed, since needless friction frustrates people (Cloudscape, "Communicating unsaved changes").
 - **Applies when:** a form saves with a Save button.
+- **Protects:** usability
 - **Check:** change one field and look for a sign that it isn't saved: none until people try to leave fails. Then leave by the navigation, the Back button and by closing the tab: changes lost with no question fail. Open the form, change nothing, and leave: a question then fails.
 - **Fail:**
   - an edit page that looks the same after a change, and loses it when people click away;
@@ -70,6 +74,7 @@ Each field tells the phone what it expects, so the keyboard fits the answer: num
 
 - **Why:** a full keyboard for a six-digit code slows people down, and a correction that turns a username into a word is a mistake people must spot and undo, so designers set each field's keyboard, capitals, corrections and return key (Emil Kowalski, "Feeling Native On Mobile"). Browsers choose the keyboard from the field's type and its `inputmode`, label the return key from `enterkeyhint`, and add no automatic capitals in email fields. A number field is meant for amounts people step up and down: it can change by accident and takes no pattern, so a code made only of digits gets a numeric keyboard on a text field (MDN, "<input type="number">", "inputmode", "enterkeyhint" and "autocapitalize").
 - **Applies when:** a form can be filled in on a phone.
+- **Protects:** usability
 - **Check:** on a phone, or with a phone keyboard in the simulator, tap each field: a full letter keyboard for an amount, a phone number or a code made only of digits fails, and so does a capital or a correction added to a username, a code or an email. Type a code that starts with 0 and send it: a zero that disappears fails.
 - **Fail:**
   - a sign-in code field that opens the full keyboard;
@@ -86,6 +91,7 @@ Each question has a use the product makes of the answer now, at this step. What 
 
 - **Why:** every question costs people effort, and each one they don't see the point of makes some give up, so GOV.UK asks only for information the service really needs, Atlassian limits the number of fields, and NN/g asks for a reason behind every question and for asking later what isn't needed now (GOV.UK, "Question pages"; Atlassian, "Form"; Wang 2025, "Less Effort, More Completion").
 - **Applies when:** a form asks people for information.
+- **Protects:** economy
 - **Check:** for each field, name what the product does with the answer at this step. A field with no use now fails: it moves to the step that needs it, or goes. An optional question with no word on why it is asked fails.
 - **Fail:** a sign-up that asks for a phone number, a company size and a job title before people have seen the product.
 - **Pass:**
@@ -98,6 +104,7 @@ Within one process, such as sign-up, checkout or an application, what people alr
 
 - **Why:** Some people with cognitive disabilities have trouble remembering what they entered before, and people who have to recall or retype an answer make mistakes. WCAG 2.2 requires earlier answers to be filled in or offered to pick, unless retyping is essential, needed for security, or the earlier answer is no longer valid (3.3.7). The browser's own autofill doesn't count, and a form that shows an error without clearing the card number people typed is WCAG's own example (Understanding 3.3.7). People who start typing before a page's scripts finish loading lose their text or their place when the page redraws the field, so Vercel asks for fields that keep their value and focus through it (Vercel, "Web Interface Guidelines").
 - **Applies when:** a process has more than one step, or a form can fail on submit.
+- **Protects:** usability
 - **Check:** walk each process from start to end and list what each step asks: an answer asked again that isn't filled in or offered to pick fails, unless one of WCAG's exceptions applies. Submit each form with one error: fields that come back empty fail. Reload with the network and CPU slowed and start typing in the first field at once: text that disappears, or focus that leaves the field, as the page finishes loading fails.
 - **Fail:**
   - a checkout that asks for the delivery address again at billing, with no "Same as delivery";

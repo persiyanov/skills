@@ -14,6 +14,7 @@ Draw that layout for every version of the item, including each optional part mis
 
 - **Why:** Once people learn where a part sits, they find it by position, and stable positions beat moving ones (Scarr et al. 2013). Material 3 lines up leading elements, gives similar elements the same spacing, and orders a row by importance, with supplementary actions at the trailing end ("Grids & spacing"; "Lists"). A layout drawn only for the full case leaves holes wherever real data is missing: the hole splits parts that belong together and takes width from the text people read (Emil Kowalski, "break-ui").
 - **Applies when:** the items are of one kind.
+- **Protects:** precision
 - **Check:** look at the siblings side by side. Measure the part's distance from the edge it belongs to, in the shortest item and in the longest. Count how many items lack each part, and draw the item with each optional part empty.
 - **Fail:**
   - a usage meter right under the name on short cards, and lower down on cards with a long description;
@@ -32,6 +33,7 @@ Buttons for one item sit on or beside that item. Filters and view options sit ri
 
 - **Why:** People take a control placed near content as acting on it, and a nearby control is faster to reach, since the time to reach a target grows with its distance (Material 3, "Grids & spacing"; Fitts 1954). Lines or a background around each row make the row one region, which can override space (Palmer 1992).
 - **Applies when:** the control acts on one item or one section, except actions for the whole page, which sit in the page header.
+- **Protects:** usability
 - **Check:** for each control, name what it changes. Then check how far apart they are, and whether anything unrelated sits between them. For a control at the end of a row, compare its distance from the row's content with its distance from the control above it.
 - **Fail:**
   - an Edit button in the page header that changes one card further down the page;
@@ -49,6 +51,7 @@ Buttons that end a dialog sit on the trailing side, with the main one last; butt
 
 - **Why:** People look for things where they found them before and where similar products put them; people who magnify part of the screen rely on it most, so WCAG requires repeated navigation to keep its order (WCAG 2.2, 3.2.3; Understanding 3.2.3; Nielsen 2023; Tuch et al. 2012). The order of buttons is what most systems do (Apple, "Alerts"; Material 3, "Dialogs"; Carbon; Atlassian; Primer; GOV.UK, "Button"), with Windows the exception (Microsoft, "Dialog controls").
 - **Applies when:** a convention exists.
+- **Protects:** familiarity
 - **Check:** compare the target with two other screens of the product, and with two products of the same kind. Repeated navigation in another order, not set by the user, fails; anything else in a place the product, the platform and products of its kind don't use fails. Compare the ends of every dialog and form: more than one side or order for either fails.
 - **Fail:** page actions top right on every page but one, where they sit at the bottom.
 - **Pass:**
@@ -69,6 +72,7 @@ A field for an answer of fixed length, such as a postcode, a year or a two-digit
 
 - **Why:** In Baymard's checkout studies, people skipped and misread fields in forms with several columns; two or three fields of one thing on a row caused no problems (Scott, "Avoid Extensive Multicolumn Layouts", 2023). A field's width tells people how long an answer is expected (Wang 2025; GOV.UK, "Text input"; Carbon, "Text input").
 - **Applies when:** a form of several rows that people fill in from top to bottom, such as the checkout forms Baymard studied.
+- **Protects:** familiarity
 - **Check:** look for fields of different values side by side, and compare each field's width with its longest likely answer. Fields side by side that aren't short parts of one thing fail; a field whose width doesn't fit its answer fails.
 - **Fail:**
   - a two-column form with Name and Company in the first row, and Email and Phone in the second;
@@ -81,6 +85,7 @@ The result of an action shows where the person is looking: the item changes in p
 
 - **Why:** People need to see what their action did (Nielsen 1994), and a toast far from it can fall outside the area people magnify and reaches screen readers far from its cause, so Primer adds no message when the change shows (Primer, "Accessible notifications and messages"; "Notification messaging"). Material 3 keeps a toast with an action until it is used (Material 3, "Snackbar"). WCAG lets a message that disappears on its own hold information or an action people can't find elsewhere only when people can turn its timer off, make it at least ten times longer, or are warned before it closes and can extend it with a simple action (WCAG 2.2, 2.2.1), since people who read slowly or look away lose it.
 - **Applies when:** an action has a result people need to know: saved, sent, failed, or done in the background.
+- **Protects:** usability
 - **Check:** do each main action and note where its result appears: a result shown only far from the action, when it could show in place, fails. Let each toast expire: one that held an action, such as Undo, Retry or View, or an error, that can't be found anywhere else fails.
 - **Fail:**
   - a Save error shown only in a toast that closes after 4 s;
@@ -101,6 +106,7 @@ The result of an action shows where the person is looking: the item changes in p
 The main content's edges sit on a few columns, and every page keeps the same margins at a given width. Margins, and the gaps between large regions, may grow at wider window classes, as the product's tokens set them; padding inside components stays the same at every width. Text people read gets a maximum width: about 45 to 75 characters a line, never more than 80, and at most about 40 in Chinese, Japanese and Korean; paragraphs never run narrower than about 40 characters in other languages. On wide screens, the extra width goes to margins or side panels, not to longer lines. Backgrounds, images and full-width lists may run to the screen's edge; text and controls stay inside the margins.
 
 - **Why:** People take aligned items as related, and poor alignment slowed search on screens (Apple, "Layout"; Parush et al. 1998). Systems change margins by window class and keep the padding inside components fixed: Material 3 uses 16 dp margins on compact windows and more space on larger ones, and Carbon keeps its padding at 16 px at every breakpoint (Material 3, "Breakpoints" and "Grids & spacing"; Carbon, "2x Grid"). No system scales every gap by one factor. On screens, people read long lines as fast as short ones, but they understood a 55-character line better than a 100-character one, and they prefer about 50 to 70 (Dyson and Haselgrove 2001; Dyson 2023). Systems range from Material 3's 40 to 60, with up to 120 on large screens, to the U.S. Web Design System's 45 to 90 and Primer's 80 or less (Material 3, "Lists"; USWDS, "Typography"; Primer, "Typography"); WCAG asks for a way to get lines of 80 characters or fewer, or 40 for Chinese, Japanese and Korean (1.4.8, AAA), and Japanese typesetting keeps lines to about 40 characters (W3C, JLREQ).
+- **Protects:** precision
 - **Check:** draw the alignment lines at each width, and compare the margins of two pages at the same width. Count the characters in a full line of each paragraph people read: over 80 fails, and so does under 40.
 - **Fail:**
   - 24 px margins on the list page and 32 px on the settings page at the same width;
@@ -114,6 +120,7 @@ The number of panes and the kind of navigation change at the window classes. A c
 One pane is flexible and takes the width left over; side panes keep a fixed width, and a pane people resize stops where its content still fits. When panes stack into one column, the main pane comes first, and supporting content follows it or opens in a sheet.
 
 - **Why:** Material 3 uses one pane below 600 dp, one from 600 to 839 dp (two are possible, but never for dense information) and two from 840 dp; one pane is flexible beside fixed ones, and a supporting pane stacks below the main one ("Breakpoints"; "Canonical layouts"; "Pane layouts"; "Supporting pane"). Breakpoints inside a page belong where the content stops fitting (LePage and Andrew, web.dev). In media queries, `rem` and `em` follow the browser's text-size setting, not the page's styles (Media Queries 4).
+- **Protects:** precision
 - **Check:** resize from 320 to 1920 px and note every width where something breaks or looks cramped; a row of logos or marks that leaves one alone on a line fails. Then take screenshots at 320, 390, 768, 1024, 1280, 1440 and 1920 px.
 - **Fail:**
   - a card that switches to its narrow layout at a viewport width, so it breaks inside a narrow sidebar on a wide screen;
@@ -125,6 +132,7 @@ One pane is flexible and takes the width left over; side panes keep a fixed widt
 A tool people work in all day can show more at once. A page people visit rarely or briefly shows less and explains more. When space is tight, keep the groups visible with lines or backgrounds, which group as strongly as space (Palmer 1992), not by making every gap equal. A compact density tightens space, not type: text keeps its sizes, and help, alerts and error messages keep the normal spacing.
 
 - **Why:** Higher density suits products where people scan and compare a lot of information; lower density suits pages with less information or one message (Material 3, "Grids & spacing"; Cloudscape, "Content density"). Many people who use a tool every day never become experts and still need labels and help (Kaplan, "Supporting 'Power Users' Isn't Enough", 2025). No study sets a best density. Compact modes tighten padding and rows but keep body text at its size, and leave messages at the comfortable spacing so they still stand out (Cloudscape, "Content density").
+- **Protects:** coherence
 - **Check:** name how often and for how long people use the page. Compare its density with the product's other pages of that kind. Switch to the compact density, if there is one: smaller text, or help and error messages squeezed with the rest, fails.
 - **Fail:**
   - a table people monitor all day with 64 px rows, showing nine rows per screen;
@@ -139,6 +147,7 @@ A sticky header or footer leaves room for the element in focus, and for the targ
 
 - **Why:** An element in focus is never entirely hidden by the page's own content, except content the user moved there or opened and can close without moving focus (WCAG 2.2, 2.4.11, and its notes); W3C's technique C43 uses `scroll-padding` for this. At small sizes sticky bars leave little room to read, and W3C strongly suggests making them static there (Understanding 1.4.10; technique C34).
 - **Applies when:** the page has sticky or fixed areas.
+- **Protects:** accessibility
 - **Check:** Tab through the page and follow the links within it: an element in focus that a sticky area hides entirely fails; one partly hidden, or a link's target hidden, fails. At 320 px and at 400% zoom, see how much of the height the sticky bars take.
 - **Fail:** a 64 px sticky header with no `scroll-padding`, so the field the user tabs to sits under it.
 - **Pass:** `html { scroll-padding-block-start: 64px }`, or the header's height; `scroll-padding-block-end` for a sticky footer.
@@ -151,6 +160,7 @@ When a screen's content is shorter than the window, it stays together as one gro
 
 - **Why:** A line split from its group reads as a group of its own, since people group things by the gaps between them (Wertheimer 1923; Kubovy et al. 1998). Of 12 products' sign-in pages (surveyed November 2026), all centered the group side to side; on desktop, 7 centered it top to bottom and 4 set it a fixed distance from the top; on phones, 8 of 11 started it near the top, and none pinned the main button to the bottom. Their 404 pages and empty states started just below the header or the top of their area. Carbon centers its login page; Atlassian, Primer and GOV.UK use a fixed distance from the top. No study favors one vertical position.
 - **Applies when:** a screen, or an area, whose content is shorter than the window.
+- **Protects:** coherence
 - **Check:** take screenshots at 1440 by 900 and at 390 by 844. Measure the gaps inside the group and the space around it, and note where the group sits. Leftover space inside the group fails; a group away from the place set out above fails.
 - **Fail:** at 360 px, the title and buttons at the top, the terms line alone in the middle of the screen, and empty space below it.
 - **Pass:**
@@ -163,6 +173,7 @@ One modal dialog or sheet shows at a time. A short confirmation or alert may ope
 
 - **Why:** Apple and Atlassian show one modal at a time, while Material 3 and Fluent 2 allow a short confirmation over one (Apple, "Modality"; Atlassian, "Modal dialog"; Material 3, "Dialogs"; Fluent 2, "Drawer").
 - **Applies when:** a dialog or a sheet can open another layer.
+- **Protects:** usability
 - **Check:** from each dialog and sheet, follow every action that opens another layer: a second modal with a task of its own, such as a form, fails.
 - **Fail:** a profile form that opens over the navigation drawer, which stays open behind it.
 - **Pass:**

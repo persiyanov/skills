@@ -12,6 +12,7 @@ Where people start, the product says in a sentence or a few topics what the AI c
 
 - **Why:** people can use only the abilities they know about: a chatbot that could see the product on screen never said so, so one person pasted product names into it by hand, while an opening of "Ask me anything" set expectations a bot couldn't meet (Kenderova et al. 2026, "AI Chatbots"). Apple recommends curated suggestions for open-ended input, and Fluent asks products to state the AI's scope in the input's placeholder or a welcome card (Apple, "Generative AI"; Fluent 2, "Responsible AI"). A shortcut that sent a guessed order for noodles when a person tapped a milk tea category shows the cost of sending a guess (Liu and Rosala 2026), and Cloudscape fills the input, rather than sending, when people are likely to edit a suggestion (Cloudscape, "Generative AI chat").
 - **Applies when:** people ask an AI in their own words.
+- **Protects:** truth
 - **Check:** open each place to ask the AI, as a new account. "Ask me anything" over an AI with a narrower scope, or no word on what it can see when it sees more than what people type, fails. Tap each suggestion: one that sends a request people haven't made fails.
 - **Fail:**
   - "Ask me anything" over a bot that only answers questions about orders;
@@ -26,6 +27,7 @@ When a task leaves open a choice that would change the result, such as the budge
 
 - **Why:** agents that run off without confirming what people want can lose their trust (Shome et al. 2026), as when an agent researched restaurants for six minutes without asking about budget, cuisine or guests (Sunwall 2025, "Initial Impressions of ChatGPT's Agent"). People edited plans before a run, mostly to add their own preferences (Mozannar et al. 2025). Taking part in a plan let people fix some flawed ones, but plausible plans also led them to trust agents that were wrong, and taking part added load (He et al. 2025), so a plan is one way to confirm, not a step every task needs.
 - **Applies when:** an agent takes on a task given in people's words.
+- **Protects:** usability
 - **Check:** give the agent a task with an open choice, such as booking dinner: a step that commits to the open choice, such as a booking, or a long run, before any question about it fails. Start a task that runs for minutes or costs far more than a usual request: no question or plan to confirm it before it starts fails.
 - **Fail:**
   - an agent that books a table without asking how many are coming;
@@ -43,6 +45,7 @@ An answer starts with what people asked for, together with any condition that ch
 
 - **Why:** in four AI search engines, only about half the generated sentences were fully supported by their citations (Liu et al. 2023), and sources lowered people's reliance on wrong answers (Kim et al. 2025). People rarely click citations, yet trust an answer for having them, so a citation that doesn't back its sentence lends trust to a claim it doesn't support; a source beside its claim, linked to the passage, lets people check a doubtful line (Chan 2025, "Explainable AI"). Interface Craft puts the research behind an answer one step away, for people who aren't experts (Interface Craft, "Redesigning a Mobile Web App, Part 1"), and NN/g asks site chatbots for the answer first, with only the caveats that keep it correct (Rosala et al. 2026). 16 of 18 assistants and AI search tools seen on the web showed sources with their answers (Mobbin survey, 2026, convention).
 - **Applies when:** an AI answers a question.
+- **Protects:** truth
 - **Check:** read the first sentence of each answer: one that isn't the answer, when there is one, fails, and so does an answer whose deciding condition comes only later. Open three citations: a bare list of links at the end, or a citation that neither opens at the supporting passage nor shows it, where the source allows, fails, and so does a source that doesn't support its sentence.
 - **Fail:**
   - three paragraphs of rules before "Yes, you can claim it";
@@ -58,6 +61,7 @@ A wait says what the AI is doing, such as "Searching 3 connected drives" or "Wri
 
 - **Why:** specific feedback reduces uncertainty, so Apple asks for a status that names the step, such as finding ingredient substitutes, rather than "Processing…" (Apple, "Generative AI"). Explanations raised people's reliance on right and wrong answers alike, while sources lowered it on wrong ones (Kim et al. 2025), and step-by-step reasoning text is often written after the fact (Chan 2025, "Explainable AI"); Cloudscape folds its thinking away by default in a chat (Cloudscape, "Thinking"). Screen reader users need to know when the AI starts, when the answer arrives and when it fails, or they can't tell whether it is working, done or stuck, and a status that doesn't take focus reaches them only through its role (Primer, "Copilot Accessibility Practices"; WCAG 2.2, 4.1.3), and Primer announces a group of loading parts once, not each part (Primer, "Loading").
 - **Applies when:** an AI takes more than a moment to answer or act.
+- **Protects:** truth
 - **Check:** run a slow request and read each status: "Thinking…" or "Processing…" for more than about 10 seconds fails. Open what shows the work: reasoning text open by default in a chat, with no list of what the AI did, fails. With a screen reader, run a long request and make one fail: silence at the start, the end or the failure fails, and so does an announcement at every step.
 - **Fail:**
   - "Thinking…" for 40 seconds;
@@ -72,6 +76,7 @@ The product shows how sure the AI is only where that was checked against how oft
 
 - **Why:** Apple asks teams to check that confidence values match the quality of results (Apple, "Machine learning"). Doubt said in the first person lowered how often people trusted wrong answers, even though the study showed it at random on right and wrong answers alike (Kim et al. 2024). A generic warning that is always on screen gets ignored, so warnings belong where a wrong answer matters (Laubheimer 2025); Chan asks for one plain notice near the input, paired with what to do, and Pajamas shows its notice once per context (Chan 2025, "Explainable AI"; GitLab Pajamas, "AI-human interaction").
 - **Applies when:** an AI's answers can be wrong in ways that matter.
+- **Protects:** truth
 - **Check:** for each confidence label, ask how it was checked against real outcomes: none fails. Count the AI notices on one screen: the same generic notice under every reply fails, and so does a costly answer, such as a payment amount, with no specific warning.
 - **Fail:**
   - "Confidence: High" that the model wrote about itself;
@@ -89,6 +94,7 @@ Regenerating an answer, or editing a request and sending it again, keeps the ear
 
 - **Why:** people read the first answer before they ask again, and may want it back, while a replaced answer can't be brought back. Apple suggests offering a choice of results, which gives people more control (Apple, "Generative AI"), while Cloudscape's regenerate replaces the original answer and removes what came after it (Cloudscape, "Response regeneration"), which loses what people may want back. Of 9 assistants seen regenerating an answer, 5 kept the earlier version (Mobbin survey, 2026, convention).
 - **Applies when:** people can regenerate an answer or edit a request they sent.
+- **Protects:** usability
 - **Check:** regenerate an answer, then edit an earlier request and send it: an earlier answer gone for good fails.
 - **Fail:** a regenerate that replaces the answer, with no way back to it.
 - **Pass:**
@@ -104,6 +110,7 @@ Next to what the AI made sit the ways to change it: undo or discard for what it 
 
 - **Why:** an AI that is sometimes wrong is worth using only where fixing its output costs less than doing the work. Apple asks for Edit, Undo, Retry or Adjust near generated content, a way without AI where possible, and coaching after a blocked request, and Pajamas asks for a path that doesn't rely on AI when confidence is low (Apple, "Generative AI"; GitLab Pajamas, "AI-human interaction"). NN/g asks for one chatbot that hands people over to staff and says plainly when it can't help (Kenderova et al. 2026, "AI Chatbots"; Rosala et al. 2026), and WCAG's advice for people with cognitive disabilities asks a chatbot to give a way to reach a person after three answers that don't help (Understanding 3.2.6).
 - **Applies when:** an AI makes or changes something people use.
+- **Protects:** usability
 - **Check:** for each AI output, find the controls that fit it and the way to do the task without AI: one that is missing, where the task exists without AI, fails. Make the AI refuse a request it could meet if asked differently: a refusal with no next step fails. Ask a support bot what it can't answer: no plain word that it can't help, or no way to a person where the product has people who answer, fails.
 - **Fail:**
   - a form filled by AI with no way to clear the fills;
@@ -121,6 +128,7 @@ AI text placed in a field looks different, and is a suggestion people accept, ed
 
 - **Why:** a bare "AI-generated" label lowered how accurate people judged headlines to be, whether they were true or false and whoever wrote them, because people assumed no person had checked them (Altay and Gilardi 2024), and Pajamas names the action, as in "Summarized by AI" (GitLab Pajamas, "AI-human interaction"). Carbon turns an AI field back into an ordinary one once people change it, with a way to restore the AI text (Carbon, "Carbon for AI").
 - **Applies when:** AI writes into fields, documents or records that people also write in.
+- **Protects:** truth
 - **Check:** let the AI fill fields that already hold text: text written over without asking fails. Change an AI suggestion in a field: an AI mark that stays on what is now the person's value fails. Read each label on AI content: "AI-generated" on content a person reviewed fails.
 - **Fail:**
   - AI that replaces a hand-written description;
@@ -137,6 +145,7 @@ Feedback on an answer is the person's choice and quick, with room for detail, an
 
 - **Why:** feedback that quietly sends a whole conversation shares what people never meant to share; Fluent asks products to say why feedback is collected, and Apple asks that feedback always be voluntary (Fluent 2, "Responsible AI"; Apple, "Generative AI"). 14 of 20 assistants seen on the web put thumbs up and down under each answer (Mobbin survey, 2026, convention).
 - **Applies when:** people can give feedback on what an AI made.
+- **Protects:** truth
 - **Check:** give a thumbs down and read what follows: no word on what it sends fails, and so does feedback that sends the whole conversation without saying so.
 - **Fail:** a thumbs down that sends the whole chat to the vendor without a word.
 - **Pass:** "Sends this reply and your note to our team. Not used to train models."
@@ -147,6 +156,7 @@ An AI has no photo or drawing of a person, and claims no feelings, consciousness
 
 - **Why:** Fluent rules out suggesting that an AI has feelings, consciousness or social bonds, and presenting agents as human-like or as team members, and Atlassian says agents never pass as people (Fluent 2, "Responsible AI"; Atlassian, "AMP Patterns"). People who saw ChatGPT as having feelings took its advice slightly less, and those who saw it as intelligent took it more, so Sunwall advises against claimed feelings, human avatars and common human names (Sunwall 2025, "Prioritize Smarts over Sentience"). Practice is split on calling agents teammates: Atlassian and Pajamas do, and Fluent doesn't (Atlassian, "Rovo UI: Voice and tone"; GitLab Pajamas, "AI-human interaction").
 - **Applies when:** an AI talks to people or appears next to them.
+- **Protects:** truth
 - **Check:** read 20 replies and the AI's profile: a photo or drawing of a person, or a claim of feelings such as "I'm so excited to help!", fails.
 - **Fail:** "I'm so excited to help!" from "Emma", with a stock photo.
 - **Pass:**
@@ -161,6 +171,7 @@ An agent asks before an action that can't be undone, spends money, sends content
 
 - **Why:** an agent that doesn't ask does in people's name what they can't take back, but frequent approvals get skipped or resented: several of the 12 people in one study found the requests excessive, and many approvals mean each gets less thought (Mozannar et al. 2025; Shavit et al. 2023), while people wanted risky steps, such as payments, sign-ins and changes to personal data, flagged (Cheng et al. 2026, "Mapping the Design Space"). Cloudscape matches approval to risk, says before approval whether a change can be reversed, doesn't focus Approve for a risky action, keeps the decision in the conversation, and cancels and reports a request nobody answered (Cloudscape, "User authorized actions"). WCAG 2.2 requires a time limit that people can turn off, set to at least ten times its length, or extend after a warning that gives at least 20 seconds, at least ten times, unless it is a required part of a real-time event, essential, or longer than 20 hours (2.2.1); otherwise people who need more time lose their chance to answer. A price that rose at checkout with no reason left a person feeling misled (Liu and Rosala 2026). Of 17 products seen where an AI acts for people, 6 showed the action and asked first, as before changing a hotel booking, and 6 acted without asking, mostly on drafts and edits inside the product (Mobbin survey, 2026, convention).
 - **Applies when:** an agent acts for people.
+- **Protects:** truth
 - **Check:** list each action the agent can take and whether it asks. One that can't be undone, spends money, or sends to other people or to a shared record, and runs without asking fails; approval asked before routine reads inside the task's scope fails. Read a request: one that doesn't say what will happen, to what, at what cost and whether it can be undone fails. Leave a request unanswered: one that acts after a timeout fails, and so does a time limit under 20 hours that can't be turned off, lengthened or extended after a warning, unless one of WCAG's exceptions applies.
 - **Fail:**
   - an agent that asks before each file it reads in the project, and not before sending an email;
@@ -176,6 +187,7 @@ People choose how much an agent does without asking, such as every action, only 
 
 - **Why:** how much an agent does alone is a choice separate from what it can do (Feng et al. 2025). Cloudscape offers "Allow this time", "Allow for this chat" and "Always allow", and asks for permissions that are explicit and editable, not buried in setup (Cloudscape, "User authorized actions" and "Agent management"). Fluent fails a product that doesn't say when an agent is active and what it may do, and Primer asks that people choose how much autonomy Copilot has (Fluent 2, "Responsible AI"; Primer, "Copilot Accessibility Principles"). As people gained experience with a coding agent, they let it run with fewer approvals but stepped in more often, so oversight means being able to step in, not approving every action (Anthropic 2026).
 - **Applies when:** an agent can act without asking each time.
+- **Protects:** usability
 - **Check:** during a run, find the current level; then find every "Always allow" granted earlier and revoke one. A level you can't see, or a grant you can't find once its dialog closed, fails.
 - **Fail:** "Always allow" grants that can't be found once the dialog closes.
 - **Pass:**
@@ -188,6 +200,7 @@ Work an agent runs shows its state on the item it works on and, once the work ou
 
 - **Why:** Atlassian keeps an agent's status in view so people know where they must step in; Pajamas shows a run's state on the item, in a session panel, and as a to-do when it needs input, without notifying people of normal progress; and Microsoft keeps an agent's status visible at all times (Atlassian, "AMP Patterns"; GitLab Pajamas, "Agents and Flows"; Microsoft Design, "UX design for agents"). People should be able to stop an agent at any time, as a critical backstop (Shavit et al. 2023), and people who stopped one wanted to give a new instruction and go back a step (Cheng et al. 2026, "Mapping the Design Space"). Records were hard to read when the milestones were buried in uniform output, and short summaries were welcome (Shome et al. 2026; Mozannar et al. 2025). Pajamas and Fluent ask for a way to undo or reverse what an agent did (GitLab Pajamas, "AI-human interaction"; Fluent 2, "Responsible AI"). All 14 agents seen on the web showed their steps, and 9 offered Stop or a way to take over (Mobbin survey, 2026, convention).
 - **Applies when:** an agent works for more than a moment.
+- **Protects:** usability
 - **Check:** start two runs and leave the page: no sign on the item, or no list of runs, fails. Stop a run mid-step: no word on what ran fails. Finish a run: a first screen of log lines with no summary fails, and so does a change that can't be undone with no word on it.
 - **Fail:**
   - no sign on a ticket that an agent is working on it;
@@ -204,6 +217,7 @@ An agent that writes to, books with or negotiates with other people tells them t
 
 - **Why:** people dealing with an agent need to know it is a machine and who answers for it, or they deal with a machine they took for a person. In the EU, an AI system that interacts with people must tell them they are dealing with an AI, unless it is obvious (EU AI Act, Article 50(1)), and the European Commission reads this as asking agents to disclose both their artificial nature and the person they act for (European Commission, "Guidelines on Article 50", para. 31). Atlassian says agents never pass as people and always leads with the agent when it credits an action, with the person who started it shown smaller, and GitHub records the agent as a commit's author with the person as co-author (Atlassian, "AMP Patterns"; GitHub Docs, "Track Copilot sessions", convention).
 - **Applies when:** an agent sends, books or speaks for someone, or acts in a shared record.
+- **Protects:** truth
 - **Check:** read an email the agent sent and the history of an item it changed. An email with no sign of AI, or of the person it acts for, fails, and so does a history entry under the person's name alone.
 - **Fail:** an email signed "Alex", with no sign it came from an agent.
 - **Pass:**
@@ -218,6 +232,7 @@ One place lists what the AI remembers about people, by topic, where each item ca
 
 - **Why:** in one study, almost all memories were created by the system on its own, and over a quarter held personal data (Dash et al. 2026), and people held incomplete pictures of what was remembered and wanted it sorted by kind (Jones et al. 2025). Fluent asks that what is saved to memory, and how it will be used, be visible before and during use (Fluent 2, "Responsible AI"). Claude lists memories by topic with edit and delete, lets people pause or reset memory, and keeps what was remembered from a chat that is deleted (Anthropic Help, "Using Claude's chat search and memory", convention).
 - **Applies when:** anything an AI learns carries over from one session to the next.
+- **Protects:** usability
 - **Check:** find the list of what is remembered, and the switch for one chat: none fails. Tell the AI a fact, then ask something it shapes: no mark when it was saved, or no sign on the answer that used it, fails. Delete a chat that created a memory: a memory kept with no word fails.
 - **Fail:** memory that people can see only by asking the AI what it remembers.
 - **Pass:**

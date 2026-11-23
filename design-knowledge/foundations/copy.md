@@ -12,6 +12,7 @@ Text uses the words people use for their work, not the words of the code, the da
 
 - **Why:** The team's word is rarely the people's: in five domains, two people chose the same word for one thing less than 20% of the time (Furnas et al. 1987). So an interface uses people's familiar words, not internal jargon (Nielsen 1994, heuristic 2), and text is judged by whether readers can find, understand and use what they need (ISO 24495-1:2023). A verb for one kind of input misleads people using another, so Apple writes "tap" for touch, and Microsoft "select" for any input (Apple, "Writing"; Microsoft, "Describing interactions with UI").
 - **Applies when:** always.
+- **Protects:** clarity
 - **Check:** list the terms on the screen: the names of things, actions, states and settings. For each, ask whether the people who use the product say it themselves, using the product's docs, support requests or research where they exist. A word from the code (an enum value, a field or table name, a status code), an internal feature or team name, a system state people can't act on, or a term people must learn that is never explained fails. A term you can't judge is a question for the owner, not a fail. Search help, hints and empty states for "click", "tap", "swipe" and "hover": one in a product people use with both a pointer and touch fails.
 - **Fail:**
   - "Click + to add a member" in an app used on phones;
@@ -32,6 +33,7 @@ Each thing, action and state has one name in every screen, menu, message, email 
 
 - **Why:** People take a new word for a new thing, so two names for one thing make them wonder whether the two differ (Nielsen 1994, heuristic 4), and people who learned a control that recurs across pages don't recognize it under another name. WCAG requires such controls to be identified consistently, though not always with identical labels (WCAG 2.2, 3.2.4). Apple and Shopify keep one term for each thing, action or concept (Apple, "Writing"; Shopify, "Content").
 - **Applies when:** always.
+- **Protects:** clarity
 - **Check:** list the names of things, actions and states across the screens in scope, with the messages and emails they send. Each of these fails: two names for one thing, one name for two things, and two different things whose names people would read as the same. Compare the labels of controls that recur across pages and do the same thing, such as search or the account menu: labels that don't let people tell it is the same control fail, and so do any two labels for one control.
 - **Fail:**
   - "Workspace" in the sidebar, "Team" in settings and "Organization" in the invite email, all for one thing;
@@ -49,6 +51,7 @@ Text is as short as it can be while staying specific. Words that add no meaning 
 
 - **Why:** People scan more than they read, so the first words of a line carry its meaning (Pernice 2017), and each extra word competes with the ones they need (Nielsen 1994, heuristic 8). Scanning people often land on a sentence without the one before it, so a word that points back finds nothing, and a string of fragments leaves them to work out how the facts connect. A passive sentence can hide who acts; GOV.UK and Microsoft allow it where the result matters more or the active would blame people (GOV.UK, "Use clear language"; Microsoft, "Verbs"). "e.g.", "etc." and "&" translate badly and confuse screen reader users, which can read "eg" as "egg" (Atlassian, "Language and grammar"; GOV.UK, "A to Z style guide"), and Material 3 shortens a word only where there is no room (Material 3, "UX writing best practices"). Short never beats clear: too little information harms people as much as too much (Understanding 3.3.2).
 - **Applies when:** always.
+- **Protects:** economy
 - **Check:** for each label, heading, hint and message, take out one word or phrase at a time: if the meaning holds and nothing becomes unclear, the word fails. Read the first two words of each heading, link and list item: words that say nothing about what follows, such as "Click here to", "Information about" or "Introducing", fail. Then try a shorter wording: one that says the same in fewer words, such as "Can edit" for "Permission: Edit" or "Due Friday" for "Due date: Friday", fails the longer one. A long sentence that reads as well split in two fails. A passive sentence whose actor matters, such as "Access is controlled by admins", fails. Read each string on its own, as people who land on it do: "it", "this", "them" or "the one" pointing outside its sentence fails, and so does a string of fragments whose link people must guess. Search the text for "&", "e.g.", "i.e." and "etc.": each fails, and so does a shortened word, such as "info", "msg" or "approx.", where the whole one fits. Then check the other way: a word whose removal leaves people unsure what a thing is, does or affects stays.
 - **Fail:**
   - "Please note that you will need to verify your email address in order to continue.";
@@ -74,6 +77,7 @@ Every heading says what its section holds, every label says what its field or va
 
 - **Why:** People scan headings and the start of lines (Pernice 2017), and people who move by headings or browser tabs hear a heading or title alone, so they can't otherwise tell what a section, field or page is. WCAG requires headings and labels that describe their topic or purpose, where one word may do (WCAG 2.2, 2.4.6), and a page title that does, which a web application's own name can, though a single-page app changes it with each view (WCAG 2.2, 2.4.2; Understanding 2.4.2). Context repeated from the heading competes with what people need (Nielsen 1994, heuristic 8); GOV.UK uses a page's only question as its heading and label ("Question pages").
 - **Applies when:** always.
+- **Protects:** clarity
 - **Check:** read each heading and label, and the page title, without what sits under them. One that names no topic, such as "Details", "Information", "General" or "Other", over content that has one, fails; so does a page title that names something other than the page, such as one view's name on every page. A title that is the same on every page, even the product's own name, fails. Then read each with its context. A figure whose label, read with its heading, doesn't say what it counts fails. A label that repeats its heading, or a period, unit or time zone that the heading or column header already gives, fails.
 - **Fail:**
   - the browser tab reads "Dashboard" on every page;
@@ -92,6 +96,7 @@ The product sounds like one person everywhere, and its tone changes with what is
 
 - **Why:** The voice stays and the tone follows what is at stake (Apple, "Writing"; Microsoft, "Microsoft's brand voice"). Humor is a risk: in a study with 100 adults, playful copy seemed friendlier but less trustworthy, and trust explained about half of whether people would recommend the company (Moran, "Impact of Tone", 2016); a joke in an error stops being funny when the error repeats (Neusesser and Sunwall 2023). "Oops" can sound insincere, and an unclear "we" hides who acts (Apple, "Writing"). Material 3 keeps exclamation marks out of empty states and common tasks, "I" and "my" for the person's own words, and never mixes "my" with "your" ("Grammar and punctuation"; "Word choice"); Microsoft keeps "sorry" and "please" for the cases above, and uses "they" for a person of unknown gender ("sorry"; "please"; "Bias-free communication").
 - **Applies when:** always.
+- **Protects:** clarity
 - **Check:** read the errors, warnings, confirmations, waits and failures together: a joke, "Oops", a cute phrase or an exclamation mark in any of them fails. Read the success and empty messages: an exclamation mark after a routine action fails. Search the text for "sorry" and "please", and check each against the conditions above. Search for "he", "she", "his", "her" and "he/she" about a person the product doesn't know: each fails. Search for "we", "our", "my" and "I": a "we" whose actor isn't clear fails, and so does a screen that mixes "my" and "your".
 - **Fail:**
   - "Oops! We couldn't save your changes 😕";
@@ -112,6 +117,7 @@ Each kind of text has one capitalization, used everywhere: buttons, menu items, 
 
 - **Why:** No case reads clearly better: USAGov found opinions mixed, and moving its sites to sentence case left their rated trustworthiness unchanged (USAGov 2023). So Apple asks for one style for each kind of element ("Writing"). Most systems use sentence case (Material 3, "UX writing best practices"; Atlassian, "Language and grammar"; GOV.UK, "A to Z style guide"), Apple title case on buttons ("Alerts"), and labels, buttons and headings end without a period (Primer, "Content"; Cloudscape, "Copy to clipboard").
 - **Applies when:** always.
+- **Protects:** clarity
 - **Check:** list the buttons, menu items, headings, labels and tabs on the screens in scope, with their capitalization. Two styles within one kind fail. A period after a label, button or heading fails.
 - **Fail:**
   - "Save Changes" beside "Discard changes";
@@ -129,6 +135,7 @@ Dates and times are written so that every reader takes them as the same moment: 
 
 - **Why:** 04/05/09 means different days in different regions (Google, "Dates and times"), a time with no zone means another hour to readers in another zone, and zone abbreviations are shared: CST is a zone in North America and in China, IST in India, Ireland and Israel (IANA, "Theory and pragmatics of the tz code and data"), so people act on the wrong day or hour. Atlassian never formats dates by hand, keeps YYYY-MM-DD for data, and turns relative time into a date after 7 days, GitHub's element after 30 (Atlassian, "Date and time"; GitHub, "relative-time element"). CLDR holds each region's clock (UTS #35, Part 4), and birthdays and holidays stay the same for every reader (W3C, "Working with Time and Timezones"). An exact time only in a `title` tooltip is out of reach by keyboard and screen reader (Primer, "RelativeTime").
 - **Applies when:** a screen shows a date or a time.
+- **Protects:** clarity
 - **Check:** in the code, look for dates and times formatted by hand, such as a `MM/DD/YYYY` pattern, instead of through the platform's formatter (`Intl.DateTimeFormat`, or `toLocaleDateString` with a locale). Then switch the page's locale and time zone: in Chrome DevTools, open Sensors, choose "Other…" under Location, and enter a Timezone ID such as Europe/London and a Locale such as en-GB, then de-DE. Text formatted on the server follows the browser's language list or the product's own language setting instead. A date or time that doesn't change fails. For each time whose readers may be in other zones, a time with no zone that isn't converted to each reader's zone fails, and so does an abbreviation such as CST, IST or PST. For relative times, find when they turn into dates, and reach the exact time with the keyboard.
 - **Fail:**
   - "03/04/2026" on an invoice sent to customers in the US and the UK;
@@ -151,6 +158,7 @@ Numbers, amounts and percentages follow the reader's region, through the platfor
 
 - **Why:** 1,234.5 in the US is 1.234,5 in Germany and 1 234,5 in France, so a number formatted by hand for one region reads as another value in the next (MDN, "Intl.NumberFormat() constructor"), and people pay or decide on the wrong value. "$" stands for several dollars, so people can't tell which one they pay in (Apple Style Guide, "Currency"; Shopify, "Explicit currency formatting"). Most people compare numbers only after rounding them in their heads to two digits (Ehrenberg 1977), and long numbers are slow to read (de Chambrier et al. 2023). Shortened forms such as K hide the exact value and differ by language: German keeps 1250 whole, and Japanese groups by ten thousand (Microsoft, "Numbers"; CLDR data). CLDR stores each region's measurement system, metric, US or UK, and its preferred units, temperature included (UTS #35, Part 6). People scan for numbers, and a number written as a word doesn't stand out, so GOV.UK writes every number but "one" as a numeral, and Microsoft allows numerals in tables and the interface (GOV.UK, "A to Z style guide"; Microsoft, "Numbers").
 - **Applies when:** a screen shows numbers or amounts.
+- **Protects:** clarity
 - **Check:** in the code, look for numbers and amounts built by hand: separators or currency signs added as text, a fixed two decimals, "K" or "M" added to a number. Switch the locale as in rule 7, to de-DE and fr-FR: a number whose separators don't change fails, and so does a temperature, distance or weight that doesn't follow the region, unless the field uses one unit everywhere. Where two currencies that share a symbol can appear, an amount people pay with a bare symbol fails, and so does a bare shared symbol on one price that people in several countries see. `Intl.NumberFormat` writes US dollars as a bare "$" for a US reader, and `currencyDisplay: "code"` gives "USD 1,250.00". For each number, ask what people do with it: digits they can't use on a figure they only compare, or a rounded value they act on, fails. A count written as a word, such as "three items", fails.
 - **Fail:**
   - "Eight deployments failed";
@@ -170,6 +178,7 @@ A count picks its words through the language's plural rules (ICU MessageFormat, 
 
 - **Why:** Languages have from one to six plural forms: Chinese has one, Arabic six, and Russian uses one form for 1 and 21, another for 2 to 4 and a third for 5 to 20, so a check for 1 picks the wrong word (Unicode CLDR, "Plural Rules"; MDN, "Intl.PluralRules"). A sentence joined from pieces can't be translated well, since word order, agreement and punctuation change between languages (Microsoft, "String concatenation"; ICU, "Formatting Messages"), and idioms don't translate (Google, "Write for a global audience").
 - **Applies when:** a screen shows counts; the rest applies to a product that is or will be translated.
+- **Protects:** clarity
 - **Check:** search the text and the code for "(s)", for counts with a fixed noun, for a check such as `count === 1 ?` that picks a word, and for sentences built by joining strings around a value: each fails. Show each count at 0, 1, 2 and 5: a wrong form fails. If the product ships in other languages, switch to one with more plural forms, such as Polish or Russian, and read the counts again.
 - **Fail:**
   - "1 files selected";
@@ -188,6 +197,7 @@ A button's label names the result of pressing it, starting with a verb: "Save", 
 
 - **Why:** People answer a generic "Are you sure?" by habit, so dialog buttons say what each choice does (Nielsen 2018). Apple asks for verbs, "Cancel" to cancel, "Next" or "Continue" between steps and "Done" at the end, and "OK" only on alerts that only inform ("Writing"; "Alerts"); Material 3 asks for Send or Create, not Done, OK or Close ("Dialogs"). A switch is named by what it controls (Microsoft, "Guidelines for toggle switch controls"), and a negative label makes people work through double negatives, which leads to errors (Brown 2024). In the EU, consent asked in a declaration that also covers other matters must be clearly set apart, in clear and plain language (GDPR, Article 7(2)), since otherwise people agree to what they didn't see they were agreeing to.
 - **Applies when:** a screen has buttons, menu items, switches or checkboxes.
+- **Protects:** clarity
 - **Check:** read each button and menu item alone: one that doesn't say what it does fails, such as "Submit", "Go", or "Continue" on a button that also saves or sends. In each dialog, read the buttons without the question: buttons that don't tell the choices apart fail. Read each checkbox that gives consent: one that also accepts terms or a second purpose fails. Read each switch and checkbox: a label for the "off" state, or one that starts with "Don't", "Disable" or "Hide", fails.
 - **Fail:**
   - "Submit" on an invoice form;
@@ -209,6 +219,7 @@ A link's words, read with its sentence, paragraph, list item, or table cell and 
 
 - **Why:** Screen reader users often move from link to link and hear only the link text, so WCAG requires a link's purpose to be clear from its text, or from its text and its context, unless it is unclear to everyone (WCAG 2.2, 2.4.4); people who scan can't otherwise tell links apart either. "Click here" and "more" say nothing on their own (GOV.UK, "Write effective links"). People who can't see a new tab open lose their way, so GOV.UK says "opens in new tab" and gives a file's format and size ("Links"; "Write effective links"), and WCAG warns before a new window opens (WCAG 2.2, G201). A written path, such as "Settings > Notifications > Email", leaves people to find their own way and goes stale when the menus change, while a link takes them there (Jakub Krehel, interfaces "better-writing").
 - **Applies when:** a screen has links.
+- **Protects:** clarity
 - **Check:** list the links with their text, from the accessibility tree or a screen reader's list of links. A link whose text, with its sentence, paragraph, list item, or cell and its header, doesn't say where it goes fails, unless no one could tell from the page. Two links with the same text that go to different places fail. A link that reads "Click here", "here", "More" or a bare "Learn more" fails, even when its sentence explains it. Follow each link: one that opens a new tab, or downloads a file, without saying so in its text fails. Look for paths written into the text, such as "Go to Settings > Notifications": one that could be a link fails.
 - **Fail:**
   - "To change your plan, click here.";
@@ -229,6 +240,7 @@ Each field has a label that stays in view while people type, and says in people'
 
 - **Why:** WCAG requires labels or instructions where content asks for input, with placeholders only as an extra (WCAG 2.2, 3.3.2), since otherwise people can't tell what to enter, or check what they entered: a placeholder disappears when people type, and screen readers don't treat it as a label (W3C WAI, "Form Instructions"). A label shown on request, such as on focus, a heading that names a page's only field, or an icon and a context that make the field's purpose plain, also meets WCAG (Understanding 3.3.2). GOV.UK puts help in a short hint under the label, never in the placeholder ("Text input"). Not every name has a first and a last part, and other countries' addresses fit badly into one country's fields (GOV.UK, "Names"; "Addresses"). GOV.UK, Apple and Android say why each question or permission is asked (GOV.UK, "Question pages"; Apple, "Privacy"; Android, "Request runtime permissions").
 - **Applies when:** a screen has form fields.
+- **Protects:** clarity
 - **Check:** type into each field: a label that disappears, or that was only the placeholder, fails, unless an icon and the context name the field. For each field and permission request, ask why the product needs it: one whose reason isn't plain and isn't stated fails. For each field with a format or a limit, such as a date, a password rule or a size limit, look for it before typing: shown only in the error, it fails. Read the labels for names and addresses: labels that assume one country's form, where people come from many, fail.
 - **Fail:**
   - a sign-in form labeled only by "Email" and "Password" placeholders;
@@ -250,6 +262,7 @@ An error message names what went wrong, specifically, and tells people how to fi
 
 - **Why:** People can't fix an error they can't find or understand: WCAG requires an input error to name the field and describe the problem in text, and to suggest a fix where one is known, unless that harms security or the content's purpose (WCAG 2.2, 3.3.1 and 3.3.3). Messages are specific and don't blame, and codes are for diagnosis only (Neusesser and Sunwall 2023). GOV.UK writes the fix as an instruction and avoids "invalid", "you forgot" and "oops" ("Error message"); Atlassian says plainly when the cause is unknown rather than make one up ("Error messages").
 - **Applies when:** a screen can show an error.
+- **Protects:** clarity
 - **Check:** cause each error: submit forms empty, with wrong formats and with values that are too long or out of range, and block requests in DevTools. Read each message: an input error that doesn't name the field and the problem, or doesn't say how to fix it where the fix is known, fails, and so does any other message that doesn't name what went wrong, or doesn't say what to do where something can be done. A blaming "you", "Oops" or an exclamation mark fails. "Something went wrong" fails unless the cause is truly unknown, and then only with a next step.
 - **Fail:**
   - "Invalid input";
@@ -271,6 +284,7 @@ Messages about an action in progress, or done, use the verb of the control that 
   - Feedback in the words of the control that started it ties the message to the action (Primer, "Content"). Frequent success messages are short, or left out where the result shows in place, and "Success!", "successfully" and exclamation marks add nothing to a routine step (Primer, "Notification messaging"; Atlassian, "Success messages"; Shopify, "Voice and tone").
   - Past about 10 s people turn to other work (Card et al. 1991), so a wait's text has to tell them, when they come back, what is still running.
 - **Applies when:** a screen shows progress, loading or success messages.
+- **Protects:** clarity
 - **Check:** do each action, and read what the screen says while it works and when it is done. A message whose verb differs from its control's, a done message that doesn't name what changed, "Success!", "successfully" or an exclamation mark after a routine action, or a wait past about 10 seconds whose text says only "Please wait" or "Loading…", fails.
 - **Fail:**
   - "Publish" that shows "Processing…" and then "Success!";

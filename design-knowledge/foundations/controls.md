@@ -12,6 +12,7 @@ Hover can show a row's less-used actions, a tooltip or a preview, and right-clic
 
 - **Why:** Touch screens have no hover and keyboards no pointer, so what only hover reveals is out of their reach, and hover content that can't be dismissed or moved onto hides the page from people using magnification (WCAG 2.2, 2.1.1, 1.4.13). Nothing shows that a context menu exists, and people find and use its actions less (Kaplan, "Designing Effective Contextual Menus", 2025). Tooltips that open at once flash over the content as the pointer crosses a toolbar, and a pause before every one makes scanning a toolbar slow, so Base UI and React Aria wait before the first tooltip, about 600 ms and 1.5 s, and open its neighbors at once, and both show a tooltip on keyboard focus at once (Base UI, "Tooltip"; React Aria, "Tooltip"; Emil Kowalski, "Design Engineering").
 - **Applies when:** something appears or changes on hover, or a context menu exists.
+- **Protects:** accessibility
 - **Check:** hover over rows, cards, icons, avatars and cut-off text, and note what appears. Tab to the same places: anything that appeared on hover that the keyboard can't reach, on focus or another way, fails; anything that doesn't appear on focus fails. With touch emulated in a phone-sized window (DevTools device mode), or on a phone, try to reach each action and each piece of needed information: one you can't reach, in place or another way, fails. Open each tooltip and hover card, move the pointer onto it, then press Escape: one that closes as the pointer moves onto it fails; one that stays open after Escape fails, unless another key closes it, or it only shows an input error or covers nothing. Move the pointer diagonally from a menu item to its submenu, across the items below: a submenu that closes on the way fails. Right-click where the product offers a context menu, and find each item somewhere visible: an item found nowhere else fails. Sweep the pointer across a toolbar: tooltips that open as the pointer merely passes fail, and so does a new pause before each neighbor once one tooltip is open. Tab to a control with a tooltip: one that waits before it shows fails.
 - **Fail:**
   - a row's Delete button that appears only under the mouse;
@@ -29,6 +30,7 @@ Controls that look alike also act alike everywhere: a click on a row opens it in
 
 - **Why:** People who learned what a control does in one place expect the same of every control that looks like it, and wonder whether a difference means something (Nielsen 1994, heuristic 4).
 - **Applies when:** controls or rows that look alike appear in more than one place.
+- **Protects:** familiarity
 - **Check:** click a row in each list and table: rows that look alike but open in one list and select in another fail.
 - **Fail:** a click on a row that opens the invoice in one table and only selects it in another that looks the same.
 - **Pass:** rows that open their item in every table.
@@ -41,6 +43,7 @@ A submit button stays enabled: pressing it shows what's missing. A control is di
 
 - **Why:** Without a reason, people can't tell what to change to use a disabled control they need, and are stuck. A natively disabled button takes no focus, so screen-reader users moving through a form miss it, and GOV.UK, Primer and Atlassian keep submit buttons enabled and show errors instead (GOV.UK, "Button"; Primer, "Button", "Saving"; Atlassian, "Button"). Keyboard and touch can't open a tooltip on a natively disabled control (Atlassian, "Button"); Carbon hides what people lack permission for (Carbon, "Disabled states"), and a read-only field still takes focus (MDN, "HTML attribute: readonly").
 - **Applies when:** a control is disabled, inactive or read-only.
+- **Protects:** usability
 - **Check:** find every disabled control: in the Elements panel, search for `disabled` and `aria-disabled="true"`. For each, find the reason on screen, or judge whether what's on screen makes it plain: neither fails. A reason only in a tooltip on a control with the `disabled` attribute fails. A submit button disabled until the form is complete fails: it should stay enabled and, when pressed, show errors at the fields that need them. A read-only value that can't be selected or copied fails, and so does an error code, ID or address people would copy.
 - **Fail:**
   - Create project grayed out until every field is filled, with nothing saying which one is missing;
@@ -60,6 +63,7 @@ Choose the control by what the choice does and how many options it has. A switch
 
 - **Why:** People expect a switch to act at once: 17 of 20 did even when it needed Save (Al-Jasim and Murano 2023). Systems use radio buttons for up to five or six options (Material 3, "Radio button"; Apple, "Toggles"; Fluent 2, "Radio group"; Primer, "RadioGroup"; Geist, "Radio"), a drop-down for 5 to 10 (Söderlund 2025), typing to filter past about 10 (Geist, "Select"), 2 to 5 segments (Primer, "SegmentedControl"; Apple, "Segmented controls"), and button groups, toolbars and tabs that don't wrap (Material 3, "Button groups"; Fluent 2, "Toolbar"; Kumo, "Tabs").
 - **Applies when:** a screen asks people to choose, switch a view or go somewhere.
+- **Protects:** familiarity
 - **Check:** list each choice with what it does (applies at once, waits for a Save button, switches the view below, goes to another page), how many options it has, and its control. Each of these fails: a switch whose change waits for a Save button; radio buttons for more than about six options; a select for two to four options; more than about ten options that people know by name, with no way to type; a segmented control with more than five options; a button that goes to another page; a row of options or tabs that wraps onto a second line at any width.
 - **Fail:**
   - a switch for "Email me a weekly summary" in a form with a Save button;
@@ -80,6 +84,7 @@ A field accepts the forms people commonly type or paste for its value: capital o
 
 - **Why:** A field that refuses a clear value makes people stop, read an error and type again, for something the product could read itself. GOV.UK accepts any format that isn't ambiguous, such as postcodes in either case and phone or card numbers with spaces or hyphens (GOV.UK, "Validation"; "Phone numbers"; "Payment card details").
 - **Applies when:** a field takes a value with a format, such as a time, a date, a phone number, a postcode, an amount or a code.
+- **Protects:** usability
 - **Check:** type three real forms of each value, with different case, spaces and separators, and paste one with spaces at the ends. A clear value refused fails, and so do keys that do nothing and blocked paste. Type a value that can be read two ways, such as "1/2/26": one taken silently in one reading fails.
 - **Fail:**
   - a time field that refuses "9am" with "Use HH:MM";
@@ -100,6 +105,7 @@ Whether people know an icon is judged for each market the product ships to: an o
 
 - **Why:** Screen readers get a control's name, and what its icon shows, such as a count, only from the code (WCAG 2.2, 4.1.2 and 1.3.1). People misread icons even when they know the object: a ribbon was taken for a keyhole (Kaplan, "Icon Usability", 2024). Systems split on tooltips: Carbon, Primer, Atlassian, Material 3 and Fluent 2 show one on every icon button, Kumo, Geist and coss on none (Carbon, "Tooltip"; Primer, "IconButton"; Atlassian, "Icon button"; Material 3, "Icon buttons"; Fluent 2, "Tooltip"; Kumo, "Button"; Geist, "Tooltip"; coss ui, "Button"), so what decides it is whether pressing to find out is safe. Navigation keeps its words (Material 3, "Applying icons"; Apple, "Tab bars").
 - **Applies when:** an icon is a control or a link, or stands for a word people read.
+- **Protects:** usability
 - **Check:** for each icon-only control, read its name in the browser's accessibility tree: no name fails, and so does a name that leaves out a count or dot the icon shows. Then ask: would someone new, in each market the product ships to, know what it does from the icon and where it sits? If not, is pressing it harmless, with a result that explains itself? A control that is neither, and shows no name on hover, focus or screen, fails. A navigation item or tab with no visible text fails.
 - **Fail:**
   - a delete button with only an icon and no `aria-label`;
@@ -123,6 +129,7 @@ Changing a value, such as choosing an option, ticking a box or typing a characte
   - Opening a page or window, moving focus and changing the meaning of the page are changes of context (WCAG 2.2, 3.2.2), and submitting a form when its last field is filled, or opening a window when an option changes, fails (W3C, Failures F36 and F37). With the keyboard, moving through a select's options or a group of radio buttons changes the value at each step (W3C, Technique H84; Failure F37).
   - Screens that change unexpectedly were screen reader users' fourth biggest problem (WebAIM 2024).
 - **Applies when:** a page has selects, radio buttons, checkboxes or fields.
+- **Protects:** accessibility
 - **Check:** change each select, radio group, checkbox and field with the keyboard, including the arrow keys through a select's options: a change that submits, opens a page or window, or moves focus, with no text before the control saying it will, fails.
 - **Fail:**
   - a language select that reloads the page as soon as the arrow key reaches the next option;
@@ -143,6 +150,7 @@ Anything done by dragging can also be done with single clicks or taps: move up a
 
 - **Why:** Some people can't drag, or make a gesture with several fingers or a path, and a keyboard way doesn't help those who use a pointer (WCAG 2.2, 2.5.7, 2.5.1). Atlassian shows a handle and a line where the item will land, and Apple moves an item back when a drop fails (Atlassian, "Pragmatic drag and drop"; Apple, "Drag and drop"). An item that trails the finger, jumps to its center when grabbed, or drops when the pointer slips off it feels broken, and sheets on phones close on a flick, so one that needs a long drag feels stuck (Emil Kowalski, "Apple Design" and "Design Engineering"). On phones, holding a control can select its label instead of acting (Emil Kowalski, "Feeling Native On Mobile"). Apple scrolls the place people drag over as they near its edge, and Atlassian's drag and drop scrolls a list or board by itself as an item nears its edge (Apple, "Drag and drop"; Atlassian, "Pragmatic drag and drop").
 - **Applies when:** something can be dragged, swiped or pinched, except the scrolling and panning the browser does.
+- **Protects:** accessibility
 - **Check:** list what moves by dragging, swiping or pinching: sortable lists, boards, sliders, carousels, maps, panels that resize. For each, find a way to get the same result with clicks or taps only: none fails. Drag an item to a place it can't go: one that doesn't return fails. On a phone, start a drag on each slider, carousel and sortable item, then scroll, add a second finger, or switch apps: a control stuck in its dragging state fails. Swipe up and down across each slider and carousel: a page that doesn't scroll fails. Drag each custom item fast and slow: one that trails the pointer, jumps to its center when grabbed, or drops when the pointer leaves it fails. Flick each sheet or drawer: one that needs a long drag to close fails. On a phone, hold each control people hold: a label that gets selected fails. Drag an item to the far end of a long list, and a card to a board column off screen: an area that doesn't scroll fails.
 - **Fail:**
   - cards that move between board columns only by dragging;
@@ -162,6 +170,7 @@ Common actions that can be reversed, such as archiving, removing from a list or 
 
 - **Why:** WCAG asks that an action that changes or deletes saved data, commits people legally, moves their money or submits test answers be reversible, checked for input errors, or confirmed before it is final (WCAG 2.2, 3.3.4), since otherwise one slip loses data or money people can't get back. People stop reading a warning they see often: after three weeks they followed an unchanging security warning 55% of the time, down from 87% (Vance et al. 2018), and the same happens to confirmations shown too often (Nielsen 2018). Typing the key detail kept attention but cost time (Bravo-Lillo et al. 2013), so Primer keeps it for the widest damage, names what is affected and skips confirmation for what can be undone (Primer, "Delete"); the W3C puts focus on the least destructive choice, and Apple asks before closing loses work (WAI-ARIA Authoring Practices, "Dialog (Modal) Pattern"; Apple, "Modality").
 - **Applies when:** an action deletes, sends, pays, removes access or submits test answers, a confirmation exists, or a panel or page holds changes that aren't saved yet.
+- **Protects:** usability
 - **Check:** list each action that deletes, sends, pays, removes access or submits test answers, and how it is protected: undo, a check of what people entered with a chance to correct it, a confirmation, or nothing. One that deletes the person's data, pays, commits them or submits test answers with none of these fails. A confirmation for a common action that can be undone fails. In each confirmation, check that it names the item and the result, and which button has focus: one that names neither, or puts focus on anything but the safe choice, fails. Check that each Undo stays reachable: a toast that holds it stays until it is used, or the item can be restored somewhere else (Material 3, "Snackbar"): an Undo that goes before people can use it fails. Edit a form, then leave it each way: Escape, a click outside, the close button and the browser's Back. Losing the edits without a word fails; Cancel may discard them. In an editor or board, make three changes, then press Cmd or Ctrl+Z three times outside a text field: a press that does nothing, stops after one step, or changes something off screen without showing it, fails.
 - **Fail:**
   - Delete project acts at once, with no undo and no confirmation;
@@ -184,6 +193,7 @@ A session or a step that times out warns people before it ends and lets them ext
   - Continuous movement distracts people with attention deficits, so WCAG asks for a way to pause, stop or hide motion that starts by itself, lasts more than 5 s and sits beside other content (WCAG 2.2, 2.2.2).
   - HMRC warns 2 minutes before a 15-minute sign-out, with one button to stay signed in and Escape doing the same, tested with users, screen readers and magnifiers (HMRC, "Service timeout").
 - **Applies when:** a product has sessions or steps that expire, or content that updates or moves by itself.
+- **Protects:** accessibility
 - **Check:** list every time limit the product sets: session timeouts, expiring holds, timed steps. Let each run out: no warning with a way to extend, and no setting to turn it off or lengthen it, fails, unless an exception applies. For each region that updates itself on a timer (a feed, figures or a list that refresh, a chat log), look for pause, stop or a setting for how often it updates: missing fails. Load the page and wait without touching anything, then scroll each part into view, and hover and focus each card and image. For each thing still moving 5 s after it started, look for a pause, stop or hide control: none, and no documented shortcut, fails. Use the control, then move the pointer and focus away: motion that starts again fails.
 - **Fail:**
   - a session that signs people out after 15 minutes with no warning, losing a half-filled form;

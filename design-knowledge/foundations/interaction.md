@@ -12,6 +12,7 @@ Within a fifth of a second of a click, tap or key press, and ideally within a te
 
 - **Why:** Until something changes, people can't tell whether the press worked, so they press again or leave. Perception, a response people haven't prepared for and a small task have limits of about 0.1 s, 1 s and 10 s (Card et al. 1991), people notice a tap's delay from 69–96 ms (Deber et al. 2015), and Google counts 200 ms to the next frame as good (web.dev, "Interaction to Next Paint"). A spinner under 1 s only flashes and distracts, and past 10 s people need progress and a way to keep working or cancel (Primer, "Loading"; Apple, "Progress indicators"; Myers 1985). The best wait is one people never see: work started early, such as a font library sorted while people read the first steps, is done by the time they arrive (Interface Craft, "Perceived Performance"). A busy state or progress that appears without moving focus reaches screen readers only through a live region (WCAG 2.2, 4.1.3).
 - **Applies when:** a click, tap or key press does something.
+- **Protects:** usability
 - **Check:** slow the network (DevTools, "Slow 4G") and the CPU (4×), then press each control that does something and watch: no visible change within about a second fails. For the main actions, read Interaction to Next Paint in the DevTools Performance panel: over 200 ms fails. For a wait over about 10 s, look for progress and a way to leave or cancel: either missing fails. Pick a file, or reach a step that needs slow work: work that starts only at the next press, when it could have started earlier with no side effect, fails. In the accessibility tree, check that the busy state or the progress is announced through a live region (`role="status"` or `aria-live`); a `progressbar` alone isn't announced when it changes (WCAG technique ARIA25). A busy state or progress outside a live region fails.
 - **Fail:**
   - Send invite that shows nothing for three seconds and then closes the dialog;
@@ -29,6 +30,7 @@ A control shows a state only while the state holds: hover only under a pointer t
 
 - **Why:** A state shown when it isn't true tells people something false. Touch screens fake mouse events after a tap, so `:hover` styles stick (React Aria, "useHover").
 - **Applies when:** always.
+- **Protects:** truth
 - **Check:** with touch emulated, or on a phone, tap a button and lift: a hover look that stays fails. Move focus with the keyboard and with the pointer: a ring left on a control focus has left fails. Reload with the network slowed: a switch, checkbox or saved mark that shows a state before its real one is known, then flips, fails.
 - **Fail:**
   - a row that stays highlighted after a tap on a phone;
@@ -43,6 +45,7 @@ Focusing a control never opens a page, a window or a dialog, and never moves foc
   - Opening a page or window, moving focus and changing the meaning of the page are changes of context (WCAG 2.2, 3.2.1).
   - Keyboard and screen reader users reach controls one step at a time, so focus that starts a change takes them somewhere they didn't choose. Screens that change unexpectedly were screen reader users' fourth biggest problem (WebAIM 2024).
 - **Applies when:** a page has anything that takes focus.
+- **Protects:** accessibility
 - **Check:** Tab through the page: anything that opens, submits or moves focus when it merely gets focus fails.
 - **Fail:** a tab that opens its page as soon as keyboard focus reaches it.
 - **Pass:**
@@ -57,6 +60,7 @@ A change that happens without moving focus, such as a saved state, a count of re
   - A message that appears without taking focus is lost to screen reader users unless a role or property passes it on. This covers results, waits, progress and errors, and text that stays on the page and changes, such as a cart count going from "0 items" to "3 items" (WCAG 2.2, definition of "status message"; Understanding 4.1.3).
   - A message put into a live region already on the page was read in almost every pairing of the main browsers and screen readers, while a region added together with its content mostly wasn't (TetraLogical 2024). An announcement can't be heard again, support for `aria-atomic`, `aria-relevant` and `aria-busy` is uneven, and assertive messages are for critical ones (Soueidan 2024). Primer announces when work starts and when it ends or fails, once for a group of loading parts (Primer, "Loading").
 - **Applies when:** a page changes without moving focus.
+- **Protects:** accessibility
 - **Check:** list the changes that appear without moving focus. Find each in the accessibility tree: no `role="status"`, `role="alert"`, `role="log"` or `aria-live` fails. In the code, check that the region exists, empty, when the page loads: a region added together with its message fails, and so does `role="alert"` on a message that isn't an urgent error. Whether a screen reader actually reads it needs a screen reader test.
 - **Fail:**
   - "Saved" that appears beside a form with no status role;
@@ -76,6 +80,7 @@ A click or tap acts when it is released over the control, so sliding off cancels
 
 - **Why:** An action on press takes away the chance to slide off and cancel a slip. WCAG 2.2 accepts one only when the release undoes it, as when holding a button shows a password, or when acting on press is the point, as on an on-screen keyboard, and accepts an action that runs on slide-off when it can be undone (2.5.2). People click twice from habit, on slow connections or because of tremors, so GOV.UK also asks the server to treat a repeat as one (GOV.UK, "Button"); a busy button set to native `disabled` drops focus, so Primer and React Aria keep it focusable ("Button" in both). A busy control that grows or shrinks pushes the controls beside it, and people press the wrong one. A hand that shakes a little during a click would otherwise start a drag, so Apple waits for about 10 px of movement (Emil Kowalski, "apple-design").
 - **Applies when:** a control starts an action that takes time or changes something.
+- **Protects:** usability
 - **Check:** with the network slowed, click each submit, send and pay button twice quickly, then five times: a second request in the Network panel, or a duplicate result, fails. Press each button and menu item, slide off and release: an action that runs fails. While a button is busy, check that it kept its width and that focus stayed on it (`document.activeElement`), and press Enter: a change of width, an action that runs again, or focus that left it fails.
 - **Fail:**
   - Pay now that charges twice when double-clicked on a slow connection;
@@ -93,6 +98,7 @@ Content people may need to copy, such as an ID, an order number, an address, an 
 
 - **Why:** People copy IDs, error codes and addresses to paste into a search, a support request or another app, and text they can't select has to be retyped, letter by letter. On iOS, holding a finger on a web button selects its label, or opens the copy and share menu on a link, which native controls never do; so the labels of controls are set apart from content, never the whole page (Emil Kowalski, "Feeling Native On Mobile").
 - **Applies when:** a page shows text people may need elsewhere.
+- **Protects:** usability
 - **Check:** select each kind of content text with the mouse, and with a long press in touch emulation or on a phone: text that can't be selected fails. Search the CSS for `user-select: none`: on `body`, or on a container of content text, it fails. Hold a finger on buttons, tabs and chips on a phone, and note each label that gets selected.
 - **Fail:**
   - `user-select: none` on `body`, so a customer's address can't be copied;
@@ -109,6 +115,7 @@ Everything a pointer can do also works from the keyboard, without holding a key 
 
 - **Why:** Keyboard users can use only what keys reach, and focus that gets stuck or lost stops them: when a dialog closes and focus doesn't go back, they must Tab through the page to find their place. WCAG 2.2 requires that everything works from the keyboard, except what depends on the pointer's path; that focus can leave every part, with a standard key or one the page names; and that an opened dialog or menu takes focus or is reached by the next Tab, and that closing it puts focus back on what opened it, or in a logical place when that is gone (2.1.1, 2.1.2, 2.4.3, F85). The other keys follow browsers and the W3C's patterns (HTML Standard, "Implicit submission"; MDN, "Using the Popover API"; WAI-ARIA Authoring Practices, "Developing a Keyboard Interface", "Menu and Menubar Pattern", "Dialog (Modal) Pattern"). A scroll that runs past the end of an inner area moves the page under an open menu or sheet, so Jakub Krehel and Emil Kowalski contain it (interfaces "better-ui"; Emil Kowalski, "Feeling Native On Mobile").
 - **Applies when:** always.
+- **Protects:** accessibility
 - **Check:** put the mouse away and Tab from the top of the page: a control Tab never reaches, or one that can't be used with Enter, Space or the arrows, fails, and so does one that acts only after a key is held down; so does a place focus can't leave with Tab, the arrows or Escape, unless the page says which key leaves it. With a menu open inside a dialog, press Escape once: a dialog that closes along with the menu fails. Scroll inside each open modal past its end, and over its backdrop, on a phone too: a page that moves behind it fails. In tabs, menus, radio groups and lists, arrows that don't move, or Tab that doesn't leave, fail. Open each menu, popover and dialog from the keyboard and close it with Escape: focus that doesn't land back on what opened it fails. Delete an item with the keyboard, and close each panel: focus left on the page itself (`document.activeElement` is `body`) fails.
 - **Fail:**
   - a custom select that opens only on click;
@@ -129,6 +136,7 @@ A message that appears on its own, such as a toast or a status, never takes focu
 
 - **Why:** A toast sits at the end of the page's code, so its Undo is many key presses away: React Aria and Base UI reach the toasts with F6, Radix with F8 and Sonner with Alt+T (React Aria, "Toast"; Base UI, "Toast"; Radix Primitives, "Toast"; Emil Kowalski, "Working With Sonner"). Adobe and Fluent 2 keep toasts without an action up 5 to 7 s, paused on hover, Material 3 gives a snackbar 4 to 10 s, and Sonner closes a toast after 4 s (Adobe, "Toast"; Fluent 2, "Toast"; Material 3, "Snackbar"; Emil Kowalski, "ask-sonner"), and a toast that expires in a hidden tab is never seen, so Sonner stops its timer there (Emil Kowalski, "Design Engineering"). Result and error messages that don't take focus reach screen readers only through a live region (WCAG 2.2, 4.1.3).
 - **Applies when:** a message appears on its own, such as a toast or a status.
+- **Protects:** accessibility
 - **Check:** in the accessibility tree, check that each result and error message that appears without taking focus is in a live region (`role="status"`, `role="alert"`, `role="log"` or `aria-live`): one that isn't fails. Note where focus is before and after each message appears: focus moved to a toast or status fails. With the keyboard only, reach a toast's action: no key that jumps to the toasts fails. Time each toast that closes by itself: under about 4 s fails. Start an action that ends in a toast, switch to another tab, and come back: a toast that expired while hidden fails.
 - **Fail:**
   - a "Saved" toast that takes focus away from the form;
@@ -144,6 +152,7 @@ Small, frequent changes that almost always succeed, such as renaming, starring, 
 
 - **Why:** A change that looks saved when it isn't makes people act on, or leave, something false. A change made on the device can show within one frame, well under the 69–96 ms at which people notice a tap's delay (rule 1). On failure, React and Vercel put back the confirmed value and tell the person (React, "useOptimistic"; Vercel, "Web Interface Guidelines"), and Linear counts the changes waiting to sync (Linear, "Download Linear", convention).
 - **Applies when:** the product shows a change before the server confirms it.
+- **Protects:** usability
 - **Check:** in the Network panel, block the requests (or go offline), then make each small change: a change that stays as if saved, with no message and no sign that it's waiting, fails. Reload: the screen should show the server's state.
 - **Fail:** a renamed file keeps its new name after the request failed, and the old name comes back on reload.
 - **Pass:**
@@ -157,6 +166,7 @@ No field shows an error before people have finished their first answer: not when
 
 - **Why:** checks at the field help people fix answers while they are still fresh in mind, and draw attention to required fields people skipped, but an error before people finish an answer interrupts them, and one that stays after the fix makes them think the fix failed (Scott 2024, "Inline Form Validation"; Wang 2025, "Few Guesses, More Success"). Cloudscape shows no field as checked on a first visit, flags a required field left empty, and checks again on each key press while people fix it (Cloudscape, "Validation"). GOV.UK checks only on submit, since early checks trouble people who type slowly and are hard to announce reliably (GOV.UK, "Recover from validation errors"); on a page of one question, the button sits right under the field, so nothing is lost by waiting. An error that appears without moving focus is a status message, which screen readers get only through its role (WCAG 2.2, 4.1.3), so without it people who can't see the error go on unaware.
 - **Applies when:** a form checks its answers.
+- **Protects:** usability
 - **Check:** open the form and move into the first field: an error then fails. Type the first letter of an email address: an error then fails. Type a wrong value, leave the field, then fix it: an error that stays after the fix until people leave the field fails. With a screen reader, leave a field with a wrong value: an error that isn't announced fails.
 - **Fail:**
   - "Enter a valid email" from the first letter typed;
@@ -173,6 +183,7 @@ A value edited in a table cell shows it can be edited, saves when people confirm
 
 - **Why:** a row that jumps away, or disappears from a filtered list, the moment its value changes leaves people unsure the change saved and where the row went, so Cloudscape keeps changes displayed until the person refreshes the table and stops sorting when a cell changes, and Atlassian moves complex edits to a dialog or a page (Cloudscape, "Inline edit"; Atlassian, "Dynamic table").
 - **Applies when:** people edit values in a data table's cells, except spreadsheet-like grids, where every cell can be edited.
+- **Protects:** usability
 - **Check:** sort and filter a table, then edit a cell so the row no longer matches: a row that moves or disappears before a refresh fails. Look for the sign that a cell can be edited: none fails.
 - **Fail:** a task whose status is changed to Done in a list filtered to Open, which vanishes at once.
 - **Pass:** the row stays, its status now Done, until people refresh or change the filter.
@@ -185,6 +196,7 @@ A product people use every day gives its frequent commands keyboard shortcuts, s
 
 - **Why:** A single-key shortcut fires when people mistype, or when people controlling the computer by voice speak a word (WCAG 2.2, 2.1.4). People rarely learn shortcuts shown only in menus, but used them for 94–99% of selections when all showed while the modifier was held (Grossman et al. 2007; Malacria et al. 2013), and GitHub and Linear list them under ? (GitHub, "Keyboard shortcuts"; Linear, "Navigating Linear"; convention). Apple keeps shortcuts for frequent commands, and a shortcut on a key the browser, the system or assistive technology uses breaks that key (Apple, "Keyboards"; WAI-ARIA Authoring Practices, "Developing a Keyboard Interface").
 - **Applies when:** the product has keyboard shortcuts, or people use it every day.
+- **Protects:** usability
 - **Check:** open the shortcut list (try ? and Cmd or Ctrl+K) and the menus. For each single-key shortcut, look for a setting that turns it off or adds a modifier key to it, or check that it works only when its area has focus: a shortcut with none of these fails. Press the browser's own keys (Cmd or Ctrl with L, R, D, F): one that does something else in the product fails.
 - **Fail:**
   - pressing D in a list deletes the selected row, and nothing turns single-key shortcuts off;
@@ -203,6 +215,7 @@ In a single-page app, each view has its own title, which says its topic or purpo
   - When a view changes without a page load, screen reader users hear nothing and focus can stay on a link that is gone, unless the app moves focus or announces the new title; some frameworks announce the title by default, and others leave both to the app (Next.js, SvelteKit and React Router, "Accessibility"; Nuxt, "NuxtRouteAnnouncer").
   - Angular asks for focus where people can go straight into the new content, such as its heading, not on the page itself, while SvelteKit puts focus on the page itself and announces the title, as a page load does (Angular, "Accessibility in Angular"; SvelteKit, "Accessibility"). WCAG counts a resource at its own address as a page, so a view with its own address needs its own title (WCAG 2.2, definition of "web page"; 2.4.2): people using a screen reader or many tabs otherwise can't tell where they are.
 - **Applies when:** a page changes its main content without a full page load, except a widget, such as tabs, that changes the panel below it.
+- **Protects:** accessibility
 - **Check:** move between views with the keyboard. A browser tab title that stays the same, for a view at its own address, fails. Focus should land on the new view's heading or main region, or return to the top with the new title announced, and the next Tab should go into the new view or on from the top: anything else fails. In the code, find the framework's route announcer or the app's own focus handling: an app with neither fails. Whether a screen reader reads the new view's name needs a screen reader test.
 - **Fail:**
   - an app whose title stays "Dashboard" on every view;

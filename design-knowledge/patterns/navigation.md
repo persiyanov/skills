@@ -12,6 +12,7 @@ The main navigation lists the few sections people go to for their work, named fo
 
 - **Why:** GOV.UK keeps navigation links for services that people use again and again, for several tasks in no fixed order, and doesn't list every part of a service in them; a service with a clear journey from start to end may need no links at all (GOV.UK, "Help users to navigate a service"). Carbon asks for navigation that follows the domain rather than an org chart, and Fluent warns that search and pinning can't make up for unclear navigation (Carbon, "Global header"; Fluent 2, "Nav"). Interface Craft took the chat out of a tab bar because it supports the main flow rather than stands beside it, and put it in a field on the main screen (Interface Craft, "Redesigning a Mobile Web App, Part 2"). Menu labels use people's words, with no made-up names or internal jargon (Laubheimer 2024).
 - **Applies when:** a product has more than one place people go to.
+- **Protects:** familiarity
 - **Check:** list the items of the main navigation. For each, name the task people go there for, and check that it stands beside the others: an item named for a team or a system, an item that only supports another, or a page that belongs under another item, fails. In a product that is one journey from start to end, a navigation bar in place of its steps fails; a list of its steps that lets people go back to one passes.
 - **Fail:**
   - "Growth" and "Integrations Hub", named after teams;
@@ -26,6 +27,7 @@ In an application, a side navigation suits five or more sections, or any second 
 
 - **Why:** PatternFly gives five or more sections, or any second level, to a side navigation, and Carbon gives its left panel more than five secondary items (PatternFly, "Navigation"; Carbon, "UI shell left panel"); Laubheimer finds people expect an application's main navigation on the left and a website's in the header (Laubheimer 2024). Material 3 and Android give a phone's bar three to five destinations (Material 3, "Navigation bar"; Android Developers, "Navigation bar"). Apple's tab bar lets people switch sections while each keeps its own place, and Apple warns that people forget which section they are in when the bar is hidden, and miss the tabs a More tab holds (Apple, "Tab bars"); of 40 iPhone apps seen, 23 had five tabs and 36 had no More tab (Mobbin survey, 2026, convention). People forget navigation they can't see on a desktop (Laubheimer 2024), and Material 3 never hides its collapsed rail (Material 3, "Navigation rail"). Most people now recognize the three-line icon at the top left, though that study measured recognition, not how well people find what it hides, and it advises the label "Menu" (Kaplan 2025, "The Hamburger-Menu Icon Today"). PatternFly gives each icon in a narrowed sidebar a tooltip with its label (PatternFly, "Navigation"), and on a touch screen, with no hover, a way to widen it is the only way people learn what each icon means.
 - **Applies when:** a product has a main navigation.
+- **Protects:** familiarity
 - **Check:** count the sections and levels, and see which shape holds them. At desktop widths, a main navigation that starts hidden behind a menu button fails. At phone width, more than five items in a bottom bar, a More that hides a section people use daily, a bar that disappears inside a section, or a section that returns to its start when people switch back to it, fails. Narrow the sidebar to icons, then hover over them, tab through them and, on a touch screen, look for a way to widen it: an icon whose label never shows fails.
 - **Fail:**
   - eight sections squeezed into an app's top bar in small type;
@@ -44,6 +46,7 @@ The tools that serve the whole product, such as the account menu, settings, noti
 
 - **Why:** Cloudscape and Carbon put these tools in the top bar, Notion keeps its inbox fixed in one corner of its sidebar, and Linear puts its inbox in the sidebar too (Cloudscape, "Service navigation"; Carbon, "Global header"; Notion Help, "Navigate with the sidebar", convention; Linear Docs, "Inbox", convention). Of 50 business web apps seen, 27 had the account menu as an avatar at the top right and 14 at the bottom of the sidebar; of 48, 25 had notifications under a bell in the top bar and 15 as an item in the sidebar (Mobbin survey, 2026, convention). Carbon's header can show which account people are using (Carbon, "Global header"), and people who can't see which workspace they are in may invite someone into the wrong one. People look for a tool where they found it before, so navigation repeated on every page keeps its order (WCAG 2.2, 3.2.3), and so does help (3.2.6), unless people move them.
 - **Applies when:** a product has tools for the account, settings, notifications or help.
+- **Protects:** familiarity
 - **Check:** on three pages at the same width, find the account menu, settings, notifications and help. One that changes its order among the page's parts fails, and so does help that moves place; any other that moves place, or one that sits among the section links, fails. Join two workspaces and open a page in each: no sign of which one you are in fails.
 - **Fail:**
   - Settings in the sidebar on one page and only in the avatar menu on another;
@@ -60,6 +63,7 @@ When the side navigation lists things people create, such as projects, channels 
 
 - **Why:** Carbon keeps content with no upper limit, such as what users create, out of its side navigation, because usability drops as the items grow (Carbon, "Global header"), while Notion lists pages in its sidebar, in toggles people open and close (Notion Help, "Navigate with the sidebar", convention). Of 46 web apps seen, 25 listed what people create in the sidebar, mostly docs, project and chat tools; 16 of those showed a control to fold the groups, none clearly lacked one, and 9 couldn't be told from a still screen (Mobbin survey, 2026, convention).
 - **Applies when:** the side navigation lists things people create.
+- **Protects:** usability
 - **Check:** create 50 projects or channels: a main section or a tool pushed out of view, or a group that can't be folded, fails.
 - **Fail:** a sidebar that lists 200 projects above Settings, with no way to fold them.
 - **Pass:** "Favorites" with five items, and "Projects" folded, ending in "All projects".
@@ -72,6 +76,7 @@ Each page's header names the page. The navigation marks the section the page bel
 
 - **Why:** Laubheimer finds a missing mark of the current place among the most common mistakes in menus, and notes that people often arrive somewhere other than the home page (Laubheimer 2024). Fluent shows the mark on a folded group when the current page is inside it, and Primer's navigation patterns exist to show people where they are and where they can go next (Fluent 2, "Nav"; Primer, "Navigation").
 - **Applies when:** a product has a main navigation.
+- **Protects:** usability
 - **Check:** open three pages from direct links, including one below the navigation's deepest level and one inside a folded group: a navigation with nothing marked, or a page whose header doesn't name it, fails.
 - **Fail:** a product page in a shop, reached from a search engine, with nothing marked in the shop's menu.
 - **Pass:**
@@ -85,6 +90,7 @@ A page below a section's top shows the way up on the page: a link to its parent 
 
 - **Why:** people who arrive on a deep page from a link have no history to go back through, and some avoid the browser's Back because sites break it (GOV.UK, "Back link"); Shopify asks for a way to the previous page without the browser's button (Shopify, "Navigation"), and Android gives a screen opened from a link a history that leads up through the app, as if people had walked there (Android Developers, "Principles of navigation"). Breadcrumbs show where a page sits in the structure, don't replace the main navigation, and aren't needed in a structure one or two levels deep (Laubheimer 2018). Primer marks the current page as the last item, while GOV.UK ends the trail with the parent and keeps breadcrumbs out of journeys done in order (Primer, "Breadcrumbs"; GOV.UK, "Breadcrumbs"); Primer also gives a child page a clear way back to its parent (Primer, "Navigation"). Of 19 record pages seen, 11 had breadcrumbs and 5 a single link to the parent (Mobbin survey, 2026, convention).
 - **Applies when:** a product has pages below the top of a section.
+- **Protects:** usability
 - **Check:** open a page two levels down from a link, in a new window: no way up on the page fails. Read its breadcrumbs: a trail of pages visited, or a current page shown as a link, fails, and so do breadcrumbs in a sign-up flow.
 - **Fail:**
   - a record page whose only way back is the browser;
@@ -102,6 +108,7 @@ The browser's Back, Android's Back and the back swipe return to the view people 
 
 - **Why:** a Back that repeats a payment or a send makes people do it twice without meaning to. Many people try Back first to return to where they were before, and the W3C's guidance for people with cognitive disabilities says Back should never lose their work (W3C WAI, "Let Users Go Back"). An overlay people opened changed where they were, so a Back that leaves the page takes them past the place they wanted. The HTML standard treats Android's back button or gesture as a request to close what is shown, such as a dialog, a menu or a popover (WHATWG, HTML Standard, "Close requests"). GOV.UK keeps Back working because people who meet sites that break it stop using it (GOV.UK, "Back link"), and Primer warns about losing unsaved changes when people leave a page (Primer, "Navigation").
 - **Applies when:** people move between views in a browser or a phone app.
+- **Protects:** usability
 - **Check:** open an item from a filtered list and press Back: a list that lost its filters or its place fails. In a browser and on Android, open each overlay or panel that covers most of the page and press Back: leaving the page fails. Pay, or send something that can't be taken back, then press Back: the action ready to run again fails; a save undone fails.
 - **Fail:**
   - a photo viewer over the gallery, where Back leaves the gallery;
@@ -117,6 +124,7 @@ Each view people may share, bookmark or come back to, such as a record, a tab wi
 
 - **Why:** Carbon suggests keeping the state that matters in the URL, so people come back to where they were after drilling down, and Primer changes the URL for breadcrumbs and for a section people scroll to by its anchor, while leaving open whether a dialog changes it (Carbon, "Global header"; Primer, "Navigation"). A view with no address of its own can't be shared or reopened, so a teammate who gets the link sees something else.
 - **Applies when:** a product runs in a browser, or has links that open its views.
+- **Protects:** usability
 - **Check:** set a filter and a sort, open a record in its panel, copy the address, and open it in a new window: a different view, a lost filter or a closed panel fails.
 - **Fail:**
   - a ticket opened in a dialog whose address stays on the list, so a teammate gets the list;
@@ -133,6 +141,7 @@ In one row of tabs, every tab either goes to a page of its own, with its own add
 
 - **Why:** mixing tabs that switch content in place with tabs that go to another page makes people lose track of where they are (Sunwall 2024, "Tabs, Used Right"). Primer won't mix tabs that change the URL with tabs that only switch a panel, and Material 3 uses navigation for separate pages and tabs for related content within a page (Primer, "Navigation"; Material 3, "Navigation bar").
 - **Applies when:** a page has a row of tabs.
+- **Protects:** familiarity
 - **Check:** in each row of tabs, press every tab and watch the address, or in an app the screen: a row where some tabs go to a new page and others switch content in place fails, and so does a tab that leads to a page without the row.
 - **Fail:** "Overview, Activity, Settings", where Settings goes to another page and the others switch the panel below.
 - **Pass:**
@@ -145,6 +154,7 @@ Where a product has a command menu, one shortcut opens it from any page, and a c
 
 - **Why:** shortcuts and other faster ways serve people who know them, and people who never find them can still do the task another way (Krause and Harley 2024); Fluent warns that search can't make up for unclear navigation (Fluent 2, "Nav"). WCAG 2.2 asks for more than one way to reach each page, except a step in a process (2.4.5), and people on touch screens, or who never learn the key, reach the menu only by a control on screen. GitHub opens its command palette with Ctrl or Cmd+K and lets people change the keys where they clash with the system's or the browser's, and Linear runs actions from the same keys or from a right-click menu (GitHub Docs, "GitHub Command Palette"; Linear Docs, "Select issues"; convention). Of 32 business web apps seen, 25 showed a search or command entry on screen, and 11 of those showed a ⌘K or "/" hint (Mobbin survey, 2026, convention).
 - **Applies when:** a product has a command menu.
+- **Protects:** usability
 - **Check:** open the command menu with its shortcut, and with a control on screen, on three different pages: a menu that opens only by its key fails. Then, for five commands people use often, find a way to do each on the screen: one found only in the menu fails, and a page found only there fails.
 - **Fail:**
   - "Resync all chats", run every week, found only in the command menu;
@@ -160,6 +170,7 @@ Every page in a product can be found in at least two ways, such as the navigatio
 
 - **Why:** People find pages in different ways, and some find one easier, such as search for people with low vision, so people who can't use one way are stuck without another; and people who need help find it more easily when it is in the same place (WCAG 2.2, 2.4.5 and 3.2.6; Understanding 2.4.5 and 3.2.6).
 - **Applies when:** a product has more than one page.
+- **Protects:** usability
 - **Check:** pick three pages and reach each in two ways: one reachable only through the navigation fails, unless it is a step in a process. List the help on several pages (a contact link, a chat button, a help link): one that moves to a different place in the order fails.
 - **Fail:**
   - settings pages reachable only through a nested menu, with no search and no links;

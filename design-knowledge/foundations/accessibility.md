@@ -18,6 +18,7 @@ A button is a `<button>`, a link an `<a href>`, a choice of one a set of radio b
   - A native dialog opened with `showModal()` makes the rest of the page inert, closes on Escape and returns focus to its opener (MDN, "<dialog>"; web.dev, "Learn HTML: Dialog").
   - A part that takes focus while hidden with `aria-hidden` confuses screen reader users, who reach something that isn't in the accessibility tree; the W3C's test for it assumes the attribute doesn't change as people use the page (W3C, ACT rule 6cfa84).
 - **Applies when:** always.
+- **Protects:** accessibility
 - **Check:** open the accessibility tree in the browser's developer tools and select each control: its role matches what it does, and its states change as you use it (expanded, selected, checked, pressed). A `<div>` or `<span>` that reacts to clicks fails. List every `role` attribute: a role on an element that a native button, link or form control could replace fails, and so does a custom widget whose keys don't follow its W3C pattern. Run axe, then Tab to each element it reports as focusable inside `aria-hidden="true"`: one still hidden in the accessibility tree while it has focus fails. One that its script un-hides as it takes focus passes this check; whether a screen reader names it needs a screen reader test.
 - **Fail:**
   - a `<div onclick>` styled as a button;
@@ -38,6 +39,7 @@ A control's visible words are its name: a button's text, a field's label, a link
   - People using a screen reader hear only a control's name, so every control and link needs one (WCAG 2.2, 4.1.2). People using speech input say what they see, such as "click Send", so a name without the visible words can't be spoken (WCAG 2.2, 2.5.3), and WCAG advises putting them at the start of the name (Understanding 2.5.3).
   - Browsers take a name from `aria-label` before the element's own label or content, and from `title` only when nothing else gives one, so `aria-label` silently hides the visible words (W3C, "Accessible Name and Description Computation 1.2"); the W3C advises visible text first and not relying on `title` (WAI-ARIA APG, "Providing Accessible Names and Descriptions"). Browser translation missed `aria-label` values that were hidden or changed by script (Roselli 2025).
 - **Applies when:** always.
+- **Protects:** accessibility
 - **Check:** in the accessibility tree, read the name of every button, link and field: an empty name fails, and so does one without the control's visible words. Each icon-only control's name says what it does ("Close", "Delete invoice"): one that says what it shows ("X", "trash can") fails. Search the code for `aria-label` on elements with visible text: a value without that text fails.
 - **Fail:**
   - a button that shows "Send" named "Submit message";
@@ -58,6 +60,7 @@ An image that only decorates, or repeats the text beside it, has an empty alt (`
   - Blind and low-vision people rated descriptions written with the page's context higher than ones written from the image alone (Mohanbabu and Pavel 2024), and people who rely on alt text can't see the image to catch a detail it gets wrong.
   - Primer, Atlassian and Fluent 2 pair an avatar with a name that is shown or announced (Primer, "Avatar"; Atlassian, "Avatar"; Fluent 2, "Avatar").
 - **Applies when:** a page shows images, icons that carry meaning on their own, charts or diagrams.
+- **Protects:** accessibility
 - **Check:** list every `<img>`, meaningful `<svg>` and CSS image that carries meaning: a missing alternative fails. Read each alt with the text around it: one that names a file or says "image" fails (W3C, Failure F30), and one that repeats that text fails. An image in a link or button whose alt describes the picture instead of the destination or action fails. For each chart, find its point in its alt or in text on the page: missing fails. Its figures missing from text or a table fails. An `aria-label` or `aria-labelledby` on a `div` or `span` with no role is not an alternative: ARIA forbids naming an element with no role (WAI-ARIA 1.2, "generic"), and axe only lists it for review when the element holds text. Meaning held only there fails. An avatar whose name is neither shown beside it nor announced by screen readers fails, and so does a name shown only in a tooltip on an avatar that can't take focus, since keyboard users never see it (Atlassian, "Avatar").
 - **Fail:**
   - a product screenshot with `alt="screenshot.png"`;
@@ -79,6 +82,7 @@ What the look shows, the code says: a heading is a heading (`<h1>` to `<h6>`), a
 
 - **Why:** A screen reader announces a list's length, a cell's headers, a group's name and a field's state only when the code holds them (WCAG 2.2, 1.3.1), so people using one otherwise hear a run of words with no structure, and can't tell which options belong together or which item is current.
 - **Applies when:** a screen shows headings, lists, data tables, groups of fields, or states marked by style.
+- **Protects:** accessibility
 - **Check:** find each heading, list, table and group of fields in the accessibility tree: text styled as a heading but not marked as one fails, a list read as plain text fails, a data table with no header cells fails, and a group of radio buttons or checkboxes with no group name fails. For each state shown by style (an asterisk for required, a highlight for the current item, red for an error), find it in the tree: missing fails.
 - **Fail:**
   - a list of plans built from `<div>`s, read as one run of text;
@@ -96,6 +100,7 @@ Instructions never name a control only by its shape, size, place, orientation, c
 
 - **Why:** People who are blind or have low vision need instructions that don't rely on seeing; some people have their device mounted in one orientation, such as on the arm of a power wheelchair; and some can't hold or move a device steadily (WCAG 2.2, 1.3.3, 1.3.4 and 2.5.4), so otherwise they can't follow or use the page.
 - **Applies when:** a page gives instructions, or runs on phones and tablets.
+- **Protects:** accessibility
 - **Check:** read every instruction and help text: one that names a control only by its shape, place, color, size or sound fails, unless a place such as "below" follows the reading order and can mean only one thing. Switch orientation on a device or in the browser's device emulation: a page that blocks or breaks in one orientation fails, unless that orientation is essential. Search the code for `deviceorientation` and `devicemotion` handlers: each without a control that does the same, and a way to switch the motion off, fails.
 - **Fail:**
   - "Click the green button to continue.";
@@ -112,6 +117,7 @@ The order of elements in the code is the order the content needs: what people ne
 
 - **Why:** Keyboard and screen-reader users get the code order (WCAG 2.2, 1.3.2 Meaningful Sequence and 2.4.3 Focus Order).
 - **Applies when:** always.
+- **Protects:** accessibility
 - **Check:** read the page in the accessibility tree, or with styles turned off, from top to bottom. An order that changes the meaning, or puts what people need after what they don't, fails.
 - **Fail:** a plan's price placed in the code after its Choose button, so a screen reader reaches the button before the price.
 - **Pass:** each plan reads name, price, features, then the button, as the card shows them.
@@ -122,6 +128,7 @@ The page states its language, and so does any passage in another language. A nam
 
 - **Why:** The language in code lets screen readers pronounce the text and browsers show the right characters and hyphenate it (WCAG 2.2, Understanding 3.1.1; MDN, "hyphens"). WCAG requires the page's language and each passage in another language in the code, except proper names, technical terms, words of no clear language and words borrowed into the surrounding language (WCAG 2.2, 3.1.1 and 3.1.2). Text whose direction isn't known needs `dir="auto"` or `<bdi>`, or a number after a Hebrew or Arabic name moves to the wrong side of it (W3C Internationalization, "Inline markup and bidirectional text in HTML").
 - **Applies when:** always for the page's language; text direction when the product shows names or content people enter in other scripts.
+- **Protects:** accessibility
 - **Check:** read `lang` on `<html>` and on text in other languages. Put an Arabic name into a row with a count after it, such as "- 5 reviews", and check that the count stays after the name.
 - **Fail:**
   - a French quote in an English page with no `lang="fr"`;
@@ -139,6 +146,7 @@ Accessibility is built into the page and checked by using it: with the keyboard 
   - Overlays often make access worse for people using assistive technology (Überwachungsstellen des Bundes und der Länder 2025), and the FTC made an overlay vendor pay $1 million and stop claiming, without evidence, that its tool makes sites meet WCAG (FTC, accessiBe order, 2025).
   - The most used pairings are JAWS or NVDA with Chrome, and JAWS with Edge, on Windows, and VoiceOver on iPhone (WebAIM 2026, "Screen Reader User Survey #11").
 - **Applies when:** always.
+- **Protects:** accessibility
 - **Check:** run axe or Lighthouse and fix what it finds. Then go through the main tasks with the keyboard alone, with a screen reader (NVDA or JAWS with Chrome on Windows, VoiceOver with Safari on a Mac or iPhone), and at 400% zoom. Include every third-party part on the way, such as a cookie banner, a chat widget or a payment form: WCAG judges the full page and every step of a process (WCAG 2.2, Conformance 5.2.2 and 5.2.3). Look for an overlay script or a floating accessibility widget from a third party: one present fails. A review with only a browser reports what needs a screen reader to confirm as "needs a screen reader test", never as passed.
 - **Fail:**
   - a floating "Accessibility" button added by an overlay script;
@@ -160,6 +168,7 @@ Each field's visible label is its name, tied with `<label for>` or by wrapping t
   - In tests, a message tied with `aria-describedby` was read reliably as people moved between fields, `aria-errormessage` mostly wasn't, and `aria-invalid` alone sometimes said there was an error but not what it was (Roselli 2023, "Exposing Field Errors"; Cerovac 2024).
   - GOV.UK moves focus to an error summary at the top after a failed submit, links each item to its field, and starts the page title with "Error:" (GOV.UK, "Error summary"; "Validation").
 - **Applies when:** a page has form fields.
+- **Protects:** accessibility
 - **Check:** in the accessibility tree, select each field: a name that isn't its visible label fails; a description without its hint or, after a failed submit, its error, or `aria-invalid` true when no error stands, fails. For each field asking for the person's name, username, password, email, phone, address, birthday or card details, read its `autocomplete` value: missing, wrong or "off" fails. Submit the form empty: focus that moves neither to the first error nor to an error summary fails.
 - **Fail:**
   - a label next to a field with no `for` and no wrapping;
@@ -176,6 +185,7 @@ Recorded video with sound has captions that say who is speaking and include the 
 
 - **Why:** WCAG requires captions for recorded and live video with sound (WCAG 2.2, 1.2.2 and 1.2.4), a transcript or an audio track for recorded audio-only or video-only content (1.2.1), audio description for recorded video unless its sound already carries what it shows (1.2.3 and 1.2.5), none of these for media that is a labeled alternative to text, and a way to pause, stop or turn down sound that plays by itself for more than 3 seconds (1.4.2); otherwise people who are deaf or hard of hearing miss the sound, people who can't see miss what the video shows, and sound that starts by itself drowns out a screen reader. Where the sound already carries everything important the video shows, no separate description is needed (Understanding 1.2.5). Automatic captions usually need heavy editing (W3C WAI, "Captions/Subtitles"), description written into the script is easier and better than one added later (W3C WAI, "Making Audio and Video Media Accessible"), and the UK Home Office puts the transcript next to the video, or links to it clearly (Home Office, "Audio and video"). Chrome lets media start by itself only when muted, until people have used the site, so a video built to start with sound often doesn't play at all; Jakub Krehel never starts media with sound (Chrome for Developers, "Autoplay policy in Chrome"; interfaces "better-accessibility").
 - **Applies when:** a page plays recorded or live video or audio.
+- **Protects:** accessibility
 - **Check:** play each video with captions on: no captions, or captions that miss speech or don't say who speaks, fail. Listen with the screen covered: information on screen that the sound never says, with no description track, fails. Find a transcript for audio-only content and live captions for live streams: missing fails. Load the page and wait: sound that starts by itself and runs past 3 seconds with no control to pause or turn it down fails.
 - **Fail:**
   - a product demo with steps shown on screen and only music, with no captions or description;
@@ -196,6 +206,7 @@ Each page has one `<main>`, and its header, navigation and footer in `<header>`,
   - Landmarks, headings and a skip link each let people past blocks repeated across pages (WCAG 2.2, 2.4.1; Understanding 2.4.1), where otherwise people using a keyboard or a screen reader go through the whole navigation on every page, and a skip link does it as the first interactive item, shown at least on focus (W3C, Technique G1). The HTML standard asks for at least one first-level heading, allows several, and puts each heading at most one level below the one before it; the W3C asks for one main landmark and a name on each repeated landmark of one kind (WHATWG, "Headings and outlines"; WAI-ARIA APG, "Landmark Regions").
   - 67.8% of screen reader users first move by headings to find something on a long page, 3.4% first use landmarks, and 37.7% use skip links always or often, which also help sighted keyboard users (WebAIM 2026, "Screen Reader User Survey #11"). One in ten skip links on home pages was broken (WebAIM 2026, "The WebAIM Million").
 - **Applies when:** a product has more than one page.
+- **Protects:** accessibility
 - **Check:** list the landmarks in the accessibility tree: no `main`, or two navigation regions without names, fails. List the headings: no first-level heading, or a heading more than one level below the one before it (an h2 followed by an h4), fails. Press Tab on a freshly loaded page: a skip link that appears must move focus to the main content, and one that doesn't fails. Repeated navigation with no landmarks, no headings and no working skip link fails.
 - **Fail:**
   - an app whose content area is a `<div>`, with no `main` and no headings;

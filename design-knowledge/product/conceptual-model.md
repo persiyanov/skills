@@ -12,6 +12,7 @@ A product is built from a few concepts: the kinds of things people work with (a 
 
 - **Why:** a concept people don't know from their task is one more thing to learn, and one more to combine with every other (Johnson and Henderson 2002); hidden, it still acts on their work. The limit is the job: Atlassian tells teams to keep only the Jira statuses they need, since each adds complexity for everyone who works with it (Atlassian, "Best practices for workflows in Jira", convention).
 - **Applies when:** the product keeps things people create, change or track over time, except a one-screen tool with nothing to keep.
+- **Protects:** economy
 - **Check:** write the model down: before the screens in a design, or from the screens, the product's docs and its data in a review. List each kind of thing people work with, what it holds, its states, the actions on it, how it relates to the others, its name, and how screens show it, counting every concept the product acts on, shown or not. For each concept, say in people's words what they would lose without it. One with no answer, or whose only answer is how the system is built, fails; so does an invented concept where one people already know, from their task or elsewhere in the product, would do.
 - **Fail:**
   - an invoicing tool that makes people create a "template" before they can send the same invoice again;
@@ -27,6 +28,7 @@ Each concept meets one need people have, said in their words: a trash lets peopl
 
 - **Why:** people need to know what a feature is for before they can use it (Jackson 2023). Two features for one need make people learn both and guess which to use; one feature for two needs makes every use do both, as when an angry reaction to a post also counts as approval and shows the post in more feeds (Jackson 2023).
 - **Applies when:** always.
+- **Protects:** economy
 - **Check:** beside each concept in the model (rule 1), write the one need it meets, in people's words. Two concepts with the same need and result fail: they are one. A concept whose need joins two with "and", when people may want one without the other, fails: it is two. For two features that seem alike or share a word, compare what each is for and what it gives people before judging their names.
 - **Fail:**
   - "Favorites", "Pinned" and "Saved", each keeping a shortcut to an item in its own list;
@@ -42,6 +44,7 @@ When a thing's state changes what people or the product can do with it (a draft 
 
 - **Why:** when one action does different things in different states, people who can't see the state act as if the thing were in another, and the risk grows with every state whose feedback is weak (Sarter and Woods 1998). A state people can't leave keeps their work there for good. Each state is one more thing to learn, so teams keep only those they need (Atlassian, "Best practices for workflows in Jira", convention). Most products seen put a record's state near its title (9 of 14), and in 9 of 10 paused or archived records, the way back, such as Resume or Restore, was on the page (Mobbin survey, 2026, convention).
 - **Applies when:** a thing's state changes what people or the product can do with it, such as drafts and published pages, campaigns, requests, subscriptions, automations and invoices.
+- **Protects:** usability
 - **Check:** draw the thing's states and the moves between them from the screens. For each state, find where people see it and every move out of it. A state that changes what an action does, but doesn't show where people take that action, fails. These fail: a state people can enter but not leave when a way back could exist; two states that differ neither in what people or the product can do nor in who acts next; an unusual state that shows only once the thing is opened.
 - **Fail:**
   - a page editor that looks the same for a draft and a published page, though Save makes changes live on one and not the other;
@@ -57,6 +60,7 @@ What the screen shows before an action lets people predict what the action does 
 
 - **Why:** people build their picture of a product only from what it shows and how it behaves, so a screen that doesn't make the design clear leaves them with the wrong one (Norman 1988), and an outcome they didn't predict is one they didn't choose. In a class action over what was collected during private browsing, Google agreed to change its Incognito screen to make clear that websites, and the services they use, including Google, still collect data (Brown v. Google, 2024 settlement).
 - **Applies when:** an action keeps, deletes, shares, sends or charges for something, directly or through related things.
+- **Protects:** usability
 - **Check:** for each such action, write what the screen leads people to expect, including for related things, then take the action in a test account and compare. A difference fails, and so does a rule that changes the outcome but shows only in help pages or after the action.
 - **Fail:**
   - moving a file into a shared folder, which gives everyone in it access, with no word before;
@@ -72,6 +76,7 @@ People bring concepts from the products they already use: a trash they can resto
 
 - **Why:** people spend most of their time in other products, so they expect yours to work like those (Nielsen 2023), and what they know well sticks even when it no longer helps (Chan 2024, "Mental Models"). A familiar name on different behavior misleads more than a new name: a public figure took Twitter's "favorite" for a private save, but anyone could see it (Jackson 2023).
 - **Applies when:** a feature borrows a concept's name or look from other products, such as a trash, a folder, a star, a like, a draft or an inbox.
+- **Protects:** familiarity
 - **Check:** for each feature, name the familiar concept it borrows, by its name or its look, and list how that concept behaves elsewhere: whether it can be undone, who sees it, whether one item can be in two places. A difference the screen doesn't show fails.
 - **Fail:**
   - a "Favorite" that others can see;
@@ -88,6 +93,7 @@ A number that counts things people may act on, such as a badge, a "needs attenti
 
 - **Why:** a count people can't trace can't be acted on or trusted: they can't tell which items an action will touch, or whether a badge means new or needs them. Apple keeps badges for unread notifications only and updates them as soon as people open them (Apple, "Notifications"); Slack bolds a conversation with unread activity and adds a number only for activity aimed at the person, such as a mention or a direct message, so two meanings get two marks (Slack Help, "Guide to Slack notifications", convention).
 - **Applies when:** a screen shows a count of things people may act on: a badge, a total of items that need attention, or a count on an action.
+- **Protects:** truth
 - **Check:** for each such number, say what it counts using only what the screen shows, then open it. A number whose concept can't be named from the screen, or whose items take more than one step to reach, fails; so does one mark that means two things in two places. Before each action with a count, find which items it covers or the rule that picks them: neither to be found fails.
 - **Fail:**
   - "Push 4 chats" with no way to see which four;
@@ -104,6 +110,7 @@ Where a screen shows one thing with another it relates to, such as a column nami
 
 - **Why:** people read a column as a fact about each row, so a single value beside a thing that has many leads them to wrong conclusions, such as that a link belongs only to the one edition shown (Interface Craft, "Refining Presscut").
 - **Applies when:** a screen shows a thing together with another it relates to.
+- **Protects:** truth
 - **Check:** for each column, label or path that names a related thing, look up the relation in the model (rule 1). A relation to many shown as a single value fails, unless its label says which one it is, and so does a past relation shown as current, or a current one as past.
 - **Fail:**
   - an "Edition" column on a list of links, when one link can appear in many editions;
@@ -119,6 +126,7 @@ A thing people work with keeps the same name, the same states and the same rules
 
 - **Why:** people learn a thing once and expect it to work the same wherever they meet it, so the model's names hold across the product and everything written about it (Johnson and Henderson 2002), and people shouldn't have to wonder whether different words or situations mean the same thing (Nielsen 1994, heuristic 4). A place that quietly follows another rule surprises people where they can't see it: HubSpot merges duplicate companies added through imports and forms, but not those created through its API (HubSpot, "Deduplicate records in HubSpot", convention). Displays that show the same things are coded the same way, so that people can tell they are the same (Hegarty 2011). Design systems draw one thing at several sizes, from its title inside a sentence to a card (Atlassian Support, "Smart Link view options"; GitHub Docs, "Autolinked references and URLs"; convention), and a thing drawn two ways has to be designed and checked twice on every device (Prater 2024).
 - **Applies when:** a thing appears in more than one place: screens, emails, notifications, exports, imports, an API or an agent's answers.
+- **Protects:** familiarity
 - **Check:** follow one thing through every place it appears: its screens, the emails and notifications about it, an export, an import, the API and an agent's answer about it. A different name or state for the same thing fails; so does a rule that changes with the place and isn't stated in that place. On the screens, list each drawing of the thing with its size, and compare it with the form in the model (rule 1). Two drawings at one size that tell the thing apart in different ways fail, and so does a size that drops what tells the thing apart.
 - **Fail:**
   - an invoice that is "Overdue" in the app and "Unpaid" in the reminder email;
@@ -137,6 +145,7 @@ Before asking people to do something by hand, the product asks whether it could 
 
 - **Why:** the better design often removes a task rather than polishing its screen, as when photos back up by themselves (Interface Craft, "Conceptual Range"). A task people must remember is one they can forget, and some losses, such as photos never backed up, can't be undone. The limit is reliability: a task the product gets wrong now and then becomes a check people must make every time.
 - **Applies when:** people do a task by hand that the product has the data and the means to do.
+- **Protects:** economy
 - **Check:** list what people do by hand in the flow. For each, ask whether the product already has what it needs, and how often it would get it wrong. A task it could do reliably but leaves to people fails; so does one it took over and gets wrong often enough that people must check each result.
 - **Fail:**
   - a photo app that asks each day which new photos to back up;
@@ -152,6 +161,7 @@ Whatever the product does without a press from the person, such as syncing, impo
 
 - **Why:** people supervising automation ask what it is doing now, how it got into that state and how to stop it, and surprises come most often when it acts with no direction just before and with weak feedback (Sarter and Woods 1998). Approving everything wears out each approval: several of the 12 people in one study found the requests excessive (Mozannar et al. 2025), so what is reviewed only after the fact has to be the easier to reverse (Shavit et al. 2023). Apple asks products to get permission before tasks that can't be reversed, and not to automate destructive actions or ones that are hard to undo, such as a purchase on a person's behalf (Apple, "Generative AI"), since otherwise the product does in people's name what they can't take back. An automation that looks fine while it fails leads people to act on what isn't so.
 - **Applies when:** the product acts without a press from the person: syncs, imports, scheduled sends, automatic matching or sorting, rules people set up, and agents, except work whose results people never meet, such as refreshing a cache.
+- **Protects:** usability
 - **Check:** list everything the product does on its own. For each, from where people meet its results: find its current state, find the record of what it did and undo an entry, and pause it. Then find each of its actions that can't be undone, spends money, or sends content or data to other people or to a shared record: one that runs without the person's go, when no one with the right to set it to run on its own, fails. Make it fail: a state that still looks fine fails. These fail: no record; no way to pause or stop it; an approval asked for an action that could simply be undone.
 - **Fail:**
   - chats copied into a shared CRM in the background as they arrive, with no list of what was copied;
@@ -169,6 +179,7 @@ When the product acts in a person's name (sends from their account, posts as the
 
 - **Why:** people want to keep control when they feel responsible for the outcome or the stakes are high, and hand it over for tasks that are tedious or that they can't do (PAIR, "Feedback + Control"); either way, the choice is theirs. Data that appears where people don't expect it feels like a breach: when an agent showed participants' full home address as soon as they had connected a store account, one said the address had been "leaked" (Liu and Rosala 2026). Apple asks for permission before using personal information, then the least data needed, with a clear way to opt out (Apple, "Generative AI").
 - **Applies when:** the product acts in a person's name, or uses their personal data for something they didn't directly ask for, other than providing or securing the service.
+- **Protects:** truth
 - **Check:** turn the feature on as a new account. Before it starts, find what it will do, with which data, and who will see the result. Afterwards, find what it did in your name, and turn it off from there. An action toward other people that starts before you turned it on, or goes on after you turned it off, fails. Personal data that appears with no word on why fails, and so does a use of their data they didn't ask for, such as training models on their chats, that is on before they turned it on.
 - **Fail:**
   - a meeting assistant that joins every call on the calendar from the day the account is made;
@@ -186,6 +197,7 @@ When the product decides something people then act on, such as flagging a duplic
 
 - **Why:** an explanation helps only as far as it lets people check the result (Fok and Weld 2024): explanations raised reliance on right and wrong answers alike, while sources lowered reliance on wrong ones (Kim et al. 2025), and step-by-step reasoning text is often written after the fact (Chan 2025, "Explainable AI"). For decisions made solely by machine with legal or similarly significant effects, the GDPR gives people meaningful information about the logic involved and, where the decision rests on a contract or on consent, a person's review and the right to contest (GDPR, Articles 15(1)(h) and 22(3)).
 - **Applies when:** the product decides something people act on: a match, a flag, a block, an approval or a refusal, or a ranking people work through.
+- **Protects:** truth
 - **Check:** open each automatic decision and look for its evidence: the fields compared and their values, the sources, or the rule applied. None, or only a score or a generated reason, fails; so does no way to correct it. For an EU decision with legal or similarly significant effects, no way to ask for the logic fails, and so does, where the decision rests on a contract or on consent, no way to get a person's review or to contest it.
 - **Fail:**
   - "Possible duplicate" with no word on what matched;

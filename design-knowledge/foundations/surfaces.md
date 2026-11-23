@@ -12,6 +12,7 @@ A screen has a few levels, each with one job: the page, the surfaces that rest o
 
 - **Why:** Cast shadows tell people whether a thing rests on a surface or floats above it (Mamassian et al. 1998), so a resting card with a menu's shadow looks as if it floats, and a level with two looks no longer tells people which things are alike. Systems keep a handful of levels: resting surfaces are set apart by tone or a border, with at most a small shadow, and larger shadows go to what floats or is being moved (Material 3, "Elevation"; Atlassian, "Elevation"; Carbon and Primer tokens). Apple and Material 3 give a bar an edge while content scrolls under it, so people can tell the bar from the content (Apple, "Scroll views"; Material 3, "App bars"). A fade painted in the page's color breaks in the other theme, showing as a white band over dark content, while a mask fades the content itself; evenly spaced stops leave a visible edge where a long or dark fade ends (Interface Craft, "Masks" and "Color Details").
 - **Applies when:** always.
+- **Protects:** coherence
 - **Check:** list each surface on the screen with its computed fill, border, shadow and radius, and sort the surfaces into the product's levels, each with its own job: the page, each resting level it has, such as a sunken well and a card, and the floating layers. Two looks for one level fail, and so does a resting surface whose shadow is as large as a floating layer's. Then open each menu, popover and panel where it overlaps a resting surface: one set apart only by its outline, with no shadow you can see, fails. Floating layers over other floating layers may share one look. Scroll content under each fixed or sticky bar: a bar with no change of fill, shadow, line or fade while content passes under it fails. Switch themes and scroll content under each fade: a band of the wrong color fails.
 - **Fail:**
   - a summary card with the same large shadow as the dropdown menu above it;
@@ -29,6 +30,7 @@ All shadows on a screen fall one way, as if from one light above. The higher a l
 
 - **Why:** People assume one light for a whole scene, shining from above (Ramachandran 1988; Mamassian and Goutcher 2001), so shadows that fall different ways, or a higher layer with a smaller shadow, give conflicting cues to height. Material 3, Fluent 2, Primer, Atlassian, Radix and Tailwind all cast shadows straight down (their tokens), and Fluent 2 and Primer build a low shadow from a tight part that draws the edge and a wider one that shows distance, both growing with height (Fluent 2, "Elevation"; Primer tokens). A single wide, faint blur reads as haze, not height (Interface Craft skill, "Design Critique").
 - **Applies when:** the product uses shadows, except the light inside an illustration.
+- **Protects:** precision
 - **Check:** list every computed `box-shadow` and `filter: drop-shadow()` on the screen, with its element and level. Shadows offset in different directions fail, and so do a higher layer with a smaller shadow than a lower one, and a card or menu shadow that is a single wide, faint blur with no tight part. A ring with no offset and no blur, such as `0 0 0 1px`, is an edge, not a shadow.
 - **Fail:**
   - a card shadow offset to the right, next to a menu whose shadow falls straight down;
@@ -44,6 +46,7 @@ A shadow disappears on dark backgrounds and in forced colors, so nothing people 
 
 - **Why:** Shadows barely show on dark backgrounds (Material Components for Android, "Dark theme"; Atlassian, "Elevation"). Forced colors remove shadows and gradients and turn fills into one system color, while border and outline colors, even transparent ones, take the user's colors and show (CSS Color Adjustment 1; Matuzović 2026). So an edge or a state drawn only by a shadow disappears for these people, and a state's mark needs 3:1 against the colors next to it (WCAG 2.2, Understanding 1.4.11). In dark themes, Material 3, Apple, Atlassian and Carbon make a higher surface lighter, and Primer and Radix add a light 1 px ring to floating ones (their tokens; Apple, "Dark Mode"). A shadow shows less on a dark page, so Carbon, Fluent 2, Atlassian and Primer make their dark-theme shadows darker (their tokens).
 - **Applies when:** the product uses shadows or fills to set surfaces apart, or has a dark theme, except a surface that sits flush in its own region, such as a sidebar set apart by a divider.
+- **Protects:** precision
 - **Check:** find each selected, current or focused surface and what marks it: a shadow alone fails. Switch to the dark theme and compare each raised surface with the one under it: one that is not lighter, with only a shadow, fails. Compare each floating layer's shadow in both themes: one fainter in the dark theme fails. Turn on forced colors (Chrome DevTools, Rendering panel) and open each menu, popover and dialog: one whose edge disappears fails. When you can't emulate, the CSS decides: a surface whose only edge is a shadow, a fill or a gradient, with no border and no `forced-colors` rule, fails.
 - **Fail:**
   - a selected card marked only by a larger shadow;
@@ -61,6 +64,7 @@ Menus, popovers and tooltips open above every container, so no container's edge 
 
 - **Why:** A menu cut off by its container hides items people need, and a focus outline cut on every side hides where focus is (WCAG 2.2, 2.4.7). The usual cause is a container whose `overflow` is not `visible`: it clips the shadows and outlines of what it holds (CSS Overflow 3). The top layer, where modal dialogs and popovers open, is beyond any container's clipping (CSS Positioned Layout 4).
 - **Applies when:** always.
+- **Protects:** precision
 - **Check:** open every menu, select, popover and tooltip that sits near the edge of a scrolling or clipping container, such as in the last row of a table in a panel, and near each edge of the window at the narrowest width the product supports. Then Tab through the controls inside each container whose `overflow` is `hidden`, `auto`, `scroll` or `clip`, and look at the focus outline on every side. A menu or tooltip cut by a container or by the window fails, and so does a focus outline or a shadow cut on any side. In the code, look for menus rendered inside the clipping container instead of in the top layer or a portal.
 - **Fail:**
   - a row menu in a scrolling table, cut by the table's bottom edge;
@@ -79,6 +83,7 @@ Radii come from a short scale, and each kind of element keeps its radius everywh
 
 - **Why:** One radius for each kind of element lets people tell the kinds apart, and a short scale keeps the product one family. Atlassian gives 6 px to buttons and fields, 8 px to cards and menus and 12 px to modals, and Material 3 also assigns its scale by kind (Atlassian, "Radius"; Material 3, "Shape").
 - **Applies when:** always.
+- **Protects:** precision
 - **Check:** list the computed `border-radius` of each surface and control with its kind of element, and match it to the product's radius tokens. Two radii for one kind of element fail, and so does a radius off the scale.
 - **Fail:**
   - buttons at 6 px on one page and 8 px on another;
@@ -94,6 +99,7 @@ Lines come from a few roles: dividers between items are the faintest, and the ed
 
 - **Why:** Material 3, Primer and Carbon draw dividers fainter than the edges of containers, and fields at least as strong as cards; shadcn/ui and coss ui use one color, #e5e5e5, for both (their tokens and CSS). A field needs a 3:1 edge only when nothing else, such as its label or its text, shows where it is (WCAG 2.2, Understanding 1.4.11). Most lines are 1 px (Primer and Atlassian tokens). Where two translucent lines cross, their alphas add up: two lines of 10% black make a 19% black dot that no one meant (alpha compositing; Interface Craft, "Compositing"). A solid light border on a row tinted for hover or selection can come out lighter than the row, which looks like a glow, while a translucent one darkens whatever it sits on (Interface Craft, "Style Details").
 - **Applies when:** always.
+- **Protects:** precision
 - **Check:** list the computed border colors and widths on the screen, with what each one separates, and match each to the product's border tokens. A border that matches no role fails, and so do a divider stronger than the edge of its container, a field's edge fainter than a card's, two widths for one role, and a darker dot where two translucent lines cross. Hover and select rows and cards: a border lighter than the fill it surrounds fails.
 - **Fail:**
   - dividers in a darker gray than the edges of the cards they sit in;
@@ -113,6 +119,7 @@ When a rounded surface holds a rounded element near its corner, the inner radius
 
 - **Why:** Two curves stay the same distance apart around a corner only when their radii differ by that distance; with equal radii, the gap is wider at the corner than along the sides (geometry). The gap is the padding plus any border (CSS Backgrounds 3). Apple and Atlassian apply this to nested shapes and to focus rings (Apple, "Get to know the new design system"; Atlassian, "Radius"). When the gap is larger than the outer radius, the formula gives a square inner corner, which tends to look wrong, so the inner radius is set by eye (Coyier 2024).
 - **Applies when:** a rounded element sits inside a rounded one, close to its corners, such as an image or a selected item's fill inside a card or a menu; and a focus ring drawn outside a rounded control.
+- **Protects:** precision
 - **Check:** for each rounded element inside a rounded parent, read both computed radii and the gap between their edges (padding plus border). When the gap is smaller than the outer radius, an inner radius that isn't the step on the product's scale closest to the outer radius minus the gap fails; around a control that keeps its own radius, a container whose radius isn't the control's plus the gap fails. For each focus ring outside a rounded control, a radius smaller than the control's radius plus the ring's offset fails.
 - **Fail:**
   - a card at 12 px holding an image 8 px in, also at 12 px: the gap is 8 px along the sides and wider at the corners;
@@ -130,6 +137,7 @@ Clear, glass-like materials are for layers that float over content, such as a he
 
 - **Why:** Contrast is measured against what renders behind the text and icons (WCAG 2.2, 1.4.3 and 1.4.11; Understanding 1.4.3), so text on a see-through surface that passes over a white page can fail over a photo. With text or line drawings behind a see-through palette, people found its icons more slowly (Harrison et al. 1995), and over busy photos, white text read best with a dark layer behind it, which helped more than blur (Sawyer et al. 2020). Apple keeps clear Liquid Glass for controls and navigation over content, and puts content on thicker, more opaque materials; Microsoft keeps Acrylic for short-lived surfaces (Apple, "Materials"; Microsoft, "Acrylic material"). People can turn transparency off in macOS, iOS and Windows, which turns Microsoft's materials solid, but on the web only Chrome and Edge report the setting, so the see-through default must pass on its own (MDN; Microsoft, "Acrylic material"). On macOS, Increase Contrast also turns on Reduce Transparency and locks it (Fleishman 2025), but only Chrome and Edge report that setting, so in other browsers `prefers-contrast: more` is often the only sign a page gets.
 - **Applies when:** a surface that lets content show through, with `backdrop-filter`, opacity or a translucent fill, except a decorative shape with no text or controls, such as a panel on a marketing page.
+- **Protects:** accessibility
 - **Check:** find each see-through surface. Scroll the busiest, the darkest and the lightest content of the page under it, and measure its text and icons against what renders behind them: under the ratios above fails. Body text or cards on a clear, glass-like surface fail. In Chrome DevTools (Rendering panel), emulate `prefers-reduced-transparency: reduce`, then `prefers-contrast: more`: a surface that stays see-through under either fails.
 - **Fail:**
   - a header of 70% white whose gray nav text (#6b7280) passes at 4.8:1 over the white page and drops to 2.3:1 when a black image scrolls under it;
@@ -144,6 +152,7 @@ A modal dialog or sheet sits over a scrim that dims the page, which shows that t
 
 - **Why:** A modal blocks the page until people close it (Apple, "Modality"; MDN), and the scrim shows that; a scrim behind a menu tells people the page is blocked when it isn't. Material 3, Carbon, Primer and Atlassian dim the page behind modals, Material 3 with black at 32% (their tokens), and Microsoft keeps menus, flyouts and other non-modal layers on a translucent material that leaves the page in view (Microsoft, "Acrylic material").
 - **Applies when:** the product shows dialogs, sheets, menus or popovers.
+- **Protects:** familiarity
 - **Check:** open each dialog, sheet, menu and popover. A modal with no scrim fails, and so does a scrim behind a layer that leaves the page usable.
 - **Fail:**
   - a confirmation dialog floating over a fully bright page;
@@ -159,6 +168,7 @@ Floating layers stack in one fixed order across the product, set in its tokens: 
 
 - **Why:** A message under a scrim can't be read, so people miss what happened, and a menu under a dialog can't be used. While a modal dialog is open, everything outside it is inert, so a toast shown from outside it can be seen but not pressed or reached by screen readers (HTML Standard, "Modal dialogs and inert subtrees"). The usual causes are a `z-index` set per component, which can't lift a menu above the level of a sticky or transformed parent (MDN, "Stacking context"), and toasts placed in the page rather than in the top layer, where the element added last renders on top (CSS Positioned Layout 4). Primer fixes one order in its tokens, and Atlassian dropped its numbered layers for the top layer (Primer tokens; Atlassian, top-layer package).
 - **Applies when:** the product has more than one kind of floating layer.
+- **Protects:** precision
 - **Check:** list the `z-index` values in the CSS and match them to the product's layer tokens: a value off the scale, such as `z-index: 9999` in one component, fails. Then open each menu, popover and tooltip where it can overlap another layer, such as a menu from the page header over a table's sticky header row: one drawn under it fails. Open a dialog and trigger a message from inside it, such as a validation error or a "Copied" confirmation: a message under the dialog or its scrim fails. Open a menu inside a dialog: a menu under the dialog fails. Press the action of each message and menu shown over a dialog, and read the accessibility tree: one that doesn't respond, or is missing from the tree, fails.
 - **Fail:**
   - a "Saved" toast drawn under a modal's scrim;

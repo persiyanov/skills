@@ -1,84 +1,71 @@
-`design.md` records the tree and why the design is the way it is, so that you can answer the user's questions from the record, and a later session can carry on where the work stands. For a small change, fill in only the parts that the change touches.
+`design.md` is the design's spec and record: what the design must do, settled with the user before drawing, and the forks and open questions that drawing adds. Every spec has the Summary, People and jobs, Places, Cases, The bar and Done when. For a small change, fill in the rest only where the change touches it.
 
 ````markdown
 # <title>: Design
 
-Status: Draft | Structure approved | Style approved
-Product rules: <the file where the repo keeps its UI rules, and their log>
-Canvas: <the Paper file and page>
-Build: <the branch, how to run it, a login for each role, and how to reach each state> | not built yet
+Status: Draft | Approved
+Spec: <the product spec it belongs to> | none
+Medium: <the Paper file and page, or the branch, how to run it, and where the test login for each role comes from, never a password>
 
 ## Summary
 
 - Problem: <one line>
-- Design: <one line>
+- Design: <one line: the idea>
 - Tradeoff: <what we give up for it>
 - Biggest risk: <one line>
 
-## The bar
+## Problem
 
-Written before the first node, as design-knowledge's `product-standards.md` describes, with a source for each line.
+<Who can't do what today, with the evidence.> A link instead, when the product spec has it.
 
-- The people: <who, what they know, the job they come to do, the state they arrive in>, from <the evidence> or assumption
-- The best products: <each product, with screens or links, what it does well and whether it suits this product>
-- What each decided: <only when the work sets the look>
-- Until the repo has UI rules: <the ranked qualities, and the log of what the user said, one dated line each>
+## People and jobs
 
-## The tree
-
-Each node with its state in each pass (open, settled or complete), the node you're on, and each question that waits on the user.
-
-```text
-<root>                      structure settled · style open
-├─ <node>                   structure complete
-│  └─ <node>                structure open        ← <question for the user>
-└─ <node>                   structure open        ← you are here
-```
-
-## Jobs
-
-| Job | Evidence | Fact it needs | Nodes that show it |
+| Person | When …, they want to …, so they can … | How often | Evidence |
 | --- | --- | --- | --- |
-| <a person's job, in their words> | <who asked, where, and how often> or assumption | <the fact>: <what it means, its values, and what shows when there's none>, from <the code or the data> | <each node, at every place it appears> |
 
-A need of the product, such as a legal line, takes its own row, with its source as the evidence.
+A job without evidence is an assumption: mark it as one.
+
+## Things
+
+| Thing | Its name | What people need to know about it | What they can do with it |
+| --- | --- | --- | --- |
+
+<How the things relate, and the names of their states.>
+
+## Places
+
+<The breadboard: each place, what it shows and lets people do, what it opens on, where each action leads, and its empty, loading and error states. A rough sketch only where the arrangement is the idea.>
 
 ## Cases
 
 - <a person and their job, or what varies and its extreme>: <the real data or value>, from <where it comes from>
 
-## Nodes
+## The bar
 
-### <node>
+<As design-knowledge's `product-standards.md` describes: the people and the state they arrive in, the best products and what each does well, the products the user loves, and, when the look is in play, the ranked qualities and what each best product decided.>
 
-- Brief: <its job, what it must show, where it sits and how much room it has>
-- Tests:
-  - <what must be true>: passes | fails, <why>
-- Decisions: <the choice, the options it beat and the facts that decided it>, picked by the user on <date> | picked by you
-- Changed on <date>: <the fact, constraint or flaw that changed it>
-- Open: <a question, and whose it is>
+<Until the repo has UI rules: the ranked qualities, and the log of what the user said, one dated line each.>
 
-## Findings and reopens
+## Non-goals
 
-| Node | Layer | Finding or reopen | From | Status | Note |
-| --- | --- | --- | --- | --- | --- |
-| <the node> | <structure, style or behavior> | <what's wrong, or what changed> | <a review and when, the user, or your own look> | open / fixed / left / the user's decision | <the change, the proof, or the decision it rests on> |
+- <what this design doesn't do, and why>
 
-- Check each finding before you give it a status: confirmed when you reproduced it or its rule applies, disproved when the rule it cites doesn't apply (quote the proof), unproven when you can do neither.
-- Status, for a confirmed finding: fixed (changed, and checked by the next review), open (not fixed yet), left (the user or this record already decided it), or the user's decision (a call on direction, scope or cost).
+## Done when
 
-## Baseline
+| # | Person | What they can do or know | Fails when |
+| --- | --- | --- | --- |
+| D1 | <who> | <what must hold> | <the case that would break it> |
 
-Copied when the user approved the structure, on <date>, with the canvas frames `Baseline · <date>`. The style pass and the build are checked against both.
+## Decisions
 
-```text
-<the tree as it stood, each node with its brief>
-```
+1. <the decision>. Why: <reason>. Rejected: <the alternatives>. <"My decision." if the user didn't make it>
 
-## Open items
+## Forks
 
-- Still open: <the failure, and why no node's work settled it>
-- Not checked: <what no review could check, and why>
-- Assumptions: <each assumption in the bar, and each job marked as one>
-- Questions only real users can answer: <the question>: <the test, or "accepted as a risk">
+| # | Part | Options | Picked, and why | What a switch changes |
+| --- | --- | --- | --- | --- |
+
+## Open questions
+
+- <the question, whose it is, and the default answer in use>
 ````

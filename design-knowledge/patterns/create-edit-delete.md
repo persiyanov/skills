@@ -12,6 +12,7 @@ Where people create something depends on how much they enter and what they need 
 
 - **Why:** Primer creates in place when a field or two is enough, in a dialog for a handful of fields, and on a page for consequential choices or work that should survive a refresh. It takes people to what they made, or shows it in place and puts focus on it, never lets a dialog closing be the only sign it worked, and offers one-click creation where defaults cover everything and the item is cheap to throw away (Primer, "Create"). Carbon keeps dialogs for short tasks and sends people to a page when they need information outside the dialog, and Cloudscape fills a create form with good defaults, so people can create without changing anything (Carbon, "Dialogs"; Cloudscape, "Single page create"). Agriculture adds a record in a side drawer for a short form and a side page for a longer one, then returns people to the table with the record in it and a success message above it (Agriculture Design System, "Create, read, update and delete data in tables"). Of 19 products seen creating a project, 10 used a dialog and 9 a page (Mobbin survey, 2026, convention).
 - **Applies when:** people create things in a product.
+- **Protects:** usability
 - **Check:** for each create action, note how many fields it has, and whether people need the page behind it or should keep their work through a refresh. Then create one of each and watch where the new thing appears and where focus goes: a dialog that closes with no sign of the new item, or a new item sorted out of view with no message, fails.
 - **Fail:**
   - a 20-field "New customer" in a dialog that closes on a click outside it;
@@ -32,6 +33,7 @@ While people create or edit something that takes more than a moment, the product
 
 - **Why:** Apple asks products to keep people's work unless they cancel or delete it, saving as they go rather than waiting for Save, and names a new document "Untitled" until people name it (Apple, "File management"). SAP saves a draft every 20 seconds and keeps it if an edit is interrupted. People who open a record that has a draft are asked whether to resume or discard it, with the date it was saved, while opening the draft itself goes straight to editing, and discarding a draft people never changed deletes it without asking (SAP Fiori, "Draft Handling"). Confluence lists each person's drafts in one place (Atlassian Support, "Create, edit, and publish a page", convention).
 - **Applies when:** people create or edit things that take more than a moment, such as documents, posts, messages or long records.
+- **Protects:** usability
 - **Check:** start a long item, close the tab, and come back through the item's link and through the list: work that is gone, or kept but nowhere to be found, fails. Edit a live item, leave, and open the item again: no choice to resume or discard the draft fails. Open a new item and leave it untouched: an empty item left behind in the list fails.
 - **Fail:**
   - a half-written post lost when the browser closed;
@@ -46,6 +48,7 @@ A draft says who can see it, and a personal draft, such as a post or a message, 
 
 - **Why:** a draft or a pending change that doesn't say who sees it makes people show others what they didn't mean to, or take for live what isn't. A new Confluence draft is visible only to its author, but unpublished changes to a published page are visible to every editor of it. People who assume those changes are private can leave half-written text where colleagues read it (Atlassian Support, "Create, edit, and publish a page", convention). Writers often prefer to work in private first and share later (McKelvey et al. 2023), while in team content tools such as Contentful and WordPress, drafts are open to everyone with access to the space or the right role (Contentful, "Entry editor sidebar overview"; WordPress Documentation, "Post Status"; convention). SAP shows a switch between the draft and the live version beside the title, and asks before it discards all changes (SAP Fiori, "Draft Handling"); Contentful marks an entry with unpublished changes as Changed, in a status column that can't be hidden from lists (Contentful, "Create content views", convention).
 - **Applies when:** a product keeps drafts, or keeps a live version and a pending one of the same thing.
+- **Protects:** truth
 - **Check:** from a draft's screen alone, say who can see it now: a draft others can see that doesn't say so fails, and any other draft that doesn't say who can see it fails. Edit a live page: an editor that doesn't show that the changes wait for Publish fails. Leave it, then open its list: a page shown as plainly "Published", or no way to drop the changes other than undoing each one, fails.
 - **Fail:** unpublished edits to a published help page that every editor sees, with no word on the page.
 - **Pass:**
@@ -62,6 +65,7 @@ On a page where people edit several things one by one, only one edit is open at 
 
 - **Why:** Primer allows one edit open at a time on a page where people edit several things separately. It gives every edit a visible Cancel that restores the previous value, with Escape doing the same, and asks before it throws away an edit people have put work into, since otherwise the only way out is to save and undo, or reload (Primer, "Edit").
 - **Applies when:** people edit values in place, outside a table or a spreadsheet.
+- **Protects:** usability
 - **Check:** open two edits in place on one page: both open at once fails. Change a value and press Cancel; change another and press Escape: a half-typed value that stays fails. Type a paragraph into an edit and press Escape: work thrown away without asking fails.
 - **Fail:**
   - three open fields on a profile, each with its own Save;
@@ -77,6 +81,7 @@ Where two people can edit the same thing, a save never writes over someone else'
 
 - **Why:** a save that silently writes over a newer change loses work people think is saved, and HTTP's conditional requests exist to stop it (RFC 9110). SAP locks a record while one person edits it, shows the lock with the holder's name, warns whoever takes it over, and tells the first person when they next save; WordPress names who is editing a post and asks before people take over; MediaWiki detects a conflict at save and shows both versions; and Dropbox keeps a second version as a conflicted copy named with its author (SAP Fiori, "Draft Handling"; WordPress Developer Resources, "_admin_notice_post_locked()", convention; MediaWiki, "Help:Edit conflict", convention; Dropbox Help, "What's a conflicted copy?", convention). In a study of 14 people working in a shared notebook, 13 couldn't find that a collaborator's change caused their wrong result, and 12 blamed themselves (Wang et al. 2024), so people need to see who else is working there. Confluence shows the people editing a page now in color, and those who edited and left in gray (Atlassian Support, "Create, edit, and publish a page", convention), and Apple places the button that shows who shares a document next to Share (Apple, "Collaboration and sharing"). Of six shared editors surveyed, five undo only the person's own changes (Stewen and Kleppmann 2024).
 - **Applies when:** more than one person can edit the same thing.
+- **Protects:** usability
 - **Check:** open one record in two accounts, change the same field in both, and save both: the second save replacing the first with no word fails. Open a shared item in two accounts: no sign of the other person fails. In a shared editor, make a change in each account, to different things, and press Undo in one: the other person's change undone fails.
 - **Fail:** two people edit a customer's address at once, and the second save silently wins.
 - **Pass:**
@@ -89,6 +94,7 @@ A thing people edit over time keeps its versions, each with when it was made, by
 
 - **Why:** Notion highlights what changed and who changed it, previews what a restore will affect, and keeps history for 7, 30 or 90 days by plan; Figma shows each version's main contributor and makes restoring non-destructive; and Google Docs restores a version, makes a copy of it, or names it (Notion Help, "Delete & restore content"; Figma Help, "View a file's version history"; Google Docs Editors Help, "Find what's changed in a file"; convention). Of 22 version histories seen, 17 showed who made each version and 17 had Restore, while 3 marked what changed (Mobbin survey, 2026, convention).
 - **Applies when:** people edit documents, designs, pages or other things over time.
+- **Protects:** usability
 - **Check:** restore an old version, then look for the version you were on: gone fails, and so do versions shown with only a time where several people edit. On a plan with a limit, look for how far history goes: no word fails. Restore something whose restore brings back only part of it: no word before it runs fails.
 - **Fail:**
   - a restore that deletes every later version;
@@ -106,6 +112,7 @@ A thing people edit over time keeps its versions, each with when it was made, by
 
 - **Why:** Figma names a duplicated page with "Copy of", and a copy of a past version leaves out comments and history, as does a copy made from the trash, which also leaves out sharing; Google Docs asks for a name and a place for a copy and offers to copy comments (Figma Learn, "Create and manage pages"; Figma Help, "View a file's version history", "Delete and restore files"; Google Docs Editors Help, "Create, view, or download a file"; convention). Of 9 copies whose names could be seen, 5 were "Copy of X" (Mobbin survey, 2026, convention).
 - **Applies when:** people can duplicate named things, such as files, pages or projects.
+- **Protects:** truth
 - **Check:** duplicate a shared file with comments: a copy that can't be told from the original, or that drops sharing or comments with no word, fails.
 - **Fail:** two files called "Q3 plan", one of which lost its sharing.
 - **Pass:**
@@ -120,6 +127,7 @@ Deleting most things moves them to a trash people can find, with Restore and Del
 
 - **Why:** Google Drive, Gmail, Apple Photos, Notion and Linear keep deleted items for 30 days, Figma keeps them until someone restores them or deletes them for good, and Pajamas's delete dialog says until when a project can be restored; Dropbox restores files to the folder they came from, and Figma restores a file with its sharing, comments and history (Google Drive Help, "Delete files in Google Drive"; Gmail Help, "Delete or recover deleted Gmail messages"; Apple Support, "How to recover deleted photos on your iPhone, iPad, Mac, or Apple Vision Pro"; Notion Help, "Delete & restore content"; Linear Docs, "Delete and archive issues"; GitLab Pajamas, "Destructive actions"; Dropbox Help, "How to restore or recover deleted files or folders in Dropbox"; Figma Help, "Delete and restore files"; convention). Of 20 smart-speaker users interviewed, 16 wanted more information about a deletion, such as what was kept or how it was deleted (Cheng and Ramokapane 2025). Of 25 trash views seen on the web, 12 said how long items stay and 2 when each would go; of 22 delete dialogs, 15 said the deletion couldn't be undone and 3 mentioned a trash (Mobbin survey, 2026, convention), so many say it can't be undone where a trash may stand behind them.
 - **Applies when:** people can delete things they or others may want back.
+- **Protects:** usability
 - **Check:** delete an item from inside a folder, then look for where it went: no trash, or a trash that says neither when items go nor that they stay until deleted, fails. Restore it: an item that comes back somewhere else, or without its sharing, with no word, fails. Read the delete dialog for something that goes to the trash: "This can't be undone" fails. Delete something for good where people delete to protect their privacy: no word on what is still kept fails.
 - **Fail:** "Delete this page? This can't be undone." for a page that goes to a trash for 30 days.
 - **Pass:**
@@ -135,6 +143,7 @@ Deleting most things moves them to a trash people can find, with Restore and Del
 
 - **Why:** an action that doesn't say whether others lose the thing lets people take away others' work without meaning to. Primer says "Remove" when a thing still exists elsewhere and "Delete" when it is destroyed, and Carbon warns that removing can be mistaken for deleting (Primer, "Delete"; Carbon, "Common actions"). Google Drive lets people with access keep a trashed file until it is deleted for good, while Figma's trash removes a file for every collaborator at once (Google Drive Help, "Delete files in Google Drive"; Figma Help, "Delete and restore files"; convention), so the word "Trash" alone doesn't tell people who loses it. Notion keeps an archived page out of search with its links still working, Contentful's archived content never expires, and Slack keeps an archived channel's history, searchable on paid plans, while it deletes a deleted channel for good (Notion Help, "Delete & restore content"; Contentful, "Entry editor sidebar overview"; Slack Help, "Archive or delete a channel"; convention).
 - **Applies when:** a product has actions that remove, delete or archive things.
+- **Protects:** clarity
 - **Check:** on a shared item, read each action and say whether others keep it: one that doesn't say fails. Archive an item, wait past the trash's time, and look for it, then follow an old link to it: gone fails.
 - **Fail:**
   - "Delete" that only takes a file out of my list;
@@ -152,6 +161,7 @@ When people delete the thing the current page is about, they land on the list or
 
 - **Why:** Primer sends people to the parent page, such as the list, when a deletion removes the page's own item, always announces the result to screen readers, and offers a window to undo what can be reversed rather than a prompt up front; Carbon returns people to the page that lists the deleted data (Primer, "Delete"; Carbon, "Common actions"). A result that appears without moving focus reaches screen readers only when it is announced (WCAG 2.2, 4.1.3), so without it people who can't see it don't know the deletion worked.
 - **Applies when:** people can delete an item from its own page.
+- **Protects:** usability
 - **Check:** delete an item from its own page: a result that screen readers don't hear fails. A blank page, an error or "Not found" fails.
 - **Fail:** "404: page not found" right after deleting a project.
 - **Pass:**

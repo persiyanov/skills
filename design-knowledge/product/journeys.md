@@ -14,6 +14,7 @@ A link in a notification, an email or a message opens the screen for the thing i
 
 - **Why:** people follow a link to do something with what it names, and a link that drops them on the home page makes them search for it. Android asks that a tapped notification open a screen about that notification, where people can act at once, and Apple says people expect related content (Android Developers, "Notifications"; Apple, "Notifications"). Sign-in is a detour, not a new start: GOV.UK One Login takes people who resume a saved application through sign-in and back to it (GOV.UK One Login, "Save progress").
 - **Applies when:** the product sends links in notifications, emails or messages, or people share links to its pages.
+- **Protects:** usability
 - **Check:** sign out, then follow a link from each kind of notification and email, and a shared link to each kind of page. Landing on the home page, or on a page that doesn't show the thing, fails. Delete the thing, or remove your access, and follow the link again: an error with no way on fails.
 - **Fail:**
   - "Your report is ready" that opens the dashboard;
@@ -29,6 +30,7 @@ People start in the product, not in a tour. Setup the product can't work without
 
 - **Why:** tutorials interrupt people, are quickly forgotten and often skipped, while help that appears when people show a need works better (Laubheimer 2023, "Onboarding Tutorials vs. Contextual Help"). Apple asks products to put off setup that isn't needed and not to show a skipped tutorial again, while keeping it findable (Apple, "Onboarding"), and Atlassian keeps a tour to three steps or fewer (Atlassian, "Spotlight"). Setup that never goes away keeps taking space from the work: Shopify rejects apps that offer no way to remove onboarding once it is complete (Shopify, "Built for Shopify requirements"), yet only 7 of 24 products with a setup checklist showed a way to hide it (Mobbin survey, 2026, convention).
 - **Applies when:** the product has a first run, a tour, tips or a setup checklist.
+- **Protects:** economy
 - **Check:** start as a new account and count the screens before people can do the main job: one that asks for setup the product could do without fails. Skip the tour, reload, and sign in again the next day: a tour or tip that comes back by itself fails, and so does one you can't find again. Finish setup, and on another account hide the checklist half done: a checklist that stays after setup, can't be hidden, or loses its progress when hidden fails.
 - **Fail:**
   - a five-screen tour before the first screen of the product;
@@ -44,6 +46,7 @@ A prompt, tip, announcement or promotion that people close or decline doesn't co
 
 - **Why:** asking again after a "no" makes people refuse again at every visit. Primer stores a closed banner so it isn't shown again, Shopify rejects promotions that come back once dismissed, GOV.UK stores a cookie choice for a year, and browsers keep a permanent denial until people change it (Primer, "Banner"; Shopify, "Built for Shopify requirements"; GOV.UK, "Cookie banner"; Harbach and Steiner 2024). A warning people closed while its problem goes on hides a true state, so Atlassian's banners can't be closed and go only when they're no longer needed (Atlassian, "Banner"). A "don't show again" on a warning about unsaved changes can never be turned back on (Cloudscape, "Communicating unsaved changes").
 - **Applies when:** the product shows banners, tips, announcements, promotions or requests.
+- **Protects:** usability
 - **Check:** close or decline each banner, tip and prompt, then reload, sign out and in, and come back the next day: one that comes back fails. Cause a live problem, such as going offline or leaving an error unfixed: a message about it that can be removed from view while the problem lasts fails, and so does one that stays after the problem ends.
 - **Fail:**
   - "Try Pro" that returns at each sign-in after people closed it;
@@ -63,6 +66,7 @@ A process of many steps, or one done over several visits, shows where people are
 
 - **Why:** a count that changes on the way misleads, so Carbon uses no step indicator when the number of steps can change, and GOV.UK shows a total only when it is reliable (Carbon, "Progress indicator"; GOV.UK, "Question pages"). A flat "10 / 47" overwhelms, while phases with the current one open show what to do now (Interface Craft, "Redesigning a Mobile Web App, Part 1" and "Part 2"). Finished tasks drawn as strongly as open ones make the open ones harder to spot, so GOV.UK keeps completed tasks plain (GOV.UK, "Task list"). A box people must tick for something the product already knows is a chore, and a false record when they forget, so Shopify's setup steps mark themselves complete (Shopify, "App home and onboarding").
 - **Applies when:** a process has several steps or is done over several visits, such as an application, a setup or an onboarding checklist.
+- **Protects:** truth
 - **Check:** walk the process and take a branch that adds steps: a count that changes fails. Do each step outside the process, such as connecting the bank from settings, then return: a step the product could see done, still unticked, fails. Find each step that waits on someone else: one shown as an unticked task fails. Dozens of tasks in one flat list, with no phases and nothing open where people are, fail.
 - **Fail:**
   - "Step 3 of 5" that becomes "Step 3 of 7" after an answer;
@@ -78,6 +82,7 @@ Where people may not finish a process in one visit, they can save and leave at a
 
 - **Why:** GOV.UK asks long services done over several sessions to let people save and continue where they left off, and One Login puts "Save and complete later" on every page, with an email that gives the way back (GOV.UK, "Task list"; GOV.UK One Login, "Save progress"). Half-finished answers are still worth keeping, so Agriculture's design system saves without checking them (Agriculture Design System, "Multi-task form"). WCAG asks for a warning when data is kept for less than 20 hours without activity, and calls keeping it at least that long the best way to meet it (WCAG 2.2, Understanding 2.2.6, AAA).
 - **Applies when:** people may not finish a process in one visit, such as an application, a long form or a setup.
+- **Protects:** usability
 - **Check:** start the process, fill half a page, and leave by saving or by closing the tab. Come back the next day, and, where the product has accounts or sends a link back, on another device: answers lost, no way back, or no word on how long they are kept, fails. Try to save a half-finished page: an error that blocks saving fails.
 - **Fail:**
   - an application that keeps answers only for the browser session;
@@ -90,6 +95,7 @@ When people return to something they left, the product shows them where they wer
 
 - **Why:** after an interruption, people's first action took about twice the normal gap between actions, and a clear cue at the place they stopped shortened it, while a subtle cue helped no more than none (Altmann and Trafton 2004; Trafton et al. 2005). Apple restores the previous state so people continue where they left off (Apple, "Launching"), while GOV.UK and Agriculture's design system open a long process on its task list at each return, so people see what is done and what comes next (GOV.UK, "Complete multiple tasks"; Agriculture Design System, "Multi-task form").
 - **Applies when:** people leave something and come back to it: a view, a draft, a long process.
+- **Protects:** usability
 - **Check:** set a view's tab, filters and scroll, open an item, and come back: a view that resets fails, and so do kept filters with no sign that they are on. Leave a long process in the middle of a part and return a day later: landing on its first step, or on the last page with no overview and no mark, fails.
 - **Fail:**
   - a six-part application that reopens on its first page;
@@ -104,6 +110,7 @@ Before people submit a process whose result is hard to take back, such as an app
 
 - **Why:** a page of answers before the end gives people a second chance to notice and correct errors, and a change that sends them through the rest of the process again costs them the whole route (GOV.UK, "Check answers"). Cloudscape recommends a review step at the end of a multi-page process, and PatternFly includes one (Cloudscape, "Multipage create"; PatternFly, "Wizard"), and so did half of 28 application and setup flows seen, half of those with a way to change each section (Mobbin survey, 2026, convention). For legal or financial commitments, and changes to people's stored data, WCAG requires that a submission can be undone, is checked for errors with a chance to fix them, or can be reviewed and corrected before it is final (WCAG 2.2, 3.3.4), since otherwise a slip becomes a commitment people can't get out of.
 - **Applies when:** a process ends in a submission that is hard to take back.
+- **Protects:** usability
 - **Check:** fill the process to its end. A submission that is hard to take back with no page of answers before it fails. Change one answer from the check page: being sent through every later step fails.
 - **Fail:**
   - a loan application submitted from its last question, with no page to check the answers;
@@ -118,6 +125,7 @@ When a process fails before it is done, such as a service that is down or a subm
 
 - **Why:** WCAG requires that what people typed stays when a step or a submit fails in the same visit, unless entering it again is essential, needed for security, or the earlier answer no longer holds (WCAG 2.2, 3.3.7), since otherwise they must recall and retype it. GOV.UK's error pages say what happened to people's answers in the middle of a transaction, and keep them for a reasonable time so people can carry on (GOV.UK, "There is a problem with the service pages"); in its research, people needed to know when the service would work again and how else to get done what they came for (GOV.UK, "Service unavailable pages"). A payment retried without knowing whether the first went through can charge people twice.
 - **Applies when:** a process can fail before it is done.
+- **Protects:** usability
 - **Check:** block the request that submits each step, or turn the network off in the middle of the process. A message that says nothing about the answers fails. Answers gone after a failed step in the same visit fail, and so do answers gone after a reload, or when the service comes back later. Make a payment fail after it was sent: a retry that could charge again, offered before the product says whether the payment went through, fails.
 - **Fail:**
   - "Something went wrong" after the last page of an application, with every field emptied;
@@ -134,6 +142,7 @@ When a step can't go on until someone else acts or something else happens, the s
 
 - **Why:** people who see only "Pending" can't tell whether to wait, chase someone or act, so GOV.UK shows a task that can't start yet with the date it opens (GOV.UK, "Complete multiple tasks"), and a code review names the people it waits on (GitHub Docs, "About pull request reviews", convention). Signature tools name each signer, while 5 of 8 expense approvals seen showed only a status word, such as "Pending" or "Submitted" (Mobbin survey, 2026, convention).
 - **Applies when:** a step waits on another person, a team, a queue or a date.
+- **Protects:** usability
 - **Check:** find each status that waits on someone or something, such as "Pending", "In review" or "Waiting". One that doesn't say whom or what it waits on and since when, or, where it is known, until when, fails.
 - **Fail:**
   - "Pending" on an expense, with no name or date;
@@ -148,6 +157,7 @@ When people finish a process they submitted, the last screen confirms it, gives 
 
 - **Why:** GOV.UK's confirmation pages give a reference, what happens next and when, contact details and a way to save a record, and some people bookmark the page as a receipt, so a later visit answers helpfully (GOV.UK, "Confirmation pages").
 - **Applies when:** people finish a process they submitted, such as an application, an order or a request.
+- **Protects:** usability
 - **Check:** finish each process: a last screen without what happens next and when, or with no way to keep a record, fails. Open its link again a week later: an error or a blank form fails.
 - **Fail:** "Success!" and a button back to the home page.
 - **Pass:** "Application sent. Reference HDJ2123F. We'll reply by 14 March. A copy is in your email. Questions? Call 0300 …"
@@ -160,6 +170,7 @@ People who come back to a task often can do it faster than the first time: the p
 
 - **Why:** shortcuts that newcomers never meet speed up frequent users (Nielsen 1994, heuristic 7), and setting the same filters on every visit is repetitive work, so Cloudscape saves sets of filters, with a default people can change (Cloudscape, "Saved filter sets"). A choice remembered and applied unseen can repeat a mistake, such as sending to everyone again.
 - **Applies when:** people do the same task more than now and then.
+- **Protects:** usability
 - **Check:** do a main task twice, a week apart, as the same person: setting the same filters, picking the same options or walking the same steps again, when the product could remember them, fails. Look for remembered choices on actions that can't be undone: one applied without being shown fails.
 - **Fail:**
   - a report builder that resets its dates and columns at every visit;
@@ -172,6 +183,7 @@ A job people come back to on a rhythm, such as a weekly review, a daily triage o
 
 - **Why:** people returning ask where they were and what happened while they were gone, so Nielsen recommends a short summary of what changed since their last visit (Nielsen 2025). Products mark what changed since people last looked, and let them clear what they handled: a mark on a file edited since you last opened it, and "Done", which takes a notification out of the inbox (Google Docs Editors Help, "Find what's changed in a file"; GitHub Docs, "Managing notifications from your inbox"; convention).
 - **Applies when:** people repeat a job on a rhythm.
+- **Protects:** usability
 - **Check:** do the job, let a week of changes happen, and do it again: having to find what changed by hand, or a queue that doesn't shrink as items are handled, fails. A "new" count that resets at every visit, for a job done weekly, fails.
 - **Fail:** a sales rep's weekly review that opens on all 240 accounts, with nothing marking the six that changed.
 - **Pass:** "6 changed since your review last Monday", each marked, with Done on each, which takes it off the list.

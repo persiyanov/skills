@@ -12,6 +12,7 @@ An invitation people haven't accepted yet shows in the members list, or beside i
 
 - **Why:** Slack's invitations last 30 days, and owners and admins can send them again; GitHub's end after seven days and can be edited or cancelled any time before they are accepted; and Notion lists a temporary member's pending invitation where people manage members (Slack Help, "Invite new members to your workspace"; GitHub Docs, "Inviting users to join your organization"; Notion Help, "Manage members & guests"; convention). Emil Kowalski tests a list with every status at once, such as invited and expired beside active (Emil Kowalski, "Breaking UI"). Of 48 members lists seen, 30 showed pending invitations somewhere, but only 3 showed the date sent and 3 an action such as Resend (Mobbin survey, 2026, convention).
 - **Applies when:** people invite others by name, email or link.
+- **Protects:** usability
 - **Check:** invite someone, then open the members list: an invitation that doesn't show, or shows with no date sent, fails, and so does one with no role where roles differ, or no end where it has one. As someone who manages members, try to change its role, send it again and withdraw it: one that can't be done fails. Open an invite link's settings: no way to turn it off fails, and so does an end date that doesn't show.
 - **Fail:**
   - an invitation that vanishes until accepted;
@@ -27,6 +28,7 @@ An invitation, by email or in the product, names the person who invited, what it
 
 - **Why:** inviting to a Figma team gives access to every file and folder in it, so what people accept can be wider than the item the email names (Figma Learn, "Guide to sharing and permissions"; convention). The interfaces plugin's invitation message names who invited and to what (Jakub Krehel, interfaces "better-writing"). GitHub accepts an email invitation only from an account with that verified address, and Google reminds people with several accounts to sign in to the one a file was shared with (GitHub Docs, "Inviting users to join your organization"; Google Drive Help, "Learn more about access to Google files"; convention). An error that doesn't name the address leaves people guessing which account to use.
 - **Applies when:** people invite others to items, teams or workspaces.
+- **Protects:** truth
 - **Check:** read the invitation email and the page it opens, on their own: no inviter, no item, no role where roles differ, or no end date where it ends, fails. Open an invitation while signed in with another account: no word on which address it is for, or no way to switch, fails.
 - **Fail:**
   - "You've been invited to join Acme.";
@@ -42,6 +44,7 @@ Before an invitation is sent, the product says when it adds a paid seat, or make
 
 - **Why:** GitHub needs a free seat before it invites a member on a per-person plan, Slack bills some guests as members, and Notion adds someone on the organization's domain as a member, and billed, rather than a guest, and shows before Invite how each person will be added when people hover over their name (GitHub Docs, "Inviting users to join your organization"; Slack Help, "Understand guest roles in Slack"; Notion Help, "Manage members & guests", "Sharing & permissions settings"; convention). Google marks files open to people outside the organization as External, and lets admins warn people before they share outside; Slack marks guests with a shape beside their names (Google Drive Help, "Share and manage access to files and folders in Google Drive"; Google Workspace Admin Help, "Manage external sharing"; Slack Help, "Understand guest roles in Slack"; convention).
 - **Applies when:** an invitation can change the bill or the kind of account, or a product has an organization with people outside it.
+- **Protects:** truth
 - **Check:** invite someone who would take a paid seat, and someone on the company's domain as a guest: no word before Send on the seat or the kind of account fails. Share with an address outside the organization: no mark in the dialog or the members list, or no word before Send, fails.
 - **Fail:**
   - the bill grows by one seat with no word;
@@ -58,6 +61,7 @@ Access levels are few, and each is named by what people can do, such as "Can vie
 
 - **Why:** Apple asks for few sharing choices, grouped so people understand them at a glance, including whether collaborators can add new people (Apple, "Collaboration and sharing"). Google lets editors share files with others unless the owner turns that off, while Notion lets only Full access share (Google Drive Help, "Share and manage access to files and folders in Google Drive"; Notion Help, "Sharing & permissions settings"; convention). Of 1,050 people's conflicts over shared cloud files, 44% came from sharing, and adding a new person was the most common action behind them (Alhelali et al. 2023), so whether a level can bring in others is a line people need. Of 18 invite dialogs with a visible list of roles, 11 gave a line for each (Mobbin survey, 2026, convention).
 - **Applies when:** a product has more than one access level.
+- **Protects:** truth
 - **Check:** open the list of levels or roles: a role whose name doesn't say what it allows, such as Admin or Maintainer, with no line on it, fails, and so does a level that doesn't say whether it can share or invite.
 - **Fail:** "Admin, Maintainer, Member", with no lines.
 - **Pass:**
@@ -70,6 +74,7 @@ The share dialog shows, beside the people who have access, who else can open the
 
 - **Why:** a dialog that hides how far an item is open lets people open it wider than they meant, and what others have seen can't be taken back. Apple sums up who can do what in a short phrase that opens the options, and Google and Notion name the reach in plain words, from people given access to anyone with the link (Apple, "Collaboration and sharing"; Google Drive Help, "Share and manage access to files and folders in Google Drive"; Notion Help, "Sharing & permissions settings"; convention). OWASP gives each person only the access their work needs, and Microsoft lets admins set a narrower default link while people still choose wider ones (OWASP, "Authorization Cheat Sheet"; Microsoft Learn, "Change the default sharing link type for a site"); defaults shift what people choose (Jachimowicz et al. 2019). Of 1,050 people in a study of conflicts over shared files, 37% were unhappy that files holding private data had been opened to others, a loss that can't easily be undone (Alhelali et al. 2023). Microsoft's "Anyone" links need no sign-in, and their use can't be traced (Microsoft Learn, "How shareable links work in OneDrive and SharePoint"). Of 43 share dialogs seen, 31 showed the reach, and of 10 that looked new, 8 were narrow (Mobbin survey, 2026, convention).
 - **Applies when:** people can share an item with others or by link.
+- **Protects:** truth
 - **Check:** open Share on an item open to anyone with the link, or to the whole workspace: a dialog that doesn't say so fails. Create an item in a private place and open Share: no plain phrase on who else can open it, or a default open to anyone with the link, fails. Widen access to the widest choice: no word on what that means fails.
 - **Fail:** a new file open to anyone with the link, with nothing in the dialog to say so.
 - **Pass:**
@@ -84,6 +89,7 @@ Where access comes from several places, such as the person, a group, a parent fo
 
 - **Why:** in a test with 18 research assistants, 6 were unsure whether removing a person or a group took away the access it gave, and one said seeing access by group and by file helped them check for mistakes (Frazier et al. 2025). Notion gives each person the widest access they have from any source, and Google can't give someone less access to a file than they have to its folder, and sends people to the folder instead (Notion Help, "Sharing & permissions settings"; Google Drive Help, "Share and manage access to files and folders in Google Drive"; convention). Moving a file out of a shared drive can give or take away access, and moving a Notion page to the private section removes everyone else's access (Google Workspace Learning Center, "How file access works in shared drives"; Notion Help, "Sharing & permissions settings"; convention). People stop reading a warning they see often (Vance et al. 2018), so the warning names who gains or loses, and shows only when someone does.
 - **Applies when:** access can come from more than one place, or follows where an item sits.
+- **Protects:** truth
 - **Check:** give someone access through a group and directly, then open the list: two rows with different levels and no word on which applies fails. Try to lower access that comes from a folder: no word on where to change it fails. Move a shared item into a private place: no word on who loses access fails, and so does a warning on a move that changes nobody's access.
 - **Fail:** three people lose access to a moved page with no word.
 - **Pass:**
@@ -98,6 +104,7 @@ A person who opens something they can't see gets a page that says so, offers a w
 
 - **Why:** Google, Notion and Figma let people without access request it from the page, Notion also lets people who can only view or comment ask for edit access from the page, and Google reminds people with several accounts to sign in to the right one (Google Drive Help, "Learn more about access to Google files"; Notion Help, "Sharing & permissions settings"; Figma Learn, "Guide to sharing and permissions"; convention). Carbon suggests the steps to request access on a permissions page, and the UK Department for Education found its no-access pages didn't make it easy to find out how to get access, often after a link someone sent (Carbon, "Empty states"; UK Department for Education 2023). Google sends a request to the file's creator, and to managers when the creator can't share, and lets people be told the answer (Google Drive Help, "Learn more about access to Google files"; Google Workspace Learning Center, "How file access works in shared drives"; convention). HTTP lets a server answer "not found" to hide that a forbidden item exists, and GitHub does this for private repositories (RFC 9110; GitHub Docs, "Troubleshooting the REST API"). Of 10 no-access pages seen, 2 had a Request access button and 3 showed the account (Mobbin survey, 2026, convention).
 - **Applies when:** people can open links or items they may not have access to.
+- **Protects:** usability
 - **Check:** open a link you have no access to, signed in with a second account: no way to ask, no sign of the account or no way to switch fails; signed out, no way to sign in fails. Request access, then answer as the owner: a request that goes to someone who can't grant it, or no answer back to the person who asked, fails. Open another team's private project by its address, where its existence is private: a page that names the project fails.
 - **Fail:**
   - "Access denied." and nothing more;
@@ -114,6 +121,7 @@ Where people work on a shared item, it shows that it is shared and with whom, an
 
 - **Why:** Apple shows a collaboration button as soon as content is shared, which reminds people it is shared and with whom, and posts notices when the people in it change (Apple, "Collaboration and sharing"). Notion shows the faces of people with access at the top of a page, and Google marks files open outside the organization (Notion Help, "Sharing & permissions settings"; Google Drive Help, "Share and manage access to files and folders in Google Drive"; convention). Researchers asked for indicators and logs that show how data is shared and what changed (Frazier et al. 2025), and 15% of people in a study of conflicts over shared files said someone had acted without their consent, such as adding a person (Alhelali et al. 2023).
 - **Applies when:** people can share items.
+- **Protects:** truth
 - **Check:** open a shared item where people work on it: no sign that it is shared, or no way to the list of who has access, fails. Change someone's access, then look for a record of it as the owner: none fails.
 - **Fail:** a document shared with 40 people that looks like a private one.
 - **Pass:**
@@ -127,6 +135,7 @@ Before someone is removed, the product says what happens to their access, their 
 
 - **Why:** GitHub's help lists what removing a member does; GitHub cancels the invitations they sent, and keeps their membership for three months so they can be brought back; Slack keeps a removed member's messages and files and can reactivate them; Linear keeps suspended people in the members list beside the issues they made; and Google Workspace deletes a removed person's data unless an admin moves it first (GitHub Docs, "Removing a member from your organization"; Slack Help, "Deactivate a member's account"; Linear Docs, "Members and roles"; Google Workspace Admin Help, "Delete or remove a user from your organization"; convention). Of 23 removal dialogs seen, 4 said what happens to the person's work, and 13 said only that they lose access (Mobbin survey, 2026, convention).
 - **Applies when:** people can remove others from a workspace, a team or an item.
+- **Protects:** usability
 - **Check:** remove a member who made items and sent invitations: no word before removal on what happens to their work and their invitations fails, and so does work the product said would stay vanishing or losing their name afterwards.
 - **Fail:** "Remove Dana?" and nothing more, after which her 12 documents disappear.
 - **Pass:**
@@ -140,6 +149,7 @@ Access, or a link, that ends on a date shows the date beside the person or the l
 
 - **Why:** Slack reminds a guest and the admin who set the date five days before the guest's account ends, and the date can be extended; Notion shows a temporary member's end date in the members list; and a Dropbox link ends at midnight in its creator's time zone, which people in another zone can misread (Slack Help, "Understand guest roles in Slack"; Notion Help, "Manage members & guests"; Dropbox Help, "How to set or change shared link permissions"; convention).
 - **Applies when:** access or links can end on a date.
+- **Protects:** usability
 - **Check:** give access that ends in a week, and read its end as someone in another zone: a time with no zone, and not in the reader's zone, fails. No date beside the person, no reminder before it ends, or no way to change it, fails.
 - **Fail:** a contractor's access that stops with no date shown and no warning.
 - **Pass:**
@@ -152,6 +162,7 @@ What people own is never left with no one to run it: the last owner can leave, b
 
 - **Why:** GitHub recommends at least two owners, since projects with one can become unreachable, and Slack can't deactivate its primary owner until ownership moves (GitHub Docs, "Maintaining ownership continuity for your organization"; Slack Help, "Deactivate a member's account"; convention). Emil Kowalski tests a members list for the current person's "You" label and for actions that shouldn't apply to oneself (Emil Kowalski, "Breaking UI"). Google keeps the old owner as an editor after a move and lets a personal account's move be cancelled until the new owner accepts, while a work account moves ownership only to someone in its organization, with no acceptance step; GitHub waits for a personal account to accept a moved repository, and sends its old address on to the new one (Google Drive Help, "Make someone else the owner of your file"; GitHub Docs, "Transferring a repository"; convention).
 - **Applies when:** a product has owners of workspaces or items.
+- **Protects:** usability
 - **Check:** as the only owner, with no admin above you, try to leave or make yourself an editor: a product that lets you, and leaves no owner, fails. Change your own role: no word on what you'll lose fails. Move ownership of an item to a personal account: an item that moves at once, or an old owner locked out, fails.
 - **Fail:** the only owner leaves, and no one can change the billing or add people.
 - **Pass:**
