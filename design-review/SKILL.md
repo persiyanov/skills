@@ -1,6 +1,6 @@
 ---
 name: design-review
-description: 'Review or critique a UI or a design in any medium, such as Paper frames, a running app or its code, before or after it ships: fresh subagents look through ten lenses in four groups (concept, simplicity, functional, craft), each failure comes with its proof, and the report lists them in the order to fix them. Light mode (one subagent per group) unless you say "full". To change the design, use /designing.'
+description: 'Review or critique a UI or a design in any medium, such as a running app or Paper frames, before or after it ships: fresh subagents look through ten lenses in four groups (concept, simplicity, functional, craft), each failure comes with its proof, and the report lists them in the order to fix them. Light mode (one subagent per group) unless you say "full". To change the design, use /designing.'
 argument-hint: "<target> [full]"
 ---
 

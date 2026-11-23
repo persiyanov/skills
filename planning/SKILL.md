@@ -30,7 +30,7 @@ Otherwise write the plan in the format under Files, and check that everything th
 
 ## 4. Build
 
-Build the tickets in order without waiting for replies. Build only what the spec asks for. Take what people see from the approved design on its branch. When you find other work, mention it in your next report and keep building. Build each ticket yourself, and use subagents only for research and review.
+Build the tickets in order without waiting for replies. Build only what the spec asks for. When you find other work, mention it in your next report and keep building. Build each ticket yourself, and use subagents only for research and review.
 
 Every step you can run is your job: CLIs, QA, and live checks the user's rules allow. Leave to the user only decisions that need their judgment and what only they have.
 
@@ -46,7 +46,7 @@ If an acceptance check or the next ticket needs a merge, a deploy or a person, s
 
 ## 5. Get it merge-ready
 
-When a PR's linters and affected tests pass, run /zen-review on its full diff. When it changes what people see, also run /design-review on the build: it checks each page against its approved design.
+When a PR's linters and affected tests pass, run /zen-review on its full diff. When it changes what people see, also run /design-review on the build.
 
 The PR description says how it was validated and links the spec.
 
