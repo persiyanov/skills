@@ -37,4 +37,6 @@ When the change alters what people see, run /designing on the reviewed spec. Its
 
 ## 5. Approve
 
-Show only the summary, the decisions you made, what review changed and, with a design, its overview card and the work as it is now beside today's. One approval covers the spec and its design: with a design, it's the style approval that /designing asks for. When they approve, set the status to Approved and move on to /planning. If you return to an approved spec, set it back to Draft and get approval again.
+Show only the change, the summary, the decisions you made and what review changed, in that order. Show the change with /show-me on a real case for each consumer: what they get today beside what they get after the spec. Compare with what runs today rather than an earlier draft, because the round diffs showed how the spec changed, and the user approves what changes for its consumers. With a design, show what people see with its overview card and the work as it is now beside today's.
+
+One approval covers the spec and its design: with a design, it's the style approval that /designing asks for. When they approve, set the status to Approved and move on to /planning. If you return to an approved spec, set it back to Draft and get approval again.

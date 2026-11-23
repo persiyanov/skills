@@ -15,7 +15,7 @@ Keep interviewing the user until you reach a shared understanding. Map what is b
 
 **Understand first.** Read the code, docs and data, and run the cheap check (/principles: Know What Is True). Then think it through yourself: the real need behind the request, what must be true for it to work, the options down to the simplest and doing nothing, and how each one fails.
 
-Finding facts is your job, never the user's: the code, logs, CLIs, docs and live checks are yours to use. When a question needs a fact, start a subagent to find it, and don't block on it: a running search is an unresolved dependency, so only the questions that depend on it wait. A choice the facts settle is not a question; it goes into the artifact with its source.
+Finding facts is your job, never the user's: the code, logs, CLIs, docs and live checks are yours to use. When a question needs a fact, start a subagent to find it, and don't block on it: a running search is an unresolved dependency, so only the questions that depend on it wait. A choice the facts settle is not a question; it goes into the artifact with its source, and the round reports it with what you found.
 
 Ask what only the user knows: their values, their customers, their taste, context you can't look up, and every choice the facts don't settle.
 
@@ -31,33 +31,45 @@ Number questions across the session, so the user can answer "4 A, 5 B" and reope
 
 ## Format
 
-Show the artifact the questions are about with /show-me: the part of the spec, a flow, a schema, the user's own plan, as it is today and as proposed. A choice asked without the design it changes can't be judged. Write the context for someone who missed your research: who it affects, and what each name means.
+A question takes its form from what its answer needs. All three forms keep the label, the context and the Question line:
+
+- **A choice between options:** the format below.
+- **Whether something is true:** the claim, the evidence for and against with sources, what follows either way, and what would change your mind.
+- **What only the user knows or wants:** an open question and what depends on the answer. Leave out options and a recommendation, because they would answer for the user.
+
+For a choice, show the artifact it changes with /show-me: the part of the spec, a flow, a schema, the user's own plan. Run one real case through today and every option, side by side, or stacked under the same labels when that's too wide. That comparison is the option list, so each option appears once. A choice can't be judged from the recommended option alone: the user has to see what they would be turning down.
+
+Write the context for someone who missed your research: who it affects, and what each name means.
 
 ```
 Round <n>: <topic>, <count> questions
 
 <what you found since the last round, and any conflict or reopened decision>
 
-<the artifact>
-
 ❓ **Q4** - **<label>**: <the context needed to decide>
 
 Question: <the question>
 
-A. <option, what it costs>
-B. <option, what it costs>
-C. <option, what it costs>
+Case: <one real case>
+
+Today: <the case as it works now, or "nothing">
+
+A. <option>: <what differs in the same case, what it costs>
+B. <option>: <what differs in the same case, what it costs>
+C. <option>: <what differs in the same case, what it costs>
+
+How others do it: <other products or projects on this same question, linked to their own docs or code, or "none" and why>
 
 ➡️ <your recommendation, and the fact that favors it over the next best option>
 
 ---
 
-❓ **Q5** - <same format>
+❓ **Q5** - <the form its answer needs>
 
 ---
 ```
 
-One decision per question, with real options. The label is never the question; the Question line states it directly. The recommendation is never a bare letter: name the fact, so the user can disagree with the reason rather than ask for it. If a question can't be answered in a minute, the context is missing, or it needs its own rounds.
+One question per number. A choice has real options. The label is never the question; the Question line states it directly. The recommendation is never a bare letter: name the fact, so the user can disagree with the reason rather than ask for it. If a question can't be answered in a minute, the context is missing, or it needs its own rounds.
 
 ## Actions
 
@@ -74,4 +86,4 @@ Either side can call an action; name the one you take and why.
 
 ## Done
 
-No decisions are left: every branch visited, nothing silently assumed. Don't act on the outcome until the user confirms you have reached a shared understanding.
+Nothing is left to ask: every branch visited, nothing silently assumed, and each claim still uncertain named with what would settle it. Don't act on the outcome until the user confirms you have reached a shared understanding.
