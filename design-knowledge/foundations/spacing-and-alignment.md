@@ -73,7 +73,8 @@ Parts that share no role don't need to share a line.
   - one centered block inside a left-aligned list (Interface Craft, "Layout & Alignment");
   - one pane's title 25 px lower than the titles and tabs of the panes beside it;
   - a list item without an icon whose text starts where the other items' icons are;
-  - counts and badges at the end of rows that end 12 px before the chevrons above them.
+  - counts and badges at the end of rows that end 12 px before the chevrons above them;
+  - a 32 px Filter button beside 24 px filter chips in one row, so their tops and bottoms miss each other's lines.
 - **Pass:**
   - one leading edge for the column, with nested content indented by one spacing step;
   - a box moved 1 px so the shape inside it looks aligned;

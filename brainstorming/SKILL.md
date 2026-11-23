@@ -33,7 +33,7 @@ Verify each finding. If it changes what the user decided or asked for, ask them.
 
 ## 4. Design
 
-When the change alters what people see, run /designing on the reviewed spec. Its record, `design.md`, goes in the spec's folder, and the design lives in the medium it was drawn in, such as Paper. Together they are the spec's account of what people see: the Solution links them instead of describing screens. When the design shows the spec is wrong, fix the spec as review does: ask the user when it changes what they decided.
+When the change alters what people see, run /designing on the reviewed spec. Its record, `design.md`, goes in the spec's folder, and the design lives on its branch, with explorations on Paper. Together they are the spec's account of what people see: the Solution links them instead of describing screens. When the design shows the spec is wrong, fix the spec as review does: ask the user when it changes what they decided.
 
 ## 5. Approve
 

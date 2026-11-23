@@ -5,7 +5,8 @@
 
 Status: Draft | Approved
 Spec: <the product spec it belongs to> | none
-Medium: <the Paper file and page, or the branch, how to run it, and where the test login for each role comes from, never a password>
+Branch: <the branch, how to run it, and where the test login for each role comes from, never a password>
+Explorations: <the Paper file and page> | none
 
 ## Summary
 
@@ -42,7 +43,7 @@ A job without evidence is an assumption: mark it as one.
 
 ## The bar
 
-<As design-knowledge's `product-standards.md` describes: the people and the state they arrive in, the best products and what each does well, the products the user loves, and, when the look is in play, the ranked qualities and what each best product decided.>
+<As design-knowledge's `product-standards.md` describes: the people and the state they arrive in, the best products and what each does well, the products the user loves, and, when the work changes the look, the ranked qualities and what each best product decided.>
 
 <Until the repo has UI rules: the ranked qualities, and the log of what the user said, one dated line each.>
 
