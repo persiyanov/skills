@@ -25,10 +25,10 @@ Each lens is one way of finding problems. A finder works through its whole lens,
 
 ### Convention
 
-- **Question:** would a well-made product make each part this way, and do the product's other pages?
+- **Question:** would a well-made product make each part this way, do the product's other pages, and what does the same page in the best products offer that this one lacks?
 - **Gets:** the design, the product's other pages and the bar.
-- **How:** for each part, ask the plain question that design-knowledge's "Making a part" asks, and answer from what you know. Then compare each part with the parts that do the same job on two or three of the product's own pages, and each kind of thing, such as a person, a file or a status, with the form it takes elsewhere in the product, because people learn a part once and expect it to work the same everywhere.
-- **Proof:** the usual form in one line, with a well-made product that uses it, or the product's own part that does the same job another way.
+- **How:** for each part, ask the plain question that design-knowledge's "Making a part" asks, and answer from what you know. Then compare each part with the parts that do the same job on two or three of the product's own pages, and each kind of thing, such as a person, a file or a status, with the form it takes elsewhere in the product, because people learn a part once and expect it to work the same everywhere. Last, list what the same page in the bar's products offers that this one lacks, such as choosing columns or saving a view, and keep each one that a job here needs.
+- **Proof:** the usual form in one line, with a well-made product that uses it; the product's own part that does the same job another way; or, for something missing, the products that have it and the job that needs it.
 - **Rules:** familiarity.
 - **Not a finding:** a difference that a fact in the record justifies.
 

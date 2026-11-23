@@ -28,7 +28,7 @@ A lens is one way of finding problems: one question, with its own input, method 
 ## What you get
 
 - **The target:** a part, a page, a journey or a whole product, in every state and every place it appears. List every part in it, down to its primitives, so that no lens misses one (Brad Frost, "Interface Inventory", 2013). For a whole product, review every page of each main journey, one page of each kind, the most-visited pages and a few at random (W3C, WCAG-EM 2.0).
-- **The design, in any medium:** a spec's places in words, Paper frames, a running app with a test login for each role and a way to reach each state, or its code. Change data only in a test account or a local or staging build, and ask before anything that writes to a production app. Each lens asks its question in every medium and checks more where the medium shows more. Anything the medium can't show is not covered, never passed.
+- **The design, in any medium:** a spec's places in words, Paper frames, a running app with a test login for each role and a way to reach each state, or its code. Change data only in a test account or a local or staging build, and ask before anything that writes to a production app. Each lens asks its question in every medium and checks more where the medium shows more. Anything the medium can't show is not covered, never passed. A state that the medium could show but the design doesn't, such as a control that is never drawn open, is a finding.
 - **The record:** the work's spec, when it has one, for the problem, the people and their jobs, the things and places, the cases, the bar, and what the design must meet; and the product's UI rules and their log, as design-knowledge's `product-standards.md` describes. Without a spec, write the problem and the jobs from the product's docs, data and support threads rather than from the page under review, find the best products for the bar yourself, take the ranked qualities from the product's UI rules, mark each as your reading, and say in the report that the spec was missing.
 - **A findings file** outside the repo, such as in the session's scratchpad, written from the first finding and updated at every step, because a long review can lose its context, and the file is what survives.
 
@@ -42,13 +42,13 @@ A lens is one way of finding problems: one question, with its own input, method 
    - From scratch gets only the problem, the people, their jobs, the cases and the data, as extracts, never the record itself. Send it the design in a second message, after it has returned its own answer, so it never shares a finder.
    - Give each finder the opening of `references/lenses.md` and its lens's section, the target, the medium, the tasks, the parts of the record that its lens names, and nothing else about the work: no reasons from the designer, and no other lens's findings. It reads whatever files and skills its lens names.
    - In Claude Code, launch each finder with model `opus` and effort `medium`.
-3. **Merge:** wait for every finder. Merge findings that name the same element and the same cause, keeping the most concrete proof. Group the rest by the decision that causes them, because one fix at the cause removes several failures.
+3. **Merge:** wait for every finder. Merge findings that name the same element and the same cause, keeping the most concrete proof. Group the rest by the decision that causes them, because one fix at the cause removes several failures. In the findings file, quote each finder's problem and proof as it wrote them, with a status, and never a fix, because a later check that reads a fix checks the fix instead of the problem.
 4. **Check** every finding, because the designer can't tell a proven failure from a guess. Label each one CONFIRMED, DISPROVED or UNPROVEN, and quote the proof. A Less finding is disproved when another lens shows that someone loses something without the part. Unsure is UNPROVEN, never DISPROVED, and a finding stays even when it seems minor.
 5. **Report,** as "What to return" describes.
 
 ## Verifying fixes
 
-After the findings are fixed, a fresh subagent checks the fixes, as `references/verify.md` describes. Give it the findings that were fixed, the design before and after, the record and `references/verify.md`, and never the fixer's description of the fixes, because it would check the description instead of the design. In Claude Code, launch it with model `opus` and effort `medium`.
+After the findings are fixed, a fresh subagent checks the fixes, as `references/verify.md` describes. Give it the findings that were fixed, as the findings file quotes them, the design before and after, the record, `references/verify.md` and the Look and Detail sections of `references/lenses.md`, and never the fixer's description of the fixes, because it would check the description instead of the design. In Claude Code, launch it with model `opus` and effort `medium`.
 
 ## What to return
 

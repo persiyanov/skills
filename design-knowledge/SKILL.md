@@ -100,7 +100,7 @@ Each piece of work judges its design against the guides and against the product'
 | Interaction: when each state shows, the answer to a press, waits, focus, announcements, keyboard, pointer and touch, selecting text, messages that appear on their own, when errors appear, shortcuts, view changes in a single-page app | `foundations/interaction.md` |
 | Motion: the job of each animation, duration and easing, entering, leaving and moving, motion that plays by itself or follows scrolling, reduced motion | `foundations/motion.md` |
 | Content: each screen's job, which information and actions it shows, in what form, order and amount, how each kind of thing and each event is shown, which leads (the first screen, the primary action, headings, promotions), which images belong, what it starts with, AI notices and ads, and its empty, loading, failed, partial and out-of-date states | `foundations/content.md` |
-| Copy: names, headings, labels and titles, the words on buttons, links and fields, error and status messages, voice and tone, capitalization, dates, numbers, money and counts | `foundations/copy.md` |
+| Copy: names, headings, labels and titles, a fact shown as its value rather than a sentence, the words on buttons, links and fields, error and status messages, voice and tone, capitalization, dates, numbers, money and counts | `foundations/copy.md` |
 | Accessibility: what assistive technology gets (elements and ARIA, names, text alternatives, structure in the code and its order), fields, media, landmarks, testing beyond scanners | `foundations/accessibility.md` |
 
 ## Product
@@ -137,7 +137,7 @@ The pattern guides are shortcuts: the gotchas of common tasks, which save derivi
 | Measuring a page: the type, colors, borders, radii, spacing and motion it renders | `scripts/style-inventory.js` |
 | Every source, with its link | `sources.md` |
 
-Each guide cites the WCAG 2.2 A and AA criteria for its subject by number. Not covered yet: the composition of a whole screen, and how to build a look from the ranked qualities; what makes the moments people remember feel considered; the extras that designs pick up, such as prose under a title, as gotchas for "A part's place"; charts, for which use /dataviz; logos and brand marks; front-end code. Where a part needs one of these, say so, and work from the fundamentals and the best products.
+Each guide cites the WCAG 2.2 A and AA criteria for its subject by number. Not covered yet: the composition of a whole screen, and how to build a look from the ranked qualities; what makes the moments people remember feel considered; the extras that designs pick up, as gotchas for "A part's place"; charts, for which use /dataviz; logos and brand marks; front-end code. Where a part needs one of these, say so, and work from the fundamentals and the best products.
 
 ## Sources
 

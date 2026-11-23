@@ -34,7 +34,7 @@ A job without evidence is an assumption: mark it as one.
 
 ## Places
 
-<The breadboard: each place, what it shows and lets people do, what it opens on, where each action leads, and its empty, loading and error states. A rough sketch only where the arrangement is the idea.>
+<The breadboard: each place, what it shows and lets people do, what it opens on, where each action leads, and its empty, loading and error states. Then each place as a rough ASCII mockup with real data: what sits where, with its labels and values, and no styling.>
 
 ## Cases
 

@@ -2,7 +2,7 @@
 
 Covers the words of a product's interface: what things are called, headings, labels and page titles, the words on buttons, links and form fields, error and status messages, voice and tone, capitalization, and how dates, times, numbers, money and counts are written. Not covered here: which content a page shows and its empty, loading and failed states, typographic characters, capitals and truncation, where things sit, what stands out, and the words of marketing pages.
 
-The rules come in three groups: rules for every level, then rules for primitives (how one value is written: a date, a time, a number, an amount, a count; the words on a button or a link) and components (form fields, and error and status messages).
+The rules come in three groups: rules for every level, including how a fact shows, then rules for primitives (how one value is written: a date, a time, a number, an amount, a count; the words on a button or a link) and components (form fields, and error and status messages).
 
 ## Every level
 
@@ -127,9 +127,31 @@ Each kind of text has one capitalization, used everywhere: buttons, menu items, 
   - "Save changes" and "Discard changes", and every heading in sentence case;
   - title case on every button of a product that follows Apple's platform rules ("Alerts").
 
+### 7. A fact shows as its value, not as a sentence about it
+
+A fact about a thing, such as its status, a date, a count, who it belongs to or where it came from, shows as its value: a word, a tag, a date, a number, a name, or an icon with a word, beside a label of one or two words that names the field. Several facts sit side by side, or as label and value pairs. They are never joined into a sentence that tells people about the thing, and a value never carries the designer's reading of the data. Labels, column titles, sort options and view names are short names for what they hold, with the key word first, and a view shows its conditions as its filters, not as a sentence. Two kinds of text are sentences, each with its facts kept as values: an event, written as one line of who did what to which thing and when, in one shape for every event; and a message that people read to act, such as an error, an empty state or a confirmation.
+
+- **Why:** People scan an interface rather than read it: 79% of test users always scanned a new page, and text made concise, scannable and objective made a site 124% more usable (Nielsen 1997; Morkes and Nielsen 1997). In a list, people see about the first two words of each item (Nielsen 2009). A value can be compared, sorted, lined up and found by its shape, such as the digits of a date, while a sentence must be read whole. Design systems show a record as a list of key facts (GOV.UK, "Summary list"), a status as a short word in a tag or badge (GOV.UK, "Tag"; Carbon, "Status indicators"; Atlassian, "Lozenge"; Shopify, "Badge"), and a column title in one or two words (Carbon, "Data table"). An event is an actor, a verb and an object (W3C, "Activity Streams 2.0"), and an error or an empty state says what happened and what to do (GOV.UK, "Error message"; Shopify, "Empty state").
+- **Applies when:** text shows facts about a thing, a list or a view, except text that people write themselves, such as a message or a note.
+- **Protects:** clarity
+- **Check:** list every text that shows a fact: fields, cells, cards, tags, subtitles, descriptions of views and filters, column titles and sort options. For each, name the facts it holds. Text that joins two or more facts into a sentence fails, and so does a value that adds a reading of the data, such as a "when", "since" or "because" clause. A label, column title or sort option of more than about three words fails, and so does one whose key word comes last. Then read each event line: one that doesn't read who, what, which thing and when, or that takes another shape than the other events, fails. Each message must be a sentence that says what happened and what to do.
+- **Fail:**
+  - "Connected since Nov 4. Ana follows you. She wrote last, 5 days ago." on a contact's card;
+  - "Sep 1, when Ana reacted to a post" as the value of "Added";
+  - "They wrote to you last, in the past 30 days" above a list, in place of its filters;
+  - "Their last message" as a column title;
+  - a page subtitle that rewrites itself from the data, such as "You have 3 overdue invoices and 2 drafts".
+- **Pass:**
+  - "Connected" with "Nov 4", a "Follows you" tag, and "Last reply" with "5 days ago", as label and value pairs;
+  - "Added" with "Sep 1", and "Source" with "Reacted to a post";
+  - a view whose filters show as tags, such as "Last message by them" and "Last 30 days";
+  - "Last reply" as a column title;
+  - "Ana replied · 7:39 PM" in a history where every event is one line of who did what, and when;
+  - "Your invoice couldn't be sent. Check the address and try again.", a message people act on.
+
 ## Primitive
 
-### 7. Dates and times can't be misread
+### 8. Dates and times can't be misread
 
 Dates and times are written so that every reader takes them as the same moment: through the platform's formatter, in the reader's region and clock, never in a format built by hand. A date people act on, such as a deadline, shows its month as a word; YYYY-MM-DD is for exports and data people sort. A time that isn't in the reader's zone shows its zone, by name or offset, never by an abbreviation that several zones share. Relative time, such as "3 minutes ago", is for recent events and turns into a date after a set time, and the exact time behind it can be reached by keyboard, touch and screen reader.
 
@@ -152,14 +174,14 @@ Dates and times are written so that every reader takes them as the same moment: 
   - a birthday or an all-day event with no zone;
   - an all-number date from the formatter, in the reader's own region, in a tight table column.
 
-### 8. Numbers and money: the reader's format, at the precision they need
+### 9. Numbers and money: the reader's format, at the precision they need
 
 Numbers, amounts and percentages follow the reader's region, through the platform's formatter: its digit grouping, decimal mark, currency position and percent sign. So do units of measure, such as °C or km, unless the field has one standard unit, such as feet for flight altitude. Wherever readers could take a symbol for another currency, as when "$" can mean US, Canadian or Australian dollars, the currency is named. Counts and amounts in the interface are numerals, such as "8 deployments"; "one" may stay a word in a phrase such as "one of your devices". A number shows the precision the task needs: rounded where people compare or summarize, exact where they act on it, as with a price, a balance or a limit. A shortened number such as 1.2K comes from the formatter, appears only where precision doesn't matter, and has its exact value within reach.
 
 - **Why:** 1,234.5 in the US is 1.234,5 in Germany and 1 234,5 in France, so a number formatted by hand for one region reads as another value in the next (MDN, "Intl.NumberFormat() constructor"), and people pay or decide on the wrong value. "$" stands for several dollars, so people can't tell which one they pay in (Apple Style Guide, "Currency"; Shopify, "Explicit currency formatting"). Most people compare numbers only after rounding them in their heads to two digits (Ehrenberg 1977), and long numbers are slow to read (de Chambrier et al. 2023). Shortened forms such as K hide the exact value and differ by language: German keeps 1250 whole, and Japanese groups by ten thousand (Microsoft, "Numbers"; CLDR data). CLDR stores each region's measurement system, metric, US or UK, and its preferred units, temperature included (UTS #35, Part 6). People scan for numbers, and a number written as a word doesn't stand out, so GOV.UK writes every number but "one" as a numeral, and Microsoft allows numerals in tables and the interface (GOV.UK, "A to Z style guide"; Microsoft, "Numbers").
 - **Applies when:** a screen shows numbers or amounts.
 - **Protects:** clarity
-- **Check:** in the code, look for numbers and amounts built by hand: separators or currency signs added as text, a fixed two decimals, "K" or "M" added to a number. Switch the locale as in rule 7, to de-DE and fr-FR: a number whose separators don't change fails, and so does a temperature, distance or weight that doesn't follow the region, unless the field uses one unit everywhere. Where two currencies that share a symbol can appear, an amount people pay with a bare symbol fails, and so does a bare shared symbol on one price that people in several countries see. `Intl.NumberFormat` writes US dollars as a bare "$" for a US reader, and `currencyDisplay: "code"` gives "USD 1,250.00". For each number, ask what people do with it: digits they can't use on a figure they only compare, or a rounded value they act on, fails. A count written as a word, such as "three items", fails.
+- **Check:** in the code, look for numbers and amounts built by hand: separators or currency signs added as text, a fixed two decimals, "K" or "M" added to a number. Switch the locale as in rule 8, to de-DE and fr-FR: a number whose separators don't change fails, and so does a temperature, distance or weight that doesn't follow the region, unless the field uses one unit everywhere. Where two currencies that share a symbol can appear, an amount people pay with a bare symbol fails, and so does a bare shared symbol on one price that people in several countries see. `Intl.NumberFormat` writes US dollars as a bare "$" for a US reader, and `currencyDisplay: "code"` gives "USD 1,250.00". For each number, ask what people do with it: digits they can't use on a figure they only compare, or a rounded value they act on, fails. A count written as a word, such as "three items", fails.
 - **Fail:**
   - "Eight deployments failed";
   - "$1,250" at a checkout that sells in US and Canadian dollars;
@@ -172,7 +194,7 @@ Numbers, amounts and percentages follow the reader's region, through the platfor
   - a plain "$" in a product that sells only in US dollars to people in the US, or on each line of an order whose total names the currency;
   - the same number of decimals on every amount in a column, so the column lines up.
 
-### 9. Counts and sentences read right in every language
+### 10. Counts and sentences read right in every language
 
 A count picks its words through the language's plural rules (ICU MessageFormat, `Intl.PluralRules` or the platform's own), so no text reads "1 items", "item(s)" or "0 file". Each message is written as one whole sentence, with placeholders for its values, never joined from pieces in the code. Product text leaves out idioms and wordplay that don't translate.
 
@@ -191,7 +213,7 @@ A count picks its words through the language's plural rules (ICU MessageFormat, 
   - a label and its value in separate elements, such as "Files" above "5";
   - a list joined by the language's own list format (`Intl.ListFormat`).
 
-### 10. A button says what it does
+### 11. A button says what it does
 
 A button's label names the result of pressing it, starting with a verb: "Save", "Send invoice", "Delete project". It adds the object when the verb alone is unclear, or when several buttons share a verb. A dialog's buttons repeat its action, such as "Delete project" and "Cancel", never "Yes" and "No"; "OK" only closes a message that informs. Standard words stay: "Cancel", "Next", "Continue" and "Done". A switch or checkbox is labeled with the setting it turns on, in positive words. A checkbox that gives consent asks for one thing, apart from other terms, in plain words.
 
@@ -213,7 +235,7 @@ A button's label names the result of pressing it, starting with a verb: "Save", 
   - "Save" alone on a page that saves one thing;
   - "OK" on a message that only informs.
 
-### 11. A link says where it goes
+### 12. A link says where it goes
 
 A link's words, read with its sentence, paragraph, list item, or table cell and its header, or with text tied to it in code, tell people where it goes or what it does, and they start with the key word. "Click here", "here", "More" and a bare "Learn more" don't say where they go; "Learn more about exports" does. A link that opens a new tab says so in its text, and a link to a file names its type and size, such as "Price list (PDF, 240 KB)". Text that sends people to a setting links to it, rather than writing out its path.
 
@@ -234,7 +256,7 @@ A link's words, read with its sentence, paragraph, list item, or table cell and 
 
 ## Component
 
-### 12. Every field has a visible label, and what it needs shows before people type
+### 13. Every field has a visible label, and what it needs shows before people type
 
 Each field has a label that stays in view while people type, and says in people's words what to enter. What a field needs, such as its format, its limits and whether it is optional, shows before people type, in the label or a hint under it, not only in the error afterwards. Placeholder text never replaces the label or the hint; at most it holds an example. Labels don't assume one country's names or addresses: "Full name", or "Given names" and "Family name" where the parts are needed, rather than "First name" and "Last name", where people come from many countries. A field, or a request for the camera, location or another permission, whose reason isn't plain says what it is for, such as "Only used to text you when your order is ready".
 
@@ -256,7 +278,7 @@ Each field has a label that stays in view while people type, and says in people'
   - a chat box with a send button, or a quantity field with plus and minus buttons beside each product;
   - the reason for a field in an info tip right after its label, where few people need it to decide, such as why a date of birth is asked (Kaplan 2026).
 
-### 13. An error says what went wrong and how to fix it
+### 14. An error says what went wrong and how to fix it
 
 An error message names what went wrong, specifically, and tells people how to fix it: the field, the value or the limit, with the fix as an instruction, such as "Enter a date before 1 January 2027". It doesn't blame or scare people, and it carries no jokes. Codes and technical detail stay out of the message, or sit under it for support. When the cause is truly unknown, the message says so plainly and gives the next step. The same words appear at the field and in any summary of errors.
 
@@ -276,7 +298,7 @@ An error message names what went wrong, specifically, and tells people how to fi
   - an error code under the message, labeled for support, such as "Error ID: 7F3A";
   - "Something went wrong. Try again in a few minutes." when the cause is truly unknown.
 
-### 14. Status messages use the action's own words
+### 15. Status messages use the action's own words
 
 Messages about an action in progress, or done, use the verb of the control that started it: "Save" becomes "Saving…" and then "Saved". A done message names what changed, in a few words, such as "Invoice sent" or "3 files deleted". Its size fits the action: a routine action gets a short, quiet message, or none when the result shows where it happened; "Success!", "successfully" and exclamation marks are left out. A wait past about ten seconds says what is happening, such as "Loading invoices…".
 

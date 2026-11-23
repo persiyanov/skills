@@ -18,7 +18,7 @@ When /brainstorming runs this skill, its grilling already settled the problem, t
 
 ## 2. Write the spec
 
-Write `design.md` from `references/design.md`, next to the product spec when there is one, and otherwise in a new folder where the repo keeps its specs. Write it at the level that Shape Up calls rough, solved and bounded (Singer, *Shape Up*, 2019): rough, with no visual design, so that drawing still has room; solved, with the main parts worked out and connected, and the risky unknowns gone; and bounded, saying what's out of scope. Write the places as a breadboard: each place, what people can see and do there, and where each action leads. Add a rough sketch only where the arrangement itself is the idea.
+Write `design.md` from `references/design.md`, next to the product spec when there is one, and otherwise in a new folder where the repo keeps its specs. Write it at the level that Shape Up calls rough, solved and bounded (Singer, *Shape Up*, 2019): rough, with no visual design, so that drawing still has room; solved, with the main parts worked out and connected, and the risky unknowns gone; and bounded, saying what's out of scope. Write the places as a breadboard: each place, what people can see and do there, and where each action leads. Give each place a rough ASCII mockup with real data: what sits where, with its labels and values, and no styling, so that the drawing still has room.
 
 ## 3. Review the spec
 
@@ -26,7 +26,7 @@ Run /design-review on the spec with only the From scratch, Walk and Truth lenses
 
 ## 4. Approve the spec
 
-Show the summary, the places as a breadboard with /show-me, the decisions and what review changed, in one message. When the user approves, set its status to Approved. It's their last look before the finished design, also when /brainstorming runs this skill.
+Show the summary, each place's mockup beside today's version when there is one, the decisions that change what people get, and what review changed that the mockups show, in one message, because people judge a design by looking at it, and a list of places in words makes them imagine it. When the user approves, set its status to Approved. It's their last look before the finished design, also when /brainstorming runs this skill.
 
 ## 5. Draw the whole design
 
@@ -38,7 +38,7 @@ Draw the target and every part inside it, alone, from the top down, the least ce
 
 ## 6. Review and fix
 
-Run /design-review in full mode on the whole design, without From scratch, which ran on the spec. Keep a copy of the design as reviewed, as the medium's file describes, so that the verifier can compare before and after. Fix each confirmed finding in the review's order, at the part where its cause sits, and in every place that uses a shared part that you change. List each unproven finding as open, with what would settle it. A finding that needs the user goes to them, as in step 5.
+Run /design-review in full mode on the whole design, without From scratch, which ran on the spec. Keep a copy of the design as reviewed, as the medium's file describes, so that the verifier can compare before and after. Fix each confirmed finding in the review's order, at the part where its cause sits, and in every place that uses a shared part that you change. Make each fix as design-knowledge's "Making a part" makes a part: a fix that takes a part away or uses the usual form beats one that adds a part, a word or a sentence, which needs a reason that you write down. List each unproven finding as open, with what would settle it, and each finding that you leave, with why. When your reason and the finding's proof both hold, the choice is a fork. A finding that needs the user goes to them, as in step 5.
 
 Then have /design-review verify the fixes, and repair what the verifier finds, until it says that every fix holds. If a second round of fixes fails on the same cause, stop fixing: write down what the fixes assumed, such as a job, a place or a choice in the parent, and test that instead, because another fix on the same assumption fails the same way. When the assumption is the user's to settle, ask them, and otherwise change it and review again.
 
@@ -46,9 +46,9 @@ Then have /design-review verify the fixes, and repair what the verifier finds, u
 
 Show the user, in one message, where to look:
 
-- the design as it is now, in each state that people meet, beside today's version when there is one;
+- the design as it is now, in each state that people meet, beside today's version when there is one, with every control in it drawn in use, such as a select open, so that each part can be judged without asking what it does;
 - every fork in its place: the options side by side, the pick marked, a line on the trade-off, and what switching it would change;
-- the decisions you made, what review changed, and what's still open.
+- the decisions you made, what review changed, each finding you left and why, and what's still open.
 
 When they switch a fork, rebuild what depends on that choice as a new version beside the old one, review what changed, and show both, so that they compare one whole design with another. When /brainstorming runs this skill, this is its approval.
 
