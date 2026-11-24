@@ -18,7 +18,7 @@ Install by cloning and symlinking a skill folder into `~/.claude/skills/` or `~/
 | product-design | Research-first UI and UX design (built on Refero's design skill, see below) |
 | design-knowledge | Standards for product UI in 27 guides: what must be true, why, what it protects, how it's checked, with sources; `rules.py` prints them by kind of part, task, guide or quality |
 | design-review | Reviews a UI or a design in any medium through ten lenses in four groups (concept, simplicity, functional, craft), proves each failure, and lists them in fix order |
-| designing | Settles a design spec with the user, builds the whole design alone on a branch, has it reviewed and fixed, and shows the finished design with every fork |
+| designing | Designs UI with the user on a Paper canvas: a plan of small steps, then one step at a time, each shown as drawn options with a pick |
 | writing | Writes and edits anything people or models read, from replies and messages to docs, skills, and landing pages. |
 
 ## Borrowed

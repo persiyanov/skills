@@ -46,7 +46,7 @@ If an acceptance check or the next ticket needs a merge, a deploy or a person, s
 
 ## 5. Get it merge-ready
 
-When a PR's linters and affected tests pass, run /zen-review on its full diff. When it changes what people see, also run /design-review on the build.
+When a PR's linters and affected tests pass, run /zen-review on its full diff. When it changes what people see, also run /design-review in full mode on the build.
 
 The PR description says how it was validated and links the spec.
 

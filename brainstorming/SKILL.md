@@ -33,10 +33,10 @@ Verify each finding. If it changes what the user decided or asked for, ask them.
 
 ## 4. Design
 
-When the change alters what people see, run /designing on the reviewed spec. Its record, `design.md`, goes in the spec's folder, and the design lives on its branch, with explorations on Paper. Together they are the spec's account of what people see: the Solution links them instead of describing screens. When the design shows the spec is wrong, fix the spec as review does: ask the user when it changes what they decided.
+When the change alters what people see, run /designing on the reviewed spec. The design lives on its Paper page, which is the spec's account of what people see: the Solution links it instead of describing screens. When the design shows the spec is wrong, fix the spec as review does: ask the user when it changes what they decided.
 
 ## 5. Approve
 
-Show only the change, the summary, the decisions you made and what review changed, in that order. Show the change with /show-me on a real case for each consumer: what they get today beside what they get after the spec. Compare with what runs today rather than an earlier draft, because the round diffs showed how the spec changed, and the user approves what changes for its consumers. With a design, show what people see: the finished design with its forks, beside today's.
+Show only the change, the summary, the decisions you made and what review changed, in that order. Show the change with /show-me on a real case for each consumer: what they get today beside what they get after the spec. Compare with what runs today rather than an earlier draft, because the round diffs showed how the spec changed, and the user approves what changes for its consumers. With a design, show what people see: the design as it stands on its Paper page, beside today's.
 
-One approval covers the spec and its finished design: with a design, it's the approval that /designing asks for when it shows the finished design. When they approve, set the status to Approved and move on to /planning. If you return to an approved spec, set it back to Draft and get approval again.
+One approval covers the spec and its design: with a design, ask for it once the design's last step is settled on Paper. When they approve, set the status to Approved and move on to /planning. If you return to an approved spec, set it back to Draft and get approval again.
