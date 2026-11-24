@@ -16,12 +16,12 @@ A lens is one way of finding problems: one question, with its own input, method 
 | --- | --- | --- |
 | Concept | From scratch | How should this be done, from the problem alone? |
 | Simplicity | Less | What can go? |
-| Simplicity | Convention | Would a well-made product make each part this way, and do our other pages? |
+| Simplicity | Convention | Would a well-made product, and this product's other pages, make each part this way, and what do they offer that this page lacks? |
 | Functional | Walk | Can each person do each job, in every state? |
 | Functional | Words | Is each word the one the reader expects? |
-| Functional | Truth | Does every label, number and action match the data and what the product does? |
+| Functional | Truth | Does every label, number, state and action match the data and what the product does? |
 | Functional | Access | Can everyone see, read and use it? |
-| Craft | Look | Does each screen read as one design, with what matters leading and a look that is the product's own? |
+| Craft | Look | Does each screen read as one design, with what matters leading, clear groups and levels, and a look that is the product's own? |
 | Craft | Detail | Is every value exact and from the system, and does it hold in every state, with any data, window and setting? |
 | Craft | Care | Do the moments people remember feel as considered as in the best products? |
 
@@ -48,7 +48,7 @@ A lens is one way of finding problems: one question, with its own input, method 
 
 ## Verifying fixes
 
-After the findings are fixed, a fresh subagent checks the fixes, as `references/verify.md` describes. Give it the fixed findings as the findings file quotes them, the design before and after, the record, and the Look and Detail sections of `references/lenses.md`, and never the fixer's description of the fixes.
+After the findings are fixed, a fresh subagent checks the fixes, as `references/verify.md` describes. Give it the fixed findings as the findings file quotes them, the design before and after, the record, and the Look, Detail and Access sections of `references/lenses.md`, and never the fixer's description of the fixes.
 
 ## What to return
 
