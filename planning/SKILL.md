@@ -40,15 +40,19 @@ For each ticket, before you start the next:
 2. Run its acceptance checks
 3. Mark it Done and report it
 
-When a PR's last ticket is Done, get the PR merge-ready. Start a later PR on the previous PR's branch if that one isn't merged yet.
+When a PR's last ticket is Done, open it (step 5). Start a later PR on the previous PR's branch if that one isn't merged yet.
 
 If an acceptance check or the next ticket needs a merge, a deploy or a person, stop there and tell the user what has to happen. The ticket isn't Done until its acceptance check passes.
 
-## 5. Get it merge-ready
+## 5. Open the PR
 
-When a PR's linters and affected tests pass, run /zen-review on its full diff. When it changes what people see, also run /design-review in full mode on the build.
+1. Its linters and affected tests pass.
+2. Run /zen-review on its full diff and verify its fixes. When the PR changes what people see, also run /design-review in full mode on the build.
+3. Open the PR once you judge it ready. The description says how it was validated, the reviews included, and links the spec.
 
-The PR description says how it was validated and links the spec.
+## 6. Get it merge-ready
+
+A PR is merge-ready when CI passes and every review thread already on it is answered: fixed, or replied to with the reason it stays.
 
 You're done when every ticket's acceptance check passes and every PR is merge-ready.
 
