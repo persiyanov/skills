@@ -31,7 +31,7 @@ Each lens is one way of finding problems.
 
 - **Question:** would a well-made product, and this product's other pages, make each part this way, and what do they offer that this page lacks?
 - **Gets:** the design, the product's other pages and the bar.
-- **How:** for each part, ask the plain question that design-knowledge's "Making a part" asks, and answer from what you know. Compare each part, and each kind of thing it shows, with how two or three of the product's own pages show it. Then list what the same page in the bar's products offers that this one lacks, such as a setting, a view or an action, and keep each one that a job here needs.
+- **How:** for each part, ask the plain question that design-knowledge's "Making a part" asks, and answer it by looking at how well-made products make that part. Compare each part, and each kind of thing it shows, with how two or three of the product's own pages show it. Then list what the same page in the bar's products offers that this one lacks, such as a setting, a view or an action, and keep each one that a job here needs.
 - **Proof:** the usual form in one line, with a well-made product that uses it; the product's own part that does the same job another way; or, for something missing, the products that have it and the job that needs it.
 - **Rules:** familiarity.
 - **Not a finding:** a difference that a fact in the record justifies.
