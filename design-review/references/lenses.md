@@ -85,7 +85,7 @@ Each lens is one way of finding problems.
 
 - **Question:** is every value exact and from the system, and does it hold in every state, with any data, window and setting?
 - **Gets:** the design.
-- **How:** look at each part up close, where it meets its neighbors, because small defects disappear at page scale. In a running page, run this skill's `scripts/layout-overlay.js` for alignment and design-knowledge's `scripts/style-inventory.js` for values, measure what they miss, and compare every value with the product's tokens. On Paper, read the values with `get_computed_styles`.
+- **How:** look at each part up close, where it meets its neighbors, because small defects disappear at page scale. In a running page, run this skill's `scripts/layout-overlay.js` for alignment, on the whole screen for the lines its parts share and then on each part for the steps, and design-knowledge's `scripts/style-inventory.js` for values, measure what they miss, and compare every value with the product's tokens. On Paper, read the values with `get_computed_styles`.
 - **Proof:** the measurement, from the medium, never from a screenshot's pixels, which depend on its scale.
 - **In a running product:** the longest, the emptiest and the fullest data, at every width, the timing and easing of each animation, and the build against any approved Paper exploration.
 - **Rules:** precision.
